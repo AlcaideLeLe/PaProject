@@ -7,10 +7,9 @@ public class Docente {
     private String funcaoProjeto;
 
 
-    public Docente(String nome, String email, String funcaoProjeto) {
+    public Docente(String nome, String email) {
         this.nome = nome;
         this.email = email;
-        this.funcaoProjeto = funcaoProjeto;
     }
 
     public String getNome() {return nome;}

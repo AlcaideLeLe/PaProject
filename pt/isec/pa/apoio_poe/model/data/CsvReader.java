@@ -1,22 +1,45 @@
 package pt.isec.pa.apoio_poe.model.data;
 
 import java.io. * ;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 public class CsvReader {
     public static void main(String[] args) throws Exception {
-        ArrayList<String> array = new ArrayList<>();
-        Scanner sc = new Scanner(new File("pt/isec/pa/apoio_poe/model/data/Livro1.csv"));
+        long linhasAlunos = 0;
+        Path caminho = Paths.get("pt/isec/pa/apoio_poe/model/data/Aluno.csv");
+        linhasAlunos = Files.lines(caminho).count();
+        ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
+        ArrayList<String> arrayAluno = new ArrayList<>();
+        ArrayList<String> arrayDocente = new ArrayList<>();
+        Scanner scAluno = new Scanner(new File("pt/isec/pa/apoio_poe/model/data/Aluno.csv"));
+        Scanner scDocente = new Scanner(new File("pt/isec/pa/apoio_poe/model/data/Docentes.csv"));
         //parsing a CSV file into the constructor of Scanner class
-        sc.useDelimiter(";");
+        scAluno.useDelimiter(";");
+        scDocente.useDelimiter(";");
         //setting comma as delimiter pattern
-        while (sc.hasNext()) {
-            array.add(sc.next());
+        while (scAluno.hasNext()) {
+            arrayAluno.add(scAluno.nextLine());
         }
-        System.out.println(array);
-        Aluno aluno = new Aluno(Long.parseLong(array.get(0)), array.get(1), array.get(2), array.get(3), array.get(4), Double.parseDouble(array.get(5)), Boolean.parseBoolean(array.get(6)));
+        while (scDocente.hasNext()) {
+            arrayDocente.add(scDocente.nextLine());
+        }
+        System.out.println(arrayAluno);
+        System.out.println(arrayDocente);
 
-        sc.close();
+        Aluno aluno = null;
+        String[] dadosAluno;
+        for(int i=0; i < arrayAluno.size() ; i++){
+            dadosAluno = arrayAluno.get(i).split(";");
+            listaDeAlunos.add(new Aluno(Long.parseLong(dadosAluno[0]), dadosAluno[1], dadosAluno[2],
+                    dadosAluno[3], dadosAluno[4], Double.parseDouble(dadosAluno[5]),
+                    Boolean.parseBoolean(dadosAluno[6])));
+        }
+
+        scAluno.close();
         //closes the scanner
     }
 }
