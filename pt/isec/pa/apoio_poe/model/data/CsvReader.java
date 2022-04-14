@@ -45,10 +45,39 @@ public class CsvReader {
             dadosDocente = arrayDocente.get(i).split(";");
             listaDeDocentes.add(new Docente(dadosDocente[0], dadosDocente[1]));
         }
-        System.out.println(listaDeDocentes.get(0).getNome());
-        System.out.println(listaDeDocentes.get(1).getEmail());
-        listaDeDocentes.get(1).setFuncaoProjeto("Orientador");
-        System.out.println(listaDeDocentes.get(1).getFuncaoProjeto());
+        Scanner resposta, scIndice;
+        int indice;
+        resposta = new Scanner(System.in);
+
+        scIndice = new Scanner(System.in);
+        System.out.println("Menu");
+        System.out.println("1 - Editar Aluno");
+        System.out.println("2 - Consultar Aluno");
+        System.out.println("3 - Remover aluno");
+
+        switch(resposta.nextInt()) {
+            case 1:
+                System.out.println(arrayAluno);
+                System.out.println("Insira o indice do aluno que quer editar?");
+                indice = scIndice.nextInt();
+                listaDeAlunos = listaDeAlunos.get(indice).editAluno(listaDeAlunos);
+            case 2:
+                // code block
+            default:
+                // code block
+        }
+
+
+        //que operaçao quer fazer
+        //1-editar
+        //2----
+        //if 1
+        //mostra a lista de alunos
+        //pede ao utilizador para escolher o indice do aluno a alterar e guarda em x
+        //
+
+
+
 
         scAluno.close();
         //closes the scanner
