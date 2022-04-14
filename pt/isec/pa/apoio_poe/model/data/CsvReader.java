@@ -13,6 +13,7 @@ public class CsvReader {
         Path caminho = Paths.get("pt/isec/pa/apoio_poe/model/data/Aluno.csv");
         linhasAlunos = Files.lines(caminho).count();
         ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
+        ArrayList<Docente> listaDeDocentes = new ArrayList<>();
         ArrayList<String> arrayAluno = new ArrayList<>();
         ArrayList<String> arrayDocente = new ArrayList<>();
         Scanner scAluno = new Scanner(new File("pt/isec/pa/apoio_poe/model/data/Aluno.csv"));
@@ -31,13 +32,23 @@ public class CsvReader {
         System.out.println(arrayDocente);
 
         Aluno aluno = null;
+        Docente docente = null;
         String[] dadosAluno;
+        String[] dadosDocente;
         for(int i=0; i < arrayAluno.size() ; i++){
             dadosAluno = arrayAluno.get(i).split(";");
             listaDeAlunos.add(new Aluno(Long.parseLong(dadosAluno[0]), dadosAluno[1], dadosAluno[2],
                     dadosAluno[3], dadosAluno[4], Double.parseDouble(dadosAluno[5]),
                     Boolean.parseBoolean(dadosAluno[6])));
         }
+        for(int i=0; i < arrayDocente.size() ; i++){
+            dadosDocente = arrayDocente.get(i).split(";");
+            listaDeDocentes.add(new Docente(dadosDocente[0], dadosDocente[1]));
+        }
+        System.out.println(listaDeDocentes.get(0).getNome());
+        System.out.println(listaDeDocentes.get(1).getEmail());
+        listaDeDocentes.get(1).setFuncaoProjeto("Orientador");
+        System.out.println(listaDeDocentes.get(1).getFuncaoProjeto());
 
         scAluno.close();
         //closes the scanner
