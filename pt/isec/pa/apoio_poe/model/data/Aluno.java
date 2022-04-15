@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Aluno {
+public class Aluno implements Comparable<Aluno>{
 
     private final long numero;
     private String nome;
@@ -40,47 +40,25 @@ public class Aluno {
     public boolean isAcessoEstagio() {return acessoEstagio;}
     public void setAcessoEstagio(boolean acessoEstagio) {this.acessoEstagio = acessoEstagio;}
 
-    public ArrayList<Aluno> editAluno(ArrayList<Aluno> arrayAlunos){
-        Scanner resposta, nomeNovo, novaSiglaCurso;
-        String nome, siglaCurso, siglaAtualCurso;
-        int aluno = 0;
-        resposta = new Scanner(System.in);
-        nomeNovo = new Scanner(System.in);
-        novaSiglaCurso = new Scanner(System.in);
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
 
+        sb.append("Numero de Aluno: ").append(numero).append(System.lineSeparator());
+        sb.append("Nome: ").append(nome).append(System.lineSeparator());
+        sb.append("E-mail: ").append(email).append(System.lineSeparator());
+        sb.append("Sigla Curso: ").append(siglaCurso).append(System.lineSeparator());
+        sb.append("Sigla Ramo: ").append(siglaRamo).append(System.lineSeparator());
+        sb.append("Classificacao: ").append(classificacao).append(System.lineSeparator());
+        sb.append("Acesso estagio: ").append(acessoEstagio).append(System.lineSeparator());
+        sb.append(System.lineSeparator());
 
-        System.out.println("O que pretende alterar?");
-        System.out.println("1 - Nome");
-        System.out.println("2 - Sigla Curso");
-        System.out.println("3 - E-amil");
-        System.out.println("4 - Sigla Ramo");
-        System.out.println("5 - Classificacao");
-        System.out.println("6 - Possibilidade de aceder ao estagio");
+        return sb.toString();
+    }
 
-        for(int i=0; i< arrayAlunos.size() ; i++){
-
-            if(arrayAlunos.get(i).getNumero() == numero){
-                aluno = i;
-                break;
-            }
-        }
-
-        switch(resposta.nextInt()) {
-            case 1:
-                System.out.println("Que nome quer meter?");
-                nome = nomeNovo.nextLine();
-                arrayAlunos.get(aluno).setNome(nome);
-            case 2:
-                siglaAtualCurso = arrayAlunos.get(aluno).getSiglaCurso();
-                do{
-                    System.out.println("Qual a sigla do novo curso?");
-                    siglaCurso = novaSiglaCurso.nextLine();
-                    arrayAlunos.get(aluno).setSiglaCurso(siglaCurso);
-                }while(!Objects.equals(siglaCurso, "LEI") || !siglaCurso.equals("LEI-PL") && siglaAtualCurso.equals(siglaCurso));
-            default:
-                // code block
-        }
-        return arrayAlunos;
+    @Override
+    public int compareTo(Aluno o) {
+        return Long.compare(numero, o.numero);
     }
 }
 
