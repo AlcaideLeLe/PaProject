@@ -1,16 +1,15 @@
 package pt.isec.pa.apoio_poe.model.data;
 
+import javax.xml.crypto.dsig.CanonicalizationMethod;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class PoE {
     ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
     ArrayList<Docente> listaDeDocentes = new ArrayList<>();
     ArrayList<Proposta> listaDePropostas = new ArrayList<>();
+    ArrayList<Candidatura> listaDeCandidaturas = new ArrayList<>();
 
     public int faseFechada=0;
 
@@ -148,6 +147,46 @@ public class PoE {
         return listaDePropostas.toString();
     }
 
+    public void addCandidatura(){
+        try {
+            ArrayList<String> arrayCandidatura = new ArrayList<>();
+            Scanner scCandidatura = new Scanner(new File("pt/isec/pa/apoio_poe/model/data/Candidatura.csv"));
+            scCandidatura.useDelimiter(",");
+            while (scCandidatura.hasNext()) {
+                arrayCandidatura.add(scCandidatura.nextLine());
+            }
+            String[] dadosCandidatura;
+
+            for (int i = 0; i < arrayCandidatura.size(); i++) {
+                boolean exists = false;
+                dadosCandidatura = arrayCandidatura.get(i).split(",");
+                for(Candidatura c : listaDeCandidaturas){
+                    if (c.getNumero() == Long.parseLong(dadosCandidatura[0])){
+                        exists = true;
+                    }
+                }
+                if(!exists){
+                    listaDeCandidaturas.add(new Candidatura(Long.parseLong(dadosCandidatura[0]), new ArrayList<>(List.of(Arrays.copyOfRange(dadosCandidatura,1,dadosCandidatura.length)))));
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String consultarCandidatura(long nrAluno){
+        for(int i=0; i<listaDeCandidaturas.size(); i++){
+            if(listaDeCandidaturas.get(i).getNumero() == nrAluno){
+                return listaDeCandidaturas.get(i).toString();
+            }
+
+        }
+        return null;
+    }
+    public String consultarCandidaturas(){
+        Collections.sort(listaDeCandidaturas);
+        return listaDeCandidaturas.toString();
+    }
 
 
 

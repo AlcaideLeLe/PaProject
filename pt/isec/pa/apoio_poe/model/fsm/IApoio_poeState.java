@@ -26,6 +26,9 @@ public interface IApoio_poeState {
     void addProposta();
     String consultaProposta(String idProposta);
     String consultaPropostas();
+    void addCandidatura();
+    String consultaCandidatura(long nrAluno);
+    String consultaCandidaturas();
 }
 
 

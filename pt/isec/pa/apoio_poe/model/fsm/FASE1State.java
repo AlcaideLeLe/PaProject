@@ -24,7 +24,7 @@ public class FASE1State extends apoio_poeAdapter{
     }
 
     @Override
-    public boolean changeToGestaoAL() {
+    public boolean changeToGestaoAL(){
         changeState(apoio_poeState.GESTAO_AL);
         return true;
     }

@@ -13,12 +13,15 @@ public class CsvReader {
         PoE poe = new PoE();
         //poe.addAluno();
         //poe.addDocente();
-        poe.addProposta();
-        System.out.println(poe.consultarProposta("P027"));
-        System.out.println(poe.consultarPropostas());
+        //poe.addProposta();
+        //System.out.println(poe.consultarProposta("P027"));
+        //System.out.println(poe.consultarPropostas());
         //System.out.println(poe.consultarAluno(14));
         //System.out.println(poe.consultarAlunos());
         //System.out.println(poe.consultarDocente("ans@isec.pt"));
         //System.out.println(poe.consultarDocentes());
+        poe.addCandidatura();
+        //System.out.println(poe.consultarCandidatura(2019999999));
+        System.out.println(poe.consultarCandidaturas());
     }
 }
