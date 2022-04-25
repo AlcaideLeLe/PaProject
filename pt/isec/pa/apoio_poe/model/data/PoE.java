@@ -12,6 +12,8 @@ public class PoE {
     ArrayList<Docente> listaDeDocentes = new ArrayList<>();
     ArrayList<Proposta> listaDePropostas = new ArrayList<>();
 
+    public int faseFechada=0;
+
     public void addAluno() {
         try {
             ArrayList<String> arrayAluno = new ArrayList<>();

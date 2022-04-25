@@ -19,6 +19,11 @@ public class FASE1State extends apoio_poeAdapter{
         return true;
     }
     @Override
+    public void fecharFase() {
+        data.faseFechada = 1;
+    }
+
+    @Override
     public boolean changeToGestaoAL() {
         changeState(apoio_poeState.GESTAO_AL);
         return true;
@@ -33,5 +38,6 @@ public class FASE1State extends apoio_poeAdapter{
         changeState(apoio_poeState.GESTAO_DOC);
         return true;
     }
+
 }
 

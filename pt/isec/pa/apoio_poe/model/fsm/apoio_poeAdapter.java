@@ -16,6 +16,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     }
 
     @Override
+    public void fecharFase() {}
+    @Override
     public boolean avancarFase() {return false;}
     @Override
     public boolean recuarFase() {return false;}
@@ -28,6 +30,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public boolean changeToGestaoORI(){return false;}
     @Override
+    public boolean changeToTratamentoProp() {return false;}
+    @Override
     public boolean changeFromGestaoPROPtoBase() {return false;}
     @Override
     public boolean changeFromGestaoALtoBase() {return false;}
@@ -37,6 +41,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public boolean changeFromGestaoCANDtoBase() {return false;}
     @Override
     public boolean changeFromGestaoORItoBase() {return false;}
+
     @Override
     public void addAluno(){};
     @Override

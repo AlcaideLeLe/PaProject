@@ -13,10 +13,19 @@ public class FASE4State extends apoio_poeAdapter{
         return apoio_poeState.FASE4;
     }
 
+
     @Override
     public boolean recuarFase() {
-        changeState(apoio_poeState.FASE3);
-        return true;
+        if(data.faseFechada <= 2) {
+            changeState(apoio_poeState.FASE3);
+            return true;
+        }
+        changeState(apoio_poeState.FASE3BLOCKSTATE) ;
+        return false;
+    }
+    @Override
+    public void fecharFase() {
+        data.faseFechada = 3;
     }
     @Override
     public boolean avancarFase() {
