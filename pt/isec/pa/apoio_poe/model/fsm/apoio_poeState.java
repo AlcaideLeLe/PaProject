@@ -8,7 +8,6 @@ public enum apoio_poeState {
     public IApoio_poeState createState(apoio_poeContext context, PoE data){
         return switch (this){
             case FASE1 -> new FASE1State(context, data);
-            default -> throw new IllegalStateException("Unexpected value: " + this);
             case FASE2 -> new FASE2State(context, data);
             case FASE3 -> new FASE3State(context, data);
             case FASE4 -> new FASE4State(context, data);
@@ -18,7 +17,7 @@ public enum apoio_poeState {
             case GESTAO_CAND -> new GESTAO_CANDState(context, data);
             case TRATAMENTO_PROP -> new TRATAMENTO_PROPState(context, data);
             case GESTAO_ORI -> new GESTAO_ORIState(context, data);
-
+            case GESTAO_AL -> new GESTAO_ALState(context, data);
 
 
         };

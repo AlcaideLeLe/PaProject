@@ -11,4 +11,10 @@ public class GESTAO_CANDState extends apoio_poeAdapter{
     public apoio_poeState getState() {
         return apoio_poeState.GESTAO_CAND;
     }
+
+    @Override
+    public boolean changeFromGestaoCANDtoBase() {
+        changeState(apoio_poeState.FASE2);
+        return false;
+    }
 }

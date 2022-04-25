@@ -11,4 +11,10 @@ public class GESTAO_ORIState extends apoio_poeAdapter{
     public apoio_poeState getState() {
         return apoio_poeState.GESTAO_ORI;
     }
+
+    @Override
+    public boolean changeFromGestaoORItoBase(){
+        changeState(apoio_poeState.FASE4);
+        return true;
+    }
 }
