@@ -14,9 +14,10 @@ public class Aluno implements Comparable<Aluno>{
     private String siglaRamo;
     private double classificacao;
     private boolean acessoEstagio;
+    private String idPropostaAssociada;
 
 
-    public Aluno(long numero, String nome, String email, String siglaCurso, String siglaRamo, double classificacao, boolean acessoEstagio) {
+    public Aluno(long numero, String nome, String email, String siglaCurso, String siglaRamo, double classificacao, boolean acessoEstagio, String idPropostaAssociada) {
         this.numero = numero;
         this.nome = nome;
         this.email = email;
@@ -24,6 +25,7 @@ public class Aluno implements Comparable<Aluno>{
         this.siglaRamo = siglaRamo;
         this.classificacao = classificacao;
         this.acessoEstagio = acessoEstagio;
+        this.idPropostaAssociada = idPropostaAssociada;
     }
 
     public long getNumero() {return numero;}
@@ -39,6 +41,7 @@ public class Aluno implements Comparable<Aluno>{
     public void setClassificacao(double classificacao) {this.classificacao = classificacao;}
     public boolean isAcessoEstagio() {return acessoEstagio;}
     public void setAcessoEstagio(boolean acessoEstagio) {this.acessoEstagio = acessoEstagio;}
+    public void setIdPropostaAssociada(String id){this.idPropostaAssociada = id;}
 
     @Override
     public String toString() {
@@ -51,6 +54,7 @@ public class Aluno implements Comparable<Aluno>{
         sb.append("Sigla Ramo: ").append(siglaRamo).append(System.lineSeparator());
         sb.append("Classificacao: ").append(classificacao).append(System.lineSeparator());
         sb.append("Acesso estagio: ").append(acessoEstagio).append(System.lineSeparator());
+        sb.append("idPropostaAssociada ").append(idPropostaAssociada).append(System.lineSeparator());
         sb.append(System.lineSeparator());
 
         return sb.toString();

@@ -27,7 +27,7 @@ public class PoE {
                 dadosAluno = arrayAluno.get(i).split(";");
                 listaDeAlunos.add(new Aluno(Long.parseLong(dadosAluno[0]), dadosAluno[1], dadosAluno[2],
                         dadosAluno[3], dadosAluno[4], Double.parseDouble(dadosAluno[5]),
-                        Boolean.parseBoolean(dadosAluno[6])));
+                        Boolean.parseBoolean(dadosAluno[6]), null));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -239,6 +239,20 @@ public class PoE {
             }
         }
         return sb.toString();
+    }
+
+    public void atribuirAutoproposta(){
+        ArrayList<Long> listaDeAlunosComAutoProposta = new ArrayList<>();
+        for (var p : listaDePropostas) {
+            if(p instanceof Autoproposto){
+                listaDeAlunosComAutoProposta.add(p.getNrAluno());
+                for(var a : listaDeAlunos){
+                    if(listaDeAlunosComAutoProposta.contains(a.getNumero())) {
+                        a.setIdPropostaAssociada(p.getIdProposta() + "  -- Adicionado automaticamente");
+                    }
+                }
+            }
+        }
     }
 
 
