@@ -17,7 +17,6 @@ public class Candidatura implements Comparable<Candidatura>{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
         sb.append("Numero de aluno:").append(nrAluno).append(System.lineSeparator());
         sb.append("Propostas:").append(arrayCandidaturas).append(System.lineSeparator());
 

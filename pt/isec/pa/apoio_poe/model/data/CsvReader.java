@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class CsvReader {
     public static void main(String[] args) throws Exception {
         PoE poe = new PoE();
-        //poe.addAluno();
+        poe.addAluno();
         //poe.addDocente();
-        //poe.addProposta();
+        poe.addProposta();
         //System.out.println(poe.consultarProposta("P027"));
         //System.out.println(poe.consultarPropostas());
         //System.out.println(poe.consultarAluno(14));
@@ -22,6 +22,11 @@ public class CsvReader {
         //System.out.println(poe.consultarDocentes());
         poe.addCandidatura();
         //System.out.println(poe.consultarCandidatura(2019999999));
-        System.out.println(poe.consultarCandidaturas());
+        //System.out.println(poe.consultarCandidaturas());
+        //System.out.println(poe.consultarAlunosComCandidatura());
+        //System.out.println(poe.consultarAlunosSemCandidatura());
+        //System.out.println(poe.consultaAlunosComAutoproposta());
+        System.out.println(poe.consultarListaDeAutopropostas());
+
     }
 }

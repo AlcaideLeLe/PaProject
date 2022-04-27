@@ -3,8 +3,8 @@ package pt.isec.pa.apoio_poe.model.data;
 public class Estagio extends Proposta{
     private String idEntidadeAcolhimento;
     private String areaDestino;
-    public Estagio(String idProposta, long nrAluno, String titulo, String idEntidadeAcolhimento, String areaDestino) {
-        super(idProposta, nrAluno, titulo);
+    public Estagio(String tipoDeProposta, String idProposta, long nrAluno, String titulo, String idEntidadeAcolhimento, String areaDestino) {
+        super(tipoDeProposta,idProposta, nrAluno, titulo);
         this.idEntidadeAcolhimento = idEntidadeAcolhimento;
         this.areaDestino = areaDestino;
     }

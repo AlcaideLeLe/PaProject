@@ -77,23 +77,23 @@ public class PoE {
                 dadosProposta = arrayProposta.get(i).split(",");
                 if (dadosProposta[0].equals("T1")) {
                     if (dadosProposta.length == 6) {
-                        listaDePropostas.add(new Estagio(dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
+                        listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
                                 dadosProposta[4], dadosProposta[2]));
                     } else {
-                        listaDePropostas.add(new Estagio(dadosProposta[1], 0, dadosProposta[3],
+                        listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
                                 dadosProposta[4], dadosProposta[2]));
                     }
                 } else if (dadosProposta[0].equals("T2")) {
                     if (dadosProposta.length == 6) {
-                        listaDePropostas.add(new Projeto(dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
+                        listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
                                 dadosProposta[2], dadosProposta[4]));
                     } else {
-                        listaDePropostas.add(new Projeto(dadosProposta[1], 0, dadosProposta[3],
+                        listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
                                 dadosProposta[2], dadosProposta[4]));
                     }
 
                 } else if (dadosProposta[0].equals("T3")) {
-                    listaDePropostas.add(new Autoproposto(dadosProposta[1], Long.parseLong(dadosProposta[3]), dadosProposta[2]));
+                    listaDePropostas.add(new Autoproposto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[3]), dadosProposta[2]));
                 }
 
             }
@@ -179,13 +179,66 @@ public class PoE {
             if(listaDeCandidaturas.get(i).getNumero() == nrAluno){
                 return listaDeCandidaturas.get(i).toString();
             }
-
         }
         return null;
     }
     public String consultarCandidaturas(){
         Collections.sort(listaDeCandidaturas);
         return listaDeCandidaturas.toString();
+    }
+
+    public String consultarAlunosComCandidatura(){
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Long> alunosComCandidatura = new ArrayList<>();
+        for (var c : listaDeCandidaturas) {
+            alunosComCandidatura.add(c.getNumero());
+        }
+        for(var a : listaDeAlunos){
+            if(alunosComCandidatura.contains(a.getNumero())) {
+                sb.append("Numero de Aluno: ").append(a.toString()).append(System.lineSeparator());
+            }
+        }
+        return sb.toString();
+    }
+    public String consultarAlunosSemCandidatura(){
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Long> alunosSemCandidatura = new ArrayList<>();
+        for (var c : listaDeCandidaturas) {
+            alunosSemCandidatura.add(c.getNumero());
+        }
+        for(var a : listaDeAlunos){
+            if(!alunosSemCandidatura.contains(a.getNumero())) {
+                sb.append("Numero de Aluno: ").append(a.toString()).append(System.lineSeparator());
+            }
+        }
+        return sb.toString();
+    }
+
+    public String consultaAlunosComAutoproposta(){
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Long> alunosComAutoProposta = new ArrayList<>();
+        for (var p : listaDePropostas) {
+            if(p instanceof Autoproposto) {
+                alunosComAutoProposta.add(p.getNrAluno());
+            }
+        }
+        for(var a : listaDeAlunos){
+            if(alunosComAutoProposta.contains(a.getNumero())) {
+                sb.append("Numero de Aluno Autoproposto: ").append(a.toString()).append(System.lineSeparator());
+            }
+        }
+
+        return sb.toString();
+    }
+    public String consultarListaDeAutopropostas(){
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Long> listaDeAutoProposta = new ArrayList<>();
+        for (var p : listaDePropostas) {
+            if(p instanceof Autoproposto){
+                sb.append("Proposta ").append(p.toString()).append(System.lineSeparator());
+            }
+        }
+        return sb.toString();
     }
 
 
