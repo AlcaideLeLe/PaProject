@@ -62,10 +62,8 @@ public class PoE {
         try {
             ArrayList<String> arrayProposta = new ArrayList<>();
             Scanner scProposta = new Scanner(new File("pt/isec/pa/apoio_poe/model/data/Propostas.csv"));
-            //parsing a CSV file into the constructor of Scanner class
 
             scProposta.useDelimiter(",");
-            //setting comma as delimiter pattern
 
             while (scProposta.hasNext()) {
                 arrayProposta.add(scProposta.nextLine());
@@ -75,27 +73,26 @@ public class PoE {
 
             for (int i = 0; i < arrayProposta.size(); i++) {
                 dadosProposta = arrayProposta.get(i).split(",");
-                if (dadosProposta[0].equals("T1")) {
-                    if (dadosProposta.length == 6) {
-                        listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
-                                dadosProposta[4], dadosProposta[2]));
-                    } else {
-                        listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
-                                dadosProposta[4], dadosProposta[2]));
-                    }
-                } else if (dadosProposta[0].equals("T2")) {
-                    if (dadosProposta.length == 6) {
-                        listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
-                                dadosProposta[2], dadosProposta[4]));
-                    } else {
-                        listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
-                                dadosProposta[2], dadosProposta[4]));
-                    }
+                    if (dadosProposta[0].equals("T1")) {
+                        if (dadosProposta.length == 6) {
+                            listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
+                                    dadosProposta[4], dadosProposta[2]));
+                        } else {
+                            listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
+                                    dadosProposta[4], dadosProposta[2]));
+                        }
+                    } else if (dadosProposta[0].equals("T2")) {
+                        if (dadosProposta.length == 6) {
+                            listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
+                                    dadosProposta[2], dadosProposta[4]));
+                        } else {
+                            listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
+                                    dadosProposta[2], dadosProposta[4]));
+                        }
 
-                } else if (dadosProposta[0].equals("T3")) {
-                    listaDePropostas.add(new Autoproposto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[3]), dadosProposta[2]));
-                }
-
+                    } else if (dadosProposta[0].equals("T3")) {
+                        listaDePropostas.add(new Autoproposto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[3]), dadosProposta[2]));
+                    }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -214,7 +211,7 @@ public class PoE {
         return sb.toString();
     }
 
-    public String consultaAlunosComAutoproposta(){
+    public String consultaAlunosComAutoproposta(){ //Filtro Alunos com Autoproposta
         StringBuilder sb = new StringBuilder();
         ArrayList<Long> alunosComAutoProposta = new ArrayList<>();
         for (var p : listaDePropostas) {
@@ -248,11 +245,75 @@ public class PoE {
                 listaDeAlunosComAutoProposta.add(p.getNrAluno());
                 for(var a : listaDeAlunos){
                     if(listaDeAlunosComAutoProposta.contains(a.getNumero())) {
-                        a.setIdPropostaAssociada(p.getIdProposta() + "  -- Adicionado automaticamente");
+                        a.setIdPropostaAssociada(p.getIdProposta());
                     }
                 }
             }
         }
+    }
+
+    public void atribuirPropostaDeDocente(){
+        ArrayList<Long> listaDeAlunosPropostaDeDocente = new ArrayList<>();
+        for (var p : listaDePropostas) {
+            if(p instanceof Projeto){
+
+                if(p.getNrAluno() != 0){
+                    listaDeAlunosPropostaDeDocente.add(p.getNrAluno());
+
+                    for(var a : listaDeAlunos){
+                        if(a.getNumero() == p.getNrAluno()) {
+                            a.setIdPropostaAssociada(p.getIdProposta());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void atribuirPropostaManualmente(Aluno alunoQueVaiTerNovaProposta, String proposta){
+        if(listaDeAlunos.contains(alunoQueVaiTerNovaProposta)){
+            if(alunoQueVaiTerNovaProposta.getIdPropostaAssociada() == null)
+                alunoQueVaiTerNovaProposta.setIdPropostaAssociada(proposta);
+        }
+    } //FALTA REMOVER MANUALMENTE
+
+    public String consultaPropostasComCandidaturas(){ //Filtro Proposta Com candidatura
+        StringBuilder sb = new StringBuilder();
+        HashSet<String> propostasComCandidaturas = new HashSet<>();
+        for(var c : listaDeCandidaturas){
+            propostasComCandidaturas.addAll(c.getPropostas());
+        }
+        for(var p : listaDePropostas){
+            if(propostasComCandidaturas.contains(p.getIdProposta())){
+                sb.append("Proposta com candidatura").append(p.toString()).append(System.lineSeparator());
+            }
+        }
+        return sb.toString();
+    }
+
+    public String consultaPropostasSemCandidaturas(){ //Filtro Proposta Sem candidatura
+        StringBuilder sb = new StringBuilder();
+        HashSet<String> propostasSemCandidaturas = new HashSet<>();
+        for(var c : listaDeCandidaturas){
+            propostasSemCandidaturas.addAll(c.getPropostas());
+        }
+        for(var p : listaDePropostas){
+            if(!propostasSemCandidaturas.contains(p.getIdProposta())){
+                sb.append("Proposta com candidatura").append(p.toString()).append(System.lineSeparator());
+            }
+        }
+        return sb.toString();
+    }
+
+    public String consultaAlunosComPropostasDeDocentes(){ //filtro Autopropostas de alunos
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Long> listaDeAlunosComPropostaDeDocente = new ArrayList<>();
+        for(var a : listaDePropostas){
+            if(Objects.equals(a.getTipoDeProposta(), "T2")){
+                sb.append("Alunos com Proposta de Docentes").append(a.toString()).append(System.lineSeparator());
+            }
+        }
+        return sb.toString();
     }
 
 

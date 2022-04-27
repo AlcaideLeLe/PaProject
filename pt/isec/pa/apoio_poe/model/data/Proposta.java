@@ -18,7 +18,7 @@ public class Proposta implements Comparable<Proposta>{
     public void setNrAluno(long nrAluno) {this.nrAluno = nrAluno;}
     public String getTitulo() {return titulo;}
     public void setTitulo(String titulo) {this.titulo = titulo;}
-
+/*
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -30,7 +30,7 @@ public class Proposta implements Comparable<Proposta>{
 
         return sb.toString();
     }
-
+*/
     @Override
     public int compareTo(Proposta o) {
         return idProposta.compareTo(o.idProposta);

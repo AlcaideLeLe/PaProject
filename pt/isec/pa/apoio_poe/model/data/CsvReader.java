@@ -11,13 +11,13 @@ import java.util.Scanner;
 public class CsvReader {
     public static void main(String[] args) throws Exception {
         PoE poe = new PoE();
-        poe.addAluno();
+        //poe.addAluno();
         //poe.addDocente();
         poe.addProposta();
         //System.out.println(poe.consultarProposta("P027"));
-        //System.out.println(poe.consultarPropostas());
+        System.out.println(poe.consultarPropostas());
         //System.out.println(poe.consultarAluno(14));
-        System.out.println(poe.consultarAlunos());
+        //System.out.println(poe.consultarAlunos());
         //System.out.println(poe.consultarDocente("ans@isec.pt"));
         //System.out.println(poe.consultarDocentes());
         //poe.addCandidatura();
@@ -25,10 +25,11 @@ public class CsvReader {
         //System.out.println(poe.consultarCandidaturas());
         //System.out.println(poe.consultarAlunosComCandidatura());
         //System.out.println(poe.consultarAlunosSemCandidatura());
-        //System.out.println(poe.consultaAlunosComAutoproposta());
+        System.out.println(poe.consultaAlunosComAutoproposta());
         //System.out.println(poe.consultarListaDeAutopropostas());
-        poe.atribuirAutoproposta();
-        System.out.println(poe.consultarAlunos());
+        //poe.atribuirAutoproposta();
+        //poe.atribuirPropostaDeDocente();
+        //System.out.println(poe.consultarAlunos());
 
 
     }

@@ -33,6 +33,7 @@ public class Aluno implements Comparable<Aluno>{
     public String getEmail() {return email;}
     public String getSiglaCurso() {return siglaCurso;}
     public double getClassificacao() {return classificacao;}
+    public String getIdPropostaAssociada(){return idPropostaAssociada;}
     public void setNome(String nome) {this.nome = nome;}
     public void setEmail(String email) {this.email = email;}
     public void setSiglaCurso(String siglaCurso) {this.siglaCurso = siglaCurso;}
