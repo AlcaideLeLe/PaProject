@@ -525,7 +525,6 @@ public class PoE {
             if(i==0){
                 DocenteMenor = listaDeDocentes.get(i).getEmail();
                 menor = listaDeDocentes.get(i).getNrDeOrientacoes();
-                int b = 1235;
             }
             if(listaDeDocentes.get(i).getNrDeOrientacoes() < menor){
                 menor = listaDeDocentes.get(i).getNrDeOrientacoes();
