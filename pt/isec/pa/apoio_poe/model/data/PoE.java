@@ -517,16 +517,49 @@ public class PoE {
         return sb.toString();
     } //IMPRIME DUAS VEZES
 
-    public void consultarDocenteComMenosOrientacoes(){
 
-        Collections.sort(listaDeDocentes, new Comparator<Docente>() {
-            @Override
-            public int compare(Docente d1, Docente d2) {
-                return Integer.compare(d1.getNrDeOrientacoes(), d2.getNrDeOrientacoes());
+    public String consultarDocenteComMenosOrientacoes(){
+        int menor = 0;
+        String DocenteMenor = null;
+        for(int i=0; i<listaDeDocentes.size(); i++){
+            if(i==0){
+                DocenteMenor = listaDeDocentes.get(i).getEmail();
+                menor = listaDeDocentes.get(i).getNrDeOrientacoes();
+                int b = 1235;
             }
-        });
+            if(listaDeDocentes.get(i).getNrDeOrientacoes() < menor){
+                menor = listaDeDocentes.get(i).getNrDeOrientacoes();
+                DocenteMenor = listaDeDocentes.get(i).getEmail();
+            }
+        }
+        return DocenteMenor;
+    }
+    public String consultarDocenteComMaisOrientacoes(){
+        int maior = 0;
+        String DocenteMaior = null;
+        for(int i=0; i<listaDeDocentes.size(); i++){
+            if(i==0){
+                DocenteMaior = listaDeDocentes.get(i).getEmail();
+                maior = listaDeDocentes.get(i).getNrDeOrientacoes();
+            }
+            if(listaDeDocentes.get(i).getNrDeOrientacoes() > maior){
+                maior = listaDeDocentes.get(i).getNrDeOrientacoes();
+                DocenteMaior = listaDeDocentes.get(i).getEmail();
+            }
+        }
+        return DocenteMaior;
     }
 
+    public String consultarMediaDeOrientacoesDosDocentess(){
+        float media = 0;
+
+        for(int i=0; i<listaDeDocentes.size(); i++){
+            listaDeDocentes.get(i).getNrDeOrientacoes();
+            media += listaDeDocentes.get(i).getNrDeOrientacoes();
+        }
+        media /= listaDeDocentes.size();
+        return "A media dos orientador e: "+media;
+    }
 
 
 

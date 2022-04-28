@@ -63,7 +63,7 @@ public class CsvReader {
         //System.out.println(poe.consultarDocente("rmc.silva@isec.pt"));
         //System.out.println(poe.consultaAlunosComPropostaEComOrientador());
         //System.out.println(poe.consultaAlunosComPropostaESemOrientador());
-        poe.consultarDocenteComMenosOrientacoes();
+
 
 
     }
