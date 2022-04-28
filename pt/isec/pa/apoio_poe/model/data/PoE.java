@@ -295,10 +295,11 @@ public class PoE {
     public void removerPropostaManualmente(long nralunoQueVaiFicarSemProposta){
         for(var a : listaDeAlunos){
             if(a.getNumero() == nralunoQueVaiFicarSemProposta){
-                a.setIdPropostaAssociada(null);
                 for(var p : listaDePropostas){
                     if(Objects.equals(p.getIdProposta(), a.getIdPropostaAssociada())){
                         p.setAtribuida(false);
+                        p.setNrAluno(0);
+                        a.setIdPropostaAssociada(null);
                     }
                 }
             }
@@ -377,6 +378,39 @@ public class PoE {
             propostasNaoAtribuidas.remove(p);
         }
     }
+
+    public String consultarAlunosSemPropostaAtribuida(){
+        StringBuilder sb = new StringBuilder();
+        for(var a : listaDeAlunos){
+            if(a.getIdPropostaAssociada() == null){
+                sb.append("Numero de Aluno: ").append(a.toString()).append(System.lineSeparator());
+            }
+        }
+
+        return sb.toString();
+    } //FEITO HOJE E TESTADO
+
+    public String consultaPropostasDisponiveis(){
+        StringBuilder sb = new StringBuilder();
+        for(var p : listaDePropostas){
+            if(!p.isAtribuida()){
+                sb.append("Proposta nao atribuida \n").append(p.toString()).append(System.lineSeparator());
+            }
+        }
+        return sb.toString();
+    } //FEITO HOJE E TESTADO
+
+    public String consultaPropostasAtribuidas(){
+        StringBuilder sb = new StringBuilder();
+        for(var p : listaDePropostas){
+            if(p.isAtribuida()){
+                sb.append("Proposta atribuida \n").append(p.toString()).append(System.lineSeparator());
+
+            }
+        }
+        return sb.toString();
+
+    } //FEITO HOJE E TESTADO
 
 
 

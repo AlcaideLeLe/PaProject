@@ -33,15 +33,17 @@ public class CsvReader {
         //poe.atruibuicaoDeAlunosSemPropostasDefinidas();
         //System.out.println(poe.consultarPropostas());
         //System.out.println(poe.consultarAlunos());
-
-        poe.atribuirPropostaManualmente(2018014063, "P027");
-        poe.atribuirPropostaManualmente(2013684456, "P027");
-        System.out.println(poe.consultarAluno(2018014063));
-        System.out.println(poe.consultarProposta("P027"));
-        System.out.println(poe.consultarAluno(2013684456));
-
-
-
+        //poe.atribuirPropostaManualmente(2018014063, "P027");
+        //poe.atribuirPropostaManualmente(2013684456, "P027");
+        //System.out.println(poe.consultarAluno(2018014063));
+        //System.out.println(poe.consultarProposta("P027"));
+        //System.out.println(poe.consultarAluno(2013684456));
+        //poe.removerPropostaManualmente(2018014063);
+        //System.out.println(poe.consultarAluno(2018014063));
+        //System.out.println(poe.consultarProposta("P027"));
+        //System.out.println(poe.consultarAlunosSemPropostaAtribuida());
+        //System.out.println(poe.consultaPropostasDisponiveis());
+        System.out.println(poe.consultaPropostasAtribuidas());
 
     }
 }
