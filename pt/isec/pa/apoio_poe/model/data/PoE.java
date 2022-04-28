@@ -280,8 +280,14 @@ public class PoE {
                                 a.setIdPropostaAssociada(IDproposta);
                                 for (var p : listaDePropostas) {
                                     if (Objects.equals(p.getIdProposta(), IDproposta)) {
+                                        p.setNrAluno(nralunoQueVaiTerNovaProposta);
                                         p.setAtribuida(true);
-                                    }
+                                    }/*
+                                    for(var d : listaDeDocentes){
+                                        if(Objects.equals(d.getEmail(), emailProf)){
+                                            d.setPropostaAssociada(IDproposta);
+                                        }
+                                    }*/
                                 }
                             }
                         }
@@ -290,7 +296,6 @@ public class PoE {
             }
         }
     }
-
 
     public void removerPropostaManualmente(long nralunoQueVaiFicarSemProposta){
         for(var a : listaDeAlunos){
@@ -411,6 +416,116 @@ public class PoE {
         return sb.toString();
 
     } //FEITO HOJE E TESTADO
+
+    public void atribuirPropostaADocenteProponenteAutomaticamente(){
+        for(var p : listaDePropostas){
+            if(p instanceof Projeto){
+                for(var d : listaDeDocentes){
+                    if(Objects.equals(((Projeto) p).getDocenteProponente(), d.getEmail())){
+                            d.setPropostaAssociada(p.getIdProposta());
+                            p.setAtribuida(true);
+                            d.incrementaNrDeOrientacoes();
+                    }
+                }
+            }
+        }
+    } //FEITO HOJE, TESTADO, MAS FALTA VERIFICAR PQ FICAM VARIOS PROFS COM A MESMA PROPOSTA
+
+    public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAlunoDaProposta, String emailProf){
+        for(var p : listaDePropostas){
+            if(p.isAtribuida()) {
+                if (p.getNrAluno() == nrAlunoDaProposta) {
+                    for(var d : listaDeDocentes){
+                        if(Objects.equals(d.getEmail(), emailProf)){
+                            p.setOrientador(emailProf);
+                            d.incrementaNrDeOrientacoes();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public String consultarOrientadorDeProposta(String nrProposta){
+        StringBuilder sb = new StringBuilder();
+        for(var p : listaDePropostas){
+            if(Objects.equals(p.getIdProposta(), nrProposta)){
+                if(p.isAtribuida()){
+                    sb.append("Orientador \n").append(p.getOrientador()).append(System.lineSeparator());
+                }
+            }
+        }
+
+        return sb.toString();
+    }
+    public void editarOrientadorDeProposta(String nrProposta, String novoOrientador){
+        StringBuilder sb = new StringBuilder();
+        for(var p : listaDePropostas){
+            for(var d : listaDeDocentes){
+                if(Objects.equals(d.getEmail(), novoOrientador)){
+                    if(Objects.equals(p.getIdProposta(), nrProposta)){
+                        if(p.isAtribuida()){
+                            p.setOrientador(novoOrientador);
+                            d.incrementaNrDeOrientacoes();
+                        }
+                    }
+                }
+            }
+        }
+    } //FALTA DECREMENTAR
+    public void removerOrientadorDeProposta(String nrProposta){
+        StringBuilder sb = new StringBuilder();
+        for(var p : listaDePropostas){
+            if(Objects.equals(p.getIdProposta(), nrProposta)){
+                if(p.isAtribuida()){
+                    p.setOrientador(null);
+                }
+            }
+        }
+    }
+
+    public String consultaAlunosComPropostaEComOrientador(){
+        StringBuilder sb = new StringBuilder();
+        for(var a : listaDeAlunos){
+            if(a.getIdPropostaAssociada() != null){
+                for(var p : listaDePropostas){
+                   if(p.isAtribuida()){
+                        if(p.getOrientador() != null){
+                            sb.append("Alunos com Proposta e com orientador   ").append(a.getNumero()).append(System.lineSeparator());
+                        }
+                   }
+                }
+            }
+        }
+
+        return sb.toString();
+    } //IMPRIME DUAS VEZES
+    public String consultaAlunosComPropostaESemOrientador(){
+        StringBuilder sb = new StringBuilder();
+        for(var a : listaDeAlunos){
+            if(a.getIdPropostaAssociada() != null){
+                for(var p : listaDePropostas){
+                    if(p.isAtribuida()){
+                        if(p.getOrientador() == null){
+                            sb.append("Alunos com Proposta e com orientador   ").append(a.getNumero()).append(System.lineSeparator());
+                        }
+                    }
+                }
+            }
+        }
+
+        return sb.toString();
+    } //IMPRIME DUAS VEZES
+
+    public void consultarDocenteComMenosOrientacoes(){
+
+        Collections.sort(listaDeDocentes, new Comparator<Docente>() {
+            @Override
+            public int compare(Docente d1, Docente d2) {
+                return Integer.compare(d1.getNrDeOrientacoes(), d2.getNrDeOrientacoes());
+            }
+        });
+    }
 
 
 

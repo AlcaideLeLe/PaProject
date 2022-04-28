@@ -6,6 +6,8 @@ public class Proposta implements Comparable<Proposta>{
     private String titulo;
     private String tipoDeProposta;
     private boolean atribuida;
+    private String orientador;
+
 
 
 
@@ -15,6 +17,7 @@ public class Proposta implements Comparable<Proposta>{
         this.nrAluno = nrAluno;
         this.titulo = titulo;
         this.atribuida = atribuida;
+
     }
     public String getTipoDeProposta() {return tipoDeProposta;}
     public String getIdProposta() {return idProposta;}
@@ -24,6 +27,12 @@ public class Proposta implements Comparable<Proposta>{
         this.atribuida = atribuida;
     }
     public void setNrAluno(long nrAluno) {this.nrAluno = nrAluno;}
+    public String getOrientador() {
+        return orientador;
+    }
+    public void setOrientador(String orientador) {
+        this.orientador = orientador;
+    }
     public String getTitulo() {return titulo;}
     public void setTitulo(String titulo) {this.titulo = titulo;}
 
@@ -35,8 +44,10 @@ public class Proposta implements Comparable<Proposta>{
         sb.append("nrAluno: ").append(nrAluno).append(System.lineSeparator());
         sb.append("Titulo: ").append(titulo).append(System.lineSeparator());
         sb.append("Esta atribuida: ").append(isAtribuida()).append(System.lineSeparator());
+            if(isAtribuida()){
+                sb.append("Orientador: ").append(getOrientador()).append(System.lineSeparator());
+            }
         sb.append(System.lineSeparator());
-
         return sb.toString();
     }
 

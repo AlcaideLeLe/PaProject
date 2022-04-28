@@ -23,11 +23,9 @@ public class Estagio extends Proposta{
     public String getIdEntidadeAcolhimento() {
         return idEntidadeAcolhimento;
     }
-
     public String getAreaDestino() {
         return areaDestino;
     }
-
     public void setAreaDestino(String areaDestino) {
         this.areaDestino = areaDestino;
     }

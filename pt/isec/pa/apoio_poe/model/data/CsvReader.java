@@ -12,7 +12,7 @@ public class CsvReader {
     public static void main(String[] args) throws Exception {
         PoE poe = new PoE();
         poe.addAluno();
-        //poe.addDocente();
+        poe.addDocente();
         poe.addProposta();
         //System.out.println(poe.consultarProposta("P027"));
         //System.out.println(poe.consultarPropostas());
@@ -33,17 +33,38 @@ public class CsvReader {
         //poe.atruibuicaoDeAlunosSemPropostasDefinidas();
         //System.out.println(poe.consultarPropostas());
         //System.out.println(poe.consultarAlunos());
-        //poe.atribuirPropostaManualmente(2018014063, "P027");
+        //poe.atribuirPropostaManualmente(2018014063, "P064");
+        //System.out.println(poe.consultarProposta("P064"));
         //poe.atribuirPropostaManualmente(2013684456, "P027");
         //System.out.println(poe.consultarAluno(2018014063));
         //System.out.println(poe.consultarProposta("P027"));
         //System.out.println(poe.consultarAluno(2013684456));
         //poe.removerPropostaManualmente(2018014063);
+        //System.out.println(poe.consultarProposta("P064"));
         //System.out.println(poe.consultarAluno(2018014063));
         //System.out.println(poe.consultarProposta("P027"));
         //System.out.println(poe.consultarAlunosSemPropostaAtribuida());
         //System.out.println(poe.consultaPropostasDisponiveis());
-        System.out.println(poe.consultaPropostasAtribuidas());
+        //System.out.println(poe.consultaPropostasAtribuidas());
+        //poe.atribuirPropostaADocenteProponenteAutomaticamente();
+        //System.out.println(poe.consultarDocentes());
+        //System.out.println(poe.consultarPropostas());
+        poe.atribuirPropostaManualmente(2018014063, "P064");
+        poe.atribuirManualmenteOrientadorAAlunosComPropostas(2018014063, "rmc.silva@isec.pt");
+        poe.atribuirPropostaManualmente(2022987654, "P023");
+        poe.atribuirManualmenteOrientadorAAlunosComPropostas(2022987654, "rmc.silva@isec.pt");
+        //System.out.println(poe.consultarProposta("P064"));
+        //poe.editarOrientadorDeProposta("P064", "cysko");
+        //System.out.println(poe.consultarProposta("P064"));
+        //poe.removerOrientadorDeProposta("P064");
+        //System.out.println(poe.consultarProposta("P064"));
+        //System.out.println(poe.consultarProposta("P023"));
+        //System.out.println(poe.consultarDocentes());
+        //System.out.println(poe.consultarDocente("rmc.silva@isec.pt"));
+        //System.out.println(poe.consultaAlunosComPropostaEComOrientador());
+        //System.out.println(poe.consultaAlunosComPropostaESemOrientador());
+        poe.consultarDocenteComMenosOrientacoes();
+
 
     }
 }
