@@ -22,7 +22,6 @@ public class PoE {
                 arrayAluno.add(scAluno.nextLine());
             }
             String[] dadosAluno;
-
             for (int i = 0; i < arrayAluno.size(); i++) {
                 dadosAluno = arrayAluno.get(i).split(";");
                 listaDeAlunos.add(new Aluno(Long.parseLong(dadosAluno[0]), dadosAluno[1], dadosAluno[2],
@@ -32,7 +31,8 @@ public class PoE {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    } //FALTA VERIFICAR
+
 
     public void addDocente() {
         try {
@@ -56,7 +56,7 @@ public class PoE {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    } //FALTA VERIFICAR
 
     public void addProposta(){
         try {
@@ -97,7 +97,7 @@ public class PoE {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    } //FALTA VERIFICAR
 
     public String consultarAluno(long numero){
         for(int i=0; i<listaDeAlunos.size(); i++){
@@ -243,14 +243,16 @@ public class PoE {
             if(p instanceof Autoproposto){
                 listaDeAlunosComAutoProposta.add(p.getNrAluno());
                 for(var a : listaDeAlunos){
-                    if(listaDeAlunosComAutoProposta.contains(a.getNumero())) {
-                        a.setIdPropostaAssociada(p.getIdProposta());
-                        p.setAtribuida(true);
+                    if(a.getIdPropostaAssociada() == null) {
+                        if (listaDeAlunosComAutoProposta.contains(a.getNumero())) {
+                            a.setIdPropostaAssociada(p.getIdProposta());
+                            p.setAtribuida(true);
+                        }
                     }
                 }
             }
         }
-    }
+    } //JA VERIFICADA
 
     public void atribuirPropostaDeDocente(){
         ArrayList<Long> listaDeAlunosPropostaDeDocente = new ArrayList<>();
@@ -259,15 +261,17 @@ public class PoE {
                 if(p.getNrAluno() != 0){
                     listaDeAlunosPropostaDeDocente.add(p.getNrAluno());
                     for(var a : listaDeAlunos){
-                        if(a.getNumero() == p.getNrAluno()) {
-                            a.setIdPropostaAssociada(p.getIdProposta());
-                            p.setAtribuida(true);
+                        if(a.getIdPropostaAssociada() == null) {
+                            if (a.getNumero() == p.getNrAluno()) {
+                                a.setIdPropostaAssociada(p.getIdProposta());
+                                p.setAtribuida(true);
+                            }
                         }
                     }
                 }
             }
         }
-    }
+    } //JA VERIFICADA
 
     public void atribuirPropostaManualmente(long nralunoQueVaiTerNovaProposta, String IDproposta) {
         //System.out.println(nralunoQueVaiTerNovaProposta + " 1 " + IDproposta);
@@ -282,12 +286,7 @@ public class PoE {
                                     if (Objects.equals(p.getIdProposta(), IDproposta)) {
                                         p.setNrAluno(nralunoQueVaiTerNovaProposta);
                                         p.setAtribuida(true);
-                                    }/*
-                                    for(var d : listaDeDocentes){
-                                        if(Objects.equals(d.getEmail(), emailProf)){
-                                            d.setPropostaAssociada(IDproposta);
-                                        }
-                                    }*/
+                                    }
                                 }
                             }
                         }
@@ -295,7 +294,7 @@ public class PoE {
                 }
             }
         }
-    }
+    } //JA VERIFICADA
 
     public void removerPropostaManualmente(long nralunoQueVaiFicarSemProposta){
         for(var a : listaDeAlunos){
@@ -309,7 +308,7 @@ public class PoE {
                 }
             }
         }
-    }
+    } //JA VERIFICADA
 
     public String consultaPropostasComCandidaturas(){ //Filtro Proposta Com candidatura
         StringBuilder sb = new StringBuilder();
@@ -429,22 +428,24 @@ public class PoE {
                 }
             }
         }
-    } //FEITO HOJE, TESTADO, MAS FALTA VERIFICAR PQ FICAM VARIOS PROFS COM A MESMA PROPOSTA
+    } //FEITO HOJE, TESTADO, QUANDO SE FIZER VERIFICACOES A DOCENTES FICA RESOLVIDO
 
     public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAlunoDaProposta, String emailProf){
         for(var p : listaDePropostas){
-            if(p.isAtribuida()) {
-                if (p.getNrAluno() == nrAlunoDaProposta) {
-                    for(var d : listaDeDocentes){
-                        if(Objects.equals(d.getEmail(), emailProf)){
-                            p.setOrientador(emailProf);
-                            d.incrementaNrDeOrientacoes();
+            if(p.getOrientador() == null) {
+                if (p.isAtribuida()) {
+                    if (p.getNrAluno() == nrAlunoDaProposta) {
+                        for (var d : listaDeDocentes) {
+                            if (Objects.equals(d.getEmail(), emailProf)) {
+                                p.setOrientador(emailProf);
+                                d.incrementaNrDeOrientacoes();
+                            }
                         }
                     }
                 }
             }
         }
-    }
+    } //JA VERIFICADA
 
     public String consultarOrientadorDeProposta(String nrProposta){
         StringBuilder sb = new StringBuilder();
@@ -517,7 +518,6 @@ public class PoE {
         return sb.toString();
     } //IMPRIME DUAS VEZES
 
-
     public String consultarDocenteComMenosOrientacoes(){
         int menor = 0;
         String DocenteMenor = null;
@@ -560,11 +560,27 @@ public class PoE {
         return "A media dos orientador e: "+media;
     }
 
+    public String consultaAlunosComCandidaturaESemProposta(){
+        StringBuilder sb = new StringBuilder();
+
+        for(var c : listaDeCandidaturas){
+            for(var a : listaDeAlunos){
+                if(a.getIdPropostaAssociada() == null){
+                    if(c.getNumero() == a.getNumero()){
+                        sb.append("Alunos sem proposta e com candidatura   ").append(a.getNumero()).append(System.lineSeparator());
+                    }
+                }
+            }
+        }
 
 
+        return sb.toString();
+    }
+
+/*
     public void removeAluno(){}
     public void removeDocente(){}
-
+*/
 
     /*public void editAluno(ArrayList<Aluno> arrayAlunos){
         Scanner resposta, nomeNovo, novaSiglaCurso;

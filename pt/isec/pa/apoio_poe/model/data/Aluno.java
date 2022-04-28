@@ -18,6 +18,8 @@ public class Aluno implements Comparable<Aluno>{
     private String idPropostaAssociada;
 
 
+
+
     public Aluno(long numero, String nome, String email, String siglaCurso, String siglaRamo, double classificacao, boolean acessoEstagio, String idPropostaAssociada) {
         this.numero = numero;
         this.nome = nome;
