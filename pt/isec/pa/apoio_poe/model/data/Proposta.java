@@ -5,20 +5,28 @@ public class Proposta implements Comparable<Proposta>{
     private long nrAluno;
     private String titulo;
     private String tipoDeProposta;
+    private boolean atribuida;
 
-    public Proposta(String tipoDeProposta, String idProposta, long nrAluno, String titulo) {
+
+
+    public Proposta(String tipoDeProposta, String idProposta, long nrAluno, String titulo, boolean atribuida) {
         this.tipoDeProposta = tipoDeProposta;
         this.idProposta = idProposta;
         this.nrAluno = nrAluno;
         this.titulo = titulo;
+        this.atribuida = atribuida;
     }
     public String getTipoDeProposta() {return tipoDeProposta;}
     public String getIdProposta() {return idProposta;}
     public long getNrAluno() {return nrAluno;}
+    public boolean isAtribuida() {return atribuida;}
+    public void setAtribuida(boolean atribuida) {
+        this.atribuida = atribuida;
+    }
     public void setNrAluno(long nrAluno) {this.nrAluno = nrAluno;}
     public String getTitulo() {return titulo;}
     public void setTitulo(String titulo) {this.titulo = titulo;}
-/*
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -26,11 +34,12 @@ public class Proposta implements Comparable<Proposta>{
         sb.append("ID Proposta: ").append(idProposta).append(System.lineSeparator());
         sb.append("nrAluno: ").append(nrAluno).append(System.lineSeparator());
         sb.append("Titulo: ").append(titulo).append(System.lineSeparator());
+        sb.append("Esta atribuida: ").append(isAtribuida()).append(System.lineSeparator());
         sb.append(System.lineSeparator());
 
         return sb.toString();
     }
-*/
+
     @Override
     public int compareTo(Proposta o) {
         return idProposta.compareTo(o.idProposta);

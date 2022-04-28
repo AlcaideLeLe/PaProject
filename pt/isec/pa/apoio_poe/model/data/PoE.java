@@ -76,22 +76,22 @@ public class PoE {
                     if (dadosProposta[0].equals("T1")) {
                         if (dadosProposta.length == 6) {
                             listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
-                                    dadosProposta[4], dadosProposta[2]));
+                                    dadosProposta[4], dadosProposta[2], false));
                         } else {
                             listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
-                                    dadosProposta[4], dadosProposta[2]));
+                                    dadosProposta[4], dadosProposta[2], false));
                         }
                     } else if (dadosProposta[0].equals("T2")) {
                         if (dadosProposta.length == 6) {
                             listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
-                                    dadosProposta[2], dadosProposta[4]));
+                                    dadosProposta[2], dadosProposta[4], false) );
                         } else {
                             listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
-                                    dadosProposta[2], dadosProposta[4]));
+                                    dadosProposta[2], dadosProposta[4], false) );
                         }
 
                     } else if (dadosProposta[0].equals("T3")) {
-                        listaDePropostas.add(new Autoproposto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[3]), dadosProposta[2]));
+                        listaDePropostas.add(new Autoproposto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[3]), dadosProposta[2], false) );
                     }
             }
         } catch (FileNotFoundException e) {
@@ -134,7 +134,6 @@ public class PoE {
             if(listaDePropostas.get(i).getIdProposta().equals(idProposta)){
                 return listaDePropostas.get(i).toString();
             }
-
         }
         return null;
     }
@@ -246,6 +245,7 @@ public class PoE {
                 for(var a : listaDeAlunos){
                     if(listaDeAlunosComAutoProposta.contains(a.getNumero())) {
                         a.setIdPropostaAssociada(p.getIdProposta());
+                        p.setAtribuida(true);
                     }
                 }
             }
@@ -256,13 +256,12 @@ public class PoE {
         ArrayList<Long> listaDeAlunosPropostaDeDocente = new ArrayList<>();
         for (var p : listaDePropostas) {
             if(p instanceof Projeto){
-
                 if(p.getNrAluno() != 0){
                     listaDeAlunosPropostaDeDocente.add(p.getNrAluno());
-
                     for(var a : listaDeAlunos){
                         if(a.getNumero() == p.getNrAluno()) {
                             a.setIdPropostaAssociada(p.getIdProposta());
+                            p.setAtribuida(true);
                         }
                     }
                 }
@@ -270,12 +269,41 @@ public class PoE {
         }
     }
 
-    public void atribuirPropostaManualmente(Aluno alunoQueVaiTerNovaProposta, String proposta){
-        if(listaDeAlunos.contains(alunoQueVaiTerNovaProposta)){
-            if(alunoQueVaiTerNovaProposta.getIdPropostaAssociada() == null)
-                alunoQueVaiTerNovaProposta.setIdPropostaAssociada(proposta);
+    public void atribuirPropostaManualmente(long nralunoQueVaiTerNovaProposta, String IDproposta) {
+        //System.out.println(nralunoQueVaiTerNovaProposta + " 1 " + IDproposta);
+        for (var pr : listaDePropostas) {
+            if (Objects.equals(pr.getIdProposta(), IDproposta)) {
+                if (!pr.isAtribuida()) {
+                    for (var a : listaDeAlunos) {
+                        if (a.getNumero() == nralunoQueVaiTerNovaProposta) {
+                            if (a.getIdPropostaAssociada() == null) {
+                                a.setIdPropostaAssociada(IDproposta);
+                                for (var p : listaDePropostas) {
+                                    if (Objects.equals(p.getIdProposta(), IDproposta)) {
+                                        p.setAtribuida(true);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-    } //FALTA REMOVER MANUALMENTE
+    }
+
+
+    public void removerPropostaManualmente(long nralunoQueVaiFicarSemProposta){
+        for(var a : listaDeAlunos){
+            if(a.getNumero() == nralunoQueVaiFicarSemProposta){
+                a.setIdPropostaAssociada(null);
+                for(var p : listaDePropostas){
+                    if(Objects.equals(p.getIdProposta(), a.getIdPropostaAssociada())){
+                        p.setAtribuida(false);
+                    }
+                }
+            }
+        }
+    }
 
     public String consultaPropostasComCandidaturas(){ //Filtro Proposta Com candidatura
         StringBuilder sb = new StringBuilder();
@@ -315,6 +343,41 @@ public class PoE {
         }
         return sb.toString();
     }
+
+    public void atruibuicaoDeAlunosSemPropostasDefinidas(){
+        ArrayList<Proposta> propostasNaoAtribuidas = new ArrayList<>();
+        ArrayList<Aluno> alunosSemProposta = new ArrayList<>();
+        for(var p : listaDePropostas){
+            if(p.getNrAluno() == 0 && !p.isAtribuida()){
+               propostasNaoAtribuidas.add(p);
+            }
+        }
+        for(var a : listaDeAlunos) {
+            if (a.getIdPropostaAssociada() == null) {
+                alunosSemProposta.add(a);
+            }
+        }
+
+        Collections.sort(alunosSemProposta, new Comparator<Aluno>() {
+            @Override
+            public int compare(Aluno a1, Aluno a2) {
+                return Double.compare(a1.getClassificacao(), a2.getClassificacao());
+            }
+        });
+
+        
+        for(var asp : alunosSemProposta){
+            Proposta p = null;
+            for(var pna : propostasNaoAtribuidas){
+                asp.setIdPropostaAssociada(pna.getIdProposta());
+                pna.setAtribuida(true);
+                p = pna;
+                break;
+            }
+            propostasNaoAtribuidas.remove(p);
+        }
+    }
+
 
 
 

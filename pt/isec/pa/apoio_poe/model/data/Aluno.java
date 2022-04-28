@@ -4,6 +4,7 @@ import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.Comparator;
 
 public class Aluno implements Comparable<Aluno>{
 
@@ -61,10 +62,13 @@ public class Aluno implements Comparable<Aluno>{
         return sb.toString();
     }
 
-    @Override
     public int compareTo(Aluno o) {
         return Long.compare(numero, o.numero);
     }
+
+
+
+
 }
 
 
