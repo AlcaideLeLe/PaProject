@@ -16,6 +16,8 @@ public interface IApoio_poeState {
     boolean changeFromGestaoDOCtoBase();
     boolean changeFromGestaoCANDtoBase();
     boolean changeFromGestaoORItoBase();
+    boolean changeToGestaoManualAtribuicoesState();
+    boolean changeToGestaoDeDocentesState();
 
 
     //Fase 1

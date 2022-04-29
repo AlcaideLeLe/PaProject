@@ -41,6 +41,10 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public boolean changeFromGestaoCANDtoBase() {return false;}
     @Override
     public boolean changeFromGestaoORItoBase() {return false;}
+    @Override
+    public boolean changeToGestaoManualAtribuicoesState() {return false;}
+    @Override
+    public boolean changeToGestaoDeDocentesState(){return false;}
 
     //Fase 1
     @Override
@@ -63,6 +67,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public String consultaPropostas(){return null;}
 
 
+
     //Fase 2
     @Override
     public void addCandidatura(){};
@@ -70,9 +75,80 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public String consultaCandidatura(long nrAluno){return null;}
     @Override
     public String consultaCandidaturas(){return null;}
+    @Override
+    public String consultaAlunosComAutoproposta(){return null;}
+    @Override
+    public String consultarAlunosComCandidatura(){return null;};
+    @Override
+    public String consultarAlunosSemCandidatura(){return null;};
+    @Override
+    public String consultarListaDeAutopropostas(){return null;};
+    @Override
+    public String consultarPropostasDeDocentes(){return null;};
+    @Override
+    public String consultarPropostasComCadidaturas(){return null;};
+    @Override
+    public String consultarPropostasSemCadidaturas(){return null;};
+
 
 
     //Fase 3
+    @Override
+    public void atribuirAutoproposta(){};
+    @Override
+    public void atribuirPropostaDeDocente(){};
+    @Override
+    public void atribuicaoDeAlunosSemPropostasDefinidas(){};
+    @Override
+    public void atribuirPropostaManualmente(long nrAluno, String idProposta){};
+    @Override
+    public void removerPropostaManualmente(long nrAluno){};
+
+    //String consultaAlunosComAutoproposta(); mesma função da linha 36
+    //String consultarAlunosComCandidatura(); mesma função da linha 37
+    @Override
+    public String consultarAlunosComPropostaAtribuida(){return null;};
+    @Override
+    public String consultarAlunosSemPropostaAtribuida(){return null;};
+    //String consultarListaDeAutopropostas(); mesma função da linha 39
+    //String consultarPropostasDeDocentes(); mesma função da linha 40
+    @Override
+    public String consultarPropostasDisponiveis(){return null;};
+    @Override
+    public String consultarPropostasAtribuidas(){return null;};
+
+    //Fase 4
+    @Override
+    public void atribuirPropostaADocenteProponenteAutomaticamente(){}
+    @Override
+    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf){};
+    @Override
+    public String consultarOrientadorDeProposta(String idProposta){return null;};
+    @Override
+    public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){};
+    @Override
+    public void removerOrientadorDeProposta(String idProposta){};
+    @Override
+    public String consultarAlunosComPropostaEComOrientador(){return null;};
+    @Override
+    public String consultarAlunosComPropostaESemOrientador(){return null;};
+    @Override
+    public String consultarDocenteComMenosOrientacoes(){return null;};
+    @Override
+    public String consultarDocenteComMaisOrientacoes(){return null;};
+    @Override
+    public String consultarMediaDeOrientacoesDosDocentes(){return null;};
+
+    //Fase 5
+    //String consultarAlunosComPropostaAtribuida(); mesma linha 52
+    @Override
+    public String consultarAlunosComCandidaturaESemProposta(){return null;};
+
+    //String consultarPropostasDisponiveis(); 56
+    //String consultarPropostasAtribuidas(); 57
+    //String consultarDocenteComMenosOrientacoes();
+    //String consultarDocenteComMaisOrientacoes();
+    //String consultarMediaDeOrientacoesDosDocentes();
 
 
 

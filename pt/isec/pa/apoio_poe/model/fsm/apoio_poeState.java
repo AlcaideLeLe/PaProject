@@ -4,7 +4,7 @@ import pt.isec.pa.apoio_poe.model.data.PoE;
 
 public enum apoio_poeState {
     FASE1,FASE1BLOCKSTATE, FASE2, FASE2BLOCKSTATE, FASE3, FASE3BLOCKSTATE, FASE4, FASE5, GESTAO_PROP,
-    GESTAO_DOC, GESTAO_AL, GESTAO_CAND, TRATAMENTO_PROP, GESTAO_ORI;
+    GESTAO_DOC, GESTAO_AL, GESTAO_CAND, TRATAMENTO_PROP, GESTAO_ORI, GESTAO_MANUAL_ATRIBSTATE, GESTAO_MANUAL_ORIENTSTATE;
 
     public IApoio_poeState createState(apoio_poeContext context, PoE data){
         return switch (this){
@@ -22,6 +22,8 @@ public enum apoio_poeState {
             case TRATAMENTO_PROP -> new TRATAMENTO_PROPState(context, data);
             case GESTAO_ORI -> new GESTAO_ORIState(context, data);
             case GESTAO_AL -> new GESTAO_ALState(context, data);
+            case GESTAO_MANUAL_ATRIBSTATE -> new GESTAO_MANUAL_ATRIBSTATE(context, data);
+            case GESTAO_MANUAL_ORIENTSTATE -> new GESTAO_MANUAL_ORIENTSTATE(context, data);
 
 
         };

@@ -38,4 +38,14 @@ public class FASE4State extends apoio_poeAdapter{
         changeState(apoio_poeState.GESTAO_ORI);
         return true;
     }
+    @Override
+    public boolean changeToGestaoDeDocentesState(){
+        changeState(apoio_poeState.GESTAO_DOC);
+        return true;
+    }
+
+
+
+
+
 }

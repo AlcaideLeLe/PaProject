@@ -27,7 +27,7 @@ public class FASE3State extends apoio_poeAdapter{
     }
     @Override
     public boolean avancarFase() {
-        changeState(apoio_poeState.FASE3);
+        changeState(apoio_poeState.FASE4);
         return true;
     }
     @Override
@@ -35,4 +35,11 @@ public class FASE3State extends apoio_poeAdapter{
         changeState(apoio_poeState.TRATAMENTO_PROP);
         return true;
     }
+    @Override
+    public boolean changeToGestaoManualAtribuicoesState(){
+        changeState(apoio_poeState.GESTAO_MANUAL_ATRIBSTATE);
+        return true;
+    }
+
+
 }
