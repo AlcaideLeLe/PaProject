@@ -41,30 +41,43 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public boolean changeFromGestaoCANDtoBase() {return false;}
     @Override
     public boolean changeFromGestaoORItoBase() {return false;}
+
+    //Fase 1
     @Override
     public void addAluno(){};
+    @Override
+    public void addDocente(){};
+    @Override
+    public void addProposta(){};
     @Override
     public String consultaAluno(long nrAluno) {return null;}
     @Override
     public String consultaAlunos() {return null;}
     @Override
-    public void addDocente(){};
-    @Override
     public String consultaDocente(String email){return null;}
     @Override
     public String consultaDocentes(){return null;}
     @Override
-    public void addProposta(){};
-    @Override
     public String consultaProposta(String idProposta){return null;}
     @Override
     public String consultaPropostas(){return null;}
+
+
+    //Fase 2
     @Override
     public void addCandidatura(){};
     @Override
     public String consultaCandidatura(long nrAluno){return null;}
     @Override
     public String consultaCandidaturas(){return null;}
+
+
+    //Fase 3
+
+
+
+
+
 
 
 }

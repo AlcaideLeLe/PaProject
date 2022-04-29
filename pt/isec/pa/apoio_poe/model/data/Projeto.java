@@ -23,6 +23,8 @@ public class Projeto extends Proposta{
     }
 
 
+
+
     public String getAreaDestino() {
         return areaDestino;
     }
@@ -35,4 +37,6 @@ public class Projeto extends Proposta{
     public void setDocenteProponente(String docenteProponente) {
         this.docenteProponente = docenteProponente;
     }
+
+
 }

@@ -57,7 +57,6 @@ public class UI {
         System.out.println("1 - Adicionar todos os alunos a partir de ficheiro");
         System.out.println("2 - Regressar ao menu anterior");
         System.out.println("3 - Avancar para a fase seguinte");
-        System.out.println("4 - Recuar para menu inicial");
         System.out.println("---------------");
 
         int opcao = sc.nextInt();
@@ -72,9 +71,7 @@ public class UI {
             case 3 -> {
                 mostraMenuSegundaFase();
             }
-            case 4 -> {
-                mostraMenuIncial();
-            }
+
         }
 
     }
@@ -226,11 +223,11 @@ public class UI {
                 System.out.println(poe.consultarPropostasDocentes());
                 ;}
             case 3 -> {
-                System.out.println(poe.consultaPropostasComCandidaturas());
+                System.out.println(poe.consultarPropostasComCandidaturas());
                 ;
             }
             case 4 -> {
-                System.out.println(poe.consultaPropostasSemCandidaturas());
+                System.out.println(poe.consultarPropostasSemCandidaturas());
                 ;
             }
             case 5 -> {
@@ -330,11 +327,11 @@ public class UI {
                 System.out.println(poe.consultarPropostasDocentes());
                 ;}
             case 3 -> {
-                System.out.println(poe.consultaPropostasDisponiveis());
+                System.out.println(poe.consultarPropostasDisponiveis());
                 ;
             }
             case 4 -> {
-                System.out.println(poe.consultaPropostasAtribuidas());
+                System.out.println(poe.consultarPropostasAtribuidas());
                 ;
             }
             case 5 -> {
@@ -473,15 +470,15 @@ public class UI {
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                System.out.println(poe.consultaAlunosComPropostaEComOrientador());
+                System.out.println(poe.consultarAlunosComPropostaEComOrientador());
             }
             case 2 -> {
-                System.out.println(poe.consultaAlunosComPropostaESemOrientador());
+                System.out.println(poe.consultarAlunosComPropostaESemOrientador());
                 ;}
             case 3 -> {
                 System.out.println(poe.consultarDocenteComMaisOrientacoes());
                 System.out.println(poe.consultarDocenteComMenosOrientacoes());
-                System.out.println(poe.consultarMediaDeOrientacoesDosDocentess());
+                System.out.println(poe.consultarMediaDeOrientacoesDosDocentes());
             }
 
         }
@@ -502,18 +499,18 @@ public class UI {
                 System.out.println(poe.consultarAlunosComPropostaAtribuida());
             }
             case 2 -> {
-                System.out.println(poe.consultaAlunosComCandidaturaESemProposta());
+                System.out.println(poe.consultarAlunosComCandidaturaESemProposta());
                 ;}
             case 3 ->{
-                System.out.println(poe.consultaPropostasDisponiveis());
+                System.out.println(poe.consultarPropostasDisponiveis());
                 }
             case 4 ->{
-                System.out.println(poe.consultaPropostasAtribuidas());
+                System.out.println(poe.consultarPropostasAtribuidas());
             }
             case 5 -> {
                 System.out.println(poe.consultarDocenteComMaisOrientacoes());
                 System.out.println(poe.consultarDocenteComMenosOrientacoes());
-                System.out.println(poe.consultarMediaDeOrientacoesDosDocentess());
+                System.out.println(poe.consultarMediaDeOrientacoesDosDocentes());
             }
 
         }

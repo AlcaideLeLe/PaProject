@@ -209,7 +209,7 @@ public class PoE {
         return sb.toString();
     }
 
-    public String consultaAlunosComAutoproposta(){ //Filtro Alunos com Autoproposta
+    public String consultarAlunosComAutoproposta(){ //Filtro Alunos com Autoproposta
         StringBuilder sb = new StringBuilder();
         ArrayList<Long> alunosComAutoProposta = new ArrayList<>();
         for (var p : listaDePropostas) {
@@ -309,7 +309,7 @@ public class PoE {
         }
     } //JA VERIFICADA
 
-    public String consultaPropostasComCandidaturas(){ //Filtro Proposta Com candidatura
+    public String consultarPropostasComCandidaturas(){ //Filtro Proposta Com candidatura
         StringBuilder sb = new StringBuilder();
         HashSet<String> propostasComCandidaturas = new HashSet<>();
         for(var c : listaDeCandidaturas){
@@ -323,7 +323,7 @@ public class PoE {
         return sb.toString();
     }
 
-    public String consultaPropostasSemCandidaturas(){ //Filtro Proposta Sem candidatura
+    public String consultarPropostasSemCandidaturas(){ //Filtro Proposta Sem candidatura
         StringBuilder sb = new StringBuilder();
         HashSet<String> propostasSemCandidaturas = new HashSet<>();
         for(var c : listaDeCandidaturas){
@@ -337,7 +337,7 @@ public class PoE {
         return sb.toString();
     }
 
-    public String consultaAlunosComPropostasDeDocentes(){ //filtro Autopropostas de alunos
+    public String consultarAlunosComPropostasDeDocentes(){ //filtro Autopropostas de alunos
         StringBuilder sb = new StringBuilder();
         ArrayList<Long> listaDeAlunosComPropostaDeDocente = new ArrayList<>();
         for(var a : listaDePropostas){
@@ -411,7 +411,7 @@ public class PoE {
         return sb.toString();
     }
 
-    public String consultaPropostasDisponiveis(){
+    public String consultarPropostasDisponiveis(){
         StringBuilder sb = new StringBuilder();
         for(var p : listaDePropostas){
             if(!p.isAtribuida()){
@@ -421,7 +421,7 @@ public class PoE {
         return sb.toString();
     } //FEITO HOJE E TESTADO
 
-    public String consultaPropostasAtribuidas(){
+    public String consultarPropostasAtribuidas(){
         StringBuilder sb = new StringBuilder();
         for(var p : listaDePropostas){
             if(p.isAtribuida()){
@@ -502,7 +502,7 @@ public class PoE {
         }
     }
 
-    public String consultaAlunosComPropostaEComOrientador(){
+    public String consultarAlunosComPropostaEComOrientador(){
         StringBuilder sb = new StringBuilder();
         for(var a : listaDeAlunos){
             if(a.getIdPropostaAssociada() != null){
@@ -518,7 +518,7 @@ public class PoE {
 
         return sb.toString();
     } //IMPRIME DUAS VEZES
-    public String consultaAlunosComPropostaESemOrientador(){
+    public String consultarAlunosComPropostaESemOrientador(){
         StringBuilder sb = new StringBuilder();
         for(var a : listaDeAlunos){
             if(a.getIdPropostaAssociada() != null){
@@ -566,7 +566,7 @@ public class PoE {
         return DocenteMaior;
     }
 
-    public String consultarMediaDeOrientacoesDosDocentess(){
+    public String consultarMediaDeOrientacoesDosDocentes(){
         float media = 0;
 
         for(int i=0; i<listaDeDocentes.size(); i++){
@@ -577,7 +577,7 @@ public class PoE {
         return "A media dos orientador e: "+media;
     }
 
-    public String consultaAlunosComCandidaturaESemProposta(){
+    public String consultarAlunosComCandidaturaESemProposta(){
         StringBuilder sb = new StringBuilder();
 
         for(var c : listaDeCandidaturas){
