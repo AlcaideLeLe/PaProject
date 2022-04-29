@@ -20,9 +20,9 @@ public class GESTAO_DOCState extends apoio_poeAdapter{
         return true;
     }
     @Override
-    public void addDocente(){context.addDocente();}
+    public void addDocente(){data.addDocente();}
     @Override
-    public String consultaDocente(String email){return context.consultaDocente(email);}
+    public String consultaDocente(String email){return data.consultarDocente(email);}
     @Override
-    public String consultaDocentes(){return context.consultaDocentes();}
+    public String consultaDocentes(){return data.consultarDocentes();}
 }

@@ -17,18 +17,83 @@ public class apoio_poeContext {
         this.state = state;
     }
 
-    public void addAluno(){data.addAluno();}
-    public String consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
-    public String consultaAlunos(){return data.consultarAlunos();}
-    public void addDocente(){data.addDocente();}
-    public String consultaDocente(String email){return data.consultarDocente(email);}
-    public String consultaDocentes(){return data.consultarDocentes();}
-    public void addProposta(){data.addDocente();}
-    public String consultaProposta(String idProposta){return data.consultarProposta(idProposta);}
-    public String consultaPropostas(){return data.consultarPropostas();}
-    public void addCandidatura(){data.addCandidatura();}
-    public String consultaCandidatura(long nrAluno){return data.consultarCandidatura(nrAluno);}
-    public String consultaCandidaturas(){return data.consultarCandidaturas();}
+    public void addAluno(){state.addAluno();}
+    public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
+    public String consultaAlunos(){return state.consultaAlunos();}
+    public void addDocente(){state.addDocente();}
+    public String consultaDocente(String email){return state.consultaDocente(email);}
+    public String consultaDocentes(){return state.consultaDocentes();}
+    public void addProposta(){state.addDocente();}
+    public String consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
+    public String consultaPropostas(){return state.consultaPropostas();}
+    public void addCandidatura(){state.addCandidatura();}
+    public String consultaCandidatura(long nrAluno){return state.consultaCandidatura(nrAluno);}
+    public String consultaCandidaturas(){return state.consultaCandidaturas();}
+    public String consultaAlunosComAutoproposta(){return state.consultarListaDeAutopropostas();}
+    public String consultarAlunosComCandidatura(){return state.consultarAlunosComCandidatura();}
+    public String consultarListaDeAutopropostas(){return state.consultarListaDeAutopropostas();}
+    public String consultarPropostasDeDocentes(){return state.consultarPropostasDeDocentes();};
+    public String consultarPropostasComCadidaturas(){return state.consultarPropostasComCadidaturas();}
+    public String consultarPropostasSemCadidaturas(){return state.consultarPropostasSemCadidaturas();}
+    public void atribuirAutoproposta(){}
+    public void atribuirPropostaDeDocente(){}
+    public void atribuicaoDeAlunosSemPropostasDefinidas(){}
+    public void atribuirPropostaManualmente(long nrAluno, String idProposta){}
+    public void removerPropostaManualmente(long nrAluno){}
+    public String consultarAlunosComPropostaAtribuida(){return state.consultarAlunosComPropostaAtribuida();}
+    public String consultarAlunosSemPropostaAtribuida(){return state.consultarAlunosSemPropostaAtribuida();}
+    public String consultarPropostasDisponiveis(){return state.consultarPropostasDisponiveis();}
+    public String consultarPropostasAtribuidas(){return state.consultarPropostasAtribuidas();}
+    public void atribuirPropostaADocenteProponenteAutomaticamente(){}
+    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf){}
+    public String consultarOrientadorDeProposta(String idProposta){return state.consultarOrientadorDeProposta(idProposta);}
+    public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){}
+    public void removerOrientadorDeProposta(String idProposta){}
+    public String consultarAlunosComPropostaEComOrientador(){return state.consultarAlunosComPropostaEComOrientador();}
+    public String consultarAlunosComPropostaESemOrientador(){return state.consultarAlunosComPropostaESemOrientador();}
+    public String consultarDocenteComMenosOrientacoes(){return state.consultarDocenteComMenosOrientacoes();}
+    public String consultarDocenteComMaisOrientacoes(){return state.consultarDocenteComMaisOrientacoes();}
+    public String consultarMediaDeOrientacoesDosDocentes(){return state.consultarMediaDeOrientacoesDosDocentes();}
+    public String consultarAlunosComCandidaturaESemProposta(){return state.consultarAlunosComCandidaturaESemProposta();}
+
+
+
+
+
+
+
+
+    public void fecharFase() {};
+    public boolean avancarFase() {return false;}
+    public boolean recuarFase() {return false;}
+    @Override
+    public boolean changeToGestaoAL() {return false;}
+    @Override
+    public boolean changeToGestaoCAND(){return false;}
+    @Override
+    public boolean changeToGestaoDOC(){return false;}
+    @Override
+    public boolean changeToGestaoORI(){return false;}
+    @Override
+    public boolean changeToTratamentoProp() {return false;}
+    @Override
+    public boolean changeFromGestaoPROPtoBase() {return false;}
+    @Override
+    public boolean changeFromGestaoALtoBase() {return false;}
+    @Override
+    public boolean changeFromGestaoDOCtoBase() {return false;}
+    @Override
+    public boolean changeFromGestaoCANDtoBase() {return false;}
+    @Override
+    public boolean changeFromGestaoORItoBase() {return false;}
+    @Override
+    public boolean changeToGestaoManualAtribuicoesState() {return false;}
+    @Override
+    public boolean changeToGestaoDeDocentesState(){return false;}
+
+
+
+
 
 
 }

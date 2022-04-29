@@ -21,11 +21,11 @@ public class GESTAO_PROPState extends apoio_poeAdapter{
     }
     @Override
     public void addProposta(){
-        context.addProposta();
+        data.addProposta();
     }
     @Override
-    public String consultaProposta(String IDProposta){return context.consultaProposta(IDProposta);}
+    public String consultaProposta(String IDProposta){return data.consultarProposta(IDProposta);}
     @Override
-    public String consultaPropostas(){return context.consultaPropostas();}
+    public String consultaPropostas(){return data.consultarPropostas();}
 
 }

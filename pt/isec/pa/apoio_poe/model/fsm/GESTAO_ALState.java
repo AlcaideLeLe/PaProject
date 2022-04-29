@@ -20,10 +20,11 @@ public class GESTAO_ALState extends apoio_poeAdapter{
         return true;
     }
     @Override
-    public void addAluno(){context.addAluno();}
+    public void addAluno(){data.addAluno();}
     @Override
-    public String consultaAluno(long nrAluno){return context.consultaAluno(nrAluno);}
+    public String consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
     @Override
-    public String consultaAlunos(){return context.consultaAlunos();}
+    public String consultaAlunos(){return data.consultarAlunos();}
+
 
 }
