@@ -28,11 +28,9 @@ public class FASE2BlockState extends apoio_poeAdapter{
     @Override
     public String consultarPropostasDeDocentes(){return data.consultarPropostasDocentes();};
     @Override
-    public String consultarPropostasComCadidaturas(){return data.consultarPropostasComCandidaturas();};
+    public String consultarPropostasComCandidaturas(){return data.consultarPropostasComCandidaturas();};
     @Override
-    public String consultarPropostasSemCadidaturas(){return data.consultarPropostasSemCandidaturas();};
+    public String consultarPropostasSemCandidaturas(){return data.consultarPropostasSemCandidaturas();};
     @Override
     public String consultaCandidatura(long nrAluno){return data.consultarCandidatura(nrAluno);}
-    @Override
-    public String consultaAlunos(){return data.consultarAlunos();}
 }

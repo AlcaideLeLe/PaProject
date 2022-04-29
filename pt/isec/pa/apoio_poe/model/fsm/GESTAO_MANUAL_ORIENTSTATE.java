@@ -19,4 +19,9 @@ public class GESTAO_MANUAL_ORIENTSTATE extends apoio_poeAdapter{
     public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){};
     @Override
     public void removerOrientadorDeProposta(String idProposta){};
+    @Override
+    public boolean changeFromGestaoManualOrientToFase4(){
+        changeState(apoio_poeState.FASE4);
+        return false;
+    }
 }

@@ -20,7 +20,7 @@ public class FASE4State extends apoio_poeAdapter{
             changeState(apoio_poeState.FASE3);
             return true;
         }
-        changeState(apoio_poeState.FASE3BLOCKSTATE) ;
+        changeState(apoio_poeState.FASE3BLOCKSTATE);
         return false;
     }
     @Override

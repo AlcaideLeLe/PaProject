@@ -45,6 +45,11 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public boolean changeToGestaoManualAtribuicoesState() {return false;}
     @Override
     public boolean changeToGestaoDeDocentesState(){return false;}
+    @Override
+    public boolean changeFromGestaoManualAtribToFase3(){return false;}
+    @Override
+    public boolean changeFromGestaoManualOrientToFase4(){return false;}
+
 
     //Fase 1
     @Override
@@ -59,6 +64,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public void exportarAlunosParaCSV(String nomeFicheiro){};
     @Override
     public void exportarPropostasParaCSV(String nomeFicheiro){};
+    @Override
+    public void exportarCandidaturasParaCSV(String nomeFicheiro){};
     @Override
     public String consultaAluno(long nrAluno) {return null;}
     @Override
@@ -92,9 +99,9 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public String consultarPropostasDeDocentes(){return null;};
     @Override
-    public String consultarPropostasComCadidaturas(){return null;};
+    public String consultarPropostasComCandidaturas(){return null;};
     @Override
-    public String consultarPropostasSemCadidaturas(){return null;};
+    public String consultarPropostasSemCandidaturas(){return null;};
 
 
 

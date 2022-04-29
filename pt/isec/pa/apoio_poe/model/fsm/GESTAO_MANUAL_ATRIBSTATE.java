@@ -17,4 +17,9 @@ public class GESTAO_MANUAL_ATRIBSTATE extends apoio_poeAdapter{
     public void atribuirAutoproposta(){};
     @Override
     public void atribuirPropostaDeDocente(){};
+    @Override
+    public boolean changeFromGestaoManualAtribToFase3() {
+        changeState(apoio_poeState.FASE3);
+        return false;
+    }
 }

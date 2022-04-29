@@ -18,6 +18,8 @@ public interface IApoio_poeState {
     boolean changeFromGestaoORItoBase();
     boolean changeToGestaoManualAtribuicoesState();
     boolean changeToGestaoDeDocentesState();
+    boolean changeFromGestaoManualAtribToFase3();
+    boolean changeFromGestaoManualOrientToFase4();
 
 
     //Fase 1
@@ -33,6 +35,7 @@ public interface IApoio_poeState {
     void exportarDocentesParaCSV(String nomeFicheiro);
     void exportarAlunosParaCSV(String nomeFicheiro);
     void exportarPropostasParaCSV(String nomeFicheiro);
+    void exportarCandidaturasParaCSV(String nomeFicheiro);
 
     //Fase 2
     void addCandidatura();
@@ -43,8 +46,8 @@ public interface IApoio_poeState {
     String consultarAlunosSemCandidatura();
     String consultarListaDeAutopropostas();
     String consultarPropostasDeDocentes();
-    String consultarPropostasComCadidaturas();
-    String consultarPropostasSemCadidaturas();
+    String consultarPropostasComCandidaturas();
+    String consultarPropostasSemCandidaturas();
 
     //Fase 3
     void atribuirAutoproposta();

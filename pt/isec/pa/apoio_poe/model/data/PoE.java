@@ -665,6 +665,23 @@ public class PoE {
         }
 
     }
+    public void exportarCandidaturasParaCSV(String nomeFicheiro){
+        StringBuilder sb = new StringBuilder();
+
+        try(PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(nomeFicheiro)))) {
+            for(var c :listaDeCandidaturas){
+                sb.append(c.getNumero());
+                for(var p : c.getPropostas()){
+                    sb.append(",").append(p);
+                }
+                sb.append(System.lineSeparator());
+            }
+            pw.println(sb.toString().trim());
+        }catch (IOException e) {
+            return;
+        }
+    }
+
 
 }
 
@@ -717,4 +734,4 @@ public class PoE {
         return arrayAlunos;
     }*/
 
-}
+

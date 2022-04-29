@@ -1,6 +1,9 @@
 package pt.isec.pa.apoio_poe.model.data;
 
 
+import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.text.UI;
+
 import java.io. * ;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,16 +13,18 @@ import java.util.Iterator;
 import java.util.Scanner;
 public class CsvReader {
     public static void main(String[] args) throws Exception {
-        //UI ui = new UI();
-        //ui.mostraMenuIncial();
-        PoE poe = new PoE();
-        poe.addAluno();
+        
+        apoio_poeContext fsm = null;
+        UI ui = new UI(fsm);
+        ui.start();
+        //PoE poe = new PoE();
+        //poe.addAluno();
         //System.out.println(poe.consultarAlunos());
         //poe.addDocente();
-        poe.addProposta();
+        //poe.addProposta();
         //System.out.println(poe.consultarAlunos());
         //System.out.println(poe.consultarPropostas());
-        System.out.println(poe.consultarPropostasDocentes());;
+        //System.out.println(poe.consultarPropostasDocentes());;
         //poe.atruibuicaoDeAlunosSemPropostasDefinidas();
         //System.out.println(poe.consultarAlunosComPropostaAtribuida());
         //poe.atribuirPropostaManualmente(2018014063, "P031");

@@ -32,6 +32,8 @@ public class apoio_poeContext {
     public boolean changeFromGestaoORItoBase() {return false;}
     public boolean changeToGestaoManualAtribuicoesState() {return false;}
     public boolean changeToGestaoDeDocentesState(){return false;}
+    public boolean changeFromGestaoManualAtribToFase3(){return false;}
+    public boolean changeFromGestaoManualOrientToFase4(){return false;}
 
     public void addAluno(){state.addAluno();}
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
@@ -49,8 +51,8 @@ public class apoio_poeContext {
     public String consultarAlunosComCandidatura(){return state.consultarAlunosComCandidatura();}
     public String consultarListaDeAutopropostas(){return state.consultarListaDeAutopropostas();}
     public String consultarPropostasDocentes(){return state.consultarPropostasDeDocentes();};
-    public String consultarPropostasComCadidaturas(){return state.consultarPropostasComCadidaturas();}
-    public String consultarPropostasSemCadidaturas(){return state.consultarPropostasSemCadidaturas();}
+    //public String consultarPropostasComCadidaturas(){return state.consultarPropostasComCadidaturas();}
+    //public String consultarPropostasSemCadidaturas(){return state.consultarPropostasSemCadidaturas();}
     public void atribuirAutoproposta(){}
     public void atribuirPropostaDeDocente(){}
     public void atruibuicaoDeAlunosSemPropostasDefinidas(){}
@@ -72,10 +74,15 @@ public class apoio_poeContext {
     public String consultarMediaDeOrientacoesDosDocentes(){return state.consultarMediaDeOrientacoesDosDocentes();}
     public String consultarAlunosComCandidaturaESemProposta(){return state.consultarAlunosComCandidaturaESemProposta();}
     public String consultarAlunosSemCandidatura(){return state.consultarAlunosSemCandidatura();}
-    public String consultarPropostasComCandidaturas(){return state.consultarPropostasComCadidaturas();}
-    public String consultarPropostasSemCandidaturas(){return state.consultarPropostasSemCadidaturas();}
+    public String consultarPropostasComCandidaturas(){return state.consultarPropostasComCandidaturas();}
+    public String consultarPropostasSemCandidaturas(){return state.consultarPropostasSemCandidaturas();}
     public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAluno, String emailProf){}
     public void removerTodasAsAtribuicoes(){}
+    public void exportarAlunosParaCSV(String nomeFicheiro){};
+    public void exportarDocentesParaCSV(String nomeFicheiro){}
+    public void exportarPropostasParaCSV(String nomeFicheiro){};
+    public void exportarCandidaturasParaCSV(String nomeFicheiro){};
+    public apoio_poeState getState(){return state.getState();}
 
 
 
