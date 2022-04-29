@@ -1,4 +1,7 @@
-package pt.isec.pa.apoio_poe.model.data;
+package pt.isec.pa.apoio_poe.ui.text;
+
+import pt.isec.pa.apoio_poe.model.data.PoE;
+import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 
 import java.io. * ;
 import java.nio.file.Files;
@@ -11,9 +14,11 @@ import java.util.Scanner;
 
 public class UI {
     private int opcao;
+    private apoio_poeContext fsm;
+    public UI(apoio_poeContext fsm){
+        this.fsm = fsm;
+    }
 
-    public UI(){}
-    PoE poe = new PoE();
 
     public int getOpcao() {
         return opcao;
@@ -62,8 +67,8 @@ public class UI {
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                poe.addAluno();
-                System.out.println(poe.consultarAlunos());
+                fsm.addAluno();
+                System.out.println(fsm.consultarAlunos());
             }
             case 2 -> {
                 mostraMenuIncial();
@@ -89,8 +94,8 @@ public class UI {
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                poe.addDocente();
-                System.out.println(poe.consultarDocentes());
+                fsm.addDocente();
+                System.out.println(fsm.consultarDocentes());
             }
             case 2 -> {
                 mostraMenuIncial();
@@ -114,8 +119,8 @@ public class UI {
             int opcao = sc.nextInt();
             switch (opcao) {
                 case 1 -> {
-                    poe.addProposta();
-                    System.out.println(poe.consultarPropostas());
+                    fsm.addProposta();
+                    System.out.println(fsm.consultarPropostas());
                 }
                 case 2 -> {
                     mostraMenuIncial();
@@ -166,10 +171,10 @@ public class UI {
 
         switch (opcao) {
             case 1 -> {
-                poe.addCandidatura();
+                fsm.addCandidatura();
             }
             case 2 -> {
-                System.out.println(poe.consultarCandidaturas());;
+                System.out.println(fsm.consultarCandidaturas());;
                 ;}
             case 3 -> {
                 mostraMenuSegundaFase();
@@ -189,13 +194,13 @@ public class UI {
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                System.out.println(poe.consultarListaDeAutopropostas());
+                System.out.println(fsm.consultarListaDeAutopropostas());
             }
             case 2 -> {
-                System.out.println(poe.consultarAlunosComCandidatura());
+                System.out.println(fsm.consultarAlunosComCandidatura());
                 ;}
             case 3 -> {
-                System.out.println(poe.consultarAlunosSemCandidatura());
+                System.out.println(fsm.consultarAlunosSemCandidatura());
                 ;
             }
             case 4 -> {
@@ -217,17 +222,17 @@ public class UI {
 
         switch (opcao) {
             case 1 -> {
-                System.out.println(poe.consultarListaDeAutopropostas());
+                System.out.println(fsm.consultarListaDeAutopropostas());
             }
             case 2 -> {
-                System.out.println(poe.consultarPropostasDocentes());
+                System.out.println(fsm.consultarPropostasDocentes());
                 ;}
             case 3 -> {
-                System.out.println(poe.consultarPropostasComCandidaturas());
+                System.out.println(fsm.consultarPropostasComCandidaturas());
                 ;
             }
             case 4 -> {
-                System.out.println(poe.consultarPropostasSemCandidaturas());
+                System.out.println(fsm.consultarPropostasSemCandidaturas());
                 ;
             }
             case 5 -> {
@@ -277,11 +282,11 @@ public class UI {
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                poe.atribuirAutoproposta();
+                fsm.atribuirAutoproposta();
                 ;
             }
             case 2 -> {
-                poe.atruibuicaoDeAlunosSemPropostasDefinidas();
+                fsm.atruibuicaoDeAlunosSemPropostasDefinidas();
                 ;
             }
             case 3 -> {
@@ -289,16 +294,16 @@ public class UI {
                 long nraluno = sc.nextLong();
                 System.out.println("Insira o ID da proposta que vai ser atribuida");
                 String propostaASerAtribuida = sc.nextLine();
-                poe.atribuirPropostaManualmente(nraluno, propostaASerAtribuida);
+                fsm.atribuirPropostaManualmente(nraluno, propostaASerAtribuida);
             }
             case 4 -> {
                 System.out.println("Insira o nr de aluno ao qual a proposta vai ser retirada");
                 long nraluno = sc.nextLong();
-                poe.removerPropostaManualmente(nraluno);
+                fsm.removerPropostaManualmente(nraluno);
                 ;
             }
             case 5 -> {
-                poe.removerTodasAsAtribuicoes();
+                fsm.removerTodasAsAtribuicoes();
                 ;
             }
             case 6 -> {
@@ -321,17 +326,17 @@ public class UI {
 
         switch (opcao) {
             case 1 -> {
-                System.out.println(poe.consultarListaDeAutopropostas());
+                System.out.println(fsm.consultarListaDeAutopropostas());
             }
             case 2 -> {
-                System.out.println(poe.consultarPropostasDocentes());
+                System.out.println(fsm.consultarPropostasDocentes());
                 ;}
             case 3 -> {
-                System.out.println(poe.consultarPropostasDisponiveis());
+                System.out.println(fsm.consultarPropostasDisponiveis());
                 ;
             }
             case 4 -> {
-                System.out.println(poe.consultarPropostasAtribuidas());
+                System.out.println(fsm.consultarPropostasAtribuidas());
                 ;
             }
             case 5 -> {
@@ -354,16 +359,16 @@ public class UI {
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                System.out.println(poe.consultarListaDeAutopropostas());
+                System.out.println(fsm.consultarListaDeAutopropostas());
             }
             case 2 -> {
-                System.out.println(poe.consultarAlunosComCandidatura());
+                System.out.println(fsm.consultarAlunosComCandidatura());
                 ;}
             case 3 -> {
-                System.out.println(poe.consultarAlunosComPropostaAtribuida());
+                System.out.println(fsm.consultarAlunosComPropostaAtribuida());
             }
             case 4 -> {
-                System.out.println(poe.consultarAlunosSemPropostaAtribuida());
+                System.out.println(fsm.consultarAlunosSemPropostaAtribuida());
                 ;
             }
         }
@@ -410,7 +415,7 @@ public class UI {
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                poe.atribuirPropostaADocenteProponenteAutomaticamente();
+                fsm.atribuirPropostaADocenteProponenteAutomaticamente();
             }
             case 2 -> {
                 mostraMenuAtribuicoesDeDocentes4Fase();
@@ -437,24 +442,24 @@ public class UI {
                 long nraluno = sc.nextLong();
                 System.out.println("Insira o email do orientador");
                 String emailOrientador = sc.nextLine();
-                poe.atribuirManualmenteOrientadorAAlunosComPropostas(nraluno, emailOrientador);
+                fsm.atribuirManualmenteOrientadorAAlunosComPropostas(nraluno, emailOrientador);
             }
             case 2 -> {
                 System.out.println("Insira o ID da proposta");
                 String IDProposta = sc.nextLine();
-                System.out.println(poe.consultarOrientadorDeProposta(IDProposta));
+                System.out.println(fsm.consultarOrientadorDeProposta(IDProposta));
                 ;}
             case 3 -> {
                 System.out.println("Insira o ID da proposta");
                 String IDProposta = sc.nextLine();
                 System.out.println("Insira o email do orientador");
                 String emailOrientador = sc.nextLine();
-                poe.editarOrientadorDeProposta(IDProposta, emailOrientador);
+                fsm.editarOrientadorDeProposta(IDProposta, emailOrientador);
             }
             case 4 -> {
                 System.out.println("Insira o ID da proposta");
                 String IDProposta = sc.nextLine();
-                poe.removerOrientadorDeProposta(IDProposta);
+                fsm.removerOrientadorDeProposta(IDProposta);
                 ;
             }
         }
@@ -470,15 +475,15 @@ public class UI {
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                System.out.println(poe.consultarAlunosComPropostaEComOrientador());
+                System.out.println(fsm.consultarAlunosComPropostaEComOrientador());
             }
             case 2 -> {
-                System.out.println(poe.consultarAlunosComPropostaESemOrientador());
+                System.out.println(fsm.consultarAlunosComPropostaESemOrientador());
                 ;}
             case 3 -> {
-                System.out.println(poe.consultarDocenteComMaisOrientacoes());
-                System.out.println(poe.consultarDocenteComMenosOrientacoes());
-                System.out.println(poe.consultarMediaDeOrientacoesDosDocentes());
+                System.out.println(fsm.consultarDocenteComMaisOrientacoes());
+                System.out.println(fsm.consultarDocenteComMenosOrientacoes());
+                System.out.println(fsm.consultarMediaDeOrientacoesDosDocentes());
             }
 
         }
@@ -496,21 +501,21 @@ public class UI {
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                System.out.println(poe.consultarAlunosComPropostaAtribuida());
+                System.out.println(fsm.consultarAlunosComPropostaAtribuida());
             }
             case 2 -> {
-                System.out.println(poe.consultarAlunosComCandidaturaESemProposta());
+                System.out.println(fsm.consultarAlunosComCandidaturaESemProposta());
                 ;}
             case 3 ->{
-                System.out.println(poe.consultarPropostasDisponiveis());
+                System.out.println(fsm.consultarPropostasDisponiveis());
                 }
             case 4 ->{
-                System.out.println(poe.consultarPropostasAtribuidas());
+                System.out.println(fsm.consultarPropostasAtribuidas());
             }
             case 5 -> {
-                System.out.println(poe.consultarDocenteComMaisOrientacoes());
-                System.out.println(poe.consultarDocenteComMenosOrientacoes());
-                System.out.println(poe.consultarMediaDeOrientacoesDosDocentes());
+                System.out.println(fsm.consultarDocenteComMaisOrientacoes());
+                System.out.println(fsm.consultarDocenteComMenosOrientacoes());
+                System.out.println(fsm.consultarMediaDeOrientacoesDosDocentes());
             }
 
         }
