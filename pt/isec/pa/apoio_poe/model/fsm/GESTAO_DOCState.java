@@ -25,4 +25,9 @@ public class GESTAO_DOCState extends apoio_poeAdapter{
     public String consultaDocente(String email){return data.consultarDocente(email);}
     @Override
     public String consultaDocentes(){return data.consultarDocentes();}
+    @Override
+    public void atribuirPropostaADocenteProponenteAutomaticamente(){}
+    @Override
+    public void exportarDocentesParaCSV(String nomeFicheiro){data.exportarAlunosParaCSV(nomeFicheiro);};
+
 }

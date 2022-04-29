@@ -36,4 +36,19 @@ public class FASE2State extends apoio_poeAdapter{
         changeState(apoio_poeState.GESTAO_CAND);
         return true;
     }
+
+    @Override
+    public String consultaAlunosComAutoproposta(){return data.consultarAlunosComAutoproposta();}
+    @Override
+    public String consultarAlunosComCandidatura(){return data.consultarAlunosComCandidatura();};
+    @Override
+    public String consultarAlunosSemCandidatura(){return data.consultarAlunosSemCandidatura();};
+    @Override
+    public String consultarListaDeAutopropostas(){return data.consultarListaDeAutopropostas();};
+    @Override
+    public String consultarPropostasDeDocentes(){return data.consultarPropostasDocentes();};
+    @Override
+    public String consultarPropostasComCadidaturas(){return data.consultarPropostasComCandidaturas();};
+    @Override
+    public String consultarPropostasSemCadidaturas(){return data.consultarPropostasSemCandidaturas();};
 }

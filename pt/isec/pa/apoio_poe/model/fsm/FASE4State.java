@@ -43,6 +43,16 @@ public class FASE4State extends apoio_poeAdapter{
         changeState(apoio_poeState.GESTAO_DOC);
         return true;
     }
+    @Override
+    public String consultarAlunosComPropostaEComOrientador(){return data.consultarAlunosComPropostaEComOrientador();};
+    @Override
+    public String consultarAlunosComPropostaESemOrientador(){return data.consultarAlunosComPropostaESemOrientador();};
+    @Override
+    public String consultarDocenteComMenosOrientacoes(){return data.consultarDocenteComMenosOrientacoes();};
+    @Override
+    public String consultarDocenteComMaisOrientacoes(){return data.consultarDocenteComMaisOrientacoes();};
+    @Override
+    public String consultarMediaDeOrientacoesDosDocentes(){return data.consultarMediaDeOrientacoesDosDocentes();};
 
 
 

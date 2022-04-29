@@ -11,4 +11,10 @@ public class GESTAO_MANUAL_ATRIBSTATE extends apoio_poeAdapter{
     public apoio_poeState getState() {
         return null;
     }
+    @Override
+    public void atribuicaoDeAlunosSemPropostasDefinidas(){};
+    @Override
+    public void atribuirAutoproposta(){};
+    @Override
+    public void atribuirPropostaDeDocente(){};
 }

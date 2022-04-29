@@ -1,8 +1,7 @@
 package pt.isec.pa.apoio_poe.model.data;
 
 import javax.xml.crypto.dsig.CanonicalizationMethod;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 public class PoE {
@@ -618,6 +617,57 @@ public class PoE {
 
         return sb.toString();
     }
+
+    public void exportarDocentesParaCSV(String nomeFicheiro){
+        StringBuilder sb = new StringBuilder();
+
+        try(PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(nomeFicheiro)))) {
+            for(var d :listaDeDocentes){
+                sb.append(d.getNome()).append(",").append(d.getEmail()).append(System.lineSeparator());
+            }
+            pw.println(sb.toString().trim());
+        }catch (IOException e) {
+            return;
+        }
+    }
+    public void exportarAlunosParaCSV(String nomeFicheiro){
+        StringBuilder sb = new StringBuilder();
+
+        try(PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(nomeFicheiro)))) {
+            for(var a : listaDeAlunos){
+                sb.append(a.getNumero()).append(",").append(a.getNome()).append(",").append(a.getEmail()).append("").append(a.getSiglaCurso()).append(",").
+                        append(a.getSiglaRamo()).append(",").append(a.getClassificacao()).append(",").append(a.isAcessoEstagio()).append(System.lineSeparator());
+            }
+            pw.println(sb.toString().trim());
+        }catch (IOException e) {
+            return;
+        }
+    }
+    public void exportarPropostaParaCSV(String nomeFicheiro){
+        StringBuilder sb = new StringBuilder();
+
+        try(PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(nomeFicheiro)))) {
+            for(var pr : listaDePropostas){
+                if(pr instanceof Estagio e) {
+                    sb.append(e.getTipoDeProposta()).append(",").append(e.getIdProposta()).append(",").append(e.getAreaDestino()).append(",").append(e.getIdEntidadeAcolhimento()).append(System.lineSeparator());
+                }
+                else if(pr instanceof Projeto p){
+                    sb.append(p.getTipoDeProposta()).append(",").append(p.getIdProposta()).append(",").append(p.getAreaDestino()).append(",").append(p.getTitulo()).append(",").append(p.getDocenteProponente()).append(",").append(p.getNrAluno()).append(System.lineSeparator());
+
+                }
+                else if(pr instanceof Autoproposto a){
+                    sb.append(a.getTipoDeProposta()).append(",").append(a.getIdProposta()).append(",").append(a.getTitulo()).append(",").append(a.getNrAluno()).append(System.lineSeparator());
+                }
+            }
+            pw.println(sb.toString().trim());
+        }catch (IOException e) {
+            return;
+        }
+
+    }
+
+}
+
 
 /*
     public void removeAluno(){}

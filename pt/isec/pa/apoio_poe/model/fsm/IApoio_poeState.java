@@ -30,6 +30,9 @@ public interface IApoio_poeState {
     void addProposta();
     String consultaProposta(String idProposta);
     String consultaPropostas();
+    void exportarDocentesParaCSV(String nomeFicheiro);
+    void exportarAlunosParaCSV(String nomeFicheiro);
+    void exportarPropostasParaCSV(String nomeFicheiro);
 
     //Fase 2
     void addCandidatura();

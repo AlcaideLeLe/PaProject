@@ -27,5 +27,6 @@ public class GESTAO_PROPState extends apoio_poeAdapter{
     public String consultaProposta(String IDProposta){return data.consultarProposta(IDProposta);}
     @Override
     public String consultaPropostas(){return data.consultarPropostas();}
-
+    @Override
+    public void exportarPropostasParaCSV(String nomeFicheiro){data.exportarAlunosParaCSV(nomeFicheiro);};
 }

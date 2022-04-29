@@ -54,6 +54,12 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void addProposta(){};
     @Override
+    public void exportarDocentesParaCSV(String nomeFicheiro){};
+    @Override
+    public void exportarAlunosParaCSV(String nomeFicheiro){};
+    @Override
+    public void exportarPropostasParaCSV(String nomeFicheiro){};
+    @Override
     public String consultaAluno(long nrAluno) {return null;}
     @Override
     public String consultaAlunos() {return null;}

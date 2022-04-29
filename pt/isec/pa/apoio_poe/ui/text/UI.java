@@ -62,19 +62,24 @@ public class UI {
         System.out.println("1 - Adicionar todos os alunos a partir de ficheiro");
         System.out.println("2 - Regressar ao menu anterior");
         System.out.println("3 - Avancar para a fase seguinte");
+        System.out.println("4 - Exportar alunos para ficheiro csv");
         System.out.println("---------------");
 
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
                 fsm.addAluno();
-                System.out.println(fsm.consultarAlunos());
+                System.out.println(fsm.consultaAlunos());
             }
             case 2 -> {
                 mostraMenuIncial();
             }
             case 3 -> {
                 mostraMenuSegundaFase();
+            }
+            case 4 -> {
+                String nomeFicheiro = sc.nextLine();
+                System.out.println("Insira o nome do ficheiro");
             }
 
         }
@@ -89,19 +94,26 @@ public class UI {
         System.out.println("1 - Adicionar todos os decentes a partir de ficheiro");
         System.out.println("2 - Regressar ao menu anterior");
         System.out.println("3 - Avancar para a fase seguinte");
+        System.out.println("4 - Exportar docentes para ficheiro csv");
+
         System.out.println("---------------");
 
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
                 fsm.addDocente();
-                System.out.println(fsm.consultarDocentes());
+                System.out.println(fsm.consultaDocentes());
             }
             case 2 -> {
                 mostraMenuIncial();
             }
             case 3 -> {
                 mostraMenuSegundaFase();
+            }
+            case 4 -> {
+                String nomeFicheiro = sc.nextLine();
+                System.out.println("Insira o nome do ficheiro");
+
             }
         }
     }
@@ -114,19 +126,24 @@ public class UI {
             System.out.println("1 - Adicionar todos as propostas a partir de ficheiro");
             System.out.println("2 - Regressar ao menu anterior");
             System.out.println("3 - Avancar para a fase seguinte");
+            System.out.println("4 - Exportar propostas para ficheiro csv");
             System.out.println("---------------");
 
             int opcao = sc.nextInt();
             switch (opcao) {
                 case 1 -> {
                     fsm.addProposta();
-                    System.out.println(fsm.consultarPropostas());
+                    System.out.println(fsm.consultaPropostas());
                 }
                 case 2 -> {
                     mostraMenuIncial();
                 }
                 case 3 -> {
                     mostraMenuSegundaFase();
+                }
+                case 4 -> {
+                    String nomeFicheiro = sc.nextLine();
+                    System.out.println("Insira o nome do ficheiro");
                 }
             }
 
@@ -174,7 +191,7 @@ public class UI {
                 fsm.addCandidatura();
             }
             case 2 -> {
-                System.out.println(fsm.consultarCandidaturas());;
+                System.out.println(fsm.consultaCandidaturas());;
                 ;}
             case 3 -> {
                 mostraMenuSegundaFase();

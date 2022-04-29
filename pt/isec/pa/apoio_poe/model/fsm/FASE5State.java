@@ -12,5 +12,19 @@ public class FASE5State extends apoio_poeAdapter{
         return apoio_poeState.FASE5;
     }
 
+    public String consultarAlunosComPropostaAtribuida(){return data.consultarAlunosComPropostaAtribuida();};
+    @Override
+    public String consultarAlunosComCandidaturaESemProposta(){return data.consultarAlunosComCandidaturaESemProposta();};
+    @Override
+    public String consultarPropostasDisponiveis(){return data.consultarPropostasDisponiveis();};
+    @Override
+    public String consultarPropostasAtribuidas(){return data.consultarPropostasAtribuidas();};
+    @Override
+    public String consultarDocenteComMenosOrientacoes(){return data.consultarDocenteComMenosOrientacoes();};
+    @Override
+    public String consultarDocenteComMaisOrientacoes(){return data.consultarDocenteComMaisOrientacoes();};
+    @Override
+    public String consultarMediaDeOrientacoesDosDocentes(){return data.consultarMediaDeOrientacoesDosDocentes();};
+
 
 }
