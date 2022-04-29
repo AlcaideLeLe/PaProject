@@ -33,7 +33,6 @@ public class PoE {
         }
     } //FALTA VERIFICAR
 
-
     public void addDocente() {
         try {
             ArrayList<String> arrayDocente = new ArrayList<>();
@@ -376,7 +375,14 @@ public class PoE {
             for(var pna : propostasNaoAtribuidas){
                 asp.setIdPropostaAssociada(pna.getIdProposta());
                 pna.setAtribuida(true);
+                pna.setNrAluno(asp.getNumero());
                 p = pna;
+                    for(var pr : listaDePropostas){
+                        if(Objects.equals(pr.getIdProposta(), p.getIdProposta())){
+                            pr.setAtribuida(true);
+                            pr.setNrAluno(pna.getNrAluno());
+                        }
+                    }
                 break;
             }
             propostasNaoAtribuidas.remove(p);
@@ -393,6 +399,17 @@ public class PoE {
 
         return sb.toString();
     } //FEITO HOJE E TESTADO
+
+    public String consultarAlunosComPropostaAtribuida(){
+        StringBuilder sb = new StringBuilder();
+        for(var a : listaDeAlunos){
+            if(a.getIdPropostaAssociada() != null){
+                sb.append("Numero de Aluno: ").append(a.toString()).append(System.lineSeparator());
+            }
+        }
+
+        return sb.toString();
+    }
 
     public String consultaPropostasDisponiveis(){
         StringBuilder sb = new StringBuilder();
@@ -573,6 +590,31 @@ public class PoE {
             }
         }
 
+
+        return sb.toString();
+    }
+
+    public void removerTodasAsAtribuicoes(){
+        for(var p : listaDePropostas){
+            if(p instanceof Estagio) {
+                for (var a : listaDeAlunos) {
+                    if(Objects.equals(p.getIdProposta(), a.getIdPropostaAssociada())){
+                        a.setIdPropostaAssociada(null);
+                        p.setAtribuida(false);
+                        p.setNrAluno(0);
+                    }
+                }
+            }
+        }
+    }
+
+    public String consultarPropostasDocentes(){
+        StringBuilder sb = new StringBuilder();
+        for(var p : listaDePropostas){
+            if(p instanceof Projeto){
+                sb.append("Proposta ").append(p).append(System.lineSeparator());
+            }
+        }
 
         return sb.toString();
     }
