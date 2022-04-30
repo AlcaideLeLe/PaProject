@@ -9,8 +9,12 @@ public class PoE {
     ArrayList<Docente> listaDeDocentes = new ArrayList<>();
     ArrayList<Proposta> listaDePropostas = new ArrayList<>();
     ArrayList<Candidatura> listaDeCandidaturas = new ArrayList<>();
+    public int faseFechada;
+    public PoE(){
+        faseFechada = 0;
+    }
 
-    public int faseFechada=0;
+
 
     public void addAluno() {
         try {
@@ -574,6 +578,15 @@ public class PoE {
         }
         media /= listaDeDocentes.size();
         return "A media dos orientador e: "+media;
+    }
+
+    public String consultarOrientacoesDocente(String email){
+        StringBuilder sb = new StringBuilder();
+        for(var d : listaDeDocentes){
+            sb.append("Numero de orientacoes ").append(d.getNrDeOrientacoes()).append(System.lineSeparator());
+        }
+
+        return sb.toString();
     }
 
     public String consultarAlunosComCandidaturaESemProposta(){

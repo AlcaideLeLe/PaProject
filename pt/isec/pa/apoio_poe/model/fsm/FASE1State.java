@@ -29,13 +29,14 @@ public class FASE1State extends apoio_poeAdapter{
         return true;
     }
     @Override
-    public boolean changeToGestaoCAND() {
-        changeState(apoio_poeState.GESTAO_CAND);
-        return true;
-    }
-    @Override
     public boolean changeToGestaoDOC() {
         changeState(apoio_poeState.GESTAO_DOC);
+        return true;
+    }
+
+    @Override
+    public boolean changeToPropState(){
+        changeState(apoio_poeState.GESTAO_PROP);
         return true;
     }
 

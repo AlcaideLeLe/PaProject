@@ -49,6 +49,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public boolean changeFromGestaoManualAtribToFase3(){return false;}
     @Override
     public boolean changeFromGestaoManualOrientToFase4(){return false;}
+    public boolean changeToPropState(){return false;}
 
 
     //Fase 1
@@ -156,7 +157,9 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     //String consultarAlunosComPropostaAtribuida(); mesma linha 52
     @Override
     public String consultarAlunosComCandidaturaESemProposta(){return null;};
-
+    public void removerTodasAsAtribuicoes(){}
+    public String consultarPropostas(){return null;}
+    public String consultarOrientacoesDocente(String email){return null;}
     //String consultarPropostasDisponiveis(); 56
     //String consultarPropostasAtribuidas(); 57
     //String consultarDocenteComMenosOrientacoes();

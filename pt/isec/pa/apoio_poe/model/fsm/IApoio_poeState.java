@@ -20,6 +20,7 @@ public interface IApoio_poeState {
     boolean changeToGestaoDeDocentesState();
     boolean changeFromGestaoManualAtribToFase3();
     boolean changeFromGestaoManualOrientToFase4();
+    boolean changeToPropState();
 
 
     //Fase 1
@@ -75,6 +76,9 @@ public interface IApoio_poeState {
     String consultarDocenteComMenosOrientacoes();
     String consultarDocenteComMaisOrientacoes();
     String consultarMediaDeOrientacoesDosDocentes();
+    void removerTodasAsAtribuicoes();
+    String consultarPropostas();
+    String consultarOrientacoesDocente(String email);
 
     //Fase 5
     //String consultarAlunosComPropostaAtribuida(); mesma linha 52
