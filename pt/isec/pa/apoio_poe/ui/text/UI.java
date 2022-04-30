@@ -380,7 +380,7 @@ public class UI {
         System.out.println("3 - Opcoes para propostas");
         System.out.println("4 - Recuar para fase anterior");
         System.out.println("5 - Fechar fase");
-        System.out.println("6 - Fechar fase");
+        System.out.println("6 - Avancar fase");
         System.out.println("7 - Fechar aplicacao");
         System.out.println("---------------");
         int opcao = sc.nextInt();
@@ -562,6 +562,7 @@ public class UI {
         System.out.println("3 - Atribuir uma proposta manualmente");
         System.out.println("4 - Remover uma proposta manualmente");
         System.out.println("5 - Remover todas as atribuicoes (exceto as autopropostas e as propostas de docentes com aluno associado");
+        System.out.println("6 - Regressar ao menu anterior");
         System.out.println("---------------");
         int opcao = sc.nextInt();
         switch (opcao) {
@@ -589,6 +590,9 @@ public class UI {
             case 5 -> {
                 fsm.removerTodasAsAtribuicoes();
                 ;
+            }
+            case 6 ->{
+                fsm.changeFromTratamentoPropToBase();
             }
         }
     }
@@ -668,13 +672,14 @@ public class UI {
                 fsm.changeToGestaoDOC();
             }
             case 2 -> {
-                fsm.changeFromGestaoManualOrientToFase4();
+                fsm.changeToGestaoORI();
                 ;}
             case 3 -> {
                 System.out.println("O que pretende fazer?");
                 System.out.println("1 - Lista de Alunos com proposta atribuida e com orientador");
                 System.out.println("2 - Lista de Alunos com proposta atribuida e sem orientador");
                 System.out.println("3 - Consulta dados sobre os docentes");
+                System.out.println("4 - Regressar ao menu anterior");
                 int op = sc.nextInt();
 
                 switch (op){
@@ -694,6 +699,9 @@ public class UI {
                             String emailProf = sc.nextLine();
                             System.out.println(fsm.consultarOrientacoesDocente(emailProf));
                         }
+                    }
+                    case 4 ->{
+                        fsm.changeFromGestaoORItoBase();
                     }
                 }
 
@@ -726,6 +734,7 @@ public class UI {
         System.out.println("2 - Atribuir automcaticamente os docentes as suas propostas");
         System.out.println("3 - Atribuir orientador manualmente");
         System.out.println("4 - Obter dados sobre os docentes");
+        System.out.println("5 - Regressar a menu anterior");
         System.out.println("---------------");
         int opcao = sc.nextInt();
         switch (opcao) {
@@ -752,6 +761,9 @@ public class UI {
                     String emailProf = sc.nextLine();
                     System.out.println(fsm.consultarOrientacoesDocente(emailProf));
                 }
+            }
+            case 5 -> {
+                fsm.changeFromGestaoORItoBase();
             }
 
         }

@@ -50,6 +50,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public boolean changeFromGestaoManualOrientToFase4(){return false;}
     public boolean changeToPropState(){return false;}
+    public boolean changeFromTratamentoPropToBase(){return false;}
 
 
     //Fase 1

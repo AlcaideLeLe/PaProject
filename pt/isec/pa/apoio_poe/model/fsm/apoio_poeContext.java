@@ -35,6 +35,7 @@ public class apoio_poeContext {
     public boolean changeFromGestaoManualAtribToFase3(){return state.changeFromGestaoManualAtribToFase3();}
     public boolean changeFromGestaoManualOrientToFase4(){return state.changeFromGestaoManualOrientToFase4();}
     public boolean changeToPropState(){return state.changeToPropState();}
+    public boolean changeFromTratamentoPropToBase(){return state.changeFromTratamentoPropToBase();}
 
     public void addAluno(){state.addAluno();}
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
@@ -42,7 +43,7 @@ public class apoio_poeContext {
     public void addDocente(){state.addDocente();}
     public String consultaDocente(String email){return state.consultaDocente(email);}
     public String consultaDocentes(){return state.consultaDocentes();}
-    public void addProposta(){state.addDocente();}
+    public void addProposta(){state.addProposta();}
     public String consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
     public String consultaPropostas(){return state.consultaPropostas();}
     public void addCandidatura(){state.addCandidatura();}

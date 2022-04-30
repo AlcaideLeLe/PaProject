@@ -15,4 +15,9 @@ public class TRATAMENTO_PROPState extends apoio_poeAdapter{
     public void atribuirPropostaManualmente(long nrAluno, String idProposta){};
     @Override
     public void removerPropostaManualmente(long nrAluno){};
+    @Override
+    public boolean changeFromTratamentoPropToBase() {
+        changeState(apoio_poeState.FASE3);
+        return false;
+    }
 }

@@ -16,6 +16,7 @@ public class PoE {
 
 
 
+
     public void addAluno() {
         try {
             ArrayList<String> arrayAluno = new ArrayList<>();
@@ -25,8 +26,19 @@ public class PoE {
                 arrayAluno.add(scAluno.nextLine());
             }
             String[] dadosAluno;
+            boolean exist;
             for (int i = 0; i < arrayAluno.size(); i++) {
+                exist = false;
                 dadosAluno = arrayAluno.get(i).split(";");
+                for(var a: listaDeAlunos){
+                    if(a.getNumero() == Long.parseLong(dadosAluno[0])){
+                        exist = true;
+                        break;
+                    }
+                }
+                if(exist){
+                    continue;
+                }
                 listaDeAlunos.add(new Aluno(Long.parseLong(dadosAluno[0]), dadosAluno[1], dadosAluno[2],
                         dadosAluno[3], dadosAluno[4], Double.parseDouble(dadosAluno[5]),
                         Boolean.parseBoolean(dadosAluno[6]), null));
@@ -35,7 +47,6 @@ public class PoE {
             e.printStackTrace();
         }
     } //FALTA VERIFICAR
-
     public void addDocente() {
         try {
             ArrayList<String> arrayDocente = new ArrayList<>();
@@ -50,9 +61,19 @@ public class PoE {
             }
 
             String[] dadosDocente;
-
+            boolean exist;
             for (int i = 0; i < arrayDocente.size(); i++) {
+                exist = false;
                 dadosDocente = arrayDocente.get(i).split(",");
+                for(var d : listaDeDocentes){
+                    if(Objects.equals(d.getEmail(), dadosDocente[1])){
+                        exist = true;
+                        break;
+                    }
+                }
+                if(exist){
+                    continue;
+                }
                 listaDeDocentes.add(new Docente(dadosDocente[0], dadosDocente[1]));
             }
         } catch (FileNotFoundException e) {
@@ -70,32 +91,44 @@ public class PoE {
             while (scProposta.hasNext()) {
                 arrayProposta.add(scProposta.nextLine());
             }
-
             String[] dadosProposta;
-
+            boolean exist;
             for (int i = 0; i < arrayProposta.size(); i++) {
+                exist = false;
                 dadosProposta = arrayProposta.get(i).split(",");
-                    if (dadosProposta[0].equals("T1")) {
-                        if (dadosProposta.length == 6) {
-                            listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
-                                    dadosProposta[4], dadosProposta[2], false));
-                        } else {
-                            listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
-                                    dadosProposta[4], dadosProposta[2], false));
-                        }
-                    } else if (dadosProposta[0].equals("T2")) {
-                        if (dadosProposta.length == 6) {
-                            listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
-                                    dadosProposta[2], dadosProposta[4], false) );
-                        } else {
-                            listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
-                                    dadosProposta[2], dadosProposta[4], false) );
-                        }
 
-                    } else if (dadosProposta[0].equals("T3")) {
-                        listaDePropostas.add(new Autoproposto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[3]), dadosProposta[2], false) );
+                for (var p : listaDePropostas) {
+                    if (p.getIdProposta().equals(dadosProposta[1])) {
+                        exist = true;
+                        break;
                     }
+                }
+                if (exist) {
+                    continue;
+                }
+
+                if (dadosProposta[0].equals("T1")) {
+                    if (dadosProposta.length == 6) {
+                        listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
+                                dadosProposta[4], dadosProposta[2], false));
+                    } else {
+                        listaDePropostas.add(new Estagio(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
+                                dadosProposta[4], dadosProposta[2], false));
+                    }
+                } else if (dadosProposta[0].equals("T2")) {
+                    if (dadosProposta.length == 6) {
+                        listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[5]), dadosProposta[3],
+                                dadosProposta[2], dadosProposta[4], false));
+                    } else {
+                        listaDePropostas.add(new Projeto(dadosProposta[0], dadosProposta[1], 0, dadosProposta[3],
+                                dadosProposta[2], dadosProposta[4], false));
+                    }
+
+                } else if (dadosProposta[0].equals("T3")) {
+                    listaDePropostas.add(new Autoproposto(dadosProposta[0], dadosProposta[1], Long.parseLong(dadosProposta[3]), dadosProposta[2], false));
+                }
             }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -154,18 +187,22 @@ public class PoE {
                 arrayCandidatura.add(scCandidatura.nextLine());
             }
             String[] dadosCandidatura;
-
+            boolean exist;
             for (int i = 0; i < arrayCandidatura.size(); i++) {
-                boolean exists = false;
+                exist = false;
                 dadosCandidatura = arrayCandidatura.get(i).split(",");
-                for(Candidatura c : listaDeCandidaturas){
-                    if (c.getNumero() == Long.parseLong(dadosCandidatura[0])){
-                        exists = true;
+                for (var c : listaDeCandidaturas) {
+                    if (c.getNumero() == Long.parseLong(dadosCandidatura[0])) {
+                        exist = true;
+                        break;
                     }
                 }
-                if(!exists){
-                    listaDeCandidaturas.add(new Candidatura(Long.parseLong(dadosCandidatura[0]), new ArrayList<>(List.of(Arrays.copyOfRange(dadosCandidatura,1,dadosCandidatura.length)))));
+                if (exist) {
+                    continue;
                 }
+
+                listaDeCandidaturas.add(new Candidatura(Long.parseLong(dadosCandidatura[0]), new ArrayList<>(List.of(Arrays.copyOfRange(dadosCandidatura,1,dadosCandidatura.length)))));
+
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -580,14 +617,7 @@ public class PoE {
         return "A media dos orientador e: "+media;
     }
 
-    public String consultarOrientacoesDocente(String email){
-        StringBuilder sb = new StringBuilder();
-        for(var d : listaDeDocentes){
-            sb.append("Numero de orientacoes ").append(d.getNrDeOrientacoes()).append(System.lineSeparator());
-        }
 
-        return sb.toString();
-    }
 
     public String consultarAlunosComCandidaturaESemProposta(){
         StringBuilder sb = new StringBuilder();
@@ -695,6 +725,15 @@ public class PoE {
         }
     }
 
+
+    public String consultarOrientacoesDocente(String email){
+        StringBuilder sb = new StringBuilder();
+        for(var d : listaDeDocentes){
+            sb.append("Numero de orientacoes ").append(d.getNrDeOrientacoes()).append(System.lineSeparator());
+        }
+
+        return sb.toString();
+    }
 
 }
 
