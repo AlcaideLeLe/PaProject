@@ -2,7 +2,7 @@ package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.PoE;
 
-import java.io.FileNotFoundException;
+import java.io.*;
 
 public class apoio_poeContext {
     private PoE data;
@@ -89,6 +89,30 @@ public class apoio_poeContext {
     }
     public String consultarPropostas(){return state.consultaPropostas();}
     public String consultarOrientacoesDocente(String email){return state.consultarOrientacoesDocente(email);}
+
+    public boolean carregar(){
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("save"))){
+
+            data = (PoE) ois.readObject();
+            state = ((apoio_poeState) ois.readObject()).createState(this, data);
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    public boolean save(){
+        try(ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream("save"))){
+
+            oos.writeObject(data);
+            oos.writeObject(state.getState());
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return true;
+    }
 
 
 

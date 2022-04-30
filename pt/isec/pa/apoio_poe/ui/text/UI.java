@@ -297,7 +297,7 @@ public class UI {
         switch (opcao) {
             case 1 -> {
                 fsm.addAluno();
-                System.out.println(fsm.consultaAlunos());
+                //System.out.println(fsm.consultaAlunos());
             }
             case 2 -> {
                 System.out.println("Insira o nome do ficheiro");
@@ -319,8 +319,9 @@ public class UI {
         System.out.println("---------------");
         System.out.println("O que pretende fazer?");
         System.out.println("1 - Adicionar todos os decentes a partir de ficheiro");
-        System.out.println("2 - Regressar ao menu anterior");
-        System.out.println("3 - Exportar docentes para ficheiro csv");
+        System.out.println("2 - Exportar docentes para ficheiro csv");
+        System.out.println("3 - Regressar ao menu anterior");
+
 
         System.out.println("---------------");
 
@@ -330,15 +331,14 @@ public class UI {
                 fsm.addDocente();
                 System.out.println(fsm.consultaDocentes());
             }
+
             case 2 -> {
-                fsm.changeFromGestaoDOCtoBase();
-            }
-            case 3 -> {
                 System.out.println("Insira o nome do ficheiro");
                 String nomeFicheiro = sc.nextLine();
                 fsm.exportarDocentesParaCSV(nomeFicheiro);
-
-
+            }
+            case 3 -> {
+                fsm.changeFromGestaoDOCtoBase();
             }
         }
     }
@@ -349,8 +349,8 @@ public class UI {
             System.out.println("---------------");
             System.out.println("O que pretende fazer?");
             System.out.println("1 - Adicionar todos as propostas a partir de ficheiro");
-            System.out.println("2 - Regressar ao menu anterior");
-            System.out.println("3 - Exportar propostas para ficheiro csv");
+            System.out.println("2 - Exportar propostas para ficheiro csv");
+            System.out.println("3 - Regressar ao menu anterior");
             System.out.println("---------------");
 
             int opcao = sc.nextInt();
@@ -360,13 +360,12 @@ public class UI {
                     System.out.println(fsm.consultaPropostas());
                 }
                 case 2 -> {
-                    fsm.changeFromGestaoPROPtoBase();
-                }
-                case 3 -> {
                     System.out.println("Insira o nome do ficheiro");
                     String nomeFicheiro = sc.nextLine();
                     fsm.exportarPropostasParaCSV(nomeFicheiro);
-
+                }
+                case 3 -> {
+                    fsm.changeFromGestaoPROPtoBase();
                 }
             }
 
@@ -378,7 +377,7 @@ public class UI {
         System.out.println("1 - Opcoes para candidaturas");
         System.out.println("2 - Opcoes para alunos");
         System.out.println("3 - Opcoes para propostas");
-        System.out.println("4 - Recuar para fase anterior");
+        System.out.println("4 - Recuar fase");
         System.out.println("5 - Fechar fase");
         System.out.println("6 - Avancar fase");
         System.out.println("7 - Fechar aplicacao");
@@ -515,8 +514,8 @@ public class UI {
         System.out.println("1 - Fazer alteracoes nas propostas");
         System.out.println("2 - Consulta de propostas");
         System.out.println("3 - Consulta de alunos");
-        System.out.println("4 - Recuar para segunda fase");
-        System.out.println("5 - Exportar alunos para ficheiro csv");
+        System.out.println("4 - Exportar alunos para ficheiro csv");
+        System.out.println("5 - Recuar fase");
         System.out.println("6 - Avancar para a proxima fase");
         System.out.println("7 - Fechar Fase");
         System.out.println("8 - Fechar aplicação");
@@ -535,13 +534,14 @@ public class UI {
                 ;
             }
             case 4 -> {
-                fsm.recuarFase();
-            }
-            case 5 -> {
                 System.out.println("Insira o nome do ficheiro");
                 String nomeFicheiro = sc.nextLine();
                 fsm.exportarAlunosParaCSV(nomeFicheiro);
             }
+            case 5 -> {
+                fsm.recuarFase();
+            }
+
             case 6 -> {
                 fsm.avancarFase();
             }
@@ -558,11 +558,12 @@ public class UI {
         System.out.println("---------------");
         System.out.println("O que pretende fazer?");
         System.out.println("1 - Atribuir autopropostas a alunos");
-        System.out.println("2 - Atribuir propostas disponiveis a alunos"); //FALTA FAZER ISTO
-        System.out.println("3 - Atribuir uma proposta manualmente");
-        System.out.println("4 - Remover uma proposta manualmente");
-        System.out.println("5 - Remover todas as atribuicoes (exceto as autopropostas e as propostas de docentes com aluno associado");
-        System.out.println("6 - Regressar ao menu anterior");
+        System.out.println("2 - Atribuir propostas de docentes a alunos");
+        System.out.println("3 - Atribuir propostas disponiveis a alunos"); //FALTA FAZER ISTO
+        System.out.println("4 - Atribuir uma proposta manualmente");
+        System.out.println("5 - Remover uma proposta manualmente");
+        System.out.println("6 - Remover todas as atribuicoes (exceto as autopropostas e as propostas de docentes com aluno associado");
+        System.out.println("7 - Regressar ao menu anterior");
         System.out.println("---------------");
         int opcao = sc.nextInt();
         switch (opcao) {
@@ -571,27 +572,31 @@ public class UI {
                 ;
             }
             case 2 -> {
-                fsm.atruibuicaoDeAlunosSemPropostasDefinidas();
+                fsm.atribuirPropostaDeDocente();
                 ;
             }
             case 3 -> {
+                fsm.atruibuicaoDeAlunosSemPropostasDefinidas();
+                ;
+            }
+            case 4 -> {
                 System.out.println("Insira o nr de aluno ao qual a proposta vai ser atribuida");
                 long nraluno = sc.nextLong();
                 System.out.println("Insira o ID da proposta que vai ser atribuida");
                 String propostaASerAtribuida = sc.nextLine();
                 fsm.atribuirPropostaManualmente(nraluno, propostaASerAtribuida);
             }
-            case 4 -> {
+            case 5 -> {
                 System.out.println("Insira o nr de aluno ao qual a proposta vai ser retirada");
                 long nraluno = sc.nextLong();
                 fsm.removerPropostaManualmente(nraluno);
                 ;
             }
-            case 5 -> {
+            case 6 -> {
                 fsm.removerTodasAsAtribuicoes();
                 ;
             }
-            case 6 ->{
+            case 7 ->{
                 fsm.changeFromTratamentoPropToBase();
             }
         }
@@ -669,10 +674,10 @@ public class UI {
 
         switch (opcao) {
             case 1 -> {
-                fsm.changeToGestaoDOC();
+                mostraMenuOperacoesDocentes4Fase();
             }
             case 2 -> {
-                fsm.changeToGestaoORI();
+                mostraMenuOrientadores4Fase();
                 ;}
             case 3 -> {
                 System.out.println("O que pretende fazer?");

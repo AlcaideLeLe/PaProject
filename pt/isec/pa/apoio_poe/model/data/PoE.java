@@ -1,5 +1,7 @@
 package pt.isec.pa.apoio_poe.model.data;
 
+import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+
 import javax.xml.crypto.dsig.CanonicalizationMethod;
 import java.io.*;
 import java.util.*;
@@ -734,6 +736,8 @@ public class PoE {
 
         return sb.toString();
     }
+
+
 
 }
 
