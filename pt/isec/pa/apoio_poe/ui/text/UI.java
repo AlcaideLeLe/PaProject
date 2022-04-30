@@ -83,6 +83,9 @@ public class UI {
                 case GESTAO_MANUAL_ORIENTSTATE:
                     mostraMenuOrientadores4Fase();
                     break;
+                case FASE3MasFASE2AbertaState:
+                    mostraMenuF3MasF2Aberta();
+
             }
         }
     }
@@ -553,18 +556,12 @@ public class UI {
             }
         }
     }
-    public void mostraMenuOperacoesPropostas3Fase() {
+    public void mostraMenuF3MasF2Aberta() {
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
         System.out.println("---------------");
         System.out.println("O que pretende fazer?");
         System.out.println("1 - Atribuir autopropostas a alunos");
         System.out.println("2 - Atribuir propostas de docentes a alunos");
-        System.out.println("3 - Atribuir propostas disponiveis a alunos"); //FALTA FAZER ISTO
-        System.out.println("4 - Atribuir uma proposta manualmente");
-        System.out.println("5 - Remover uma proposta manualmente");
-        System.out.println("6 - Remover todas as atribuicoes (exceto as autopropostas e as propostas de docentes com aluno associado");
-        System.out.println("7 - Regressar ao menu anterior");
-        System.out.println("---------------");
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
@@ -575,28 +572,47 @@ public class UI {
                 fsm.atribuirPropostaDeDocente();
                 ;
             }
-            case 3 -> {
+        }
+    }
+    public void mostraMenuOperacoesPropostas3Fase() {
+        Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
+        System.out.println("---------------");
+        System.out.println("O que pretende fazer?");
+        System.out.println("1 - Atribuir autopropostas a alunos e propostas de docentes a alunos");
+        System.out.println("2 - Atribuir propostas disponiveis a alunos"); //FALTA FAZER ISTO
+        System.out.println("3 - Atribuir uma proposta manualmente");
+        System.out.println("4 - Remover uma proposta manualmente");
+        System.out.println("5 - Remover todas as atribuicoes (exceto as autopropostas e as propostas de docentes com aluno associado");
+        System.out.println("6 - Regressar ao menu anterior");
+        System.out.println("---------------");
+        int opcao = sc.nextInt();
+        switch (opcao) {
+            case 1 -> {
+                fsm.changeToF3MasF2Aberta();
+                ;
+            }
+            case 2 -> {
                 fsm.atruibuicaoDeAlunosSemPropostasDefinidas();
                 ;
             }
-            case 4 -> {
+            case 3 -> {
                 System.out.println("Insira o nr de aluno ao qual a proposta vai ser atribuida");
                 long nraluno = sc.nextLong();
                 System.out.println("Insira o ID da proposta que vai ser atribuida");
                 String propostaASerAtribuida = sc.nextLine();
                 fsm.atribuirPropostaManualmente(nraluno, propostaASerAtribuida);
             }
-            case 5 -> {
+            case 4 -> {
                 System.out.println("Insira o nr de aluno ao qual a proposta vai ser retirada");
                 long nraluno = sc.nextLong();
                 fsm.removerPropostaManualmente(nraluno);
                 ;
             }
-            case 6 -> {
+            case 5 -> {
                 fsm.removerTodasAsAtribuicoes();
                 ;
             }
-            case 7 ->{
+            case 6 ->{
                 fsm.changeFromTratamentoPropToBase();
             }
         }

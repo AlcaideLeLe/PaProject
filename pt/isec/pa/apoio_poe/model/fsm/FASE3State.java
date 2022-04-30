@@ -36,6 +36,15 @@ public class FASE3State extends apoio_poeAdapter{
         return true;
     }
     @Override
+    public boolean changeToF3MasF2Aberta(){
+        if(data.faseFechada <= 1) {
+            changeState(apoio_poeState.FASE3MasFASE2AbertaState);
+            return true;
+        }
+        changeState(apoio_poeState.FASE3);
+        return false;
+    }
+    @Override
     public boolean changeToGestaoManualAtribuicoesState(){
         changeState(apoio_poeState.GESTAO_MANUAL_ATRIBSTATE);
         return true;

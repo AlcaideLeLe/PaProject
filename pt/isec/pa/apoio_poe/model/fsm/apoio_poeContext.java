@@ -36,6 +36,8 @@ public class apoio_poeContext {
     public boolean changeFromGestaoManualOrientToFase4(){return state.changeFromGestaoManualOrientToFase4();}
     public boolean changeToPropState(){return state.changeToPropState();}
     public boolean changeFromTratamentoPropToBase(){return state.changeFromTratamentoPropToBase();}
+    public boolean changeFromF3MasF2AbertaToBase(){return state.changeFromF3MasF2AbertaToBase();}
+    public boolean changeToF3MasF2Aberta(){return state.changeToF3MasF2Aberta();}
 
     public void addAluno(){state.addAluno();}
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}

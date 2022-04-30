@@ -51,6 +51,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public boolean changeFromGestaoManualOrientToFase4(){return false;}
     public boolean changeToPropState(){return false;}
     public boolean changeFromTratamentoPropToBase(){return false;}
+    public boolean changeFromF3MasF2AbertaToBase(){return false;}
+    public boolean changeToF3MasF2Aberta(){return false;}
 
 
     //Fase 1

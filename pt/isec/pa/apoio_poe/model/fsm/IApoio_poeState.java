@@ -22,6 +22,8 @@ public interface IApoio_poeState {
     boolean changeFromGestaoManualOrientToFase4();
     boolean changeToPropState();
     boolean changeFromTratamentoPropToBase();
+    boolean changeFromF3MasF2AbertaToBase();
+    boolean changeToF3MasF2Aberta();
 
 
     //Fase 1
