@@ -1,12 +1,13 @@
 package pt.isec.pa.apoio_poe.model.data;
 
+import java.io.Serializable;
 import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.Comparator;
 
-public class Aluno implements Comparable<Aluno>{
+public class Aluno implements Comparable<Aluno>, Serializable {
 
     private final long numero;
     private String nome;

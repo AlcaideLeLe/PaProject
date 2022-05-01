@@ -1,8 +1,9 @@
 package pt.isec.pa.apoio_poe.model.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Candidatura implements Comparable<Candidatura>{
+public class Candidatura implements Comparable<Candidatura>, Serializable {
         private final long nrAluno;
         private ArrayList<String> arrayCandidaturas = new ArrayList<>();
 

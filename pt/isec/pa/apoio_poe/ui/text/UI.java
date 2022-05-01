@@ -34,6 +34,9 @@ public class UI {
         while(!finish){
             System.out.println(fsm.getState());
             switch(fsm.getState()){
+                case InicioState:
+                    mostraMenuInicio();
+                    break;
                 case FASE1:
                     mostraMenuIncial();
                     break;
@@ -85,6 +88,7 @@ public class UI {
                     break;
                 case FASE3MasFASE2AbertaState:
                     mostraMenuF3MasF2Aberta();
+                    break;
 
             }
         }
@@ -246,6 +250,26 @@ public class UI {
         }
     }
 
+    public void mostraMenuInicio(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("---------------");
+        System.out.println("O que pretende fazer?");
+        System.out.println("1 - Começar novo");
+        System.out.println("2 - Carregar Save");
+        int opcao = sc.nextInt();
+
+        switch (opcao) {
+            case 1 -> {
+                fsm.avancarFase();
+            }
+            case 2 -> {
+                fsm.loadState();
+                ;}
+
+
+        }
+    }
+
     public void mostraMenuIncial() {
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
         System.out.println("---------------");
@@ -279,6 +303,13 @@ public class UI {
                 ;
             }
             case 6 -> {
+                System.out.println("Pretende guardar?");
+                System.out.println("1 - Sim");
+                System.out.println("2 - Não");
+                opcao = sc.nextInt();
+                if(opcao == 1){
+                    fsm.save();
+                }
                 finish = true;
 
             }
@@ -400,13 +431,13 @@ public class UI {
                 int op = sc.nextInt();
                 switch(op){
                     case 1 -> {
-                        fsm.consultaAlunosComAutoproposta();
+                        System.out.println(fsm.consultaAlunosComAutoproposta());;
                     }
                     case 2 -> {
-                        fsm.consultarAlunosComCandidatura();
+                        System.out.println(fsm.consultarAlunosComCandidatura());;
                     }
                     case 3 -> {
-                        fsm.consultarAlunosSemCandidatura();
+                        System.out.println(fsm.consultarAlunosSemCandidatura());;
                     }
                 }
                 ;}

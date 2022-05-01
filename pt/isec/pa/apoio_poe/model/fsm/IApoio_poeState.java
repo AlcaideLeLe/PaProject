@@ -24,6 +24,8 @@ public interface IApoio_poeState {
     boolean changeFromTratamentoPropToBase();
     boolean changeFromF3MasF2AbertaToBase();
     boolean changeToF3MasF2Aberta();
+    boolean changeToFase1State();
+    boolean loadState();
 
 
     //Fase 1

@@ -1,6 +1,8 @@
 package pt.isec.pa.apoio_poe.model.data;
 
-public class Docente implements Comparable<Docente>{
+import java.io.Serializable;
+
+public class Docente implements Comparable<Docente>, Serializable {
 
     private String nome;
     private final String email;

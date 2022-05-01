@@ -6,7 +6,7 @@ import javax.xml.crypto.dsig.CanonicalizationMethod;
 import java.io.*;
 import java.util.*;
 
-public class PoE {
+public class PoE implements Serializable{
     ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
     ArrayList<Docente> listaDeDocentes = new ArrayList<>();
     ArrayList<Proposta> listaDePropostas = new ArrayList<>();

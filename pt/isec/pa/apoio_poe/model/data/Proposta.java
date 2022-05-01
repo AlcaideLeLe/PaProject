@@ -1,6 +1,8 @@
 package pt.isec.pa.apoio_poe.model.data;
 
-public class Proposta implements Comparable<Proposta>{
+import java.io.Serializable;
+
+public class Proposta implements Comparable<Proposta>, Serializable {
     private final String idProposta;
     private long nrAluno;
     private String titulo;

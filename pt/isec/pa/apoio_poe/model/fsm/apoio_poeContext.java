@@ -10,7 +10,7 @@ public class apoio_poeContext {
 
     public apoio_poeContext(){
         this.data = new PoE();
-        this.state = apoio_poeState.FASE1.createState(this, data);
+        this.state = apoio_poeState.InicioState.createState(this, data);
     }
 
     public void changeState(IApoio_poeState state){
@@ -38,6 +38,8 @@ public class apoio_poeContext {
     public boolean changeFromTratamentoPropToBase(){return state.changeFromTratamentoPropToBase();}
     public boolean changeFromF3MasF2AbertaToBase(){return state.changeFromF3MasF2AbertaToBase();}
     public boolean changeToF3MasF2Aberta(){return state.changeToF3MasF2Aberta();}
+    public boolean changeToFase1State(){return state.changeToFase1State();}
+    public boolean loadState(){return state.loadState();}
 
     public void addAluno(){state.addAluno();}
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
