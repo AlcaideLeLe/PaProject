@@ -40,5 +40,6 @@ public class FASE1State extends apoio_poeAdapter{
         return true;
     }
 
+
 }
 

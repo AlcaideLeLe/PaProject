@@ -76,7 +76,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public String consultaAluno(long nrAluno) {return null;}
     @Override
-    public String consultaAlunos() {return null;}
+    public String consultarAlunos() {return null;}
     @Override
     public String consultaDocente(String email){return null;}
     @Override

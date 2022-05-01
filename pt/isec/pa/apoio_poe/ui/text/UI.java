@@ -116,23 +116,25 @@ public class UI {
                 System.out.println(fsm.consultaAluno(nrAluno));
             }
             case 2 -> {
-                System.out.println(fsm.consultaAlunos());
+                System.out.println(fsm.consultarAlunos());
             }
             case 3 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o e-mail do docente");
-                String emailProf = sc.nextLine();
+                String emailProf = sc1.nextLine();
                 System.out.println(fsm.consultaDocente(emailProf));
             }
             case 4 -> {
-                fsm.consultaDocentes();
+                System.out.println(fsm.consultaDocentes());;
             }
             case 5 -> {
+                Scanner sc2 = new Scanner(System.in);
                 System.out.println("Insira o id da proposta");
-                String idProposta = sc.nextLine();
+                String idProposta = sc2.nextLine();
                 System.out.println(fsm.consultaProposta(idProposta));;
                 ;}
             case 6 -> {
-                System.out.println(fsm.consultaDocentes());
+                System.out.println(fsm.consultaPropostas());
                 ;
             }
             case 7 -> {
@@ -170,31 +172,31 @@ public class UI {
 
         switch (opcao) {
             case 1 -> {
-                fsm.consultaAlunosComAutoproposta();
+                System.out.println(fsm.consultaAlunosComAutoproposta());
             }
             case 2 -> {
-                fsm.consultarAlunosComCandidatura();
+                System.out.println(fsm.consultarAlunosComCandidatura());
             }
             case 3 -> {
-                fsm.consultarAlunosSemCandidatura();
+                System.out.println(fsm.consultarAlunosSemCandidatura());
             }
             case 4 -> {
-                fsm.consultarListaDeAutopropostas();
+                System.out.println(fsm.consultarListaDeAutopropostas());
             }
             case 5 -> {
-                fsm.consultarPropostasDocentes();
+                System.out.println(fsm.consultarPropostasDocentes());;
             }
             case 6 -> {
-                fsm.consultarPropostasComCandidaturas();
+                System.out.println(fsm.consultarPropostasComCandidaturas());;
                 ;
             }
             case 7 -> {
-                fsm.consultarPropostasSemCandidaturas();
+                System.out.println(fsm.consultarPropostasSemCandidaturas());;
             }
             case 8-> {
                 System.out.println("Insira o numero de aluno");
                 Long nrAluno = sc.nextLong();
-                fsm.consultaCandidatura(nrAluno);
+                System.out.println(fsm.consultaCandidatura(nrAluno));;
             }
             case 9 -> {
                 fsm.avancarFase();
@@ -469,7 +471,7 @@ public class UI {
                 }
                 ;}
             case 3 -> {
-                fsm.consultarPropostas();
+                System.out.println(fsm.consultarPropostas());;
                 ;
             }
             case 4 -> {

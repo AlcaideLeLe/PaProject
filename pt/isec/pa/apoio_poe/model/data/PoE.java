@@ -148,6 +148,9 @@ public class PoE implements Serializable{
 
     public String consultarAlunos(){
         Collections.sort(listaDeAlunos);
+        if(listaDeAlunos.isEmpty()){
+            System.out.println("Ainda não foram adicionados Alunos");
+        }
         return listaDeAlunos.toString();
     }
 
@@ -163,6 +166,9 @@ public class PoE implements Serializable{
 
     public String consultarDocentes(){
         Collections.sort(listaDeDocentes);
+        if(listaDeDocentes.isEmpty()){
+            System.out.println("Ainda não foram adicionados docentes");
+        }
         return listaDeDocentes.toString();
     }
 
@@ -177,6 +183,9 @@ public class PoE implements Serializable{
 
     public String consultarPropostas(){
         Collections.sort(listaDePropostas);
+        if(listaDePropostas.isEmpty()){
+            System.out.println("Ainda não foram adicionadas propostas");
+        }
         return listaDePropostas.toString();
     }
 
@@ -312,7 +321,7 @@ public class PoE implements Serializable{
                 }
             }
         }
-    } //JA VERIFICADA
+    }
 
     public void atribuirPropostaManualmente(long nralunoQueVaiTerNovaProposta, String IDproposta) {
         //System.out.println(nralunoQueVaiTerNovaProposta + " 1 " + IDproposta);
@@ -335,7 +344,7 @@ public class PoE implements Serializable{
                 }
             }
         }
-    } //JA VERIFICADA
+    }
 
     public void removerPropostaManualmente(long nralunoQueVaiFicarSemProposta){
         for(var a : listaDeAlunos){
@@ -738,56 +747,8 @@ public class PoE implements Serializable{
     }
 
 
-
 }
 
 
-/*
-    public void removeAluno(){}
-    public void removeDocente(){}
-*/
-
-    /*public void editAluno(ArrayList<Aluno> arrayAlunos){
-        Scanner resposta, nomeNovo, novaSiglaCurso;
-        String nome, siglaCurso, siglaAtualCurso;
-        int aluno = 0;
-        resposta = new Scanner(System.in);
-        nomeNovo = new Scanner(System.in);
-        novaSiglaCurso = new Scanner(System.in);
-
-
-        System.out.println("O que pretende alterar?");
-        System.out.println("1 - Nome");
-        System.out.println("2 - Sigla Curso");
-        System.out.println("3 - E-amil");
-        System.out.println("4 - Sigla Ramo");
-        System.out.println("5 - Classificacao");
-        System.out.println("6 - Possibilidade de aceder ao estagio");
-
-        for(int i=0; i< arrayAlunos.size() ; i++){
-
-            if(arrayAlunos.get(i).getNumero() == numero){
-                aluno = i;
-                break;
-            }
-        }
-
-        switch(resposta.nextInt()) {
-            case 1:
-                System.out.println("Que nome quer meter?");
-                nome = nomeNovo.nextLine();
-                arrayAlunos.get(aluno).setNome(nome);
-            case 2:
-                siglaAtualCurso = arrayAlunos.get(aluno).getSiglaCurso();
-                do{
-                    System.out.println("Qual a sigla do novo curso?");
-                    siglaCurso = novaSiglaCurso.nextLine();
-                    arrayAlunos.get(aluno).setSiglaCurso(siglaCurso);
-                }while(!Objects.equals(siglaCurso, "LEI") || !siglaCurso.equals("LEI-PL") && siglaAtualCurso.equals(siglaCurso));
-            default:
-                // code block
-        }
-        return arrayAlunos;
-    }*/
 
 

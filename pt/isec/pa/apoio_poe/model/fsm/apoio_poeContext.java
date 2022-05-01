@@ -44,7 +44,7 @@ public class apoio_poeContext {
 
     public void addAluno(){state.addAluno();}
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
-    public String consultaAlunos(){return state.consultaAlunos();}
+    public String consultarAlunos(){return state.consultarAlunos();}
     public void addDocente(){state.addDocente();}
     public String consultaDocente(String email){return state.consultaDocente(email);}
     public String consultaDocentes(){return state.consultaDocentes();}

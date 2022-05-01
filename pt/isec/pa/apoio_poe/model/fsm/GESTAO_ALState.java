@@ -24,7 +24,7 @@ public class GESTAO_ALState extends apoio_poeAdapter{
     @Override
     public String consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
     @Override
-    public String consultaAlunos(){return data.consultarAlunos();}
+    public String consultarAlunos(){return data.consultarAlunos();}
     @Override
     public void exportarAlunosParaCSV(String nomeFicheiro){data.exportarAlunosParaCSV(nomeFicheiro);};
 

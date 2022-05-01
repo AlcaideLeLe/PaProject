@@ -32,7 +32,7 @@ public interface IApoio_poeState {
     //Fase 1
     void addAluno();
     String consultaAluno(long nr);
-    String consultaAlunos();
+    String consultarAlunos();
     void addDocente();
     String consultaDocente(String email);
     String consultaDocentes();

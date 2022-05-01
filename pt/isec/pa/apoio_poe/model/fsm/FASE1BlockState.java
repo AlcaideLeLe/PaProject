@@ -23,7 +23,7 @@ public class FASE1BlockState extends apoio_poeAdapter{
     @Override
     public String consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
     @Override
-    public String consultaAlunos(){return data.consultarAlunos();}
+    public String consultarAlunos(){return data.consultarAlunos();}
     @Override
     public String consultaDocente(String email){return data.consultarDocente(email);}
     @Override
