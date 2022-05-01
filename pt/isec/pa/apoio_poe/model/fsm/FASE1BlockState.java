@@ -13,6 +13,10 @@ public class FASE1BlockState extends apoio_poeAdapter{
     }
     //aqui só vai dar para consultar, mas não alterar
     public boolean avancarFase() {
+        if(data.faseFechada >=2){
+            changeState(apoio_poeState.FASE2BLOCKSTATE);
+            return true;
+        }
         changeState(apoio_poeState.FASE2);
         return true;
     }

@@ -14,9 +14,19 @@ public class FASE2BlockState extends apoio_poeAdapter{
 
     //aqui só vai dar para consultar, mas não alterar
     public boolean avancarFase() {
+        if(data.faseFechada >=3){
+            changeState(apoio_poeState.FASE3BLOCKSTATE);
+            return true;
+        }
         changeState(apoio_poeState.FASE3);
         return true;
     }
+    @Override
+    public boolean changeToFaseBloqueadaAnterior(){
+        changeState(apoio_poeState.FASE1BLOCKSTATE);
+        return true;
+    }
+
     @Override
     public String consultaAlunosComAutoproposta(){return data.consultarAlunosComAutoproposta();}
     @Override

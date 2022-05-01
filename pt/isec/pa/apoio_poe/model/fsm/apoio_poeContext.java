@@ -40,6 +40,7 @@ public class apoio_poeContext {
     public boolean changeToF3MasF2Aberta(){return state.changeToF3MasF2Aberta();}
     public boolean changeToFase1State(){return state.changeToFase1State();}
     public boolean loadState(){return state.loadState();}
+    public boolean changeToFaseBloqueadaAnterior(){return state.changeToFaseBloqueadaAnterior();}
 
     public void addAluno(){state.addAluno();}
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}

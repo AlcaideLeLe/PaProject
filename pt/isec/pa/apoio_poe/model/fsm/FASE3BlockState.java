@@ -18,6 +18,11 @@ public class FASE3BlockState extends apoio_poeAdapter{
         return true;
     }
     @Override
+    public boolean changeToFaseBloqueadaAnterior(){
+        changeState(apoio_poeState.FASE2BLOCKSTATE);
+        return true;
+    }
+    @Override
     public String consultaAlunosComAutoproposta(){return data.consultarAlunosComAutoproposta();};
     @Override
     public String consultarAlunosComCandidatura(){return data.consultarAlunosComCandidatura();};

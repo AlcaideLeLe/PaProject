@@ -26,6 +26,7 @@ public interface IApoio_poeState {
     boolean changeToF3MasF2Aberta();
     boolean changeToFase1State();
     boolean loadState();
+    boolean changeToFaseBloqueadaAnterior();
 
 
     //Fase 1

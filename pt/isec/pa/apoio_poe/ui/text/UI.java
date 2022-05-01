@@ -80,7 +80,7 @@ public class UI {
                     mostraMenuOperacoesDocentes4Fase();
                     break;
                 case GESTAO_MANUAL_ATRIBSTATE:
-                    mostraMenuOperacoesAlunos3Fase();
+                    mostraMenuOperacoesPropostas3Fase();
                     break;
 
                 case GESTAO_MANUAL_ORIENTSTATE:
@@ -150,7 +150,6 @@ public class UI {
             }
         }
     }
-
     public void mostraMenuFase2Bloqueada(){
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
         System.out.println("---------------");
@@ -164,7 +163,8 @@ public class UI {
         System.out.println("7 - Consultar propostas sem candidaturas");
         System.out.println("8 - Consultar uma candidatura");
         System.out.println("9 - Avancar Fase");
-        System.out.println("10 - Sair da aplicacao");
+        System.out.println("10 - Recuar para Fase bloqueada anterior");
+        System.out.println("11 - Sair da aplicacao");
         System.out.println("---------------");
         int opcao = sc.nextInt();
 
@@ -197,9 +197,12 @@ public class UI {
                 fsm.consultaCandidatura(nrAluno);
             }
             case 9 -> {
-                mostraMenuTerceiraFase();
+                fsm.avancarFase();
             }
             case 10 -> {
+                fsm.changeToFaseBloqueadaAnterior();
+            }
+            case 11 -> {
                 System.out.println("Pretende guardar?");
                 System.out.println("1 - Sim");
                 System.out.println("2 - Não");
@@ -211,7 +214,6 @@ public class UI {
             }
         }
     }
-
     public void mostraMenuFase3Bloqueada(){
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
         System.out.println("---------------");
@@ -225,7 +227,8 @@ public class UI {
         System.out.println("7 - Consultar propostas disponiveis");
         System.out.println("8 - Consultar propostas atribuidas");
         System.out.println("9 - Avancar Fase");
-        System.out.println("10 - Sair da aplicacao");
+        System.out.println("10 - Recuar para Fase bloqueada anterior");
+        System.out.println("11 - Sair da aplicacao");
         System.out.println("---------------");
         int opcao = sc.nextInt();
 
@@ -256,9 +259,12 @@ public class UI {
                 fsm.consultarPropostasAtribuidas();
             }
             case 9 -> {
-                mostraMenuQuartaFase();
+                fsm.avancarFase();
             }
             case 10 -> {
+                fsm.changeToFaseBloqueadaAnterior();
+            }
+            case 11 -> {
                 System.out.println("Pretende guardar?");
                 System.out.println("1 - Sim");
                 System.out.println("2 - Não");
@@ -270,7 +276,6 @@ public class UI {
             }
         }
     }
-
     public void mostraMenuInicio(){
         Scanner sc = new Scanner(System.in);
         System.out.println("---------------");
@@ -290,7 +295,6 @@ public class UI {
 
         }
     }
-
     public void mostraMenuIncial() {
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
         System.out.println("---------------");
@@ -336,7 +340,6 @@ public class UI {
             }
         }
     }
-
     public void mostraMenuOperacoesAlunos1Fase() {
         Scanner sc = new Scanner(System.in);
         int opcaoAlunos;
@@ -355,8 +358,9 @@ public class UI {
                 //System.out.println(fsm.consultaAlunos());
             }
             case 2 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o nome do ficheiro");
-                String nomeFicheiro = sc.nextLine();
+                String nomeFicheiro = sc1.nextLine();
                 fsm.exportarAlunosParaCSV(nomeFicheiro);
 
             }
@@ -388,8 +392,9 @@ public class UI {
             }
 
             case 2 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o nome do ficheiro");
-                String nomeFicheiro = sc.nextLine();
+                String nomeFicheiro = sc1.nextLine();
                 fsm.exportarDocentesParaCSV(nomeFicheiro);
             }
             case 3 -> {
@@ -415,8 +420,9 @@ public class UI {
                     System.out.println(fsm.consultaPropostas());
                 }
                 case 2 -> {
+                    Scanner sc1 = new Scanner(System.in);
                     System.out.println("Insira o nome do ficheiro");
-                    String nomeFicheiro = sc.nextLine();
+                    String nomeFicheiro = sc1.nextLine();
                     fsm.exportarPropostasParaCSV(nomeFicheiro);
                 }
                 case 3 -> {
@@ -507,8 +513,9 @@ public class UI {
                 System.out.println(fsm.consultaCandidaturas());;
                 ;}
             case 3 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o nome do ficheiro");
-                String nomeFicheiro = sc.nextLine();
+                String nomeFicheiro = sc1.nextLine();
                 fsm.exportarCandidaturasParaCSV(nomeFicheiro);
 
             }
@@ -524,6 +531,7 @@ public class UI {
         System.out.println("1 - Consultar alunos com autoproposta");
         System.out.println("2 - Consultar alunos com candidatura registada");
         System.out.println("3 - Consultar alunos sem candidatura registada");
+        System.out.println("4 - Regressar ao menu base");
 
         System.out.println("---------------");
         int opcao = sc.nextInt();
@@ -536,6 +544,10 @@ public class UI {
                 ;}
             case 3 -> {
                 System.out.println(fsm.consultarAlunosSemCandidatura());
+                ;
+            }
+            case 4 -> {
+                mostraMenuSegundaFase();
                 ;
             }
         }
@@ -592,12 +604,13 @@ public class UI {
                 mostraMenuComConsultasDePropostas3Fase();
                 ;}
             case 3 -> {
-                mostraMenuOperacoesAlunos3Fase();
+                mostraMenuConsultaAlunos3Fase();
                 ;
             }
             case 4 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o nome do ficheiro");
-                String nomeFicheiro = sc.nextLine();
+                String nomeFicheiro = sc1.nextLine();
                 fsm.exportarAlunosParaCSV(nomeFicheiro);
             }
             case 5 -> {
@@ -628,6 +641,7 @@ public class UI {
         System.out.println("O que pretende fazer?");
         System.out.println("1 - Atribuir autopropostas a alunos");
         System.out.println("2 - Atribuir propostas de docentes a alunos");
+        System.out.println("3 - Regressar ao menu base");
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
@@ -638,6 +652,10 @@ public class UI {
                 fsm.atribuirPropostaDeDocente();
                 ;
             }
+            case 3 -> {
+                fsm.changeFromF3MasF2AbertaToBase();
+                ;
+            }
         }
     }
     public void mostraMenuOperacoesPropostas3Fase() {
@@ -645,7 +663,7 @@ public class UI {
         System.out.println("---------------");
         System.out.println("O que pretende fazer?");
         System.out.println("1 - Atribuir autopropostas a alunos e propostas de docentes a alunos");
-        System.out.println("2 - Atribuir propostas disponiveis a alunos"); //FALTA FAZER ISTO
+        System.out.println("2 - Atribuir propostas disponiveis a alunos");
         System.out.println("3 - Atribuir uma proposta manualmente");
         System.out.println("4 - Remover uma proposta manualmente");
         System.out.println("5 - Remover todas as atribuicoes (exceto as autopropostas e as propostas de docentes com aluno associado");
@@ -712,7 +730,7 @@ public class UI {
 
         }
     }
-    public void mostraMenuOperacoesAlunos3Fase(){
+    public void mostraMenuConsultaAlunos3Fase(){
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
         System.out.println("---------------");
         System.out.println("O que pretende fazer?");
@@ -795,8 +813,10 @@ public class UI {
                 ;
             }
             case 4 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o nome do ficheiro");
-                String nomeFicheiro = sc.nextLine();
+                String nomeFicheiro = sc1.nextLine();
+
                 fsm.exportarAlunosParaCSV(nomeFicheiro);
             }
             case 5 -> {

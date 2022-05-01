@@ -55,6 +55,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public boolean changeToF3MasF2Aberta(){return false;}
     public boolean changeToFase1State(){return false;}
     public boolean loadState(){return false;}
+    public boolean changeToFaseBloqueadaAnterior(){return false;}
 
 
     //Fase 1
@@ -122,15 +123,10 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public void atribuirPropostaManualmente(long nrAluno, String idProposta){};
     @Override
     public void removerPropostaManualmente(long nrAluno){};
-
-    //String consultaAlunosComAutoproposta(); mesma função da linha 36
-    //String consultarAlunosComCandidatura(); mesma função da linha 37
     @Override
     public String consultarAlunosComPropostaAtribuida(){return null;};
     @Override
     public String consultarAlunosSemPropostaAtribuida(){return null;};
-    //String consultarListaDeAutopropostas(); mesma função da linha 39
-    //String consultarPropostasDeDocentes(); mesma função da linha 40
     @Override
     public String consultarPropostasDisponiveis(){return null;};
     @Override
@@ -158,18 +154,15 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public String consultarMediaDeOrientacoesDosDocentes(){return null;};
 
+
+
+
     //Fase 5
-    //String consultarAlunosComPropostaAtribuida(); mesma linha 52
     @Override
     public String consultarAlunosComCandidaturaESemProposta(){return null;};
     public void removerTodasAsAtribuicoes(){}
     public String consultarPropostas(){return null;}
     public String consultarOrientacoesDocente(String email){return null;}
-    //String consultarPropostasDisponiveis(); 56
-    //String consultarPropostasAtribuidas(); 57
-    //String consultarDocenteComMenosOrientacoes();
-    //String consultarDocenteComMaisOrientacoes();
-    //String consultarMediaDeOrientacoesDosDocentes();
 
 
 
