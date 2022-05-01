@@ -139,6 +139,13 @@ public class UI {
                 fsm.avancarFase();
             }
             case 8 -> {
+                System.out.println("Pretende guardar?");
+                System.out.println("1 - Sim");
+                System.out.println("2 - Não");
+                opcao = sc.nextInt();
+                if(opcao == 1){
+                    fsm.save();
+                }
                 finish = true;
             }
         }
@@ -193,6 +200,13 @@ public class UI {
                 mostraMenuTerceiraFase();
             }
             case 10 -> {
+                System.out.println("Pretende guardar?");
+                System.out.println("1 - Sim");
+                System.out.println("2 - Não");
+                opcao = sc.nextInt();
+                if(opcao == 1){
+                    fsm.save();
+                }
                 finish = true;
             }
         }
@@ -245,6 +259,13 @@ public class UI {
                 mostraMenuQuartaFase();
             }
             case 10 -> {
+                System.out.println("Pretende guardar?");
+                System.out.println("1 - Sim");
+                System.out.println("2 - Não");
+                opcao = sc.nextInt();
+                if(opcao == 1){
+                    fsm.save();
+                }
                 finish = true;
             }
         }
@@ -455,6 +476,13 @@ public class UI {
                 fsm.avancarFase();
             }
             case 7 -> {
+                System.out.println("Pretende guardar?");
+                System.out.println("1 - Sim");
+                System.out.println("2 - Não");
+                opcao = sc.nextInt();
+                if(opcao == 1){
+                    fsm.save();
+                }
                 finish = true;
             }
         }
@@ -583,6 +611,13 @@ public class UI {
                 fsm.fecharFase();
             }
             case 8 -> {
+                System.out.println("Pretende guardar?");
+                System.out.println("1 - Sim");
+                System.out.println("2 - Não");
+                opcao = sc.nextInt();
+                if(opcao == 1){
+                    fsm.save();
+                }
                 finish = true;
             }
         }
@@ -774,6 +809,13 @@ public class UI {
                 fsm.fecharFase();
             }
             case 8 -> {
+                System.out.println("Pretende guardar?");
+                System.out.println("1 - Sim");
+                System.out.println("2 - Não");
+                opcao = sc.nextInt();
+                if(opcao == 1){
+                    fsm.save();
+                }
                 finish = true;
             }
         }
@@ -898,6 +940,7 @@ public class UI {
         System.out.println("4 - Consultar propostas atribuidas");
         System.out.println("5 - Exportar alunos para ficheiro csv");
         System.out.println("6 - Ver dados sobre docentes");
+        System.out.println("7 - Terminar Aplicação");
         System.out.println("---------------");
         int opcao = sc.nextInt();
         switch (opcao) {
@@ -922,6 +965,16 @@ public class UI {
                 System.out.println(fsm.consultarDocenteComMaisOrientacoes());
                 System.out.println(fsm.consultarDocenteComMenosOrientacoes());
                 System.out.println(fsm.consultarMediaDeOrientacoesDosDocentes());
+            }
+            case 7 -> {
+                System.out.println("Pretende guardar?");
+                System.out.println("1 - Sim");
+                System.out.println("2 - Não");
+                opcao = sc.nextInt();
+                if(opcao == 1){
+                    fsm.save();
+                }
+                finish = true;
             }
 
         }
