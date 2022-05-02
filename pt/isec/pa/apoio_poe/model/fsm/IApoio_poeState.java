@@ -27,6 +27,7 @@ public interface IApoio_poeState {
     boolean changeToFase1State();
     boolean loadState();
     boolean changeToFaseBloqueadaAnterior();
+    boolean changeToGestaoManualOrientState();
 
 
     //Fase 1

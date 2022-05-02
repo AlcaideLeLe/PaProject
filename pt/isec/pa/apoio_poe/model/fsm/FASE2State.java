@@ -28,6 +28,10 @@ public class FASE2State extends apoio_poeAdapter{
     }
     @Override
     public boolean avancarFase() {
+        if(data.faseFechada <=1){
+            changeState(apoio_poeState.FASE3MasFASE2AbertaState);
+            return true;
+        }
         changeState(apoio_poeState.FASE3);
         return true;
     }
@@ -51,4 +55,6 @@ public class FASE2State extends apoio_poeAdapter{
     public String consultarPropostasComCandidaturas(){return data.consultarPropostasComCandidaturas();};
     @Override
     public String consultarPropostasSemCandidaturas(){return data.consultarPropostasSemCandidaturas();};
+    @Override
+    public String consultaPropostas(){return data.consultarPropostas();}
 }

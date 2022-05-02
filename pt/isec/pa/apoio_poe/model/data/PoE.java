@@ -315,6 +315,7 @@ public class PoE implements Serializable{
                             if (a.getNumero() == p.getNrAluno()) {
                                 a.setIdPropostaAssociada(p.getIdProposta());
                                 p.setAtribuida(true);
+
                             }
                         }
                     }
@@ -576,7 +577,7 @@ public class PoE implements Serializable{
                 for(var p : listaDePropostas){
                     if(p.isAtribuida()){
                         if(p.getOrientador() == null){
-                            sb.append("Alunos com Proposta e com orientador   ").append(a.getNumero()).append(System.lineSeparator());
+                            sb.append("Alunos com Proposta e sem orientador   ").append(a.getNumero()).append(System.lineSeparator());
                         }
                     }
                 }
@@ -740,7 +741,9 @@ public class PoE implements Serializable{
     public String consultarOrientacoesDocente(String email){
         StringBuilder sb = new StringBuilder();
         for(var d : listaDeDocentes){
-            sb.append("Numero de orientacoes ").append(d.getNrDeOrientacoes()).append(System.lineSeparator());
+            if(d.getEmail().equals(email)) {
+                sb.append("Numero de orientacoes ").append(d.getNrDeOrientacoes()).append(System.lineSeparator());
+            }
         }
 
         return sb.toString();

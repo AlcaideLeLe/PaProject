@@ -41,6 +41,7 @@ public class apoio_poeContext {
     public boolean changeToFase1State(){return state.changeToFase1State();}
     public boolean loadState(){return state.loadState();}
     public boolean changeToFaseBloqueadaAnterior(){return state.changeToFaseBloqueadaAnterior();}
+    public boolean changeToGestaoManualOrientState(){return state.changeToGestaoManualOrientState();}
 
     public void addAluno(){state.addAluno();}
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
@@ -72,7 +73,7 @@ public class apoio_poeContext {
     public void atribuirPropostaADocenteProponenteAutomaticamente(){state.atribuirPropostaADocenteProponenteAutomaticamente();}
     public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf);}
     public String consultarOrientadorDeProposta(String idProposta){return state.consultarOrientadorDeProposta(idProposta);}
-    public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){}
+    public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){state.editarOrientadorDeProposta(idProposta, emailNovoOrientador);}
     public void removerOrientadorDeProposta(String idProposta){state.removerOrientadorDeProposta(idProposta);}
     public String consultarAlunosComPropostaEComOrientador(){return state.consultarAlunosComPropostaEComOrientador();}
     public String consultarAlunosComPropostaESemOrientador(){return state.consultarAlunosComPropostaESemOrientador();}

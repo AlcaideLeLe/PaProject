@@ -80,7 +80,7 @@ public class UI {
                     mostraMenuOperacoesDocentes4Fase();
                     break;
                 case GESTAO_MANUAL_ATRIBSTATE:
-                    mostraMenuOperacoesPropostas3Fase();
+                    mostraMenuGestaoManualAtrib();
                     break;
 
                 case GESTAO_MANUAL_ORIENTSTATE:
@@ -641,9 +641,10 @@ public class UI {
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
         System.out.println("---------------");
         System.out.println("O que pretende fazer?");
-        System.out.println("1 - Atribuir autopropostas a alunos");
-        System.out.println("2 - Atribuir propostas de docentes a alunos");
-        System.out.println("3 - Regressar ao menu base");
+        System.out.println("1 - Atribuir autoproposta");
+        System.out.println("2 - Atribuir proposta de docente");
+        System.out.println("3 - Recuar Fase");
+        System.out.println("4 - Regressar ao menu base");
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
@@ -655,50 +656,76 @@ public class UI {
                 ;
             }
             case 3 -> {
+                fsm.recuarFase();
+            }
+            case 4 -> {
                 fsm.changeFromF3MasF2AbertaToBase();
                 ;
             }
         }
     }
+    public void mostraMenuGestaoManualAtrib(){
+        Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
+        System.out.println("---------------");
+        System.out.println("O que pretende fazer?");
+        System.out.println("1 - Atribuir proposta manualmente");
+        System.out.println("2 - Remover proposta manualmente");
+        System.out.println("3 - Regressar ao menu anterior");
+        int opcao = sc.nextInt();
+        switch (opcao) {
+            case 1 -> {
+                Scanner sc1 = new Scanner(System.in);
+                System.out.println("Insira o id da proposta");
+                String idProposta = sc1.nextLine();
+                System.out.println("Insira o numero de aluno");
+                Long nrAluno = sc1.nextLong();
+                fsm.atribuirPropostaManualmente(nrAluno, idProposta);
+
+
+                ;
+            }
+            case 2 -> {
+                Scanner sc1 = new Scanner(System.in);
+                System.out.println("Insira o numero de aluno");
+                Long nrAluno = sc1.nextLong();
+                fsm.removerPropostaManualmente(nrAluno);
+            }
+            case 3 -> {
+                fsm.changeFromGestaoManualAtribToFase3();
+
+            }
+        }
+
+    }
+
     public void mostraMenuOperacoesPropostas3Fase() {
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
         System.out.println("---------------");
         System.out.println("O que pretende fazer?");
-        System.out.println("1 - Atribuir autopropostas a alunos e propostas de docentes a alunos");
-        System.out.println("2 - Atribuir propostas disponiveis a alunos");
-        System.out.println("3 - Atribuir uma proposta manualmente");
-        System.out.println("4 - Remover uma proposta manualmente");
-        System.out.println("5 - Remover todas as atribuicoes (exceto as autopropostas e as propostas de docentes com aluno associado");
-        System.out.println("6 - Regressar ao menu anterior");
+        System.out.println("1 - Atribuir autopropostas");
+        System.out.println("2 - Atribuir propostas de docentes a alunos");
+        System.out.println("3 - Atribuir/remover uma proposta manualmente");
+        System.out.println("4 - Remover todas as atribuicoes (exceto as autopropostas e as propostas de docentes com aluno associado");
+        System.out.println("5 - Regressar ao menu anterior");
         System.out.println("---------------");
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
-                fsm.changeToF3MasF2Aberta();
+                fsm.atribuirAutoproposta();
                 ;
             }
             case 2 -> {
-                fsm.atruibuicaoDeAlunosSemPropostasDefinidas();
-                ;
+                fsm.atribuirPropostaDeDocente();
             }
             case 3 -> {
-                System.out.println("Insira o nr de aluno ao qual a proposta vai ser atribuida");
-                long nraluno = sc.nextLong();
-                System.out.println("Insira o ID da proposta que vai ser atribuida");
-                String propostaASerAtribuida = sc.nextLine();
-                fsm.atribuirPropostaManualmente(nraluno, propostaASerAtribuida);
+                fsm.changeToGestaoManualAtribuicoesState();
+
             }
             case 4 -> {
-                System.out.println("Insira o nr de aluno ao qual a proposta vai ser retirada");
-                long nraluno = sc.nextLong();
-                fsm.removerPropostaManualmente(nraluno);
-                ;
-            }
-            case 5 -> {
                 fsm.removerTodasAsAtribuicoes();
                 ;
             }
-            case 6 ->{
+            case 5 ->{
                 fsm.changeFromTratamentoPropToBase();
             }
         }
@@ -776,10 +803,11 @@ public class UI {
 
         switch (opcao) {
             case 1 -> {
+
                 mostraMenuOperacoesDocentes4Fase();
             }
             case 2 -> {
-                mostraMenuOrientadores4Fase();
+                fsm.changeToGestaoManualOrientState();
                 ;}
             case 3 -> {
                 System.out.println("O que pretende fazer?");
@@ -802,8 +830,9 @@ public class UI {
                         System.out.println("2 - Consultar maximo, minimo e media de orientações");
                         int ope = sc.nextInt();
                         if(ope == 1){
+                            Scanner sc1 = new Scanner(System.in);
                             System.out.println("Insira o e-mail do docente que pretende consultar");
-                            String emailProf = sc.nextLine();
+                            String emailProf = sc1.nextLine();
                             System.out.println(fsm.consultarOrientacoesDocente(emailProf));
                         }
                     }
@@ -892,33 +921,41 @@ public class UI {
         System.out.println("2 - Consultar orientador de uma proposta");
         System.out.println("3 - Editar orientador de uma proposta");
         System.out.println("4 - Remover orientador de uma proposta");
+        System.out.println("5 - Regressar ao menu anterior");
         System.out.println("---------------");
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o nr de aluno ao qual a proposta vai ser atribuida");
                 long nraluno = sc.nextLong();
                 System.out.println("Insira o email do orientador");
-                String emailOrientador = sc.nextLine();
+                String emailOrientador = sc1.nextLine();
                 fsm.atribuirManualmenteOrientadorAAlunosComPropostas(nraluno, emailOrientador);
             }
             case 2 -> {
+                Scanner sc2 = new Scanner(System.in);
                 System.out.println("Insira o ID da proposta");
-                String IDProposta = sc.nextLine();
+                String IDProposta = sc2.nextLine();
                 System.out.println(fsm.consultarOrientadorDeProposta(IDProposta));
                 ;}
             case 3 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o ID da proposta");
-                String IDProposta = sc.nextLine();
+                String IDProposta = sc1.nextLine();
                 System.out.println("Insira o email do orientador");
-                String emailOrientador = sc.nextLine();
+                String emailOrientador = sc1.nextLine();
                 fsm.editarOrientadorDeProposta(IDProposta, emailOrientador);
             }
             case 4 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o ID da proposta");
-                String IDProposta = sc.nextLine();
+                String IDProposta = sc1.nextLine();
                 fsm.removerOrientadorDeProposta(IDProposta);
                 ;
+            }
+            case 5 -> {
+                fsm.changeFromGestaoManualOrientToFase4();
             }
         }
     }
@@ -979,14 +1016,15 @@ public class UI {
                 System.out.println(fsm.consultarPropostasAtribuidas());
             }
             case 5 -> {
+                Scanner sc1 = new Scanner(System.in);
                 System.out.println("Insira o nome do ficheiro");
-                String nomeFicheiro = sc.nextLine();
+                String nomeFicheiro = sc1.nextLine();
                 fsm.exportarAlunosParaCSV(nomeFicheiro);
             }
             case 6 -> {
-                System.out.println(fsm.consultarDocenteComMaisOrientacoes());
-                System.out.println(fsm.consultarDocenteComMenosOrientacoes());
-                System.out.println(fsm.consultarMediaDeOrientacoesDosDocentes());
+                System.out.println("Docente com mais orientações:"+fsm.consultarDocenteComMaisOrientacoes());
+                System.out.println("Docente com menos orientações:"+fsm.consultarDocenteComMenosOrientacoes());
+                System.out.println("Média de orientações:"+fsm.consultarMediaDeOrientacoesDosDocentes());
             }
             case 7 -> {
                 System.out.println("Pretende guardar?");

@@ -131,6 +131,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public String consultarPropostasDisponiveis(){return null;};
     @Override
     public String consultarPropostasAtribuidas(){return null;};
+    @Override
+    public boolean changeToGestaoManualOrientState(){return false;}
 
     //Fase 4
     @Override
@@ -153,6 +155,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public String consultarDocenteComMaisOrientacoes(){return null;};
     @Override
     public String consultarMediaDeOrientacoesDosDocentes(){return null;};
+
 
 
 

@@ -10,6 +10,12 @@ public class Main {
         apoio_poeContext fsm = new apoio_poeContext();
         UI ui = new UI(fsm);
         ui.start();
+        //PoE poe = new PoE();
+        //poe.addAluno();
+        //poe.addProposta();
+        //poe.addDocente();
+        //poe.atribuirPropostaDeDocente();
+        //System.out.println(poe.consultarPropostasDocentes());
 
 
     }

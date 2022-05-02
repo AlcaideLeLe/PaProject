@@ -11,13 +11,30 @@ public class TRATAMENTO_PROPState extends apoio_poeAdapter{
     public apoio_poeState getState() {
         return apoio_poeState.TRATAMENTO_PROP;
     }
-    @Override
-    public void atribuirPropostaManualmente(long nrAluno, String idProposta){};
-    @Override
-    public void removerPropostaManualmente(long nrAluno){};
+
     @Override
     public boolean changeFromTratamentoPropToBase() {
         changeState(apoio_poeState.FASE3);
-        return false;
+        return true;
     }
+
+    @Override
+    public boolean changeToGestaoManualAtribuicoesState(){
+        changeState(apoio_poeState.GESTAO_MANUAL_ATRIBSTATE);
+        return true;
+    }
+
+    @Override
+    public void atribuicaoDeAlunosSemPropostasDefinidas(){}
+
+    @Override
+    public void atribuirAutoproposta(){data.atribuirAutoproposta();}
+
+    @Override
+    public void atribuirPropostaDeDocente(){data.atribuirPropostaDeDocente();}
+
+    @Override
+    public void removerTodasAsAtribuicoes(){data.removerTodasAsAtribuicoes();}
+
+
 }

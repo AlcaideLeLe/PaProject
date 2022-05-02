@@ -9,7 +9,7 @@ public class FASE3MasFASE2AbertaState extends apoio_poeAdapter{
 
     @Override
     public apoio_poeState getState() {
-        return null;
+        return apoio_poeState.FASE3MasFASE2AbertaState;
     }
 
     @Override
@@ -17,4 +17,13 @@ public class FASE3MasFASE2AbertaState extends apoio_poeAdapter{
         changeState(apoio_poeState.FASE3);
         return true;
     }
+    public boolean recuarFase() {
+        changeState(apoio_poeState.FASE2) ;
+        return true;
+    }
+
+
+
+
+
 }

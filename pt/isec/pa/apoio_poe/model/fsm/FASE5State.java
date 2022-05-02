@@ -25,6 +25,7 @@ public class FASE5State extends apoio_poeAdapter{
     public String consultarDocenteComMaisOrientacoes(){return data.consultarDocenteComMaisOrientacoes();};
     @Override
     public String consultarMediaDeOrientacoesDosDocentes(){return data.consultarMediaDeOrientacoesDosDocentes();};
-
+    @Override
+    public void exportarAlunosParaCSV(String nomeFicheiro){data.exportarAlunosParaCSV(nomeFicheiro);};
 
 }

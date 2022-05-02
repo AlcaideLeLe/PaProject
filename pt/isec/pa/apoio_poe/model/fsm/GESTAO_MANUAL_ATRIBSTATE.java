@@ -9,17 +9,21 @@ public class GESTAO_MANUAL_ATRIBSTATE extends apoio_poeAdapter{
 
     @Override
     public apoio_poeState getState() {
-        return null;
+        return apoio_poeState.GESTAO_MANUAL_ATRIBSTATE;
     }
     @Override
     public void atribuicaoDeAlunosSemPropostasDefinidas(){};
     @Override
-    public void atribuirAutoproposta(){};
+    public void atribuirAutoproposta(){data.atribuirAutoproposta();};
     @Override
-    public void atribuirPropostaDeDocente(){};
+    public void atribuirPropostaDeDocente(){data.atribuirPropostaDeDocente();};
     @Override
     public boolean changeFromGestaoManualAtribToFase3() {
         changeState(apoio_poeState.FASE3);
         return false;
     }
+    @Override
+    public void atribuirPropostaManualmente(long nrAluno, String idProposta){data.atribuirPropostaManualmente(nrAluno,idProposta);};
+    @Override
+    public void removerPropostaManualmente(long nrAluno){data.removerPropostaManualmente(nrAluno);};
 }

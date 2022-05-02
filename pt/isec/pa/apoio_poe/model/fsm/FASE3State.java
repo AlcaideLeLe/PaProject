@@ -42,7 +42,7 @@ public class FASE3State extends apoio_poeAdapter{
             return true;
         }
         changeState(apoio_poeState.FASE3);
-        return false;
+        return true;
     }
     @Override
     public boolean changeToGestaoManualAtribuicoesState(){
@@ -65,6 +65,7 @@ public class FASE3State extends apoio_poeAdapter{
     public String consultarPropostasDisponiveis(){return data.consultarPropostasDisponiveis();};
     @Override
     public String consultarPropostasAtribuidas(){return data.consultarPropostasAtribuidas();};
-
+    @Override
+    public void exportarAlunosParaCSV(String nomeFicheiro){data.exportarAlunosParaCSV(nomeFicheiro);};
 
 }
