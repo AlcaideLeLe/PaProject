@@ -1,6 +1,9 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.PoE;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
+
+import java.util.ArrayList;
 
 public class FASE2State extends apoio_poeAdapter{
 
@@ -56,5 +59,5 @@ public class FASE2State extends apoio_poeAdapter{
     @Override
     public String consultarPropostasSemCandidaturas(){return data.consultarPropostasSemCandidaturas();};
     @Override
-    public String consultaPropostas(){return data.consultarPropostas();}
+    public ArrayList<Proposta> consultaPropostas(){return data.consultarPropostas();}
 }

@@ -1,6 +1,9 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.PoE;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
+
+import java.util.ArrayList;
 
 public class FASE1BlockState extends apoio_poeAdapter{
     public FASE1BlockState(apoio_poeContext context, PoE data) {
@@ -31,5 +34,5 @@ public class FASE1BlockState extends apoio_poeAdapter{
     @Override
     public String consultaProposta(String IDProposta){return data.consultarProposta(IDProposta);}
     @Override
-    public String consultaPropostas(){return data.consultarPropostas();}
+    public ArrayList<Proposta> consultaPropostas(){return data.consultarPropostas();}
 }

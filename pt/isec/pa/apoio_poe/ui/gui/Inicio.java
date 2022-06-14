@@ -34,7 +34,7 @@ public class Inicio extends BorderPane {
 
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
         ButtonCreateNew.setOnAction(ev->{
-            if(context.avancarFase() == true)
+            if(context.avancarFase() == true);
         });
         ButtonLoad.setOnAction(ev->context.loadState());
         ButtonSair.setOnAction(ev->System.exit(0));

@@ -181,12 +181,12 @@ public class PoE implements Serializable{
         return null;
     }
 
-    public String consultarPropostas(){
+    public ArrayList<Proposta> consultarPropostas(){
         Collections.sort(listaDePropostas);
         if(listaDePropostas.isEmpty()){
             System.out.println("Ainda não foram adicionadas propostas");
         }
-        return listaDePropostas.toString();
+        return listaDePropostas;
     }
 
     public void addCandidatura(){

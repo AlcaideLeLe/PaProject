@@ -2,6 +2,7 @@ package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.PoE;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -165,7 +166,7 @@ public class apoio_poeContext {
     public String consultaDocentes(){return state.consultaDocentes();}
     public void addProposta(){state.addProposta();}
     public String consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
-    public String consultaPropostas(){return state.consultaPropostas();}
+    public ArrayList<Proposta> consultaPropostas(){return state.consultaPropostas();}
     public void addCandidatura(){state.addCandidatura();}
     public String consultaCandidatura(long nrAluno){return state.consultaCandidatura(nrAluno);}
     public ArrayList<Candidatura> consultaCandidaturas(){return state.consultaCandidaturas();}
@@ -207,7 +208,7 @@ public class apoio_poeContext {
     public apoio_poeState getState(){
         return state.getState();
     }
-    public String consultarPropostas(){return state.consultaPropostas();}
+    public ArrayList<Proposta> consultarPropostas(){return state.consultaPropostas();}
     public String consultarOrientacoesDocente(String email){return state.consultarOrientacoesDocente(email);}
 
     public boolean carregar(){

@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
 
 import java.util.ArrayList;
 
@@ -43,7 +44,7 @@ public interface IApoio_poeState {
     String consultaDocentes();
     void addProposta();
     String consultaProposta(String idProposta);
-    String consultaPropostas();
+    ArrayList<Proposta> consultaPropostas();
     void exportarDocentesParaCSV(String nomeFicheiro);
     void exportarAlunosParaCSV(String nomeFicheiro);
     void exportarPropostasParaCSV(String nomeFicheiro);
