@@ -19,6 +19,7 @@ public class UI {
     private int opcao;
     private apoio_poeContext fsm;
     private boolean finish = false;
+
     public UI(apoio_poeContext fsm){
         this.fsm = fsm;
     }
@@ -697,7 +698,6 @@ public class UI {
         }
 
     }
-
     public void mostraMenuOperacoesPropostas3Fase() {
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
         System.out.println("---------------");

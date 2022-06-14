@@ -1,47 +1,161 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.*;
+import java.util.ArrayList;
 
 public class apoio_poeContext {
     private PoE data;
     private IApoio_poeState state;
+    public static final String PROP_FASE = "FASE";
 
     public apoio_poeContext(){
         this.data = new PoE();
         this.state = apoio_poeState.InicioState.createState(this, data);
     }
 
+    PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
+
+    public void addPropertyChangeListener(String property, PropertyChangeListener listener){
+        pcs.addPropertyChangeListener(property, listener);
+    }
+
+
+
+
     public void changeState(IApoio_poeState state){
+
+        pcs.firePropertyChange(PROP_FASE, null, null);
         this.state = state;
     }
 
     public void fecharFase() {state.fecharFase();};
-    public boolean avancarFase() {return state.avancarFase();}
-    public boolean recuarFase() {return state.recuarFase();}
-    public boolean changeToGestaoAL() {return state.changeToGestaoAL();}
-    public boolean changeToGestaoCAND(){return state.changeToGestaoCAND();}
-    public boolean changeToGestaoDOC(){return state.changeToGestaoDOC();}
-    public boolean changeToGestaoORI(){return state.changeToGestaoORI();}
-    public boolean changeToTratamentoProp() {return state.changeToTratamentoProp();}
-    public boolean changeFromGestaoPROPtoBase() {return state.changeFromGestaoPROPtoBase();}
-    public boolean changeFromGestaoALtoBase() {return state.changeFromGestaoALtoBase();}
-    public boolean changeFromGestaoDOCtoBase() {return state.changeFromGestaoDOCtoBase();}
-    public boolean changeFromGestaoCANDtoBase() {return state.changeFromGestaoCANDtoBase();}
-    public boolean changeFromGestaoORItoBase() {return state.changeFromGestaoORItoBase();}
-    public boolean changeToGestaoManualAtribuicoesState() {return state.changeToGestaoManualAtribuicoesState();}
-    public boolean changeToGestaoDeDocentesState(){return state.changeToGestaoDeDocentesState();}
-    public boolean changeFromGestaoManualAtribToFase3(){return state.changeFromGestaoManualAtribToFase3();}
-    public boolean changeFromGestaoManualOrientToFase4(){return state.changeFromGestaoManualOrientToFase4();}
-    public boolean changeToPropState(){return state.changeToPropState();}
-    public boolean changeFromTratamentoPropToBase(){return state.changeFromTratamentoPropToBase();}
-    public boolean changeFromF3MasF2AbertaToBase(){return state.changeFromF3MasF2AbertaToBase();}
-    public boolean changeToF3MasF2Aberta(){return state.changeToF3MasF2Aberta();}
-    public boolean changeToFase1State(){return state.changeToFase1State();}
-    public boolean loadState(){return state.loadState();}
-    public boolean changeToFaseBloqueadaAnterior(){return state.changeToFaseBloqueadaAnterior();}
-    public boolean changeToGestaoManualOrientState(){return state.changeToGestaoManualOrientState();}
+    public boolean avancarFase() {
+        boolean resultado = state.avancarFase();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean recuarFase() {
+        boolean resultado = state.recuarFase();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToGestaoAL() {
+        boolean resultado = state.changeToGestaoAL();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToGestaoCAND(){
+        boolean resultado = state.changeToGestaoCAND();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToGestaoDOC(){
+        boolean resultado = state.changeToGestaoDOC();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToGestaoORI(){
+        boolean resultado = state.changeToGestaoORI();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToTratamentoProp() {
+        boolean resultado = state.changeToTratamentoProp();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeFromGestaoPROPtoBase() {
+        boolean resultado = state.changeFromGestaoPROPtoBase();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeFromGestaoALtoBase() {
+        boolean resultado = state.changeFromGestaoALtoBase();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeFromGestaoDOCtoBase() {
+        boolean resultado = state.changeFromGestaoDOCtoBase();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeFromGestaoCANDtoBase() {
+        boolean resultado = state.changeFromGestaoCANDtoBase();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeFromGestaoORItoBase() {
+        boolean resultado = state.changeFromGestaoORItoBase();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToGestaoManualAtribuicoesState() {
+        boolean resultado = state.changeToGestaoManualAtribuicoesState();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToGestaoDeDocentesState(){
+        boolean resultado = state.changeToGestaoDeDocentesState();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeFromGestaoManualAtribToFase3(){
+        boolean resultado = state.changeFromGestaoManualAtribToFase3();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeFromGestaoManualOrientToFase4(){
+        boolean resultado = state.changeFromGestaoManualOrientToFase4();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToPropState(){
+        boolean resultado = state.changeToPropState();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+
+    }
+    public boolean changeFromTratamentoPropToBase(){
+        boolean resultado = state.changeFromTratamentoPropToBase();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeFromF3MasF2AbertaToBase(){
+        boolean resultado = state.changeFromF3MasF2AbertaToBase();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToF3MasF2Aberta(){
+        boolean resultado = state.changeToF3MasF2Aberta();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToFase1State(){
+        boolean resultado = state.changeToFase1State();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean loadState(){
+        boolean resultado = state.loadState();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToFaseBloqueadaAnterior(){
+        boolean resultado = state.changeToFaseBloqueadaAnterior();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
+    public boolean changeToGestaoManualOrientState(){
+        boolean resultado = state.changeToGestaoManualOrientState();
+        pcs.firePropertyChange(PROP_FASE, null, null);
+        return resultado;
+    }
 
     public void addAluno(){state.addAluno();}
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
@@ -54,7 +168,7 @@ public class apoio_poeContext {
     public String consultaPropostas(){return state.consultaPropostas();}
     public void addCandidatura(){state.addCandidatura();}
     public String consultaCandidatura(long nrAluno){return state.consultaCandidatura(nrAluno);}
-    public String consultaCandidaturas(){return state.consultaCandidaturas();}
+    public ArrayList<Candidatura> consultaCandidaturas(){return state.consultaCandidaturas();}
     public String consultaAlunosComAutoproposta(){return state.consultarListaDeAutopropostas();}
     public String consultarAlunosComCandidatura(){return state.consultarAlunosComCandidatura();}
     public String consultarListaDeAutopropostas(){return state.consultarListaDeAutopropostas();}

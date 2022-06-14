@@ -1,6 +1,9 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.PoE;
+
+import java.util.ArrayList;
 
 abstract class apoio_poeAdapter implements IApoio_poeState{
     apoio_poeContext context;
@@ -94,7 +97,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public String consultaCandidatura(long nrAluno){return null;}
     @Override
-    public String consultaCandidaturas(){return null;}
+    public ArrayList<Candidatura> consultaCandidaturas(){return null;}
     @Override
     public String consultaAlunosComAutoproposta(){return null;}
     @Override

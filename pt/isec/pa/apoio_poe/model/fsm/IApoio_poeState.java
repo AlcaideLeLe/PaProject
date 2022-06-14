@@ -1,5 +1,9 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Candidatura;
+
+import java.util.ArrayList;
+
 public interface IApoio_poeState {
     //operações de todas as fases
     public apoio_poeState getState();
@@ -48,7 +52,7 @@ public interface IApoio_poeState {
     //Fase 2
     void addCandidatura();
     String consultaCandidatura(long nrAluno);
-    String consultaCandidaturas();
+    ArrayList<Candidatura> consultaCandidaturas();
     String consultaAlunosComAutoproposta();
     String consultarAlunosComCandidatura();
     String consultarAlunosSemCandidatura();

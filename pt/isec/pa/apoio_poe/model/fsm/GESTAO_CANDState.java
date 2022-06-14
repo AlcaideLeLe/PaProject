@@ -1,6 +1,9 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.PoE;
+
+import java.util.ArrayList;
 
 public class GESTAO_CANDState extends apoio_poeAdapter{
     public GESTAO_CANDState(apoio_poeContext context, PoE data) {
@@ -20,7 +23,7 @@ public class GESTAO_CANDState extends apoio_poeAdapter{
     @Override
     public void addCandidatura(){data.addCandidatura();}
     @Override
-    public String consultaCandidaturas(){return data.consultarCandidaturas();}
+    public ArrayList<Candidatura> consultaCandidaturas(){return data.consultarCandidaturas();}
     @Override
     public String consultaCandidatura(long nrAluno){return data.consultarCandidatura(nrAluno);}
     @Override

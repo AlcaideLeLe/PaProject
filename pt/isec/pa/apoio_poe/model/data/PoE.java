@@ -228,9 +228,9 @@ public class PoE implements Serializable{
         }
         return null;
     }
-    public String consultarCandidaturas(){
+    public ArrayList<Candidatura> consultarCandidaturas(){
         Collections.sort(listaDeCandidaturas);
-        return listaDeCandidaturas.toString();
+        return listaDeCandidaturas;
     }
 
     public String consultarAlunosComCandidatura(){
