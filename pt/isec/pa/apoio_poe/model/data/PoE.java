@@ -56,6 +56,10 @@ public class PoE implements Serializable{
             listaDeAlunos.add(a);
     }
 
+    public void removerAluno(long nr){
+        listaDeAlunos.removeIf(a -> a.getNumero() == nr);
+    }
+
     public void addDocente() {
         try {
             ArrayList<String> arrayDocente = new ArrayList<>();
