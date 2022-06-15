@@ -144,13 +144,13 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void removerPropostaManualmente(long nrAluno){};
     @Override
-    public String consultarAlunosComPropostaAtribuida(){return null;};
+    public ArrayList<Aluno> consultarAlunosComPropostaAtribuida(){return null;};
     @Override
-    public String consultarAlunosSemPropostaAtribuida(){return null;};
+    public ArrayList<Aluno> consultarAlunosSemPropostaAtribuida(){return null;};
     @Override
-    public String consultarPropostasDisponiveis(){return null;};
+    public ArrayList<Proposta> consultarPropostasDisponiveis(){return null;};
     @Override
-    public String consultarPropostasAtribuidas(){return null;};
+    public ArrayList<Proposta> consultarPropostasAtribuidas(){return null;};
     @Override
     public boolean changeToGestaoManualOrientState(){return false;}
 

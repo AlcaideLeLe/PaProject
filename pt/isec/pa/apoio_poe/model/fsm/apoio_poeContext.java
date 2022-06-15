@@ -192,10 +192,10 @@ public class apoio_poeContext {
     public void atruibuicaoDeAlunosSemPropostasDefinidas(){state.atribuicaoDeAlunosSemPropostasDefinidas();}
     public void atribuirPropostaManualmente(long nrAluno, String idProposta){state.atribuirPropostaManualmente(nrAluno,idProposta);}
     public void removerPropostaManualmente(long nrAluno){state.removerPropostaManualmente(nrAluno);}
-    public String consultarAlunosComPropostaAtribuida(){return state.consultarAlunosComPropostaAtribuida();}
-    public String consultarAlunosSemPropostaAtribuida(){return state.consultarAlunosSemPropostaAtribuida();}
-    public String consultarPropostasDisponiveis(){return state.consultarPropostasDisponiveis();}
-    public String consultarPropostasAtribuidas(){return state.consultarPropostasAtribuidas();}
+    public ArrayList<Aluno> consultarAlunosComPropostaAtribuida(){return state.consultarAlunosComPropostaAtribuida();}
+    public ArrayList<Aluno> consultarAlunosSemPropostaAtribuida(){return state.consultarAlunosSemPropostaAtribuida();}
+    public ArrayList<Proposta> consultarPropostasDisponiveis(){return state.consultarPropostasDisponiveis();}
+    public ArrayList<Proposta> consultarPropostasAtribuidas(){return state.consultarPropostasAtribuidas();}
     public void atribuirPropostaADocenteProponenteAutomaticamente(){state.atribuirPropostaADocenteProponenteAutomaticamente();}
     public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf);}
     public String consultarOrientadorDeProposta(String idProposta){return state.consultarOrientadorDeProposta(idProposta);}

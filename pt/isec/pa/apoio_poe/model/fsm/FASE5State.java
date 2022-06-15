@@ -1,6 +1,10 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.PoE;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
+
+import java.util.ArrayList;
 
 public class FASE5State extends apoio_poeAdapter{
     public FASE5State(apoio_poeContext context, PoE data) {
@@ -12,13 +16,13 @@ public class FASE5State extends apoio_poeAdapter{
         return apoio_poeState.FASE5;
     }
 
-    public String consultarAlunosComPropostaAtribuida(){return data.consultarAlunosComPropostaAtribuida();};
+    public ArrayList<Aluno> consultarAlunosComPropostaAtribuida(){return data.consultarAlunosComPropostaAtribuida();};
     @Override
     public String consultarAlunosComCandidaturaESemProposta(){return data.consultarAlunosComCandidaturaESemProposta();};
     @Override
-    public String consultarPropostasDisponiveis(){return data.consultarPropostasDisponiveis();};
+    public ArrayList<Proposta> consultarPropostasDisponiveis(){return data.consultarPropostasDisponiveis();};
     @Override
-    public String consultarPropostasAtribuidas(){return data.consultarPropostasAtribuidas();};
+    public ArrayList<Proposta> consultarPropostasAtribuidas(){return data.consultarPropostasAtribuidas();};
     @Override
     public String consultarDocenteComMenosOrientacoes(){return data.consultarDocenteComMenosOrientacoes();};
     @Override

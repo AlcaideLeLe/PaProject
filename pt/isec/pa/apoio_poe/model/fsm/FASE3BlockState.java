@@ -31,15 +31,15 @@ public class FASE3BlockState extends apoio_poeAdapter{
     @Override
     public ArrayList<Aluno> consultarAlunosComCandidatura(){return data.consultarAlunosComCandidatura();};
     @Override
-    public String consultarAlunosComPropostaAtribuida(){return data.consultarAlunosComPropostaAtribuida();};
+    public ArrayList<Aluno> consultarAlunosComPropostaAtribuida(){return data.consultarAlunosComPropostaAtribuida();};
     @Override
-    public String consultarAlunosSemPropostaAtribuida(){return data.consultarAlunosSemPropostaAtribuida();};
+    public ArrayList<Aluno> consultarAlunosSemPropostaAtribuida(){return data.consultarAlunosSemPropostaAtribuida();};
     @Override
     public ArrayList<Proposta> consultarListaDeAutopropostas(){return data.consultarListaDeAutopropostas();};
     @Override
     public ArrayList<Proposta> consultarPropostasDeDocentes(){return data.consultarPropostasDocentes();};
     @Override
-    public String consultarPropostasDisponiveis(){return data.consultarPropostasDisponiveis();};
+    public ArrayList<Proposta> consultarPropostasDisponiveis(){return data.consultarPropostasDisponiveis();};
     @Override
-    public String consultarPropostasAtribuidas(){return data.consultarPropostasAtribuidas();};
+    public ArrayList<Proposta> consultarPropostasAtribuidas(){return data.consultarPropostasAtribuidas();};
 }

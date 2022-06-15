@@ -81,12 +81,12 @@ public interface IApoio_poeState {
     void removerPropostaManualmente(long nrAluno);
     //String consultaAlunosComAutoproposta(); mesma função da linha 36
     //String consultarAlunosComCandidatura(); mesma função da linha 37
-    String consultarAlunosComPropostaAtribuida();
-    String consultarAlunosSemPropostaAtribuida();
+    ArrayList<Aluno> consultarAlunosComPropostaAtribuida();
+    ArrayList<Aluno> consultarAlunosSemPropostaAtribuida();
     //String consultarListaDeAutopropostas(); mesma função da linha 39
     //String consultarPropostasDeDocentes(); mesma função da linha 40
-    String consultarPropostasDisponiveis();
-    String consultarPropostasAtribuidas();
+    ArrayList<Proposta> consultarPropostasDisponiveis();
+    ArrayList<Proposta> consultarPropostasAtribuidas();
 
     //Fase 4
     void atribuirPropostaADocenteProponenteAutomaticamente();

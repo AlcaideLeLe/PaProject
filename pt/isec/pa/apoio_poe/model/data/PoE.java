@@ -511,47 +511,54 @@ public class PoE implements Serializable{
         }
     }
 
-    public String consultarAlunosSemPropostaAtribuida(){
+    public ArrayList<Aluno> consultarAlunosSemPropostaAtribuida(){
         StringBuilder sb = new StringBuilder();
+        ArrayList<Aluno> alunosSemProposta = new ArrayList<>();
         for(var a : listaDeAlunos){
             if(a.getIdPropostaAssociada() == null){
                 sb.append("Numero de Aluno: ").append(a.toString()).append(System.lineSeparator());
+                alunosSemProposta.add(a);
             }
         }
 
-        return sb.toString();
+        return alunosSemProposta;
     } //FEITO HOJE E TESTADO
 
-    public String consultarAlunosComPropostaAtribuida(){
+    public ArrayList<Aluno> consultarAlunosComPropostaAtribuida(){
         StringBuilder sb = new StringBuilder();
+        ArrayList<Aluno> alunosComPropostaAtribuida = new ArrayList<>();
         for(var a : listaDeAlunos){
             if(a.getIdPropostaAssociada() != null){
                 sb.append("Numero de Aluno: ").append(a.toString()).append(System.lineSeparator());
+                alunosComPropostaAtribuida.add(a);
             }
         }
 
-        return sb.toString();
+        return alunosComPropostaAtribuida;
     }
 
-    public String consultarPropostasDisponiveis(){
+    public ArrayList<Proposta> consultarPropostasDisponiveis(){
         StringBuilder sb = new StringBuilder();
+        ArrayList<Proposta> propostasDisponives = new ArrayList<>();
         for(var p : listaDePropostas){
             if(!p.isAtribuida()){
                 sb.append("Proposta nao atribuida \n").append(p.toString()).append(System.lineSeparator());
+                propostasDisponives.add(p);
             }
         }
-        return sb.toString();
+        return propostasDisponives;
     } //FEITO HOJE E TESTADO
 
-    public String consultarPropostasAtribuidas(){
+    public ArrayList<Proposta> consultarPropostasAtribuidas(){
         StringBuilder sb = new StringBuilder();
+        ArrayList<Proposta> propostasAtribuidas = new ArrayList<>();
         for(var p : listaDePropostas){
             if(p.isAtribuida()){
                 sb.append("Proposta atribuida \n").append(p.toString()).append(System.lineSeparator());
-
+                propostasAtribuidas.add(p);
             }
         }
-        return sb.toString();
+        return propostasAtribuidas;
 
     } //FEITO HOJE E TESTADO
 

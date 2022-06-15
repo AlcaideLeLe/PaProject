@@ -156,9 +156,9 @@ public class FASE2 extends BorderPane {
         gridButtons.add(ButtonConsultaPropostas, 0, 18);
 
 
-        gridButtons.add(ButtonAvancarFase, 0, 22);
+        gridButtons.add(ButtonFecharFase, 0, 22);
         gridButtons.add(ButtonRecuarFase, 1, 22);
-        gridButtons.add(ButtonFecharFase, 2, 22);
+        gridButtons.add(ButtonAvancarFase, 2, 22);
 
         this.setCenter(gridButtons);
     }
