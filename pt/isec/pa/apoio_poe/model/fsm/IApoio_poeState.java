@@ -94,10 +94,10 @@ public interface IApoio_poeState {
     String consultarOrientadorDeProposta(String idProposta);
     void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador);
     void removerOrientadorDeProposta(String idProposta);
-    String consultarAlunosComPropostaEComOrientador();
-    String consultarAlunosComPropostaESemOrientador();
-    String consultarDocenteComMenosOrientacoes();
-    String consultarDocenteComMaisOrientacoes();
+    ArrayList<Aluno> consultarAlunosComPropostaEComOrientador();
+    ArrayList<Aluno> consultarAlunosComPropostaESemOrientador();
+    Docente consultarDocenteComMenosOrientacoes();
+    Docente consultarDocenteComMaisOrientacoes();
     String consultarMediaDeOrientacoesDosDocentes();
     void removerTodasAsAtribuicoes();
     String consultarPropostas();

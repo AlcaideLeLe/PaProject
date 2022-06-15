@@ -1,6 +1,10 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.PoE;
+
+import java.util.ArrayList;
 
 public class FASE4State extends apoio_poeAdapter{
 
@@ -49,13 +53,13 @@ public class FASE4State extends apoio_poeAdapter{
         return true;
     }
     @Override
-    public String consultarAlunosComPropostaEComOrientador(){return data.consultarAlunosComPropostaEComOrientador();};
+    public ArrayList<Aluno> consultarAlunosComPropostaEComOrientador(){return data.consultarAlunosComPropostaEComOrientador();};
     @Override
-    public String consultarAlunosComPropostaESemOrientador(){return data.consultarAlunosComPropostaESemOrientador();};
+    public ArrayList<Aluno> consultarAlunosComPropostaESemOrientador(){return data.consultarAlunosComPropostaESemOrientador();};
     @Override
-    public String consultarDocenteComMenosOrientacoes(){return data.consultarDocenteComMenosOrientacoes();};
+    public Docente consultarDocenteComMenosOrientacoes(){return data.consultarDocenteComMenosOrientacoes();};
     @Override
-    public String consultarDocenteComMaisOrientacoes(){return data.consultarDocenteComMaisOrientacoes();};
+    public Docente consultarDocenteComMaisOrientacoes(){return data.consultarDocenteComMaisOrientacoes();};
     @Override
     public String consultarMediaDeOrientacoesDosDocentes(){return data.consultarMediaDeOrientacoesDosDocentes();};
     @Override

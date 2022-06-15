@@ -201,10 +201,10 @@ public class apoio_poeContext {
     public String consultarOrientadorDeProposta(String idProposta){return state.consultarOrientadorDeProposta(idProposta);}
     public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){state.editarOrientadorDeProposta(idProposta, emailNovoOrientador);}
     public void removerOrientadorDeProposta(String idProposta){state.removerOrientadorDeProposta(idProposta);}
-    public String consultarAlunosComPropostaEComOrientador(){return state.consultarAlunosComPropostaEComOrientador();}
-    public String consultarAlunosComPropostaESemOrientador(){return state.consultarAlunosComPropostaESemOrientador();}
-    public String consultarDocenteComMenosOrientacoes(){return state.consultarDocenteComMenosOrientacoes();}
-    public String consultarDocenteComMaisOrientacoes(){return state.consultarDocenteComMaisOrientacoes();}
+    public ArrayList<Aluno> consultarAlunosComPropostaEComOrientador(){return state.consultarAlunosComPropostaEComOrientador();}
+    public ArrayList<Aluno> consultarAlunosComPropostaESemOrientador(){return state.consultarAlunosComPropostaESemOrientador();}
+    public Docente consultarDocenteComMenosOrientacoes(){return state.consultarDocenteComMenosOrientacoes();}
+    public Docente consultarDocenteComMaisOrientacoes(){return state.consultarDocenteComMaisOrientacoes();}
     public String consultarMediaDeOrientacoesDosDocentes(){return state.consultarMediaDeOrientacoesDosDocentes();}
     public String consultarAlunosComCandidaturaESemProposta(){return state.consultarAlunosComCandidaturaESemProposta();}
     public ArrayList<Aluno> consultarAlunosSemCandidatura(){return state.consultarAlunosSemCandidatura();}

@@ -21,7 +21,14 @@ public class GESTAO_ORI extends BorderPane {
 
     apoio_poeContext context;
     GridPane gridButtons;
-    Button ButtonVoltarBase;
+
+
+    Button ButtonAtribuirManualOrientadorAAlunosComProposta;
+    Button ButtonConsultarOrientadorDeProjetos;
+    Button ButtonEditarOrientadorDeProposta;
+    Button ButtonRemoverOrientadorDeProposta;
+    Button ButtonChangeParaFase4;
+
     Label mensagemEscolha;
     Label listaDeAlunos;
 
@@ -36,12 +43,15 @@ public class GESTAO_ORI extends BorderPane {
     public void registerHandlers(){
 
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
-        ButtonVoltarBase.setOnAction(ev->context.changeFromGestaoORItoBase());
+        //ButtonAtribuirManualOrientadorAAlunosComProposta.setOnAction(ev->context.atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf));
+        //ButtonConsultarOrientadorDeProjetos.setOnAction(ev->context.consultarOrientadorDeProposta(String idProposta));
+        //ButtonEditarOrientadorDeProposta.setOnAction(ev->context.editarOrientadorDeProposta(String idProposta, String emailNovoOrientador));
+        ButtonChangeParaFase4.setOnAction(ev->context.changeFromGestaoManualOrientToFase4());
 
     }
 
     public void update(){
-        if(context.getState() == apoio_poeState.GESTAO_ORI){
+        if(context.getState() == apoio_poeState.GESTAO_MANUAL_ORIENTSTATE){
             this.setVisible(true);
             System.out.println(context.getState());
         }
@@ -67,10 +77,26 @@ public class GESTAO_ORI extends BorderPane {
         mensagemEscolha.setText("Escolha uma das opcoes: ");
 
 
+        ButtonAtribuirManualOrientadorAAlunosComProposta = new Button();
+        ButtonAtribuirManualOrientadorAAlunosComProposta.setText("Atribuir Manualmente orientador a alunos com proposta");
+        ButtonAtribuirManualOrientadorAAlunosComProposta.getStyleClass().add("buttonFase2");
 
-        ButtonVoltarBase = new Button();
-        ButtonVoltarBase.setText("Voltar");
-        ButtonVoltarBase.getStyleClass().add("buttonFase2");
+        ButtonConsultarOrientadorDeProjetos = new Button();
+        ButtonConsultarOrientadorDeProjetos.setText("Consultar orientador de projetos");
+        ButtonConsultarOrientadorDeProjetos.getStyleClass().add("buttonFase2");
+
+        ButtonEditarOrientadorDeProposta = new Button();
+        ButtonEditarOrientadorDeProposta.setText("Editar Orientador de proposta");
+        ButtonEditarOrientadorDeProposta.getStyleClass().add("buttonFase2");
+
+        ButtonRemoverOrientadorDeProposta = new Button();
+        ButtonRemoverOrientadorDeProposta.setText("Remover orientador de proposta");
+        ButtonRemoverOrientadorDeProposta.getStyleClass().add("buttonFase2");
+
+
+        ButtonChangeParaFase4 = new Button();
+        ButtonChangeParaFase4.setText("Voltar");
+        ButtonChangeParaFase4.getStyleClass().add("buttonFase2");
 
         listaDeAlunos = new Label();
 
@@ -78,7 +104,11 @@ public class GESTAO_ORI extends BorderPane {
         //organizar coordenadas
 
         gridButtons.add(mensagemEscolha, 0, 0);
-        gridButtons.add(ButtonVoltarBase, 0, 2);
+        gridButtons.add(ButtonAtribuirManualOrientadorAAlunosComProposta, 0, 2);
+        gridButtons.add(ButtonConsultarOrientadorDeProjetos, 0, 4);
+        gridButtons.add(ButtonEditarOrientadorDeProposta, 0, 6);
+        gridButtons.add(ButtonRemoverOrientadorDeProposta, 0, 8);
+        gridButtons.add(ButtonChangeParaFase4, 0, 12);
 
         this.setCenter(gridButtons);
     }

@@ -1,10 +1,13 @@
 package pt.isec.pa.apoio_poe.ui.gui;
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
@@ -59,7 +62,17 @@ public class FASE3 extends BorderPane {
         ButtonConsultarPropostasDeDocentes.setOnAction(ev->context.consultarPropostasDocentes());
         ButtonConsultarPropostasDisponiveis.setOnAction(ev->context.consultarPropostasDisponiveis());
         ButtonConsultaPropostasAtribuidas.setOnAction(ev->context.consultarPropostasAtribuidas());
-        //ButtonExportarAlunosCSV.setOnAction(ev->context.exportarAlunosParaCSV(String nomeFicheiro));
+        ButtonExportarAlunosCSV.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuestionaFicheiro root = new QuestionaFicheiro(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Aluno");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
 
 
         ButtonAvancarFase.setOnAction(ev->context.avancarFase());

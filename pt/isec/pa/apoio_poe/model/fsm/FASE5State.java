@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 
@@ -24,9 +25,9 @@ public class FASE5State extends apoio_poeAdapter{
     @Override
     public ArrayList<Proposta> consultarPropostasAtribuidas(){return data.consultarPropostasAtribuidas();};
     @Override
-    public String consultarDocenteComMenosOrientacoes(){return data.consultarDocenteComMenosOrientacoes();};
+    public Docente consultarDocenteComMenosOrientacoes(){return data.consultarDocenteComMenosOrientacoes();};
     @Override
-    public String consultarDocenteComMaisOrientacoes(){return data.consultarDocenteComMaisOrientacoes();};
+    public Docente consultarDocenteComMaisOrientacoes(){return data.consultarDocenteComMaisOrientacoes();};
     @Override
     public String consultarMediaDeOrientacoesDosDocentes(){return data.consultarMediaDeOrientacoesDosDocentes();};
     @Override

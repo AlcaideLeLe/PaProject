@@ -631,65 +631,69 @@ public class PoE implements Serializable{
         }
     }
 
-    public String consultarAlunosComPropostaEComOrientador(){
+    public ArrayList<Aluno> consultarAlunosComPropostaEComOrientador(){
         StringBuilder sb = new StringBuilder();
+        ArrayList<Aluno> alunos = new ArrayList<>();
         for(var a : listaDeAlunos){
             if(a.getIdPropostaAssociada() != null){
                 for(var p : listaDePropostas){
                    if(p.isAtribuida()){
                         if(p.getOrientador() != null){
                             sb.append("Alunos com Proposta e com orientador   ").append(a.getNumero()).append(System.lineSeparator());
+                            alunos.add(a);
                         }
                    }
                 }
             }
         }
 
-        return sb.toString();
+        return alunos;
     } //IMPRIME DUAS VEZES
-    public String consultarAlunosComPropostaESemOrientador(){
+    public ArrayList<Aluno> consultarAlunosComPropostaESemOrientador(){
         StringBuilder sb = new StringBuilder();
+        ArrayList<Aluno> alunos = new ArrayList<>();
         for(var a : listaDeAlunos){
             if(a.getIdPropostaAssociada() != null){
                 for(var p : listaDePropostas){
                     if(p.isAtribuida()){
                         if(p.getOrientador() == null){
                             sb.append("Alunos com Proposta e sem orientador   ").append(a.getNumero()).append(System.lineSeparator());
+                            alunos.add(a);
                         }
                     }
                 }
             }
         }
 
-        return sb.toString();
+        return alunos;
     } //IMPRIME DUAS VEZES
 
-    public String consultarDocenteComMenosOrientacoes(){
+    public Docente consultarDocenteComMenosOrientacoes(){
         int menor = 0;
-        String DocenteMenor = null;
+        Docente DocenteMenor = null;
         for(int i=0; i<listaDeDocentes.size(); i++){
             if(i==0){
-                DocenteMenor = listaDeDocentes.get(i).getEmail();
+                DocenteMenor = listaDeDocentes.get(i);
                 menor = listaDeDocentes.get(i).getNrDeOrientacoes();
             }
             if(listaDeDocentes.get(i).getNrDeOrientacoes() < menor){
                 menor = listaDeDocentes.get(i).getNrDeOrientacoes();
-                DocenteMenor = listaDeDocentes.get(i).getEmail();
+                DocenteMenor = listaDeDocentes.get(i);
             }
         }
         return DocenteMenor;
     }
-    public String consultarDocenteComMaisOrientacoes(){
+    public Docente consultarDocenteComMaisOrientacoes(){
         int maior = 0;
-        String DocenteMaior = null;
+        Docente DocenteMaior = null;
         for(int i=0; i<listaDeDocentes.size(); i++){
             if(i==0){
-                DocenteMaior = listaDeDocentes.get(i).getEmail();
+                DocenteMaior = listaDeDocentes.get(i);
                 maior = listaDeDocentes.get(i).getNrDeOrientacoes();
             }
             if(listaDeDocentes.get(i).getNrDeOrientacoes() > maior){
                 maior = listaDeDocentes.get(i).getNrDeOrientacoes();
-                DocenteMaior = listaDeDocentes.get(i).getEmail();
+                DocenteMaior = listaDeDocentes.get(i);
             }
         }
         return DocenteMaior;

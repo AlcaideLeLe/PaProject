@@ -166,13 +166,13 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void removerOrientadorDeProposta(String idProposta){};
     @Override
-    public String consultarAlunosComPropostaEComOrientador(){return null;};
+    public ArrayList<Aluno> consultarAlunosComPropostaEComOrientador(){return null;};
     @Override
-    public String consultarAlunosComPropostaESemOrientador(){return null;};
+    public ArrayList<Aluno> consultarAlunosComPropostaESemOrientador(){return null;};
     @Override
-    public String consultarDocenteComMenosOrientacoes(){return null;};
+    public Docente consultarDocenteComMenosOrientacoes(){return null;};
     @Override
-    public String consultarDocenteComMaisOrientacoes(){return null;};
+    public Docente consultarDocenteComMaisOrientacoes(){return null;};
     @Override
     public String consultarMediaDeOrientacoesDosDocentes(){return null;};
 
