@@ -1,6 +1,11 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.PoE;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
+
+import java.util.ArrayList;
 
 public class FASE2BlockState extends apoio_poeAdapter{
     public FASE2BlockState(apoio_poeContext context, PoE data) {
@@ -28,19 +33,19 @@ public class FASE2BlockState extends apoio_poeAdapter{
     }
 
     @Override
-    public String consultaAlunosComAutoproposta(){return data.consultarAlunosComAutoproposta();}
+    public ArrayList<Aluno> consultaAlunosComAutoproposta(){return data.consultarAlunosComAutoproposta();}
     @Override
-    public String consultarAlunosComCandidatura(){return data.consultarAlunosComCandidatura();};
+    public ArrayList<Aluno> consultarAlunosComCandidatura(){return data.consultarAlunosComCandidatura();};
     @Override
-    public String consultarAlunosSemCandidatura(){return data.consultarAlunosSemCandidatura();};
+    public ArrayList<Aluno> consultarAlunosSemCandidatura(){return data.consultarAlunosSemCandidatura();};
     @Override
-    public String consultarListaDeAutopropostas(){return data.consultarListaDeAutopropostas();};
+    public ArrayList<Proposta> consultarListaDeAutopropostas(){return data.consultarListaDeAutopropostas();};
     @Override
-    public String consultarPropostasDeDocentes(){return data.consultarPropostasDocentes();};
+    public ArrayList<Proposta> consultarPropostasDeDocentes(){return data.consultarPropostasDocentes();};
     @Override
     public String consultarPropostasComCandidaturas(){return data.consultarPropostasComCandidaturas();};
     @Override
     public String consultarPropostasSemCandidaturas(){return data.consultarPropostasSemCandidaturas();};
     @Override
-    public String consultaCandidatura(long nrAluno){return data.consultarCandidatura(nrAluno);}
+    public Candidatura consultaCandidatura(long nrAluno){return data.consultarCandidatura(nrAluno);}
 }

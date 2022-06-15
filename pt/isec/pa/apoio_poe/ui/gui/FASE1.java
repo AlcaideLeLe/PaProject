@@ -41,6 +41,7 @@ public class FASE1 extends BorderPane {
         ButtonGestaoAlunos.setOnAction(ev->context.changeToGestaoAL());
         ButtonGestaoPropostas.setOnAction(ev->context.changeToPropState());
         ButtonGestaoDocentes.setOnAction(ev->context.changeToGestaoDOC());
+        ButtonAvancar.setOnAction(ev->context.avancarFase());
         ButtonSair.setOnAction(ev->System.exit(0));
 
 
