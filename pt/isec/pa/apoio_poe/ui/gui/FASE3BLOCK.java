@@ -30,6 +30,7 @@ public class FASE3BLOCK extends BorderPane {
     Button ButtonConsultaPropostasDeDocentes;
     Button ButtonConsultarPropostasDisponiveis;
     Button ButtonPropostasAtribuidas;
+    Button ButtonRecuarFaseBlockAnterior;
 
     Button ButtonSair;
     Button ButtonAvancar;
@@ -57,6 +58,7 @@ public class FASE3BLOCK extends BorderPane {
         ButtonConsultarPropostasDisponiveis.setOnAction(ev->context.consultarPropostasDisponiveis());
         ButtonPropostasAtribuidas.setOnAction(ev->context.consultarPropostasAtribuidas());
         ButtonAvancar.setOnAction(ev->context.avancarFase());
+        ButtonRecuarFaseBlockAnterior.setOnAction(ev->context.changeToFaseBloqueadaAnterior());
         ButtonSair.setOnAction(ev->System.exit(0));
 
 
@@ -79,19 +81,19 @@ public class FASE3BLOCK extends BorderPane {
         mensagemBoasVindas.getStyleClass().add("labelEscolha");
 
         ButtonPropostasAtribuidas = new Button();
-        ButtonPropostasAtribuidas.setText("Consultar Alunos com candidatura");
+        ButtonPropostasAtribuidas.setText("Consultar Propostas Atribuidas");
         ButtonPropostasAtribuidas.getStyleClass().add("buttonFase1");
 
         ButtonConsultarPropostasDisponiveis = new Button();
-        ButtonConsultarPropostasDisponiveis.setText("Consultar Alunos com candidatura");
+        ButtonConsultarPropostasDisponiveis.setText("Consultar Propostas Disponiveis");
         ButtonConsultarPropostasDisponiveis.getStyleClass().add("buttonFase1");
 
         ButtonConsultaAlunosSemAutoPropostaAtribuida = new Button();
-        ButtonConsultaAlunosSemAutoPropostaAtribuida.setText("Consultar Alunos com candidatura");
+        ButtonConsultaAlunosSemAutoPropostaAtribuida.setText("Consultar Alunos sem Auto-proposta Atribuida");
         ButtonConsultaAlunosSemAutoPropostaAtribuida.getStyleClass().add("buttonFase1");
 
         ButtonConsultaAlunosComAutoPropostaAtribuida = new Button();
-        ButtonConsultaAlunosComAutoPropostaAtribuida.setText("Consultar Alunos com candidatura");
+        ButtonConsultaAlunosComAutoPropostaAtribuida.setText("Consultar Alunos com Auto-proposta Atribuida");
         ButtonConsultaAlunosComAutoPropostaAtribuida.getStyleClass().add("buttonFase1");
 
         ButtonConsultaAlunosComCandidatura = new Button();
@@ -109,6 +111,10 @@ public class FASE3BLOCK extends BorderPane {
         ButtonConsultaPropostasDeDocentes = new Button();
         ButtonConsultaPropostasDeDocentes.setText("Consultar Propostas de docentes");
         ButtonConsultaPropostasDeDocentes.getStyleClass().add("buttonFase1");
+
+        ButtonRecuarFaseBlockAnterior = new Button();
+        ButtonRecuarFaseBlockAnterior.setText("Recuar para fase bloqueada anterior");
+        ButtonRecuarFaseBlockAnterior.getStyleClass().add("buttonFase1");
 
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
@@ -129,7 +135,9 @@ public class FASE3BLOCK extends BorderPane {
         gridButtons.add(ButtonConsultaAlunosSemCandidatura, 0, 12);
         gridButtons.add(ButtonConsultaListaDeAutoPropostas, 0, 14);
         gridButtons.add(ButtonConsultaPropostasDeDocentes, 0, 16);
-        gridButtons.add(ButtonAvancar, 0, 16);
+        gridButtons.add(ButtonAvancar, 0, 18);
+        gridButtons.add(ButtonRecuarFaseBlockAnterior, 0, 20);
+
         this.setCenter(gridButtons);
     }
 

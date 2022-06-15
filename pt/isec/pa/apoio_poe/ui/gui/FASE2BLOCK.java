@@ -31,6 +31,7 @@ public class FASE2BLOCK extends BorderPane {
     Button ButtonConsultaPropostasComCandidaturas;
     Button ButtonConsultaPropostasSemCandidaturas;
     Button ButtonConsultaCandidatura;
+    Button ButtonRecuarFaseBlockAnterior;
 
     Button ButtonSair;
     Button ButtonAvancar;
@@ -59,6 +60,7 @@ public class FASE2BLOCK extends BorderPane {
         //ButtonConsultaCandidatura.setOnAction(ev->context.consultaCandidatura(long nrAluno));
         ButtonAvancar.setOnAction(ev->context.avancarFase());
         ButtonSair.setOnAction(ev->System.exit(0));
+        ButtonRecuarFaseBlockAnterior.setOnAction(ev->context.changeToFaseBloqueadaAnterior());
 
 
     }
@@ -111,6 +113,10 @@ public class FASE2BLOCK extends BorderPane {
         ButtonConsultaCandidatura.setText("Consultar Candidatura");
         ButtonConsultaCandidatura.getStyleClass().add("buttonFase1");
 
+        ButtonRecuarFaseBlockAnterior = new Button();
+        ButtonRecuarFaseBlockAnterior.setText("Recuar para fase bloqueada anterior");
+        ButtonRecuarFaseBlockAnterior.getStyleClass().add("buttonFase2");
+
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
         ButtonSair.getStyleClass().add("buttonFase1");
@@ -130,7 +136,8 @@ public class FASE2BLOCK extends BorderPane {
         gridButtons.add(ButtonConsultaPropostasComCandidaturas, 0, 12);
         gridButtons.add(ButtonConsultaPropostasSemCandidaturas, 0, 14);
         gridButtons.add(ButtonConsultaCandidatura, 0, 16);
-        gridButtons.add(ButtonAvancar, 0, 16);
+        gridButtons.add(ButtonAvancar, 0, 18);
+        gridButtons.add(ButtonRecuarFaseBlockAnterior, 0, 20);
         this.setCenter(gridButtons);
     }
 
