@@ -6,11 +6,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 public class InserirAluno extends BorderPane {
      apoio_poeContext context;
@@ -41,6 +43,7 @@ public class InserirAluno extends BorderPane {
     Label labelPontuacao;
     Label labelIDProposta;
     Label labelAcessoEstagio;
+    GridPane grid;
 
     public InserirAluno(apoio_poeContext context) {
         super();
@@ -48,113 +51,96 @@ public class InserirAluno extends BorderPane {
         createViews();
         registerHandlers();
 
+
     }
 
     private void registerHandlers(){
+
         buttonConfirm.setOnAction(ev->{
             context.addAlunoSingular(new Aluno(Long.parseLong(textNr.getText()), textNome.getText(), textEmail.getText(),
                     textSiglaCurso.getText(), textSiglaRamo.getText(), Double.parseDouble(textPontuacao.getText()),isAcesso.isSelected(), textPropostaAssociada.getText()));
+
         });
 
     }
 
-
     private void createViews() {
+        CSSManager.applyCSS(this,"mystyles.css");
 
-        GridPane grid = new GridPane();
+        grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
-        grid.setStyle("-fx-background-color: #b8c4b7;");
+
+
 
         labelNr = new Label("");
         labelNr.setText("Insira o numero do novo aluno");
         grid.add(labelNr, 0, 0);
-        labelNr.setFont(FontLabel);
-
+        labelNr.getStyleClass().add("labelInsereAluno");
 
         labelNome = new Label("");
         labelNome.setText("Insira o nome do novo aluno");
         grid.add(labelNome, 0, 3);
-        labelNome.setFont(FontLabel);
-
+        labelNome.getStyleClass().add("labelInsereAluno");
 
         labelEmail = new Label("");
         labelEmail.setText("Insira o e-mail do novo aluno");
         grid.add(labelEmail, 0, 6);
-        labelEmail.setFont(FontLabel);
+        labelEmail.getStyleClass().add("labelInsereAluno");
 
         labelSiglaCurso = new Label("");
         labelSiglaCurso.setText("Insira a sigla do curso do novo aluno");
         grid.add(labelSiglaCurso, 0, 9);
-        labelSiglaCurso.setFont(FontLabel);
+        labelSiglaCurso.getStyleClass().add("labelInsereAluno");
 
         labelSiglaRamo = new Label("");
         labelSiglaRamo.setText("Insira a sigla do ramo ");
         grid.add(labelSiglaRamo, 0, 12);
-        labelSiglaRamo.setFont(FontLabel);
+        labelSiglaRamo.getStyleClass().add("labelInsereAluno");
 
         labelPontuacao = new Label("");
         labelPontuacao.setText("Insira a pontuacao");
         grid.add(labelPontuacao, 0, 15);
-        labelPontuacao.setFont(FontLabel);
+        labelPontuacao.getStyleClass().add("labelInsereAluno");
 
         labelIDProposta = new Label("");
         labelIDProposta.setText("Insira o ID da proposta associado ao aluno");
         grid.add(labelIDProposta, 0, 18);
-        labelIDProposta.setFont(FontLabel);
+        labelIDProposta.getStyleClass().add("labelInsereAluno");
 
         labelAcessoEstagio = new Label("");
         labelAcessoEstagio.setText("Tem acesso a estagio");
         grid.add(labelAcessoEstagio, 0, 21);
-        labelAcessoEstagio.setFont(FontLabel);
-
+        labelAcessoEstagio.getStyleClass().add("labelInsereAluno");
 
         textNr = new TextField("");
         grid.add(textNr, 0, 1);
-        textNr.setStyle("-fx-control-inner-background: #edfaf8");
 
         textNome = new TextField("");
         grid.add(textNome, 0, 4);
-        textNome.setStyle("-fx-control-inner-background: #edfaf8");
-
 
         textEmail = new TextField("");
         grid.add(textEmail, 0, 7);
-        textEmail.setStyle("-fx-control-inner-background: #edfaf8");
-
 
         textSiglaCurso = new TextField("");
         grid.add(textSiglaCurso, 0, 10);
-        textSiglaCurso.setStyle("-fx-control-inner-background: #edfaf8");
-
 
         textSiglaRamo = new TextField("");
         grid.add(textSiglaRamo, 0, 13);
-        textSiglaRamo.setStyle("-fx-control-inner-background: #edfaf8");
-
 
         textPontuacao = new TextField("");
         grid.add(textPontuacao, 0, 16);
-        textPontuacao.setStyle("-fx-control-inner-background: #edfaf8");
-
 
         textPropostaAssociada = new TextField("");
         grid.add(textPropostaAssociada, 0, 19);
-        textPropostaAssociada.setStyle("-fx-control-inner-background: #edfaf8");
-
 
         isAcesso = new CheckBox("");
         grid.add(isAcesso, 0, 22);
 
-/*
-
-
-*/
         buttonConfirm = new Button("Confirmar novo aluno");
         grid.add(buttonConfirm, 2, 22);
-        buttonConfirm.setFont(font);
-        buttonConfirm.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 5px;");
+        buttonConfirm.getStyleClass().add("buttonConfirm");
 
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(grid);

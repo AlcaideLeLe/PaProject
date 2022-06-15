@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import java.util.ArrayList;
 
@@ -79,6 +80,8 @@ public class GestaoDOC extends BorderPane {
     }
 
     public void createViews(){
+        CSSManager.applyCSS(this,"mystyles.css");
+
         //toolBar = new WindowToolBar(context);
         //toolBar.createViews();
         gridButtons = new GridPane();
@@ -89,20 +92,37 @@ public class GestaoDOC extends BorderPane {
         //create buttons
         mensagemEscolha = new Label();
         mensagemEscolha.setText("Escolha uma das opcoes: ");
+        mensagemEscolha.getStyleClass().add("labelEscolha");
+
         ButtonInserirDocentes = new Button();
         ButtonInserirDocentes.setText("Inserir docentes a partir de um ficheiro");
+        ButtonInserirDocentes.getStyleClass().add("buttonGestaoDOC");
+
         ButtonInserirUmDocente = new Button();
         ButtonInserirUmDocente.setText("Inserir um docente");
+        ButtonInserirUmDocente.getStyleClass().add("buttonGestaoDOC");
+
         ButtonConsultarUmDocente = new Button();
         ButtonConsultarUmDocente.setText("Consultar um docente");
+        ButtonConsultarUmDocente.getStyleClass().add("buttonGestaoDOC");
+
         ButtonConsultarDocentes = new Button();
         ButtonConsultarDocentes.setText("Consultar todos os docentes");
+        ButtonConsultarDocentes.getStyleClass().add("buttonGestaoDOC");
+
         ButtonRemoverDocente = new Button();
         ButtonRemoverDocente.setText("Remover docente");
+        ButtonRemoverDocente.getStyleClass().add("buttonGestaoDOC");
+
         ButtonEditarDocente = new Button();
         ButtonEditarDocente.setText("Editar docente");
+        ButtonEditarDocente.getStyleClass().add("buttonGestaoDOC");
+
         ButtonVoltar = new Button();
         ButtonVoltar.setText("Voltar");
+        ButtonVoltar.getStyleClass().add("buttonVoltar");
+
+
         listaDeDocentes = new Label();
 
 

@@ -12,6 +12,7 @@ import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import java.util.ArrayList;
 
@@ -80,6 +81,7 @@ public class GestaoPROP extends BorderPane {
     }
 
     public void createViews(){
+        CSSManager.applyCSS(this,"mystyles.css");
         //toolBar = new WindowToolBar(context);
         //toolBar.createViews();
         gridButtons = new GridPane();
@@ -90,20 +92,42 @@ public class GestaoPROP extends BorderPane {
         //create buttons
         mensagemEscolha = new Label();
         mensagemEscolha.setText("Escolha uma das opcoes: ");
+
         ButtonInserirPropostas = new Button();
         ButtonInserirPropostas.setText("Inserir propostas a partir de um ficheiro");
+        ButtonInserirPropostas.getStyleClass().add("buttonGestaoPROP");
+
+
         ButtonInserirUmaProposta = new Button();
         ButtonInserirUmaProposta.setText("Inserir uma proposta");
+        ButtonInserirUmaProposta.getStyleClass().add("buttonGestaoPROP");
+
+
         ButtonConsultarUmaProposta = new Button();
         ButtonConsultarUmaProposta.setText("Consultar uma proposta");
+        ButtonConsultarUmaProposta.getStyleClass().add("buttonGestaoPROP");
+
+
         ButtonConsultarPropostas = new Button();
         ButtonConsultarPropostas.setText("Consultar todas as propostas");
+        ButtonConsultarPropostas.getStyleClass().add("buttonGestaoPROP");
+
+
         ButtonRemoverProposta = new Button();
         ButtonRemoverProposta.setText("Remover proposta");
+        ButtonRemoverProposta.getStyleClass().add("buttonGestaoPROP");
+
+
         ButtonEditarProposta = new Button();
         ButtonEditarProposta.setText("Editar proposta");
+        ButtonEditarProposta.getStyleClass().add("buttonGestaoPROP");
+
+
         ButtonVoltar = new Button();
         ButtonVoltar.setText("Voltar");
+        ButtonVoltar.getStyleClass().add("buttonVoltar");
+
+
         listaDePropostas = new Label();
 
         //organizar coordenadas

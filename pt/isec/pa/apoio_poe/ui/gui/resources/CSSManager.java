@@ -1,9 +1,10 @@
-package pt.isec.pa.apoio_poe.ui.gui;
+package pt.isec.pa.apoio_poe.ui.gui.resources;
 
 import javafx.scene.Parent;
 
 public class CSSManager {
     private CSSManager() { }
+
     public static void applyCSS(Parent parent, String filename) {
         var url = CSSManager.class.getResource("css/"+filename);
         if (url == null)
@@ -12,3 +13,4 @@ public class CSSManager {
         parent.getStylesheets().add(fileCSS);
     }
 }
+
