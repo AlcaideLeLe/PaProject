@@ -78,14 +78,17 @@ public class FASE3BLOCK extends BorderPane {
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
         mensagemBoasVindas.getStyleClass().add("labelEscolha");
 
+        ButtonPropostasAtribuidas = new Button();
+        ButtonPropostasAtribuidas.setText("Consultar Alunos com candidatura");
+        ButtonPropostasAtribuidas.getStyleClass().add("buttonFase1");
 
-        Button ButtonConsultaAlunosSemAutoPropostaAtribuida;
-        Button ButtonConsultarPropostasDisponiveis;
-        Button ButtonPropostasAtribuidas;
+        ButtonConsultarPropostasDisponiveis = new Button();
+        ButtonConsultarPropostasDisponiveis.setText("Consultar Alunos com candidatura");
+        ButtonConsultarPropostasDisponiveis.getStyleClass().add("buttonFase1");
 
-        ButtonConsultaAlunosComAutoPropostaAtribuida = new Button();
-        ButtonConsultaAlunosComAutoPropostaAtribuida.setText("Consultar Alunos com candidatura");
-        ButtonConsultaAlunosComAutoPropostaAtribuida.getStyleClass().add("buttonFase1");
+        ButtonConsultaAlunosSemAutoPropostaAtribuida = new Button();
+        ButtonConsultaAlunosSemAutoPropostaAtribuida.setText("Consultar Alunos com candidatura");
+        ButtonConsultaAlunosSemAutoPropostaAtribuida.getStyleClass().add("buttonFase1");
 
         ButtonConsultaAlunosComAutoPropostaAtribuida = new Button();
         ButtonConsultaAlunosComAutoPropostaAtribuida.setText("Consultar Alunos com candidatura");
@@ -118,14 +121,14 @@ public class FASE3BLOCK extends BorderPane {
 
         //organizar coordenadas
         gridButtons.add(mensagemBoasVindas, 0, 0);
-        gridButtons.add(ButtonConsultaAlunosComAutoProposta, 0, 2);
-        gridButtons.add(ButtonConsultaAlunosComCandidatura, 0, 4);
-        gridButtons.add(ButtonConsultaAlunosSemCandidatura, 0, 6);
-        gridButtons.add(ButtonConsultaListaDeAutoPropostas, 0, 8);
-        gridButtons.add(ButtonConsultaPropostasDeDocentes, 0, 10);
-        gridButtons.add(ButtonConsultaPropostasComCandidaturas, 0, 12);
-        gridButtons.add(ButtonConsultaPropostasSemCandidaturas, 0, 14);
-        gridButtons.add(ButtonConsultaCandidatura, 0, 16);
+        gridButtons.add(ButtonPropostasAtribuidas, 0, 2);
+        gridButtons.add(ButtonConsultarPropostasDisponiveis, 0, 4);
+        gridButtons.add(ButtonConsultaAlunosSemAutoPropostaAtribuida, 0, 6);
+        gridButtons.add(ButtonConsultaAlunosComAutoPropostaAtribuida, 0, 8);
+        gridButtons.add(ButtonConsultaAlunosComCandidatura, 0, 10);
+        gridButtons.add(ButtonConsultaAlunosSemCandidatura, 0, 12);
+        gridButtons.add(ButtonConsultaListaDeAutoPropostas, 0, 14);
+        gridButtons.add(ButtonConsultaPropostasDeDocentes, 0, 16);
         gridButtons.add(ButtonAvancar, 0, 16);
         this.setCenter(gridButtons);
     }
