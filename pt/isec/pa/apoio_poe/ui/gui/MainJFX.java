@@ -1,15 +1,13 @@
 package pt.isec.pa.apoio_poe.ui.gui;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 
 
-public class MainJX extends Application {
+public class MainJFX extends Application {
     public apoio_poeContext context;
-    public MainJX() {
+    public MainJFX() {
     }
 
     @Override

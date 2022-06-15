@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui;
 
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
@@ -18,8 +19,8 @@ public class Apoio_poeGUI extends BorderPane {
 
 
     public void createViews(){
-        StackPane stackPane = new StackPane(new Inicio(fsm));
+        StackPane stackPane = new StackPane(new Inicio(fsm), new FASE1(fsm), new GestaoAL(fsm), new GestaoDOC(fsm), new GestaoPROP(fsm));
+        this.setTop(new WindowToolBar(fsm));
         this.setCenter(stackPane);
-
     }
 }

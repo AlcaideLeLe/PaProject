@@ -1,8 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
-import pt.isec.pa.apoio_poe.model.data.Candidatura;
-import pt.isec.pa.apoio_poe.model.data.PoE;
-import pt.isec.pa.apoio_poe.model.data.Proposta;
+import pt.isec.pa.apoio_poe.model.data.*;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -159,12 +157,15 @@ public class apoio_poeContext {
     }
 
     public void addAluno(){state.addAluno();}
+    public void addAlunoSingular(Aluno a){state.addAlunoSingular(a);};
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
-    public String consultarAlunos(){return state.consultarAlunos();}
+    public ArrayList<Aluno> consultarAlunos(){return state.consultarAlunos();}
     public void addDocente(){state.addDocente();}
+    public void addDocenteSingular(Docente d){state.addDocenteSingular(d);};
     public String consultaDocente(String email){return state.consultaDocente(email);}
-    public String consultaDocentes(){return state.consultaDocentes();}
+    public ArrayList<Docente> consultaDocentes(){return state.consultaDocentes();}
     public void addProposta(){state.addProposta();}
+    public void addPropostaSingular(Proposta p){state.addPropostaSingular(p);};
     public String consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
     public ArrayList<Proposta> consultaPropostas(){return state.consultaPropostas();}
     public void addCandidatura(){state.addCandidatura();}

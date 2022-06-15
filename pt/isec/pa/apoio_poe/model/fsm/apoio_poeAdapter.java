@@ -1,8 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
-import pt.isec.pa.apoio_poe.model.data.Candidatura;
-import pt.isec.pa.apoio_poe.model.data.PoE;
-import pt.isec.pa.apoio_poe.model.data.Proposta;
+import pt.isec.pa.apoio_poe.model.data.*;
 
 import java.util.ArrayList;
 
@@ -66,7 +64,13 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void addAluno(){};
     @Override
+    public void addAlunoSingular(Aluno a){};
+    @Override
+    public void addPropostaSingular(Proposta p){};
+    @Override
     public void addDocente(){};
+    @Override
+    public void addDocenteSingular(Docente d){};
     @Override
     public void addProposta(){};
     @Override
@@ -80,11 +84,11 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public String consultaAluno(long nrAluno) {return null;}
     @Override
-    public String consultarAlunos() {return null;}
+    public ArrayList<Aluno> consultarAlunos() {return null;}
     @Override
     public String consultaDocente(String email){return null;}
     @Override
-    public String consultaDocentes(){return null;}
+    public ArrayList<Docente> consultaDocentes(){return null;}
     @Override
     public String consultaProposta(String idProposta){return null;}
     @Override

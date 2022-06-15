@@ -21,6 +21,7 @@ public class PoE implements Serializable{
 
     public void addAluno() {
         try {
+            System.out.println("Estou a inserir alunos");
             ArrayList<String> arrayAluno = new ArrayList<>();
             Scanner scAluno = new Scanner(new File("pt/isec/pa/apoio_poe/model/data/Aluno.csv"));
             scAluno.useDelimiter(";");
@@ -44,11 +45,17 @@ public class PoE implements Serializable{
                 listaDeAlunos.add(new Aluno(Long.parseLong(dadosAluno[0]), dadosAluno[1], dadosAluno[2],
                         dadosAluno[3], dadosAluno[4], Double.parseDouble(dadosAluno[5]),
                         Boolean.parseBoolean(dadosAluno[6]), null));
+                System.out.println("Inseri alunos");
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     } //FALTA VERIFICAR
+
+    public void addAlunoSingular(Aluno a){
+            listaDeAlunos.add(a);
+    }
+
     public void addDocente() {
         try {
             ArrayList<String> arrayDocente = new ArrayList<>();
@@ -82,6 +89,10 @@ public class PoE implements Serializable{
             e.printStackTrace();
         }
     } //FALTA VERIFICAR
+
+    public void addDocenteSingular(Docente d){
+        listaDeDocentes.add(d);
+    }
 
     public void addProposta(){
         try {
@@ -136,6 +147,10 @@ public class PoE implements Serializable{
         }
     } //FALTA VERIFICAR
 
+    public void addPropostaSingular(Proposta p){
+        listaDePropostas.add(p);
+    }
+
     public String consultarAluno(long numero){
         for(int i=0; i<listaDeAlunos.size(); i++){
             if(listaDeAlunos.get(i).getNumero() == numero){
@@ -146,12 +161,12 @@ public class PoE implements Serializable{
         return null;
     }
 
-    public String consultarAlunos(){
+    public ArrayList<Aluno> consultarAlunos(){
         Collections.sort(listaDeAlunos);
         if(listaDeAlunos.isEmpty()){
             System.out.println("Ainda não foram adicionados Alunos");
         }
-        return listaDeAlunos.toString();
+        return listaDeAlunos;
     }
 
     public String consultarDocente(String email){
@@ -164,12 +179,12 @@ public class PoE implements Serializable{
         return null;
     }
 
-    public String consultarDocentes(){
+    public ArrayList<Docente> consultarDocentes(){
         Collections.sort(listaDeDocentes);
         if(listaDeDocentes.isEmpty()){
             System.out.println("Ainda não foram adicionados docentes");
         }
-        return listaDeDocentes.toString();
+        return listaDeDocentes;
     }
 
     public String consultarProposta(String idProposta){

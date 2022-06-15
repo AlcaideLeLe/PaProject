@@ -27,9 +27,10 @@ public class FASE1 extends BorderPane {
 
 
     public void registerHandlers(){
+
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
         ButtonGestaoAlunos.setOnAction(ev->context.changeToGestaoAL());
-        ButtonGestaoPropostas.setOnAction(ev->context.changeToTratamentoProp());
+        ButtonGestaoPropostas.setOnAction(ev->context.changeToPropState());
         ButtonGestaoDocentes.setOnAction(ev->context.changeToGestaoDOC());
         ButtonSair.setOnAction(ev->System.exit(0));
 

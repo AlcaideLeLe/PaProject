@@ -1,7 +1,11 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
+
+import java.util.ArrayList;
 
 import java.util.ArrayList;
 
@@ -26,11 +30,11 @@ public class FASE1BlockState extends apoio_poeAdapter{
     @Override
     public String consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
     @Override
-    public String consultarAlunos(){return data.consultarAlunos();}
+    public ArrayList<Aluno> consultarAlunos(){return data.consultarAlunos();}
     @Override
     public String consultaDocente(String email){return data.consultarDocente(email);}
     @Override
-    public String consultaDocentes(){return data.consultarDocentes();}
+    public ArrayList<Docente> consultaDocentes(){return data.consultarDocentes();}
     @Override
     public String consultaProposta(String IDProposta){return data.consultarProposta(IDProposta);}
     @Override

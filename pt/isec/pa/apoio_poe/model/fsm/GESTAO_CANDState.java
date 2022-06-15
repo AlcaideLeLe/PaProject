@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 
@@ -27,7 +28,7 @@ public class GESTAO_CANDState extends apoio_poeAdapter{
     @Override
     public String consultaCandidatura(long nrAluno){return data.consultarCandidatura(nrAluno);}
     @Override
-    public String consultarAlunos(){return data.consultarAlunos();}
+    public ArrayList<Aluno> consultarAlunos(){return data.consultarAlunos();}
     @Override
     public void exportarCandidaturasParaCSV(String nomeFicheiro){data.exportarCandidaturasParaCSV(nomeFicheiro);};
 }

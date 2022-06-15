@@ -1,24 +1,17 @@
 package pt.isec.pa.apoio_poe.ui.gui;
 
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 
-import java.util.Collection;
-
-public class WindowToolBar extends ToolBar {
+public class WindowToolBar extends MenuBar {
     apoio_poeContext context;
     private static final int TOGGLE_SIZE = 40;
     private static final int TOGGLE_IMG_SIZE = TOGGLE_SIZE - 10;
     Menu mnFile;
-    MenuItem mnNew, mnOpen, mnSave, mnExit;
+    MenuItem miNew, miOpen, miSave, miExit;
     Menu mnEdit;
-    MenuItem mnUndo, mnRedo;
+    MenuItem miUndo, miRedo;
 
     public WindowToolBar(apoio_poeContext context) {
         this.context = context;
@@ -32,12 +25,12 @@ public class WindowToolBar extends ToolBar {
         //create menu
         mnFile= new Menu("File");
         //create menu items
-        mnNew = new MenuItem("New");
-        mnOpen = new MenuItem("Open");
-        mnSave = new MenuItem("Save");
-        mnExit = new MenuItem("Exit");
+        miNew = new MenuItem("New");
+        miOpen = new MenuItem("Open");
+        miSave = new MenuItem("Save");
+        miExit = new MenuItem("Exit");
         //adding items to the menu
-        mnFile.getItems().addAll(mnNew, mnOpen, mnSave, new SeparatorMenuItem());
+        mnFile.getItems().addAll(miNew, miOpen, miSave, new SeparatorMenuItem());
 
         MenuBar menuBar = new MenuBar(mnFile);
         menuBar.setTranslateX(200);
@@ -47,14 +40,17 @@ public class WindowToolBar extends ToolBar {
         //create menu
         mnEdit = new Menu("Edit");
         //create menu items
-        mnUndo = new MenuItem("Undo");
-        mnRedo = new MenuItem("Redo");
+        miUndo = new MenuItem("Undo");
+        miRedo = new MenuItem("Redo");
         //adding items to the menu
-        mnEdit.getItems().addAll(mnUndo, mnRedo, new SeparatorMenuItem());
+        mnEdit.getItems().addAll(miUndo, miRedo, new SeparatorMenuItem());
         //mnEdit.getM */
         menuBar.getMenus().addAll(mnFile, mnEdit);
 
         menuBar.setUseSystemMenuBar(true);
+
+        this.getMenus().addAll(mnFile, mnEdit);
+
     }
 
     private void registerHandlers() {

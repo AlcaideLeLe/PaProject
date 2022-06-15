@@ -9,27 +9,26 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
-import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 
 import java.util.ArrayList;
 
-public class GestaoPROP extends BorderPane {
+public class GestaoAL extends BorderPane {
 
     apoio_poeContext context;
     GridPane gridButtons;
-    Button ButtonInserirUmaProposta;
-    Button ButtonInserirPropostas;
-    Button ButtonRemoverProposta;
-    Button ButtonEditarProposta;
-    Button ButtonConsultarPropostas;
-    Button ButtonConsultarUmaProposta;
+    Button ButtonInserirUmAluno;
+    Button ButtonInserirAlunos;
+    Button ButtonRemoverAluno;
+    Button ButtonEditarAluno;
+    Button ButtonConsultarAlunos;
+    Button ButtonConsultarUmAluno;
     Button ButtonVoltar;
     Label mensagemEscolha;
-    Label listaDePropostas;
+    Label listaDeAlunos;
 
-    public GestaoPROP(apoio_poeContext context) {
+    public GestaoAL(apoio_poeContext context) {
         this.context = context;
         createViews();
         registerHandlers();
@@ -39,10 +38,10 @@ public class GestaoPROP extends BorderPane {
     public void registerHandlers(){
 
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
-        ButtonInserirPropostas.setOnAction(ev->context.addProposta());
-        ButtonInserirUmaProposta.setOnAction(ev->{
+        ButtonInserirAlunos.setOnAction(ev->context.addAluno());
+        ButtonInserirUmAluno.setOnAction(ev->{
             Stage stage = new Stage();
-            InserirProposta root = new InserirProposta(context);
+            InserirAluno root = new InserirAluno(context);
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
@@ -51,13 +50,13 @@ public class GestaoPROP extends BorderPane {
             stage.setMinHeight(400);
             stage.show();
         });
-        ButtonConsultarPropostas.setOnAction(ev->{
+        ButtonConsultarAlunos.setOnAction(ev->{
             Stage stage = new Stage();
-            MostraPropostas root = new MostraPropostas(context);
+            MostraAlunos root = new MostraAlunos(context);
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Lista de alunos");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -65,14 +64,14 @@ public class GestaoPROP extends BorderPane {
         //ButtonConsultarUmAluno.setOnAction(ev->context.consultaAluno());
         //ButtonRemoverAluno.setOnAction(ev->context.removerAluno());
         //ButtonEditarAluno.setOnAction(ev->context.editarAluno());
-        ButtonVoltar.setOnAction(ev->context.changeFromGestaoPROPtoBase());
+        ButtonVoltar.setOnAction(ev->context.changeFromGestaoALtoBase());
 
     }
 
     public void update(){
-        if(context.getState() == apoio_poeState.GESTAO_PROP){
+        if(context.getState() == apoio_poeState.GESTAO_AL){
             this.setVisible(true);
-            System.out.println(context.getState() + "LALALALALA");
+            System.out.println(context.getState());
         }
         else{
             this.setVisible(false);
@@ -90,33 +89,34 @@ public class GestaoPROP extends BorderPane {
         //create buttons
         mensagemEscolha = new Label();
         mensagemEscolha.setText("Escolha uma das opcoes: ");
-        ButtonInserirPropostas = new Button();
-        ButtonInserirPropostas.setText("Inserir propostas a partir de um ficheiro");
-        ButtonInserirUmaProposta = new Button();
-        ButtonInserirUmaProposta.setText("Inserir uma proposta");
-        ButtonConsultarUmaProposta = new Button();
-        ButtonConsultarUmaProposta.setText("Consultar uma proposta");
-        ButtonConsultarPropostas = new Button();
-        ButtonConsultarPropostas.setText("Consultar todas as propostas");
-        ButtonRemoverProposta = new Button();
-        ButtonRemoverProposta.setText("Remover proposta");
-        ButtonEditarProposta = new Button();
-        ButtonEditarProposta.setText("Editar proposta");
+        ButtonInserirAlunos = new Button();
+        ButtonInserirAlunos.setText("Inserir alunos a partir de um ficheiro");
+        ButtonInserirUmAluno = new Button();
+        ButtonInserirUmAluno.setText("Inserir um aluno");
+        ButtonConsultarUmAluno = new Button();
+        ButtonConsultarUmAluno.setText("Consultar um aluno");
+        ButtonConsultarAlunos = new Button();
+        ButtonConsultarAlunos.setText("Consultar todos os alunos");
+        ButtonRemoverAluno = new Button();
+        ButtonRemoverAluno.setText("Remover aluno");
+        ButtonEditarAluno = new Button();
+        ButtonEditarAluno.setText("Editar aluno");
         ButtonVoltar = new Button();
         ButtonVoltar.setText("Voltar");
-        listaDePropostas = new Label();
+        listaDeAlunos = new Label();
+
 
         //organizar coordenadas
 
         gridButtons.add(mensagemEscolha, 0, 0);
-        gridButtons.add(ButtonInserirPropostas, 0, 2);
-        gridButtons.add(ButtonInserirUmaProposta, 0, 4);
-        gridButtons.add(ButtonConsultarUmaProposta, 0, 6);
-        gridButtons.add(ButtonConsultarPropostas, 0, 8);
-        gridButtons.add(ButtonRemoverProposta, 0, 10);
-        gridButtons.add(ButtonEditarProposta, 0, 12);
+        gridButtons.add(ButtonInserirAlunos, 0, 2);
+        gridButtons.add(ButtonInserirUmAluno, 0, 4);
+        gridButtons.add(ButtonConsultarUmAluno, 0, 6);
+        gridButtons.add(ButtonConsultarAlunos, 0, 8);
+        gridButtons.add(ButtonRemoverAluno, 0, 10);
+        gridButtons.add(ButtonEditarAluno, 0, 12);
         gridButtons.add(ButtonVoltar, 0, 14);
-        gridButtons.add(listaDePropostas, 0, 16);
+        gridButtons.add(listaDeAlunos, 0, 16);
 
         this.setCenter(gridButtons);
     }
