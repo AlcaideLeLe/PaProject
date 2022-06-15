@@ -66,6 +66,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void addAlunoSingular(Aluno a){};
     @Override
+    public void removerAluno(long nrAluno){};
+    @Override
     public void addPropostaSingular(Proposta p){};
     @Override
     public void addDocente(){};

@@ -26,6 +26,8 @@ public class GESTAO_ALState extends apoio_poeAdapter{
     @Override
     public void addAlunoSingular(Aluno a){data.addAlunoSingular(a);}
     @Override
+    public void removerAluno(long nr){data.removerAluno(nr);};
+    @Override
     public String consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
     @Override
     public ArrayList<Aluno> consultarAlunos(){return data.consultarAlunos();}

@@ -39,6 +39,7 @@ public interface IApoio_poeState {
 
     //Fase 1
     void addAluno();
+    void removerAluno(long nr);
     void addAlunoSingular(Aluno a);
     String consultaAluno(long nr);
     ArrayList<Aluno> consultarAlunos();

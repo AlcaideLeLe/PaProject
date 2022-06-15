@@ -31,7 +31,7 @@ public class RemoverAluno extends BorderPane {
 
    /* private void registerHandlers(){
         buttonConfirm.setOnAction(ev->{
-            context.addAlunoSingular(new Aluno(Long.parseLong(textNr.getText()))
+            context.removerAluno(Long.parseLong(textNr.getText()));
         });
     }*/
 
