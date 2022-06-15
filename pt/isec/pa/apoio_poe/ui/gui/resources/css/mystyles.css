@@ -93,4 +93,7 @@
     -fx-border-width: 5px;
     -fx-font-size: 14px;
 }
+.buttonConfirm:hover{
+    -fx-background-color: #f76a74;
+}
 

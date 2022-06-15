@@ -28,7 +28,9 @@ public class GESTAO_PROPState extends apoio_poeAdapter{
     @Override
     public void addPropostaSingular(Proposta p){data.addPropostaSingular(p);}
     @Override
-    public String consultaProposta(String IDProposta){return data.consultarProposta(IDProposta);}
+    public void removerProposta(String ID){data.removerProposta(ID);}
+    @Override
+    public Proposta consultaProposta(String IDProposta){return data.consultarProposta(IDProposta);}
     @Override
     public ArrayList<Proposta> consultaPropostas(){return data.consultarPropostas();}
     @Override

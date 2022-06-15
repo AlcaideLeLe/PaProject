@@ -1,24 +1,19 @@
 package pt.isec.pa.apoio_poe.ui.gui;
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
-import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
-public class InserirAluno extends BorderPane {
-     apoio_poeContext context;
+public class EditarAluno extends BorderPane {
+    apoio_poeContext context;
 
-
-    TextField textNr;
     TextField textNome;
     TextField textEmail;
     TextField textSiglaCurso;
@@ -41,41 +36,38 @@ public class InserirAluno extends BorderPane {
     Label labelAcessoEstagio;
     GridPane grid;
 
+    long nr;
 
 
-    public InserirAluno(apoio_poeContext context) {
+    public EditarAluno(apoio_poeContext context, long nr) {
         super();
         this.context = context;
+        this.nr = nr;
         createViews();
         registerHandlers();
 
 
     }
 
-    private void registerHandlers(){
+    private void registerHandlers() {
 
-        buttonConfirm.setOnAction(ev->{
-            context.addAlunoSingular(new Aluno(Long.parseLong(textNr.getText()), textNome.getText(), textEmail.getText(),
-                    textSiglaCurso.getText(), textSiglaRamo.getText(), Double.parseDouble(textPontuacao.getText()),isAcesso.isSelected(), textPropostaAssociada.getText()));
+        buttonConfirm.setOnAction(ev -> {
+            context.editarAluno(nr, textNome.getText(), textEmail.getText(),
+                    textSiglaCurso.getText(), textSiglaRamo.getText(), Double.parseDouble(textPontuacao.getText()), isAcesso.isSelected(), textPropostaAssociada.getText());
 
         });
 
     }
 
     private void createViews() {
-        CSSManager.applyCSS(this,"mystyles.css");
+        System.out.println("Estou aqui a editar");
+        CSSManager.applyCSS(this, "mystyles.css");
 
         grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
 
-
-
-        labelNr = new Label("");
-        labelNr.setText("Insira o numero do novo aluno");
-        grid.add(labelNr, 0, 0);
-        labelNr.getStyleClass().add("labelInsereAluno");
 
         labelNome = new Label("");
         labelNome.setText("Insira o nome do novo aluno");
@@ -112,8 +104,6 @@ public class InserirAluno extends BorderPane {
         grid.add(labelAcessoEstagio, 0, 21);
         labelAcessoEstagio.getStyleClass().add("labelInsereAluno");
 
-        textNr = new TextField("");
-        grid.add(textNr, 0, 1);
 
         textNome = new TextField("");
         grid.add(textNome, 0, 4);
@@ -140,11 +130,6 @@ public class InserirAluno extends BorderPane {
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 
-        ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setContent(grid);
-        scrollPane.fitToWidthProperty().set(true);
-
-
-        this.setCenter(scrollPane);
+        this.setCenter(grid);
     }
 }

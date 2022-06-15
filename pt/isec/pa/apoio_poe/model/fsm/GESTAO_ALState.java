@@ -28,7 +28,11 @@ public class GESTAO_ALState extends apoio_poeAdapter{
     @Override
     public void removerAluno(long nr){data.removerAluno(nr);};
     @Override
-    public String consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
+    public Aluno consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
+    @Override
+    public void editarAluno(long nr, String nome, String email, String siglaCurso, String siglaRamos, double Classificacao, boolean acesso, String IDProp){
+        data.editarAluno(nr, nome, email, siglaCurso, siglaRamos, Classificacao, acesso, IDProp);
+    }
     @Override
     public ArrayList<Aluno> consultarAlunos(){return data.consultarAlunos();}
     @Override

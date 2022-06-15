@@ -159,15 +159,18 @@ public class apoio_poeContext {
     public void addAluno(){state.addAluno();}
     public void removerAluno(long nr){state.removerAluno(nr);}
     public void addAlunoSingular(Aluno a){state.addAlunoSingular(a);};
-    public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
+    public Aluno consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
     public ArrayList<Aluno> consultarAlunos(){return state.consultarAlunos();}
+    public void editarAluno(long nr, String nome, String email, String siglaCurso, String siglaRamos, double Classificacao, boolean acesso, String IDProp)
+    {state.editarAluno(nr, nome, email, siglaCurso, siglaRamos, Classificacao, acesso, IDProp);}
     public void addDocente(){state.addDocente();}
     public void addDocenteSingular(Docente d){state.addDocenteSingular(d);};
     public String consultaDocente(String email){return state.consultaDocente(email);}
     public ArrayList<Docente> consultaDocentes(){return state.consultaDocentes();}
     public void addProposta(){state.addProposta();}
+    public void removerProposta(String ID){state.removerProposta(ID);}
     public void addPropostaSingular(Proposta p){state.addPropostaSingular(p);};
-    public String consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
+    public Proposta consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
     public ArrayList<Proposta> consultaPropostas(){return state.consultaPropostas();}
     public void addCandidatura(){state.addCandidatura();}
     public Candidatura consultaCandidatura(long nrAluno){return state.consultaCandidatura(nrAluno);}

@@ -60,6 +60,19 @@ public class PoE implements Serializable{
         listaDeAlunos.removeIf(a -> a.getNumero() == nr);
     }
 
+    public void editarAluno(long nr, String nome, String email, String siglaCurso, String siglaRamos, double Classificacao, boolean acesso, String proposta){
+        for(Aluno a : listaDeAlunos){
+            if(a.getNumero() == nr){
+                a.setNome(nome);
+                a.setEmail(email);
+                a.setSiglaCurso(siglaCurso);
+                a.setSiglaRamo(siglaRamos);
+                a.setClassificacao(Classificacao);
+                a.setIdPropostaAssociada(proposta);
+            }
+        }
+    }
+
     public void addDocente() {
         try {
             ArrayList<String> arrayDocente = new ArrayList<>();
@@ -154,13 +167,16 @@ public class PoE implements Serializable{
     public void addPropostaSingular(Proposta p){
         listaDePropostas.add(p);
     }
+    public void removerProposta(String ID){
+        listaDePropostas.removeIf(p -> Objects.equals(p.getIdProposta(), ID));
+    }
 
-    public String consultarAluno(long numero){
-        for(int i=0; i<listaDeAlunos.size(); i++){
-            if(listaDeAlunos.get(i).getNumero() == numero){
-                return listaDeAlunos.get(i).toString();
+
+    public Aluno consultarAluno(long numero){
+        for(Aluno a : listaDeAlunos){
+            if(a.getNumero() == numero){
+                return a;
             }
-
         }
         return null;
     }
@@ -191,12 +207,13 @@ public class PoE implements Serializable{
         return listaDeDocentes;
     }
 
-    public String consultarProposta(String idProposta){
-        for(int i=0; i<listaDePropostas.size(); i++){
-            if(listaDePropostas.get(i).getIdProposta().equals(idProposta)){
-                return listaDePropostas.get(i).toString();
+    public Proposta consultarProposta(String idProposta){
+        for (Proposta p : listaDePropostas){
+            if(Objects.equals(p.getIdProposta(), idProposta)){
+                return p;
             }
         }
+
         return null;
     }
 
