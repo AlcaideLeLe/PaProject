@@ -100,19 +100,19 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void addCandidatura(){};
     @Override
-    public String consultaCandidatura(long nrAluno){return null;}
+    public Candidatura consultaCandidatura(long nrAluno){return null;}
     @Override
     public ArrayList<Candidatura> consultaCandidaturas(){return null;}
     @Override
-    public String consultaAlunosComAutoproposta(){return null;}
+    public ArrayList<Aluno> consultaAlunosComAutoproposta(){return null;}
     @Override
-    public String consultarAlunosComCandidatura(){return null;};
+    public ArrayList<Aluno> consultarAlunosComCandidatura(){return null;};
     @Override
-    public String consultarAlunosSemCandidatura(){return null;};
+    public ArrayList<Aluno> consultarAlunosSemCandidatura(){return null;};
     @Override
-    public String consultarListaDeAutopropostas(){return null;};
+    public ArrayList<Proposta> consultarListaDeAutopropostas(){return null;};
     @Override
-    public String consultarPropostasDeDocentes(){return null;};
+    public ArrayList<Proposta> consultarPropostasDeDocentes(){return null;};
     @Override
     public String consultarPropostasComCandidaturas(){return null;};
     @Override

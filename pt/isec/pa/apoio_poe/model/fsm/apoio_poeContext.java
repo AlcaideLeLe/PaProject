@@ -169,12 +169,12 @@ public class apoio_poeContext {
     public String consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
     public ArrayList<Proposta> consultaPropostas(){return state.consultaPropostas();}
     public void addCandidatura(){state.addCandidatura();}
-    public String consultaCandidatura(long nrAluno){return state.consultaCandidatura(nrAluno);}
+    public Candidatura consultaCandidatura(long nrAluno){return state.consultaCandidatura(nrAluno);}
     public ArrayList<Candidatura> consultaCandidaturas(){return state.consultaCandidaturas();}
-    public String consultaAlunosComAutoproposta(){return state.consultarListaDeAutopropostas();}
-    public String consultarAlunosComCandidatura(){return state.consultarAlunosComCandidatura();}
-    public String consultarListaDeAutopropostas(){return state.consultarListaDeAutopropostas();}
-    public String consultarPropostasDocentes(){return state.consultarPropostasDeDocentes();};
+    public ArrayList<Aluno> consultaAlunosComAutoproposta(){return state.consultaAlunosComAutoproposta();}
+    public ArrayList<Aluno> consultarAlunosComCandidatura(){return state.consultarAlunosComCandidatura();}
+    public ArrayList<Proposta> consultarListaDeAutopropostas(){return state.consultarListaDeAutopropostas();}
+    public ArrayList<Proposta> consultarPropostasDocentes(){return state.consultarPropostasDeDocentes();};
     //public String consultarPropostasComCadidaturas(){return state.consultarPropostasComCadidaturas();}
     //public String consultarPropostasSemCadidaturas(){return state.consultarPropostasSemCadidaturas();}
     public void atribuirAutoproposta(){state.atribuirAutoproposta();}
@@ -197,7 +197,7 @@ public class apoio_poeContext {
     public String consultarDocenteComMaisOrientacoes(){return state.consultarDocenteComMaisOrientacoes();}
     public String consultarMediaDeOrientacoesDosDocentes(){return state.consultarMediaDeOrientacoesDosDocentes();}
     public String consultarAlunosComCandidaturaESemProposta(){return state.consultarAlunosComCandidaturaESemProposta();}
-    public String consultarAlunosSemCandidatura(){return state.consultarAlunosSemCandidatura();}
+    public ArrayList<Aluno> consultarAlunosSemCandidatura(){return state.consultarAlunosSemCandidatura();}
     public String consultarPropostasComCandidaturas(){return state.consultarPropostasComCandidaturas();}
     public String consultarPropostasSemCandidaturas(){return state.consultarPropostasSemCandidaturas();}
     public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAluno, String emailProf){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf);}

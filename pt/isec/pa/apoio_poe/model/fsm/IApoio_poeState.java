@@ -57,13 +57,13 @@ public interface IApoio_poeState {
 
     //Fase 2
     void addCandidatura();
-    String consultaCandidatura(long nrAluno);
+    Candidatura consultaCandidatura(long nrAluno);
     ArrayList<Candidatura> consultaCandidaturas();
-    String consultaAlunosComAutoproposta();
-    String consultarAlunosComCandidatura();
-    String consultarAlunosSemCandidatura();
-    String consultarListaDeAutopropostas();
-    String consultarPropostasDeDocentes();
+    ArrayList<Aluno> consultaAlunosComAutoproposta();
+    ArrayList<Aluno> consultarAlunosComCandidatura();
+    ArrayList<Aluno> consultarAlunosSemCandidatura();
+    ArrayList<Proposta> consultarListaDeAutopropostas();
+    ArrayList<Proposta> consultarPropostasDeDocentes();
     String consultarPropostasComCandidaturas();
     String consultarPropostasSemCandidaturas();
 

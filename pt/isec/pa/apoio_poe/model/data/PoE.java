@@ -235,10 +235,10 @@ public class PoE implements Serializable{
         }
     }
 
-    public String consultarCandidatura(long nrAluno){
+    public Candidatura consultarCandidatura(long nrAluno){
         for(int i=0; i<listaDeCandidaturas.size(); i++){
             if(listaDeCandidaturas.get(i).getNumero() == nrAluno){
-                return listaDeCandidaturas.get(i).toString();
+                return listaDeCandidaturas.get(i);
             }
         }
         return null;
@@ -248,58 +248,64 @@ public class PoE implements Serializable{
         return listaDeCandidaturas;
     }
 
-    public String consultarAlunosComCandidatura(){
+    public ArrayList<Aluno> consultarAlunosComCandidatura(){
         StringBuilder sb = new StringBuilder();
-        ArrayList<Long> alunosComCandidatura = new ArrayList<>();
+        ArrayList<Long> idAlunosComCandidatura = new ArrayList<>();
+        ArrayList<Aluno> alunosComCandidatura = new ArrayList<>();
         for (var c : listaDeCandidaturas) {
-            alunosComCandidatura.add(c.getNumero());
+            idAlunosComCandidatura.add(c.getNumero());
         }
         for(var a : listaDeAlunos){
-            if(alunosComCandidatura.contains(a.getNumero())) {
+            if(idAlunosComCandidatura.contains(a.getNumero())) {
                 sb.append("Numero de Aluno: ").append(a.toString()).append(System.lineSeparator());
+                alunosComCandidatura.add(a);
             }
         }
-        return sb.toString();
+        return alunosComCandidatura;
     }
-    public String consultarAlunosSemCandidatura(){
+    public ArrayList<Aluno> consultarAlunosSemCandidatura(){
         StringBuilder sb = new StringBuilder();
-        ArrayList<Long> alunosSemCandidatura = new ArrayList<>();
+        ArrayList<Long> idAlunosSemCandidatura = new ArrayList<>();
+        ArrayList<Aluno> alunosSemCandidatura = new ArrayList<>();
         for (var c : listaDeCandidaturas) {
-            alunosSemCandidatura.add(c.getNumero());
+            idAlunosSemCandidatura.add(c.getNumero());
         }
         for(var a : listaDeAlunos){
-            if(!alunosSemCandidatura.contains(a.getNumero())) {
+            if(!idAlunosSemCandidatura.contains(a.getNumero())) {
                 sb.append("Numero de Aluno: ").append(a.toString()).append(System.lineSeparator());
+                alunosSemCandidatura.add(a);
             }
         }
-        return sb.toString();
+        return alunosSemCandidatura;
     }
 
-    public String consultarAlunosComAutoproposta(){ //Filtro Alunos com Autoproposta
+    public ArrayList<Aluno> consultarAlunosComAutoproposta(){ //Filtro Alunos com Autoproposta
         StringBuilder sb = new StringBuilder();
-        ArrayList<Long> alunosComAutoProposta = new ArrayList<>();
+        ArrayList<Long> idAlunosComAutoProposta = new ArrayList<>();
+        ArrayList<Aluno> alunosComAutoProposta = new ArrayList<>();
         for (var p : listaDePropostas) {
             if(p instanceof Autoproposto) {
-                alunosComAutoProposta.add(p.getNrAluno());
+                idAlunosComAutoProposta.add(p.getNrAluno());
             }
         }
         for(var a : listaDeAlunos){
-            if(alunosComAutoProposta.contains(a.getNumero())) {
+            if(idAlunosComAutoProposta.contains(a.getNumero())) {
                 sb.append("Numero de Aluno Autoproposto: ").append(a.toString()).append(System.lineSeparator());
             }
         }
 
-        return sb.toString();
+        return alunosComAutoProposta;
     }
-    public String consultarListaDeAutopropostas(){
+    public ArrayList<Proposta> consultarListaDeAutopropostas(){
         StringBuilder sb = new StringBuilder();
-        ArrayList<Long> listaDeAutoProposta = new ArrayList<>();
+        ArrayList<Proposta> listaDeAutoProposta = new ArrayList<>();
         for (var p : listaDePropostas) {
             if(p instanceof Autoproposto){
                 sb.append("Proposta ").append(p.toString()).append(System.lineSeparator());
+                listaDeAutoProposta.add(p);
             }
         }
-        return sb.toString();
+        return listaDeAutoProposta;
     }
 
     public void atribuirAutoproposta(){
@@ -677,15 +683,17 @@ public class PoE implements Serializable{
         }
     }
 
-    public String consultarPropostasDocentes(){
+    public ArrayList<Proposta> consultarPropostasDocentes(){
         StringBuilder sb = new StringBuilder();
+        ArrayList<Proposta> propostasDeDocentes = new ArrayList<>();
         for(var p : listaDePropostas){
             if(p instanceof Projeto){
-                sb.append("Proposta ").append(p).append(System.lineSeparator());
+                //sb.append("Proposta ").append(p).append(System.lineSeparator());
+                propostasDeDocentes.add(p);
             }
         }
 
-        return sb.toString();
+        return propostasDeDocentes;
     }
 
     public void exportarDocentesParaCSV(String nomeFicheiro){
