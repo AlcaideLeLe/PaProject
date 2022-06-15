@@ -165,10 +165,16 @@ public class apoio_poeContext {
     {state.editarAluno(nr, nome, email, siglaCurso, siglaRamos, Classificacao, acesso, IDProp);}
     public void addDocente(){state.addDocente();}
     public void addDocenteSingular(Docente d){state.addDocenteSingular(d);};
-    public String consultaDocente(String email){return state.consultaDocente(email);}
+    public void removerDocente(String email){state.removerDocente(email);}
+    public void editarDocente(String email, String nome){
+        state.editarDocente(email, nome);
+    }
+    public Docente consultaDocente(String email){return state.consultaDocente(email);}
     public ArrayList<Docente> consultaDocentes(){return state.consultaDocentes();}
     public void addProposta(){state.addProposta();}
     public void removerProposta(String ID){state.removerProposta(ID);}
+    public void editarProposta(String idProposta, long nrAluno, String titulo, String tipoDeProposta, boolean atribuida){
+        state.editarProposta(idProposta, nrAluno, titulo, tipoDeProposta, atribuida);}
     public void addPropostaSingular(Proposta p){state.addPropostaSingular(p);};
     public Proposta consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
     public ArrayList<Proposta> consultaPropostas(){return state.consultaPropostas();}

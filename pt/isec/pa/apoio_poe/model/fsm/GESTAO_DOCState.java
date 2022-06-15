@@ -26,7 +26,11 @@ public class GESTAO_DOCState extends apoio_poeAdapter{
     @Override
     public void addDocenteSingular(Docente d){data.addDocenteSingular(d);};
     @Override
-    public String consultaDocente(String email){return data.consultarDocente(email);}
+    public Docente consultaDocente(String email){return data.consultarDocente(email);}
+    @Override
+    public void removerDocente(String email){data.removerDocente(email);}
+    @Override
+    public void editarDocente(String email, String nome){data.editarDocente(email, nome);}
     @Override
     public ArrayList<Docente> consultaDocentes(){return data.consultarDocentes();}
     @Override

@@ -111,6 +111,19 @@ public class PoE implements Serializable{
         listaDeDocentes.add(d);
     }
 
+    public void removerDocente(String email){
+        listaDeDocentes.removeIf(d -> Objects.equals(d.getEmail(), email));
+    }
+
+    public void editarDocente(String email, String Nome){
+        for(Docente d : listaDeDocentes){
+            if(Objects.equals(d.getEmail(), email)){
+                d.setNome(Nome);
+            }
+        }
+    }
+
+
     public void addProposta(){
         try {
             ArrayList<String> arrayProposta = new ArrayList<>();
@@ -167,8 +180,20 @@ public class PoE implements Serializable{
     public void addPropostaSingular(Proposta p){
         listaDePropostas.add(p);
     }
+
     public void removerProposta(String ID){
         listaDePropostas.removeIf(p -> Objects.equals(p.getIdProposta(), ID));
+    }
+
+    public void editarProposta(String idProposta, long nrAluno,  String titulo, String tipoDeProposta, boolean atribuida){
+        for(Proposta p : listaDePropostas){
+            if(Objects.equals(p.getIdProposta(), idProposta)){
+                p.setNrAluno(nrAluno);
+                p.setTitulo(titulo);
+                p.setAtribuida(atribuida);
+                p.setTipoDeProposta(tipoDeProposta);
+            }
+        }
     }
 
 
@@ -189,12 +214,11 @@ public class PoE implements Serializable{
         return listaDeAlunos;
     }
 
-    public String consultarDocente(String email){
-        for(int i=0; i<listaDeDocentes.size(); i++){
-            if(listaDeDocentes.get(i).getEmail().equals(email)){
-                return listaDeDocentes.get(i).toString();
+    public Docente consultarDocente(String email){
+        for(Docente d : listaDeDocentes){
+            if(Objects.equals(d.getEmail(), email)){
+                return d;
             }
-
         }
         return null;
     }

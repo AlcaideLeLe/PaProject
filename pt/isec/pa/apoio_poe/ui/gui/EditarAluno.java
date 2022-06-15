@@ -53,7 +53,8 @@ public class EditarAluno extends BorderPane {
 
         buttonConfirm.setOnAction(ev -> {
             context.editarAluno(nr, textNome.getText(), textEmail.getText(),
-                    textSiglaCurso.getText(), textSiglaRamo.getText(), Double.parseDouble(textPontuacao.getText()), isAcesso.isSelected(), textPropostaAssociada.getText());
+                    textSiglaCurso.getText(), textSiglaRamo.getText(),
+                    Double.parseDouble(textPontuacao.getText()), isAcesso.isSelected(), textPropostaAssociada.getText());
 
         });
 

@@ -46,11 +46,14 @@ public interface IApoio_poeState {
     public void editarAluno(long nr, String nome, String email, String siglaCurso, String siglaRamos, double Classificacao, boolean acesso, String IDProp);
     void addDocente();
     void addDocenteSingular(Docente d);
-    String consultaDocente(String email);
+    void removerDocente(String email);
+    void editarDocente(String email, String nome);
+    Docente consultaDocente(String email);
     ArrayList<Docente> consultaDocentes();
     void addProposta();
     void addPropostaSingular(Proposta p);
     void removerProposta(String ID);
+    public void editarProposta(String idProposta, long nrAluno, String titulo, String tipoDeProposta, boolean atribuida);
     Proposta consultaProposta(String idProposta);
     ArrayList<Proposta> consultaPropostas();
     void exportarDocentesParaCSV(String nomeFicheiro);

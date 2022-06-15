@@ -85,7 +85,17 @@ public class GestaoPROP extends BorderPane {
             stage.setMinHeight(400);
             stage.show();
         });
-        //ButtonEditarAluno.setOnAction(ev->context.editarAluno());
+        ButtonEditarProposta.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuestionaPropostaEditar root = new QuestionaPropostaEditar(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
         ButtonVoltar.setOnAction(ev->context.changeFromGestaoPROPtoBase());
 
     }

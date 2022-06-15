@@ -62,9 +62,39 @@ public class GestaoDOC extends BorderPane {
             stage.setMinHeight(400);
             stage.show();
         });
-        //ButtonConsultarUmDocente.setOnAction(ev->context.consultaAluno());
-        //ButtonRemoverDocente.setOnAction(ev->context.removerAluno());
-        //ButtonEditarDocente.setOnAction(ev->context.editarAluno());
+        ButtonConsultarUmDocente.setOnAction(ev->{
+            Stage stage = new Stage();
+            ConsultarDocente root = new ConsultarDocente(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Inserir aluno");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonRemoverDocente.setOnAction(ev->{
+            Stage stage = new Stage();
+            RemoverDocente root = new RemoverDocente(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Inserir aluno");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonEditarDocente.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuestionaDocenteAEditar root = new QuestionaDocenteAEditar(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Inserir aluno");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
         ButtonVoltar.setOnAction(ev->context.changeFromGestaoDOCtoBase());
 
     }

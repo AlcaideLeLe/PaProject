@@ -22,6 +22,7 @@ public class Proposta implements Comparable<Proposta>, Serializable {
 
     }
     public String getTipoDeProposta() {return tipoDeProposta;}
+    public void setTipoDeProposta(String tipoDeProposta) {this.tipoDeProposta = tipoDeProposta;}
     public String getIdProposta() {return idProposta;}
     public long getNrAluno() {return nrAluno;}
     public boolean isAtribuida() {return atribuida;}
