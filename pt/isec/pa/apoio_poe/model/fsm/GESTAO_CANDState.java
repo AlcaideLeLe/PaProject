@@ -26,7 +26,7 @@ public class GESTAO_CANDState extends apoio_poeAdapter{
     @Override
     public ArrayList<Candidatura> consultaCandidaturas(){return data.consultarCandidaturas();}
     @Override
-    public String consultaCandidatura(long nrAluno){return data.consultarCandidatura(nrAluno);}
+    public Candidatura consultaCandidatura(long nrAluno){return data.consultarCandidatura(nrAluno);}
     @Override
     public ArrayList<Aluno> consultarAlunos(){return data.consultarAlunos();}
     @Override
