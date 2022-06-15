@@ -12,6 +12,7 @@ import pt.isec.pa.apoio_poe.model.fsm.FASE1State;
 import pt.isec.pa.apoio_poe.model.fsm.IApoio_poeState;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import javax.swing.border.Border;
 
@@ -24,7 +25,7 @@ public class Inicio extends BorderPane {
     Label mensagemBoasVindas;
     apoio_poeContext context;
     WindowToolBar toolBar;
-    Font font = Font.font("Times New Roman", FontWeight.BOLD, 14);
+
     public Inicio(apoio_poeContext context) {
         this.context = context;
         createViews();
@@ -44,6 +45,8 @@ public class Inicio extends BorderPane {
     }
 
     public void createViews(){
+        CSSManager.applyCSS(this,"mystyles.css");
+
         toolBar = new WindowToolBar(context);
         toolBar.createViews();
         gridButtons = new GridPane();
@@ -54,19 +57,19 @@ public class Inicio extends BorderPane {
         //create buttons
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Ola DUROES ESCOLHE AI UMA OPCAO");
+
         ButtonCreateNew = new Button();
         ButtonCreateNew.setText("Começa novo");
+        ButtonCreateNew.getStyleClass().add("buttonGestaoAL");
+
         ButtonLoad= new Button();
         ButtonLoad.setText("Carregar save");
+        ButtonLoad.getStyleClass().add("buttonGestaoAL");
+
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
+        ButtonSair.getStyleClass().add("buttonGestaoAL");
 
-        ButtonCreateNew.setFont(font);
-        ButtonCreateNew.setStyle("-fx-background-color: white; -fx-text-fill: black;-fx-border-width: 5px;");
-        ButtonLoad.setFont(font);
-        ButtonLoad.setStyle("-fx-background-color: white; -fx-text-fill: black;-fx-border-width: 5px;");
-        ButtonSair.setFont(font);
-        ButtonSair.setStyle("-fx-background-color: white; -fx-text-fill: black;-fx-border-width: 5px;");
 
         //organizar coordenadas
         gridButtons.add(mensagemBoasVindas, 0, 0);

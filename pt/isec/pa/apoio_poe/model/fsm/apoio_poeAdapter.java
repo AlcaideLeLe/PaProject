@@ -68,6 +68,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void removerAluno(long nrAluno){};
     @Override
+    public void editarAluno(long nr, String nome, String email, String siglaCurso, String siglaRamos, double Classificacao, boolean acesso, String IDprop){};
+    @Override
     public void addPropostaSingular(Proposta p){};
     @Override
     public void addDocente(){};
@@ -75,6 +77,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public void addDocenteSingular(Docente d){};
     @Override
     public void addProposta(){};
+    @Override
+    public void removerProposta(String ID){};
     @Override
     public void exportarDocentesParaCSV(String nomeFicheiro){};
     @Override
@@ -84,7 +88,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void exportarCandidaturasParaCSV(String nomeFicheiro){};
     @Override
-    public String consultaAluno(long nrAluno) {return null;}
+    public Aluno consultaAluno(long nrAluno) {return null;}
     @Override
     public ArrayList<Aluno> consultarAlunos() {return null;}
     @Override
@@ -92,7 +96,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public ArrayList<Docente> consultaDocentes(){return null;}
     @Override
-    public String consultaProposta(String idProposta){return null;}
+    public Proposta consultaProposta(String idProposta){return null;}
     @Override
     public ArrayList<Proposta> consultaPropostas(){return null;}
 

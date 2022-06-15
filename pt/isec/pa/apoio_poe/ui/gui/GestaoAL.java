@@ -65,9 +65,39 @@ public class GestaoAL extends BorderPane {
             stage.setMinHeight(400);
             stage.show();
         });
-        //ButtonConsultarUmAluno.setOnAction(ev->context.consultaAluno());
-        //ButtonRemoverAluno.setOnAction(ev->context.removerAluno());
-        //ButtonEditarAluno.setOnAction(ev->context.editarAluno());
+        ButtonConsultarUmAluno.setOnAction(ev->{
+            Stage stage = new Stage();
+            ConsultarAluno root = new ConsultarAluno(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonRemoverAluno.setOnAction(ev->{
+            Stage stage = new Stage();
+            RemoverAluno root = new RemoverAluno(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonEditarAluno.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuestionaAlunoAEditar root = new QuestionaAlunoAEditar(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
         ButtonVoltar.setOnAction(ev->context.changeFromGestaoALtoBase());
 
     }

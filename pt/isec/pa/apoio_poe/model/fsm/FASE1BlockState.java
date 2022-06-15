@@ -28,7 +28,7 @@ public class FASE1BlockState extends apoio_poeAdapter{
         return true;
     }
     @Override
-    public String consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
+    public Aluno consultaAluno(long nrAluno){return data.consultarAluno(nrAluno);}
     @Override
     public ArrayList<Aluno> consultarAlunos(){return data.consultarAlunos();}
     @Override
@@ -36,7 +36,7 @@ public class FASE1BlockState extends apoio_poeAdapter{
     @Override
     public ArrayList<Docente> consultaDocentes(){return data.consultarDocentes();}
     @Override
-    public String consultaProposta(String IDProposta){return data.consultarProposta(IDProposta);}
+    public Proposta consultaProposta(String IDProposta){return data.consultarProposta(IDProposta);}
     @Override
     public ArrayList<Proposta> consultaPropostas(){return data.consultarPropostas();}
 }

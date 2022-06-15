@@ -1,23 +1,20 @@
 package pt.isec.pa.apoio_poe.ui.gui;
 
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 
-public class MostraAlunos extends BorderPane {
-
+public class MostraAluno extends BorderPane {
     apoio_poeContext context;
+    long nr;
 
-    public MostraAlunos(apoio_poeContext context) {
+    public MostraAluno(apoio_poeContext context, long nr) {
         this.context = context;
-
+        this.nr = nr;
         createViews();
     }
 
@@ -33,9 +30,7 @@ public class MostraAlunos extends BorderPane {
     TableColumn<Aluno, String> C8 = new TableColumn<>("ID proposta");
 
 
-
-
-    public void createViews(){
+    public void createViews() {
         C1.setCellValueFactory(new PropertyValueFactory<>("numero"));
         C2.setCellValueFactory(new PropertyValueFactory<>("nome"));
         C3.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -44,15 +39,10 @@ public class MostraAlunos extends BorderPane {
         C6.setCellValueFactory(new PropertyValueFactory<>("classificacao"));
         C7.setCellValueFactory(new PropertyValueFactory<>("acessoEstagio"));
         C8.setCellValueFactory(new PropertyValueFactory<>("idPropostaAssociada"));
-        tableView.getColumns().addAll(C1,C2,C3,C4,C5,C6,C7,C8);
-        tableView.getItems().addAll(context.consultarAlunos());
+        tableView.getColumns().addAll(C1, C2, C3, C4, C5, C6, C7, C8);
+        tableView.getItems().addAll(context.consultaAluno(nr));
 
         this.setCenter(tableView);
 
     }
-
-
-
-
-
 }
