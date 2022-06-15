@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
@@ -27,6 +29,8 @@ public class GestaoAL extends BorderPane {
     Button ButtonVoltar;
     Label mensagemEscolha;
     Label listaDeAlunos;
+
+    Font FontLabel = Font.font("Garamond", 14);
 
     public GestaoAL(apoio_poeContext context) {
         this.context = context;
@@ -86,23 +90,39 @@ public class GestaoAL extends BorderPane {
         //gap
         gridButtons.setHgap(0);
         gridButtons.setVgap(10);
+
         //create buttons
         mensagemEscolha = new Label();
         mensagemEscolha.setText("Escolha uma das opcoes: ");
+
         ButtonInserirAlunos = new Button();
         ButtonInserirAlunos.setText("Inserir alunos a partir de um ficheiro");
+        ButtonInserirAlunos.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 5px;");
+
         ButtonInserirUmAluno = new Button();
         ButtonInserirUmAluno.setText("Inserir um aluno");
+        ButtonInserirUmAluno.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 5px;");
+
         ButtonConsultarUmAluno = new Button();
         ButtonConsultarUmAluno.setText("Consultar um aluno");
+        ButtonConsultarUmAluno.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 5px;");
+
         ButtonConsultarAlunos = new Button();
         ButtonConsultarAlunos.setText("Consultar todos os alunos");
+        ButtonConsultarAlunos.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 5px;");
+
         ButtonRemoverAluno = new Button();
         ButtonRemoverAluno.setText("Remover aluno");
+        ButtonRemoverAluno.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 5px;");
+
         ButtonEditarAluno = new Button();
         ButtonEditarAluno.setText("Editar aluno");
+        ButtonEditarAluno.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 5px;");
+
         ButtonVoltar = new Button();
         ButtonVoltar.setText("Voltar");
+        ButtonVoltar.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 5px;");
+
         listaDeAlunos = new Label();
 
 

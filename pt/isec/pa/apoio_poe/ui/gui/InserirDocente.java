@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
@@ -25,6 +27,8 @@ public class InserirDocente extends BorderPane {
 
     Label labelNome;
     Label labelEmail;
+
+    Font FontLabel = Font.font("Garamond", 14);
 
 
 
@@ -55,23 +59,28 @@ public class InserirDocente extends BorderPane {
         labelNome = new Label("");
         labelNome.setText("Insira o nome do novo docente");
         grid.add(labelNome, 0, 0);
+        labelNome.setFont(FontLabel);
 
         labelEmail = new Label("");
         labelEmail.setText("Insira o email do novo docente");
         grid.add(labelEmail, 0, 3);
+        labelEmail.setFont(FontLabel);
 
         textNome = new TextField("");
         grid.add(textNome, 0, 1);
+        textNome.setStyle("-fx-control-inner-background: #edfaf8");
 
         textEmai = new TextField("");
         grid.add(textEmai, 0, 4);
+        textEmai.setStyle("-fx-control-inner-background: #edfaf8");
 
 
-        buttonClose = new Button("Fechar");
-        grid.add(buttonClose, 2, 2);
 
         buttonConfirm = new Button("Confirmar novo docente");
-        grid.add(buttonConfirm, 2, 3);
+        grid.add(buttonConfirm, 5, 4);
+        Font font = Font.font("Times New Roman", FontWeight.BOLD, 14);
+        buttonConfirm.setFont(font);
+        buttonConfirm.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 5px;");
 
         this.setCenter(grid);
 

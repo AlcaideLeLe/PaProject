@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
@@ -94,11 +96,11 @@ public class InserirProposta extends BorderPane {
 
 
 
-        buttonClose = new Button("Fechar");
-        grid.add(buttonClose, 2, 2);
-
         buttonConfirm = new Button("Confirmar novo aluno");
-        grid.add(buttonConfirm, 2, 3);
+        grid.add(buttonConfirm, 2, 13);
+        Font font = Font.font("Times New Roman", FontWeight.BOLD, 14);
+        buttonConfirm.setFont(font);
+        buttonConfirm.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 2px;");
 
         this.setCenter(grid);
 

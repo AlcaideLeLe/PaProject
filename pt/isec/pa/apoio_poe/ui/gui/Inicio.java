@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 import pt.isec.pa.apoio_poe.model.fsm.FASE1State;
 import pt.isec.pa.apoio_poe.model.fsm.IApoio_poeState;
@@ -22,6 +24,7 @@ public class Inicio extends BorderPane {
     Label mensagemBoasVindas;
     apoio_poeContext context;
     WindowToolBar toolBar;
+    Font font = Font.font("Times New Roman", FontWeight.BOLD, 14);
     public Inicio(apoio_poeContext context) {
         this.context = context;
         createViews();
@@ -57,6 +60,14 @@ public class Inicio extends BorderPane {
         ButtonLoad.setText("Carregar save");
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
+
+        ButtonCreateNew.setFont(font);
+        ButtonCreateNew.setStyle("-fx-background-color: white; -fx-text-fill: black;-fx-border-width: 5px;");
+        ButtonLoad.setFont(font);
+        ButtonLoad.setStyle("-fx-background-color: white; -fx-text-fill: black;-fx-border-width: 5px;");
+        ButtonSair.setFont(font);
+        ButtonSair.setStyle("-fx-background-color: white; -fx-text-fill: black;-fx-border-width: 5px;");
+
         //organizar coordenadas
         gridButtons.add(mensagemBoasVindas, 0, 0);
         gridButtons.add(ButtonCreateNew, 0, 2);
