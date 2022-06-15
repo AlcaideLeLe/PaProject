@@ -157,6 +157,7 @@ public class apoio_poeContext {
     }
 
     public void addAluno(){state.addAluno();}
+    public void removerAluno(long nr){state.removerAluno(nr);}
     public void addAlunoSingular(Aluno a){state.addAlunoSingular(a);};
     public String consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
     public ArrayList<Aluno> consultarAlunos(){return state.consultarAlunos();}
