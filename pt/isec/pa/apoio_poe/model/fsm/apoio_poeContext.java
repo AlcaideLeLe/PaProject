@@ -198,8 +198,8 @@ public class apoio_poeContext {
     public String consultarMediaDeOrientacoesDosDocentes(){return state.consultarMediaDeOrientacoesDosDocentes();}
     public String consultarAlunosComCandidaturaESemProposta(){return state.consultarAlunosComCandidaturaESemProposta();}
     public ArrayList<Aluno> consultarAlunosSemCandidatura(){return state.consultarAlunosSemCandidatura();}
-    public String consultarPropostasComCandidaturas(){return state.consultarPropostasComCandidaturas();}
-    public String consultarPropostasSemCandidaturas(){return state.consultarPropostasSemCandidaturas();}
+    public ArrayList<Proposta> consultarPropostasComCandidaturas(){return state.consultarPropostasComCandidaturas();}
+    public ArrayList<Proposta> consultarPropostasSemCandidaturas(){return state.consultarPropostasSemCandidaturas();}
     public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAluno, String emailProf){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf);}
     public void removerTodasAsAtribuicoes(){state.removerTodasAsAtribuicoes();}
     public void exportarAlunosParaCSV(String nomeFicheiro){state.exportarAlunosParaCSV(nomeFicheiro);};

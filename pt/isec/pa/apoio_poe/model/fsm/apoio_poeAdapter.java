@@ -114,9 +114,9 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public ArrayList<Proposta> consultarPropostasDeDocentes(){return null;};
     @Override
-    public String consultarPropostasComCandidaturas(){return null;};
+    public ArrayList<Proposta> consultarPropostasComCandidaturas(){return null;};
     @Override
-    public String consultarPropostasSemCandidaturas(){return null;};
+    public ArrayList<Proposta> consultarPropostasSemCandidaturas(){return null;};
 
 
 

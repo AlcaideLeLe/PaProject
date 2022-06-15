@@ -386,32 +386,36 @@ public class PoE implements Serializable{
         }
     } //JA VERIFICADA
 
-    public String consultarPropostasComCandidaturas(){ //Filtro Proposta Com candidatura
+    public ArrayList<Proposta> consultarPropostasComCandidaturas(){ //Filtro Proposta Com candidatura
         StringBuilder sb = new StringBuilder();
         HashSet<String> propostasComCandidaturas = new HashSet<>();
+        ArrayList<Proposta> propostasComCandidaturasArray = new ArrayList<>();
         for(var c : listaDeCandidaturas){
             propostasComCandidaturas.addAll(c.getPropostas());
         }
         for(var p : listaDePropostas){
             if(propostasComCandidaturas.contains(p.getIdProposta())){
                 sb.append("Proposta com candidatura").append(p.toString()).append(System.lineSeparator());
+                propostasComCandidaturasArray.add(p);
             }
         }
-        return sb.toString();
+        return propostasComCandidaturasArray;
     }
 
-    public String consultarPropostasSemCandidaturas(){ //Filtro Proposta Sem candidatura
+    public ArrayList<Proposta> consultarPropostasSemCandidaturas(){ //Filtro Proposta Sem candidatura
         StringBuilder sb = new StringBuilder();
         HashSet<String> propostasSemCandidaturas = new HashSet<>();
+        ArrayList<Proposta> propostasSemCandidaturasArray = new ArrayList<>();
         for(var c : listaDeCandidaturas){
             propostasSemCandidaturas.addAll(c.getPropostas());
         }
         for(var p : listaDePropostas){
             if(!propostasSemCandidaturas.contains(p.getIdProposta())){
                 sb.append("Proposta com candidatura").append(p.toString()).append(System.lineSeparator());
+                propostasSemCandidaturasArray.add(p);
             }
         }
-        return sb.toString();
+        return propostasSemCandidaturasArray;
     }
 
     public String consultarAlunosComPropostasDeDocentes(){ //filtro Autopropostas de alunos

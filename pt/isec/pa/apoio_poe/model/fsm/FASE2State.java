@@ -56,9 +56,9 @@ public class FASE2State extends apoio_poeAdapter{
     @Override
     public ArrayList<Proposta> consultarPropostasDeDocentes(){return data.consultarPropostasDocentes();};
     @Override
-    public String consultarPropostasComCandidaturas(){return data.consultarPropostasComCandidaturas();};
+    public ArrayList<Proposta> consultarPropostasComCandidaturas(){return data.consultarPropostasComCandidaturas();};
     @Override
-    public String consultarPropostasSemCandidaturas(){return data.consultarPropostasSemCandidaturas();};
+    public ArrayList<Proposta> consultarPropostasSemCandidaturas(){return data.consultarPropostasSemCandidaturas();};
     @Override
     public ArrayList<Proposta> consultaPropostas(){return data.consultarPropostas();}
 }

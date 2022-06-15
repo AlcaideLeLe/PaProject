@@ -25,15 +25,15 @@ public class RemoverAluno extends BorderPane {
         super();
         this.context = context;
         createViews();
-        registerHandlers();
+        //registerHandlers();
 
     }
 
-    private void registerHandlers(){
+   /* private void registerHandlers(){
         buttonConfirm.setOnAction(ev->{
             context.addAlunoSingular(new Aluno(Long.parseLong(textNr.getText()))
         });
-    }
+    }*/
 
     private void createViews() {
         CSSManager.applyCSS(this, "mystyles.css");
