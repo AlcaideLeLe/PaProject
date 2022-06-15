@@ -19,7 +19,8 @@ public class Apoio_poeGUI extends BorderPane {
 
 
     public void createViews(){
-        StackPane stackPane = new StackPane(new Inicio(fsm), new FASE1(fsm), new GestaoAL(fsm), new GestaoDOC(fsm), new GestaoPROP(fsm));
+        StackPane stackPane = new StackPane(new Inicio(fsm), new FASE1(fsm), new GestaoCAND(fsm), new GestaoAL(fsm), new GestaoDOC(fsm), new GestaoPROP(fsm)
+        , new FASE2(fsm));
         this.setTop(new WindowToolBar(fsm));
         this.setCenter(stackPane);
     }
