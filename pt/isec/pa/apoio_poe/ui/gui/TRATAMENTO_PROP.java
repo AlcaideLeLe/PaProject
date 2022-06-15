@@ -48,7 +48,6 @@ public class TRATAMENTO_PROP extends BorderPane {
         ButtonAtribuirAutoProposta.setOnAction(ev->context.atribuirAutoproposta());
         ButtonAtribuirPropostaDeDocente.setOnAction(ev->context.atribuirPropostaDeDocente());
         ButtonRemoverTodasAsAtribuicoes.setOnAction(ev->context.removerTodasAsAtribuicoes());
-        ButtonVoltar.setOnAction(ev->context.changeFromGestaoALtoBase());
 
     }
 
@@ -78,7 +77,7 @@ public class TRATAMENTO_PROP extends BorderPane {
 
         ButtonChangeToBase = new Button();
         ButtonChangeToBase.setText("Voltar a base");
-        ButtonChangeToBase.getStyleClass().add("buttonFase2");
+        ButtonChangeToBase.getStyleClass().add("buttonVoltar");
 
         ButtonChangeToGestaoManualAtribuicoes = new Button();
         ButtonChangeToGestaoManualAtribuicoes.setText("Gestao Manual de Atribuicoes");
@@ -96,9 +95,6 @@ public class TRATAMENTO_PROP extends BorderPane {
         ButtonRemoverTodasAsAtribuicoes.setText("Remover todas as atribuicoes");
         ButtonRemoverTodasAsAtribuicoes.getStyleClass().add("buttonFase2");
 
-        ButtonVoltar = new Button();
-        ButtonVoltar.setText("Voltar");
-        ButtonVoltar.getStyleClass().add("buttonVoltar");
 
         listaDeAlunos = new Label();
 
@@ -106,13 +102,12 @@ public class TRATAMENTO_PROP extends BorderPane {
         //organizar coordenadas
 
         gridButtons.add(mensagemEscolha, 0, 0);
-        gridButtons.add(ButtonChangeToBase, 0, 2);
+        gridButtons.add(ButtonChangeToBase, 0, 14);
         gridButtons.add(ButtonChangeToGestaoManualAtribuicoes, 0, 4);
         gridButtons.add(ButtonAtribuirAutoProposta, 0, 6);
         gridButtons.add(ButtonAtribuirPropostaDeDocente, 0, 8);
         gridButtons.add(ButtonRemoverTodasAsAtribuicoes, 0, 10);
-        gridButtons.add(ButtonVoltar, 0, 12);
-        gridButtons.add(listaDeAlunos, 0, 14);
+        gridButtons.add(listaDeAlunos, 0, 12);
 
         this.setCenter(gridButtons);
     }
