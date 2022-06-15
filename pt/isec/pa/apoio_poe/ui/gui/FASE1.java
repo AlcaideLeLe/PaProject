@@ -20,6 +20,7 @@ public class FASE1 extends BorderPane {
     Button ButtonGestaoDocentes;
     Button ButtonSair;
     Button ButtonAvancar;
+    Button ButtonFecharFase;
     Label mensagemBoasVindas;
     apoio_poeContext context;
     WindowToolBar toolBar;
@@ -42,6 +43,7 @@ public class FASE1 extends BorderPane {
         ButtonGestaoPropostas.setOnAction(ev->context.changeToPropState());
         ButtonGestaoDocentes.setOnAction(ev->context.changeToGestaoDOC());
         ButtonAvancar.setOnAction(ev->context.avancarFase());
+        ButtonFecharFase.setOnAction(ev->context.fecharFase());
         ButtonSair.setOnAction(ev->System.exit(0));
 
 
@@ -88,12 +90,18 @@ public class FASE1 extends BorderPane {
 
         ButtonAvancar.getStyleClass().add("buttonFase1");
 
+        ButtonFecharFase = new Button();
+        ButtonFecharFase.setText("Fechar fase");
+
+        ButtonFecharFase.getStyleClass().add("buttonFecharFase1");
+
         //organizar coordenadas
         gridButtons.add(mensagemBoasVindas, 0, 0);
         gridButtons.add(ButtonGestaoAlunos, 0, 2);
         gridButtons.add(ButtonGestaoPropostas, 0, 4);
         gridButtons.add(ButtonGestaoDocentes, 0, 6);
-        gridButtons.add(ButtonAvancar, 4, 10);
+        gridButtons.add(ButtonFecharFase, 0, 8);
+        gridButtons.add(ButtonAvancar, 0, 10);
         this.setCenter(gridButtons);
     }
 

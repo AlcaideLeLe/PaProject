@@ -8,6 +8,25 @@
     -fx-background-color: #4caf50;
 }
 
+.buttonFase2{
+    -fx-text-fill: white;
+    -fx-font-family: 'Source Sans Pro', sans-serif;
+    -fx-background-color: #04AA6D;
+    -fx-font-size: 14px;
+}
+.buttonFase2:hover{
+    -fx-background-color: #4caf50;
+}
+.buttonFecharFase1{
+    -fx-text-fill: white;
+    -fx-font-family: 'Source Sans Pro', sans-serif;
+    -fx-background-color: #04AA6D;
+    -fx-font-size: 14px;
+}
+.buttonFecharFase1:hover{
+    -fx-background-color: #4caf50;
+}
+
 .labelEscolha{
     -fx-font-family: 'Source Sans Pro', sans-serif;
     -fx-font-size: 14px;
