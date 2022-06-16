@@ -10,6 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.consultas.*;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaFicheiroAluno;
 import pt.isec.pa.apoio_poe.ui.gui.WindowToolBar;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
@@ -44,13 +45,83 @@ public class FASE5 extends BorderPane {
 
     public void registerHandlers(){
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
-        ButtonConsultarAlunosComPropostaAtribuida.setOnAction(ev->context.consultarAlunosComPropostaAtribuida());
-        ButtonConsultarComCandidaturaESemProposta.setOnAction(ev->context.consultarAlunosComCandidaturaESemProposta());
-        ButtonConsultarPropostasDisponiveis.setOnAction(ev->context.consultarPropostasDisponiveis());
-        ButtonConsultarPropostasAtribuidas.setOnAction(ev->context.consultarPropostasAtribuidas());
-        ButtonConsultarDocentesComMenosOrientacoes.setOnAction(ev->context.consultarDocenteComMenosOrientacoes());
-        ButtonConsultarDocentesComMaisOrientacoes.setOnAction(ev->context.consultarDocenteComMaisOrientacoes());
-        ButtonConsultarMediaDeOrientacoesDocentes.setOnAction(ev->context.consultarMediaDeOrientacoesDosDocentes());
+        ButtonConsultarAlunosComPropostaAtribuida.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraAlunosComPropostaAtribuida root = new MostraAlunosComPropostaAtribuida(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Alunos Com Proposta Atribuida");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultarComCandidaturaESemProposta.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraAlunosComCandidaturaESemProposta root = new MostraAlunosComCandidaturaESemProposta(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Alunos Com Candidatura e Sem Proposta");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultarPropostasDisponiveis.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraPropostasDisponiveis root = new MostraPropostasDisponiveis(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Consultar Propostas Disponiveis");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultarPropostasAtribuidas.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraPropostasAtribuidas root = new MostraPropostasAtribuidas(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Consultar Propostas Atribuidas");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultarDocentesComMenosOrientacoes.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraDocentesComMenosOrientacoes root = new MostraDocentesComMenosOrientacoes(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Consultar Docentes com menos Orientacoes");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultarDocentesComMaisOrientacoes.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraDocentesComMaisOrientacoes root = new MostraDocentesComMaisOrientacoes(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Consultar Docentes com mais Orientacoes");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultarMediaDeOrientacoesDocentes.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraMediaDeOrientacoes root = new MostraMediaDeOrientacoes(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Consultar media de Orientacoes");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
         ButtonExportarAlunosCSV.setOnAction(ev->{
             Stage stage = new Stage();
             QuestionaFicheiroAluno root = new QuestionaFicheiroAluno(context);
@@ -63,9 +134,6 @@ public class FASE5 extends BorderPane {
             stage.show();
         });
         ButtonSair.setOnAction(ev->System.exit(0));
-
-
-
 
     }
 

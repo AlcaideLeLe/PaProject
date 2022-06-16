@@ -1,30 +1,26 @@
 package pt.isec.pa.apoio_poe.ui.gui.estados;
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import pt.isec.pa.apoio_poe.model.data.Aluno;
-import pt.isec.pa.apoio_poe.model.data.Candidatura;
-import pt.isec.pa.apoio_poe.model.data.Docente;
-import pt.isec.pa.apoio_poe.model.data.Proposta;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.WindowToolBar;
+import pt.isec.pa.apoio_poe.ui.gui.consultas.*;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
-
-import java.util.ArrayList;
 
 public class FASE3BLOCK extends BorderPane {
 
 
     GridPane gridButtons;
 
-    Button ButtonConsultaAlunosComAutoPropostaAtribuida;
-    Button ButtonConsultaAlunosSemAutoPropostaAtribuida;
+    Button ButtonConsultaAlunosComPropostaAtribuida;
+    Button ButtonConsultaAlunosSemPropostaAtribuida;
     Button ButtonConsultaAlunosComCandidatura;
     Button ButtonConsultaAlunosSemCandidatura;
     Button ButtonConsultaListaDeAutoPropostas;
@@ -50,14 +46,94 @@ public class FASE3BLOCK extends BorderPane {
     public void registerHandlers(){
 
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
-        ButtonConsultaAlunosComAutoPropostaAtribuida.setOnAction(ev->context.consultarAlunosComPropostaAtribuida());
-        ButtonConsultaAlunosSemAutoPropostaAtribuida.setOnAction(ev->context.consultarAlunosSemPropostaAtribuida());
-        ButtonConsultaAlunosComCandidatura.setOnAction(ev->context.consultarAlunosComCandidatura());
-        ButtonConsultaAlunosSemCandidatura.setOnAction(ev->context.consultarAlunosSemCandidatura());
-        ButtonConsultaListaDeAutoPropostas.setOnAction(ev->context.consultarListaDeAutopropostas());
-        ButtonConsultaPropostasDeDocentes.setOnAction(ev->context.consultarPropostasDocentes());
-        ButtonConsultarPropostasDisponiveis.setOnAction(ev->context.consultarPropostasDisponiveis());
-        ButtonPropostasAtribuidas.setOnAction(ev->context.consultarPropostasAtribuidas());
+        ButtonConsultaAlunosComPropostaAtribuida.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraAlunosComPropostaAtribuida root = new MostraAlunosComPropostaAtribuida(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos com proposta atribuida");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultaAlunosSemPropostaAtribuida.setOnAction(ev-> {
+            Stage stage = new Stage();
+            MostraAlunosSemPropostaAtribuida root = new MostraAlunosSemPropostaAtribuida(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos sem proposta atribuida");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultaAlunosComCandidatura.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraAlunosComCandidatura root = new MostraAlunosComCandidatura(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos com candidatura");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultaAlunosSemCandidatura.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraAlunosSemCandidatura root = new MostraAlunosSemCandidatura(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos sem candidatura");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultaListaDeAutoPropostas.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraListaDeAutopropostas root = new MostraListaDeAutopropostas(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de Auto-propostas");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultaPropostasDeDocentes.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraListaPropostasDocentes root = new MostraListaPropostasDocentes(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de propostas de docentes");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultarPropostasDisponiveis.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraPropostasDisponiveis root = new MostraPropostasDisponiveis(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de propostas disponiveis");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonPropostasAtribuidas.setOnAction(ev->{
+            Stage stage = new Stage();
+            MostraPropostasAtribuidas root = new MostraPropostasAtribuidas(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de propostas atribuidas");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
         ButtonAvancar.setOnAction(ev->context.avancarFase());
         ButtonRecuarFaseBlockAnterior.setOnAction(ev->context.changeToFaseBloqueadaAnterior());
         ButtonSair.setOnAction(ev->System.exit(0));
@@ -89,13 +165,13 @@ public class FASE3BLOCK extends BorderPane {
         ButtonConsultarPropostasDisponiveis.setText("Consultar Propostas Disponiveis");
         ButtonConsultarPropostasDisponiveis.getStyleClass().add("buttonFase1");
 
-        ButtonConsultaAlunosSemAutoPropostaAtribuida = new Button();
-        ButtonConsultaAlunosSemAutoPropostaAtribuida.setText("Consultar Alunos sem Auto-proposta Atribuida");
-        ButtonConsultaAlunosSemAutoPropostaAtribuida.getStyleClass().add("buttonFase1");
+        ButtonConsultaAlunosSemPropostaAtribuida = new Button();
+        ButtonConsultaAlunosSemPropostaAtribuida.setText("Consultar Alunos sem proposta Atribuida");
+        ButtonConsultaAlunosSemPropostaAtribuida.getStyleClass().add("buttonFase1");
 
-        ButtonConsultaAlunosComAutoPropostaAtribuida = new Button();
-        ButtonConsultaAlunosComAutoPropostaAtribuida.setText("Consultar Alunos com Auto-proposta Atribuida");
-        ButtonConsultaAlunosComAutoPropostaAtribuida.getStyleClass().add("buttonFase1");
+        ButtonConsultaAlunosComPropostaAtribuida = new Button();
+        ButtonConsultaAlunosComPropostaAtribuida.setText("Consultar Alunos com proposta Atribuida");
+        ButtonConsultaAlunosComPropostaAtribuida.getStyleClass().add("buttonFase1");
 
         ButtonConsultaAlunosComCandidatura = new Button();
         ButtonConsultaAlunosComCandidatura.setText("Consultar Alunos com candidatura");
@@ -130,8 +206,8 @@ public class FASE3BLOCK extends BorderPane {
         gridButtons.add(mensagemBoasVindas, 0, 0);
         gridButtons.add(ButtonPropostasAtribuidas, 0, 2);
         gridButtons.add(ButtonConsultarPropostasDisponiveis, 0, 4);
-        gridButtons.add(ButtonConsultaAlunosSemAutoPropostaAtribuida, 0, 6);
-        gridButtons.add(ButtonConsultaAlunosComAutoPropostaAtribuida, 0, 8);
+        gridButtons.add(ButtonConsultaAlunosSemPropostaAtribuida, 0, 6);
+        gridButtons.add(ButtonConsultaAlunosComPropostaAtribuida, 0, 8);
         gridButtons.add(ButtonConsultaAlunosComCandidatura, 0, 10);
         gridButtons.add(ButtonConsultaAlunosSemCandidatura, 0, 12);
         gridButtons.add(ButtonConsultaListaDeAutoPropostas, 0, 14);

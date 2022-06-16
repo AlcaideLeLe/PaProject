@@ -7,10 +7,10 @@ import javafx.scene.layout.BorderPane;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 
-public class MostraAlunosComCandidatura extends BorderPane {
+public class MostraAlunosComCandidaturaESemProposta extends BorderPane {
     apoio_poeContext context;
 
-    public MostraAlunosComCandidatura(apoio_poeContext context) {
+    public MostraAlunosComCandidaturaESemProposta(apoio_poeContext context) {
         this.context = context;
         createViews();
     }
@@ -35,7 +35,7 @@ public class MostraAlunosComCandidatura extends BorderPane {
         C7.setCellValueFactory(new PropertyValueFactory<>("acessoEstagio"));
         C8.setCellValueFactory(new PropertyValueFactory<>("idPropostaAssociada"));
         tableView.getColumns().addAll(C1,C2,C3,C4,C5,C6,C7,C8);
-        tableView.getItems().addAll(context.consultarAlunosComCandidatura());
+        tableView.getItems().addAll(context.consultarAlunosComCandidaturaESemProposta());
 
         this.setCenter(tableView);
 
