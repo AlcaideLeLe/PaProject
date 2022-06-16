@@ -24,7 +24,7 @@ public class Inicio extends BorderPane {
     Button ButtonSair;
     Label mensagemBoasVindas;
     apoio_poeContext context;
-    WindowToolBar toolBar;
+
 
     public Inicio(apoio_poeContext context) {
         this.context = context;
@@ -47,8 +47,7 @@ public class Inicio extends BorderPane {
     public void createViews(){
         CSSManager.applyCSS(this,"mystyles.css");
 
-        toolBar = new WindowToolBar(context);
-        toolBar.createViews();
+
         gridButtons = new GridPane();
         gridButtons.setAlignment(Pos.CENTER);
         //gap

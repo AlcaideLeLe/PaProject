@@ -1,8 +1,5 @@
 package pt.isec.pa.apoio_poe.model.data;
 
-import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
-
-import javax.xml.crypto.dsig.CanonicalizationMethod;
 import java.io.*;
 import java.util.*;
 
@@ -280,10 +277,26 @@ public class PoE implements Serializable{
         }
     }
 
+    public void addCandidaturaIndividual(Candidatura c){
+        listaDeCandidaturas.add(c);
+    }
+
+    public void removerCandidatura(long nr){
+        listaDeCandidaturas.removeIf(c -> c.getNumero() == nr);
+    }
+
+    public void editarCandidatura(long nrAluno, ArrayList<String> propostas){
+        for(Candidatura c : listaDeCandidaturas){
+            if(c.getNumero() == nrAluno){
+                c.setArrayCandidaturas(propostas);
+            }
+        }
+    }
+
     public Candidatura consultarCandidatura(long nrAluno){
-        for(int i=0; i<listaDeCandidaturas.size(); i++){
-            if(listaDeCandidaturas.get(i).getNumero() == nrAluno){
-                return listaDeCandidaturas.get(i);
+        for (Candidatura c : listaDeCandidaturas){
+            if(c.getNumero() == nrAluno){
+                return c;
             }
         }
         return null;
@@ -336,6 +349,7 @@ public class PoE implements Serializable{
         for(var a : listaDeAlunos){
             if(idAlunosComAutoProposta.contains(a.getNumero())) {
                 sb.append("Numero de Aluno Autoproposto: ").append(a.toString()).append(System.lineSeparator());
+                alunosComAutoProposta.add(a);
             }
         }
 
@@ -432,7 +446,7 @@ public class PoE implements Serializable{
         HashSet<String> propostasComCandidaturas = new HashSet<>();
         ArrayList<Proposta> propostasComCandidaturasArray = new ArrayList<>();
         for(var c : listaDeCandidaturas){
-            propostasComCandidaturas.addAll(c.getPropostas());
+            propostasComCandidaturas.addAll(c.getArrayCandidaturas());
         }
         for(var p : listaDePropostas){
             if(propostasComCandidaturas.contains(p.getIdProposta())){
@@ -448,7 +462,7 @@ public class PoE implements Serializable{
         HashSet<String> propostasSemCandidaturas = new HashSet<>();
         ArrayList<Proposta> propostasSemCandidaturasArray = new ArrayList<>();
         for(var c : listaDeCandidaturas){
-            propostasSemCandidaturas.addAll(c.getPropostas());
+            propostasSemCandidaturas.addAll(c.getArrayCandidaturas());
         }
         for(var p : listaDePropostas){
             if(!propostasSemCandidaturas.contains(p.getIdProposta())){
@@ -809,7 +823,7 @@ public class PoE implements Serializable{
         try(PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(nomeFicheiro)))) {
             for(var c :listaDeCandidaturas){
                 sb.append(c.getNumero());
-                for(var p : c.getPropostas()){
+                for(var p : c.getArrayCandidaturas()){
                     sb.append(",").append(p);
                 }
                 sb.append(System.lineSeparator());

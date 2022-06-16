@@ -59,21 +59,14 @@ public class WindowToolBar extends MenuBar {
         context.addPropertyChangeListener(apoio_poeContext.PROP_FASE, evt -> update());
 
         mnFile.setOnAction(actionEvent -> {
-            System.out.println("OLA registerHandler\n");
-//            update();
+            update();
         });
 
         mnFile.fire();
     }
 
     public void update(){
-        if(context.getState() == apoio_poeState.InicioState){
-            //System.out.println(context.getState());
-            this.setVisible(true);
-        }
-        else{
-            this.setVisible(false);
-        }
+
     }
 
 

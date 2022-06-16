@@ -72,6 +72,9 @@ public interface IApoio_poeState {
     ArrayList<Proposta> consultarPropostasDeDocentes();
     ArrayList<Proposta> consultarPropostasComCandidaturas();
     ArrayList<Proposta> consultarPropostasSemCandidaturas();
+    void addCandidaturaIndividual(Candidatura c);
+    void removerCandidatura(long nr);
+    void editarCandidatura(long nrAluno, ArrayList<String> propostas);
 
     //Fase 3
     void atribuirAutoproposta();

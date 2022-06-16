@@ -179,6 +179,9 @@ public class apoio_poeContext {
     public Proposta consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
     public ArrayList<Proposta> consultaPropostas(){return state.consultaPropostas();}
     public void addCandidatura(){state.addCandidatura();}
+    public void addCandidaturaIndividual(Candidatura c){};
+    public void removerCandidatura(long nr){state.removerCandidatura(nr);};
+    public void editarCandidatura(long nrAluno, ArrayList<String> propostas){state.editarCandidatura(nrAluno, propostas);}
     public Candidatura consultaCandidatura(long nrAluno){return state.consultaCandidatura(nrAluno);}
     public ArrayList<Candidatura> consultaCandidaturas(){return state.consultaCandidaturas();}
     public ArrayList<Aluno> consultaAlunosComAutoproposta(){return state.consultaAlunosComAutoproposta();}

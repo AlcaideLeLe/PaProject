@@ -61,4 +61,5 @@ public class FASE2State extends apoio_poeAdapter{
     public ArrayList<Proposta> consultarPropostasSemCandidaturas(){return data.consultarPropostasSemCandidaturas();};
     @Override
     public ArrayList<Proposta> consultaPropostas(){return data.consultarPropostas();}
+
 }

@@ -13,7 +13,11 @@ public class Candidatura implements Comparable<Candidatura>, Serializable {
     }
 
     public long getNumero() {return nrAluno;}
-    public ArrayList<String> getPropostas() {return arrayCandidaturas;}
+    public ArrayList<String> getArrayCandidaturas() {return arrayCandidaturas;}
+
+    public void setArrayCandidaturas(ArrayList<String> arrayCandidaturas) {
+        this.arrayCandidaturas = arrayCandidaturas;
+    }
 
     @Override
     public String toString() {

@@ -1,9 +1,9 @@
 package pt.isec.pa.apoio_poe.ui.gui;
 
-import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.gui.estados.*;
 
 
 public class Apoio_poeGUI extends BorderPane {

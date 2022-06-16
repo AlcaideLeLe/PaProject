@@ -112,6 +112,12 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void addCandidatura(){};
     @Override
+    public void addCandidaturaIndividual(Candidatura c){};
+    @Override
+    public void removerCandidatura(long nr){};
+    @Override
+    public void editarCandidatura(long nrAluno, ArrayList<String> propostas){};
+    @Override
     public Candidatura consultaCandidatura(long nrAluno){return null;}
     @Override
     public ArrayList<Candidatura> consultaCandidaturas(){return null;}
