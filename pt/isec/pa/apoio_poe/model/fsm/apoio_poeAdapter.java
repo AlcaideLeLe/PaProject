@@ -164,9 +164,9 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     @Override
     public void atribuirPropostaADocenteProponenteAutomaticamente(){}
     @Override
-    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf){};
+    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf, String IDproposta){};
     @Override
-    public String consultarOrientadorDeProposta(String idProposta){return null;};
+    public Docente consultarOrientadorDeProposta(String idProposta){return null;};
     @Override
     public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){};
     @Override
@@ -188,7 +188,7 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
 
     //Fase 5
     @Override
-    public String consultarAlunosComCandidaturaESemProposta(){return null;};
+    public ArrayList<Aluno> consultarAlunosComCandidaturaESemProposta(){return null;};
     public void removerTodasAsAtribuicoes(){}
     public String consultarPropostas(){return null;}
     public String consultarOrientacoesDocente(String email){return null;}

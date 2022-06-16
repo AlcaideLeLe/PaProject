@@ -94,8 +94,8 @@ public interface IApoio_poeState {
 
     //Fase 4
     void atribuirPropostaADocenteProponenteAutomaticamente();
-    void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf);
-    String consultarOrientadorDeProposta(String idProposta);
+    void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf, String IDproposta);
+    Docente consultarOrientadorDeProposta(String idProposta);
     void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador);
     void removerOrientadorDeProposta(String idProposta);
     ArrayList<Aluno> consultarAlunosComPropostaEComOrientador();
@@ -109,7 +109,7 @@ public interface IApoio_poeState {
 
     //Fase 5
     //String consultarAlunosComPropostaAtribuida(); mesma linha 52
-    String consultarAlunosComCandidaturaESemProposta();
+    ArrayList<Aluno> consultarAlunosComCandidaturaESemProposta();
     //String consultarPropostasDisponiveis(); 56
     //String consultarPropostasAtribuidas(); 57
     //String consultarDocenteComMenosOrientacoes();

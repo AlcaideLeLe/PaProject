@@ -17,6 +17,12 @@ public class FASE3MasFASE2AbertaState extends apoio_poeAdapter{
         changeState(apoio_poeState.FASE3);
         return true;
     }
+    @Override
+    public void atribuirAutoproposta(){data.atribuirAutoproposta();};
+    @Override
+    public void atribuirPropostaDeDocente(){data.atribuirPropostaDeDocente();};
+
+    @Override
     public boolean recuarFase() {
         changeState(apoio_poeState.FASE2) ;
         return true;

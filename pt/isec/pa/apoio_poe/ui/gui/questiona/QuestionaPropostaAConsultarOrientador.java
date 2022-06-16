@@ -10,6 +10,8 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.gui.consultas.ConsultarOrientacaoDeDocente;
+import pt.isec.pa.apoio_poe.ui.gui.consultas.MostraOrientadorDeProposta;
 import pt.isec.pa.apoio_poe.ui.gui.edicoes.EditarProposta;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
@@ -34,7 +36,15 @@ public class QuestionaPropostaAConsultarOrientador extends BorderPane {
 
     private void registerHandlers(){
         buttonConfirm.setOnAction(ev->{
-            context.consultarOrientadorDeProposta(textID.getText());
+            Stage stage = new Stage();
+            MostraOrientadorDeProposta root = new MostraOrientadorDeProposta(context, textID.getText());
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Docente");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
         });
     }
 

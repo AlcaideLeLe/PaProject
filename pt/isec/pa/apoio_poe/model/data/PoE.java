@@ -596,7 +596,7 @@ public class PoE implements Serializable{
         }
     } //FEITO HOJE, TESTADO, QUANDO SE FIZER VERIFICACOES A DOCENTES FICA RESOLVIDO
 
-    public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAlunoDaProposta, String emailProf){
+    public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAlunoDaProposta, String emailProf, String IDproposta){
         for(var p : listaDePropostas){
             if(p.getOrientador() == null) {
                 if (p.isAtribuida()) {
@@ -604,6 +604,7 @@ public class PoE implements Serializable{
                         for (var d : listaDeDocentes) {
                             if (Objects.equals(d.getEmail(), emailProf)) {
                                 p.setOrientador(emailProf);
+                                d.setPropostaAssociada(IDproposta);
                                 d.incrementaNrDeOrientacoes();
                             }
                         }
@@ -613,17 +614,21 @@ public class PoE implements Serializable{
         }
     } //JA VERIFICADA
 
-    public String consultarOrientadorDeProposta(String nrProposta){
+    public Docente consultarOrientadorDeProposta(String nrProposta){
         StringBuilder sb = new StringBuilder();
-        for(var p : listaDePropostas){
+        for(Proposta p : listaDePropostas){
             if(Objects.equals(p.getIdProposta(), nrProposta)){
-                if(p.isAtribuida()){
-                    sb.append("Orientador \n").append(p.getOrientador()).append(System.lineSeparator());
+                System.out.println("Cheguei aqui 1");
+                for(Docente d : listaDeDocentes){
+                    if(Objects.equals(d.getPropostaAssociada(), nrProposta)){
+                        System.out.println("Cheguei aqui 2");
+                        return d;
+                    }
                 }
             }
         }
 
-        return sb.toString();
+        return null;
     }
     public void editarOrientadorDeProposta(String nrProposta, String novoOrientador){
         StringBuilder sb = new StringBuilder();
@@ -732,21 +737,22 @@ public class PoE implements Serializable{
 
 
 
-    public String consultarAlunosComCandidaturaESemProposta(){
+    public ArrayList<Aluno> consultarAlunosComCandidaturaESemProposta(){
         StringBuilder sb = new StringBuilder();
-
+        ArrayList<Aluno> alunosComCandidaturaESemProposta = new ArrayList<Aluno>();
         for(var c : listaDeCandidaturas){
             for(var a : listaDeAlunos){
                 if(a.getIdPropostaAssociada() == null){
                     if(c.getNumero() == a.getNumero()){
                         sb.append("Alunos sem proposta e com candidatura   ").append(a.getNumero()).append(System.lineSeparator());
+                        alunosComCandidaturaESemProposta.add(a);
                     }
                 }
             }
         }
 
 
-        return sb.toString();
+        return alunosComCandidaturaESemProposta;
     }
 
     public void removerTodasAsAtribuicoes(){

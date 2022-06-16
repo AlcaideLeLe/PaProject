@@ -19,7 +19,7 @@ public class FASE5State extends apoio_poeAdapter{
 
     public ArrayList<Aluno> consultarAlunosComPropostaAtribuida(){return data.consultarAlunosComPropostaAtribuida();};
     @Override
-    public String consultarAlunosComCandidaturaESemProposta(){return data.consultarAlunosComCandidaturaESemProposta();};
+    public ArrayList<Aluno> consultarAlunosComCandidaturaESemProposta(){return data.consultarAlunosComCandidaturaESemProposta();};
     @Override
     public ArrayList<Proposta> consultarPropostasDisponiveis(){return data.consultarPropostasDisponiveis();};
     @Override

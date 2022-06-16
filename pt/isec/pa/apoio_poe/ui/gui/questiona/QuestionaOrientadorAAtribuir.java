@@ -18,9 +18,11 @@ public class QuestionaOrientadorAAtribuir extends BorderPane {
 
     TextField textNr;
     TextField textEmail;
+    TextField textIDproposta;
 
     Label labelNr;
     Label labelEmail;
+    Label labelIDProposta;
 
     Button buttonConfirm;
 
@@ -36,7 +38,7 @@ public class QuestionaOrientadorAAtribuir extends BorderPane {
 
     private void registerHandlers(){
         buttonConfirm.setOnAction(ev->{
-            context.atribuirManualmenteOrientadorAAlunosComPropostas(Long.parseLong(textNr.getText()), textEmail.getText());
+            context.atribuirManualmenteOrientadorAAlunosComPropostas(Long.parseLong(textNr.getText()), textEmail.getText(), textIDproposta.getText());
         });
     }
 
@@ -56,11 +58,18 @@ public class QuestionaOrientadorAAtribuir extends BorderPane {
         labelEmail.setText("Insira o email do professor que pretende atribuir ao aluno");
         grid.add(labelEmail, 0, 3);
 
+        labelIDProposta = new Label("");
+        labelIDProposta.setText("Insira o ID da proposta que pretende atribuir ao docente");
+        grid.add(labelIDProposta, 0, 6);
+
         textNr = new TextField("");
         grid.add(textNr, 0, 1);
 
         textEmail = new TextField("");
         grid.add(textEmail, 0, 4);
+
+        textIDproposta = new TextField("");
+        grid.add(textIDproposta, 0, 7);
 
         buttonConfirm = new Button("Editar candidatura");
         grid.add(buttonConfirm, 2, 22);

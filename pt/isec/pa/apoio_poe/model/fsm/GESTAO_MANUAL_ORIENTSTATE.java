@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 
 public class GESTAO_MANUAL_ORIENTSTATE extends apoio_poeAdapter{
@@ -12,9 +13,9 @@ public class GESTAO_MANUAL_ORIENTSTATE extends apoio_poeAdapter{
         return apoio_poeState.GESTAO_MANUAL_ORIENTSTATE;
     }
     @Override
-    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf){data.atribuirManualmenteOrientadorAAlunosComPropostas(nrAluno,emailProf);};
+    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf, String IDproposta){data.atribuirManualmenteOrientadorAAlunosComPropostas(nrAluno,emailProf, IDproposta);};
     @Override
-    public String consultarOrientadorDeProposta(String idProposta){return data.consultarOrientadorDeProposta(idProposta);};
+    public Docente consultarOrientadorDeProposta(String idProposta){return data.consultarOrientadorDeProposta(idProposta);};
     @Override
     public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){data.editarOrientadorDeProposta(idProposta, emailNovoOrientador);};
     @Override

@@ -894,7 +894,10 @@ public class UI {
                 Long nrAluno = sc.nextLong();
                 System.out.println("Insira o e-mail do novo orientador");
                 String emailProf = sc.nextLine();
-                fsm.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf);
+
+                System.out.println("Insira o IDProposta");
+                String IDProposta = sc.nextLine();
+                fsm.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf, IDProposta);
             }
             case 4 -> {
                 System.out.println("O que pretende fazer?");
@@ -931,7 +934,9 @@ public class UI {
                 long nraluno = sc.nextLong();
                 System.out.println("Insira o email do orientador");
                 String emailOrientador = sc1.nextLine();
-                fsm.atribuirManualmenteOrientadorAAlunosComPropostas(nraluno, emailOrientador);
+                System.out.println("Insira o ID da proposta");
+                String IDproposta = sc1.nextLine();
+                fsm.atribuirManualmenteOrientadorAAlunosComPropostas(nraluno, emailOrientador, IDproposta);
             }
             case 2 -> {
                 Scanner sc2 = new Scanner(System.in);

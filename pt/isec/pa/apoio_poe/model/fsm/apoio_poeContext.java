@@ -200,8 +200,8 @@ public class apoio_poeContext {
     public ArrayList<Proposta> consultarPropostasDisponiveis(){return state.consultarPropostasDisponiveis();}
     public ArrayList<Proposta> consultarPropostasAtribuidas(){return state.consultarPropostasAtribuidas();}
     public void atribuirPropostaADocenteProponenteAutomaticamente(){state.atribuirPropostaADocenteProponenteAutomaticamente();}
-    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf);}
-    public String consultarOrientadorDeProposta(String idProposta){return state.consultarOrientadorDeProposta(idProposta);}
+    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf, String IDProposta){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf, IDProposta);}
+    public Docente consultarOrientadorDeProposta(String idProposta){return state.consultarOrientadorDeProposta(idProposta);}
     public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){state.editarOrientadorDeProposta(idProposta, emailNovoOrientador);}
     public void removerOrientadorDeProposta(String idProposta){state.removerOrientadorDeProposta(idProposta);}
     public ArrayList<Aluno> consultarAlunosComPropostaEComOrientador(){return state.consultarAlunosComPropostaEComOrientador();}
@@ -209,11 +209,11 @@ public class apoio_poeContext {
     public Docente consultarDocenteComMenosOrientacoes(){return state.consultarDocenteComMenosOrientacoes();}
     public Docente consultarDocenteComMaisOrientacoes(){return state.consultarDocenteComMaisOrientacoes();}
     public String consultarMediaDeOrientacoesDosDocentes(){return state.consultarMediaDeOrientacoesDosDocentes();}
-    public String consultarAlunosComCandidaturaESemProposta(){return state.consultarAlunosComCandidaturaESemProposta();}
+    public ArrayList<Aluno> consultarAlunosComCandidaturaESemProposta(){return state.consultarAlunosComCandidaturaESemProposta();}
     public ArrayList<Aluno> consultarAlunosSemCandidatura(){return state.consultarAlunosSemCandidatura();}
     public ArrayList<Proposta> consultarPropostasComCandidaturas(){return state.consultarPropostasComCandidaturas();}
     public ArrayList<Proposta> consultarPropostasSemCandidaturas(){return state.consultarPropostasSemCandidaturas();}
-    public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAluno, String emailProf){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf);}
+    public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAluno, String emailProf, String IDproposta){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf, IDproposta);}
     public void removerTodasAsAtribuicoes(){state.removerTodasAsAtribuicoes();}
     public void exportarAlunosParaCSV(String nomeFicheiro){state.exportarAlunosParaCSV(nomeFicheiro);};
     public void exportarDocentesParaCSV(String nomeFicheiro){state.exportarDocentesParaCSV(nomeFicheiro);}

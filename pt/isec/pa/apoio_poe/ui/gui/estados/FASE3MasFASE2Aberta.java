@@ -24,6 +24,10 @@ public class FASE3MasFASE2Aberta extends BorderPane {
     Button ButtonRecuarFase;
     Button ButtonChangeToBase;
 
+
+    Button ButtonAtribuirAutoproposta;
+    Button ButtonPropostasDeDocentes;
+
     Button ButtonVoltar;
 
     Label mensagemEscolha;
@@ -41,6 +45,8 @@ public class FASE3MasFASE2Aberta extends BorderPane {
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
         ButtonChangeToBase.setOnAction(ev->context.changeFromF3MasF2AbertaToBase());
         ButtonRecuarFase.setOnAction(ev->context.recuarFase());
+        ButtonAtribuirAutoproposta.setOnAction(ev->context.atribuirAutoproposta());
+        ButtonPropostasDeDocentes.setOnAction(ev->context.atribuirPropostaDeDocente());
 
     }
 
@@ -73,14 +79,24 @@ public class FASE3MasFASE2Aberta extends BorderPane {
         ButtonChangeToBase.setText("Voltar a Base");
         ButtonChangeToBase.getStyleClass().add("buttonFase2");
 
+        ButtonAtribuirAutoproposta = new Button();
+        ButtonAtribuirAutoproposta.setText("Atribuir Autoproposta");
+        ButtonAtribuirAutoproposta.getStyleClass().add("buttonFase2");
+
+        ButtonPropostasDeDocentes = new Button();
+        ButtonPropostasDeDocentes.setText("Atribuir proposta de docentes");
+        ButtonPropostasDeDocentes.getStyleClass().add("buttonFase2");
+
         listaDeDocentes = new Label();
 
 
         //organizar coordenadas
 
         gridButtons.add(mensagemEscolha, 0, 0);
-        gridButtons.add(ButtonRecuarFase, 0, 2);
-        gridButtons.add(ButtonChangeToBase, 0, 4);
+        gridButtons.add(ButtonAtribuirAutoproposta, 0, 2);
+        gridButtons.add(ButtonPropostasDeDocentes, 0, 4);
+        gridButtons.add(ButtonRecuarFase, 0, 6);
+        gridButtons.add(ButtonChangeToBase, 0, 8);
 
         this.setCenter(gridButtons);
     }

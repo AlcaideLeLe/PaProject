@@ -128,11 +128,11 @@ public class GESTAO_MANUAL_ATRIB extends BorderPane {
         //organizar coordenadas
 
         gridButtons.add(mensagemEscolha, 0, 0);
-        gridButtons.add(ButtonAtribuirAutoproposta, 0, 2);
-        gridButtons.add(ButtonPropostasDeDocentes, 0, 4);
-        gridButtons.add(ButtonVoltarFase3, 0, 12);
-        gridButtons.add(ButtonAtribuirPropostaManualmente, 0, 8);
-        gridButtons.add(ButtonRemoverAtribuicaoPropostaManualmente, 0, 6);
+        //gridButtons.add(ButtonAtribuirAutoproposta, 0, 2);
+        //gridButtons.add(ButtonPropostasDeDocentes, 0, 4);
+        gridButtons.add(ButtonVoltarFase3, 0, 10);
+        gridButtons.add(ButtonAtribuirPropostaManualmente, 0, 6);
+        gridButtons.add(ButtonRemoverAtribuicaoPropostaManualmente, 0, 4);
 
         this.setCenter(gridButtons);
     }
