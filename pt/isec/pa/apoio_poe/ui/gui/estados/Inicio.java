@@ -1,4 +1,4 @@
-package pt.isec.pa.apoio_poe.ui.gui;
+package pt.isec.pa.apoio_poe.ui.gui.estados;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
