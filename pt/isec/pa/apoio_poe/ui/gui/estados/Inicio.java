@@ -23,6 +23,7 @@ public class Inicio extends BorderPane {
     Button ButtonLoad;
     Button ButtonSair;
     Label mensagemBoasVindas;
+    Label state;
     apoio_poeContext context;
 
 
@@ -54,8 +55,11 @@ public class Inicio extends BorderPane {
         gridButtons.setHgap(0);
         gridButtons.setVgap(10);
         //create buttons
+        state = new Label();
+        state.setText(context.getState().toString());
+
         mensagemBoasVindas = new Label();
-        mensagemBoasVindas.setText("Ola DUROES ESCOLHE AI UMA OPCAO");
+        mensagemBoasVindas.setText("Insira uma Opcao: ");
 
         ButtonCreateNew = new Button();
         ButtonCreateNew.setText("Começa novo");
@@ -71,10 +75,11 @@ public class Inicio extends BorderPane {
 
 
         //organizar coordenadas
-        gridButtons.add(mensagemBoasVindas, 0, 0);
-        gridButtons.add(ButtonCreateNew, 0, 2);
-        gridButtons.add(ButtonLoad, 0, 4);
-        gridButtons.add(ButtonSair, 0, 6);
+        gridButtons.add(state, 0, 0);
+        gridButtons.add(mensagemBoasVindas, 0, 2);
+        gridButtons.add(ButtonCreateNew, 0, 4);
+        gridButtons.add(ButtonLoad, 0, 6);
+        gridButtons.add(ButtonSair, 0, 8);
         this.setCenter(gridButtons);
     }
 

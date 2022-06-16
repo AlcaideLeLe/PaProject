@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.estados;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -36,6 +37,7 @@ public class FASE2 extends BorderPane {
 
 
     Label mensagemBoasVindas;
+    Label state;
     apoio_poeContext context;
     WindowToolBar toolBar;
 
@@ -146,8 +148,10 @@ public class FASE2 extends BorderPane {
         ButtonAvancarFase.setOnAction(ev->context.avancarFase());
         ButtonRecuarFase.setOnAction(ev->context.recuarFase());
         ButtonFecharFase.setOnAction(ev->context.fecharFase());
-
-        ButtonSair.setOnAction(ev->System.exit(0));
+        ButtonSair.setOnAction(ev-> {
+            context.save();
+            Platform.exit();
+        });
 
 
 
@@ -172,6 +176,9 @@ public class FASE2 extends BorderPane {
         gridButtons.setHgap(0);
         gridButtons.setVgap(10);
         //create buttons
+        state = new Label();
+        state.setText("FASE 2");
+
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
 
@@ -189,7 +196,7 @@ public class FASE2 extends BorderPane {
 
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
-        ButtonSair.getStyleClass().add("buttonFase2");
+        ButtonSair.getStyleClass().add("buttonSair");
 
         ButtonGestaoCandidaturas = new Button();
         ButtonGestaoCandidaturas.setText("Gestao de Candidaturas");
@@ -229,21 +236,23 @@ public class FASE2 extends BorderPane {
 
 
         //organizar coordenadas
-        gridButtons.add(mensagemBoasVindas, 0, 0);
-        gridButtons.add(ButtonGestaoCandidaturas, 0, 2);
-        gridButtons.add(ButtonConsultarListaDeAutopropostas, 0, 4);
-        gridButtons.add(ButtonConsultarPropostasDeDocentes, 0, 6);
-        gridButtons.add(ButtonConsultarPropostasComCandidaturas, 0, 8);
-        gridButtons.add(ButtonConsultarPropostasSemCandidaturas, 0, 10);
-        gridButtons.add(ButtonConsultaPropostas, 0, 12);
-        gridButtons.add(ButtonConsultarAlunosComCandidatura, 0, 14);
-        gridButtons.add(ButtonConsultarAlunosSemCandidatura, 0, 16);
-        gridButtons.add(ButtonConsultaAlunosComAutoproposta, 0, 18);
+        gridButtons.add(state, 0, 0);
+        gridButtons.add(mensagemBoasVindas, 0, 2);
+        gridButtons.add(ButtonGestaoCandidaturas, 0, 4);
+        gridButtons.add(ButtonConsultarListaDeAutopropostas, 0, 6);
+        gridButtons.add(ButtonConsultarPropostasDeDocentes, 0, 8);
+        gridButtons.add(ButtonConsultarPropostasComCandidaturas, 0, 10);
+        gridButtons.add(ButtonConsultarPropostasSemCandidaturas, 0, 12);
+        gridButtons.add(ButtonConsultaPropostas, 0, 14);
+        gridButtons.add(ButtonConsultarAlunosComCandidatura, 0, 16);
+        gridButtons.add(ButtonConsultarAlunosSemCandidatura, 0, 18);
+        gridButtons.add(ButtonConsultaAlunosComAutoproposta, 0, 20);
 
 
-        gridButtons.add(ButtonFecharFase, 0, 20);
-        gridButtons.add(ButtonRecuarFase, 0, 22);
-        gridButtons.add(ButtonAvancarFase, 0, 24);
+        gridButtons.add(ButtonFecharFase, 0, 22);
+        gridButtons.add(ButtonRecuarFase, 0, 24);
+        gridButtons.add(ButtonAvancarFase, 0, 26);
+        gridButtons.add(ButtonSair, 0, 28);
 
         this.setCenter(gridButtons);
     }

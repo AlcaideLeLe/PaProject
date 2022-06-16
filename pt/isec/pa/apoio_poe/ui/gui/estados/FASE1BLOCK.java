@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.estados;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -36,6 +37,7 @@ public class FASE1BLOCK extends BorderPane {
     Button ButtonSair;
     Button ButtonAvancar;
     Label mensagemBoasVindas;
+    Label state;
     apoio_poeContext context;
     WindowToolBar toolBar;
 
@@ -120,7 +122,10 @@ public class FASE1BLOCK extends BorderPane {
             stage.show();
         });
         ButtonAvancar.setOnAction(ev->context.avancarFase());
-        ButtonSair.setOnAction(ev->System.exit(0));
+        ButtonSair.setOnAction(ev-> {
+            context.save();
+            Platform.exit();
+        });
 
 
     }
@@ -136,6 +141,9 @@ public class FASE1BLOCK extends BorderPane {
         gridButtons.setVgap(10);
 
         //create buttons
+        state = new Label();
+        state.setText("FASE 1 BLOCK");
+
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
         mensagemBoasVindas.getStyleClass().add("labelEscolha");
@@ -166,7 +174,7 @@ public class FASE1BLOCK extends BorderPane {
 
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
-        ButtonSair.getStyleClass().add("buttonFase1");
+        ButtonSair.getStyleClass().add("buttonSair");
 
         ButtonAvancar = new Button();
         ButtonAvancar.setText("Avancar para a proxima fase");
@@ -174,13 +182,14 @@ public class FASE1BLOCK extends BorderPane {
 
 
         //organizar coordenadas
-        gridButtons.add(mensagemBoasVindas, 0, 0);
-        gridButtons.add(ButtonConsultaAluno, 0, 2);
-        gridButtons.add(ButtonConsultarAlunos, 0, 4);
-        gridButtons.add(ButtonConsultarDocente, 0, 6);
-        gridButtons.add(ButtonConsultarDocentes, 0, 8);
-        gridButtons.add(ButtonConsultarProposta, 0, 10);
-        gridButtons.add(ButtonConsultarPropostas, 0, 12);
+        gridButtons.add(state, 0, 0);
+        gridButtons.add(mensagemBoasVindas, 0, 2);
+        gridButtons.add(ButtonConsultaAluno, 0, 4);
+        gridButtons.add(ButtonConsultarAlunos, 0, 6);
+        gridButtons.add(ButtonConsultarDocente, 0, 8);
+        gridButtons.add(ButtonConsultarDocentes, 0, 10);
+        gridButtons.add(ButtonConsultarProposta, 0, 12);
+        gridButtons.add(ButtonConsultarPropostas, 0, 14);
         gridButtons.add(ButtonAvancar, 0, 16);
         this.setCenter(gridButtons);
     }

@@ -48,7 +48,7 @@ public class GestaoPROP extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Inserir proposta");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();

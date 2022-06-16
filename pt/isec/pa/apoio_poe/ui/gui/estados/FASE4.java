@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.estados;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -37,7 +38,7 @@ public class FASE4 extends BorderPane {
     Button ButtonSair;
 
 
-
+    Label state;
     Label mensagemBoasVindas;
     apoio_poeContext context;
     WindowToolBar toolBar;
@@ -137,7 +138,10 @@ public class FASE4 extends BorderPane {
         ButtonRecuarFase.setOnAction(ev->context.recuarFase());
         ButtonFecharFase.setOnAction(ev->context.fecharFase());
 
-        ButtonSair.setOnAction(ev->System.exit(0));
+        ButtonSair.setOnAction(ev-> {
+            context.save();
+            Platform.exit();
+        });
 
 
 
@@ -162,6 +166,9 @@ public class FASE4 extends BorderPane {
         gridButtons.setHgap(0);
         gridButtons.setVgap(10);
         //create buttons
+        state = new Label();
+        state.setText("FASE 4");
+
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
 
@@ -215,9 +222,10 @@ public class FASE4 extends BorderPane {
 
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
-        ButtonSair.getStyleClass().add("buttonFase2");
+        ButtonSair.getStyleClass().add("buttonSair");
 
         //organizar coordenadas
+        gridButtons.add(state, 0, 0);
         gridButtons.add(mensagemBoasVindas, 0, 0);
         gridButtons.add(ButtonChangeToGestaoManualOri, 0, 4);
         gridButtons.add(ButtonChangeToGestaoDocentes, 0, 6);
@@ -233,6 +241,8 @@ public class FASE4 extends BorderPane {
         gridButtons.add(ButtonAvancarFase, 0, 22);
         gridButtons.add(ButtonRecuarFase, 0, 24);
         gridButtons.add(ButtonFecharFase, 0, 26);
+        gridButtons.add(ButtonSair, 0, 28);
+
 
         this.setCenter(gridButtons);
     }

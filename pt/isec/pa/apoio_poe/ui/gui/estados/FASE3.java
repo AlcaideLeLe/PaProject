@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.estados;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -38,6 +39,7 @@ public class FASE3 extends BorderPane {
 
 
     Label mensagemBoasVindas;
+    Label state;
     apoio_poeContext context;
     WindowToolBar toolBar;
 
@@ -157,7 +159,10 @@ public class FASE3 extends BorderPane {
         ButtonRecuarFase.setOnAction(ev->context.recuarFase());
         ButtonFecharFase.setOnAction(ev->context.fecharFase());
 
-        ButtonSair.setOnAction(ev->System.exit(0));
+        ButtonSair.setOnAction(ev-> {
+            context.save();
+            Platform.exit();
+        });
 
 
 
@@ -182,6 +187,9 @@ public class FASE3 extends BorderPane {
         gridButtons.setHgap(0);
         gridButtons.setVgap(10);
         //create buttons
+        state = new Label();
+        state.setText("FASE 3");
+
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
 
@@ -227,7 +235,7 @@ public class FASE3 extends BorderPane {
 
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
-        ButtonSair.getStyleClass().add("buttonFase2");
+        ButtonSair.getStyleClass().add("buttonSair");
 
 
 
@@ -253,19 +261,21 @@ public class FASE3 extends BorderPane {
 
 
         //organizar coordenadas
-        gridButtons.add(mensagemBoasVindas, 0, 0);
-        gridButtons.add(ButtonTratamentoPro, 0, 2);
+        gridButtons.add(state, 0, 0);
+        gridButtons.add(mensagemBoasVindas, 0, 2);
+        gridButtons.add(ButtonTratamentoPro, 0, 4);
         //gridButtons.add(ButtonGestaoManualAtribuicoes, 0, 4);
-        gridButtons.add(ButtonConsultarAlunosComPropostaAtribuida, 0, 4);
-        gridButtons.add(ButtonConsultarAlunosSemPropostaAtribuida, 0, 6);
-        gridButtons.add(ButtonConsultarPropostasDisponiveis, 0, 8);
-        gridButtons.add(ButtonConsultaPropostasAtribuidas, 0, 10);
-        gridButtons.add(ButtonExportarAlunosCSV, 0, 12);
+        gridButtons.add(ButtonConsultarAlunosComPropostaAtribuida, 0, 6);
+        gridButtons.add(ButtonConsultarAlunosSemPropostaAtribuida, 0, 8);
+        gridButtons.add(ButtonConsultarPropostasDisponiveis, 0, 10);
+        gridButtons.add(ButtonConsultaPropostasAtribuidas, 0, 12);
+        gridButtons.add(ButtonExportarAlunosCSV, 0, 14);
 
 
-        gridButtons.add(ButtonAvancarFase, 0, 18);
-        gridButtons.add(ButtonRecuarFase, 0, 20);
-        gridButtons.add(ButtonFecharFase, 0, 22);
+        gridButtons.add(ButtonAvancarFase, 0, 16);
+        gridButtons.add(ButtonRecuarFase, 0, 18);
+        gridButtons.add(ButtonFecharFase, 0, 20);
+        gridButtons.add(ButtonSair, 0, 22);
 
         this.setCenter(gridButtons);
     }

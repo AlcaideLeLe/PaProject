@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.estados;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -32,6 +33,7 @@ public class FASE5 extends BorderPane {
 
 
     Label mensagemBoasVindas;
+    Label state;
     apoio_poeContext context;
     WindowToolBar toolBar;
 
@@ -133,7 +135,10 @@ public class FASE5 extends BorderPane {
             stage.setMinHeight(400);
             stage.show();
         });
-        ButtonSair.setOnAction(ev->System.exit(0));
+        ButtonSair.setOnAction(ev-> {
+            context.save();
+            Platform.exit();
+        });
 
     }
 
@@ -155,10 +160,11 @@ public class FASE5 extends BorderPane {
         gridButtons.setHgap(0);
         gridButtons.setVgap(10);
         //create buttons
+        state = new Label();
+        state.setText("FASE 5");
+
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
-
-
 
         ButtonConsultarAlunosComPropostaAtribuida = new Button();
         ButtonConsultarAlunosComPropostaAtribuida.setText("Consultar Alunos Com Proposta Atribuida");
@@ -197,18 +203,20 @@ public class FASE5 extends BorderPane {
 
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
-        ButtonSair.getStyleClass().add("buttonFase2");
+        ButtonSair.getStyleClass().add("buttonSair");
 
         //organizar coordenadas
-        gridButtons.add(mensagemBoasVindas, 0, 0);
-        gridButtons.add(ButtonConsultarAlunosComPropostaAtribuida, 0, 2);
-        gridButtons.add(ButtonConsultarComCandidaturaESemProposta, 0, 4);
-        gridButtons.add(ButtonConsultarPropostasDisponiveis, 0, 6);
-        gridButtons.add(ButtonConsultarPropostasAtribuidas, 0, 8);
-        gridButtons.add(ButtonConsultarDocentesComMenosOrientacoes, 0, 10);
-        gridButtons.add(ButtonConsultarDocentesComMaisOrientacoes, 0, 12);
-        gridButtons.add(ButtonConsultarMediaDeOrientacoesDocentes, 0, 14);
-        gridButtons.add(ButtonExportarAlunosCSV, 0, 16);
+        gridButtons.add(state, 0, 0);
+        gridButtons.add(mensagemBoasVindas, 0, 2);
+        gridButtons.add(ButtonConsultarAlunosComPropostaAtribuida, 0, 4);
+        gridButtons.add(ButtonConsultarComCandidaturaESemProposta, 0, 6);
+        gridButtons.add(ButtonConsultarPropostasDisponiveis, 0, 8);
+        gridButtons.add(ButtonConsultarPropostasAtribuidas, 0, 10);
+        gridButtons.add(ButtonConsultarDocentesComMenosOrientacoes, 0, 12);
+        gridButtons.add(ButtonConsultarDocentesComMaisOrientacoes, 0, 14);
+        gridButtons.add(ButtonConsultarMediaDeOrientacoesDocentes, 0, 16);
+        gridButtons.add(ButtonExportarAlunosCSV, 0, 18);
+        gridButtons.add(ButtonSair, 0, 20);
 
 
 
