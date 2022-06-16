@@ -11,6 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.ConfirmarSaida;
 import pt.isec.pa.apoio_poe.ui.gui.WindowToolBar;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.*;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
@@ -139,8 +140,15 @@ public class FASE3BLOCK extends BorderPane {
         ButtonAvancar.setOnAction(ev->context.avancarFase());
         ButtonRecuarFaseBlockAnterior.setOnAction(ev->context.changeToFaseBloqueadaAnterior());
         ButtonSair.setOnAction(ev-> {
-            context.save();
-            Platform.exit();
+            Stage stage = new Stage();
+            ConfirmarSaida root = new ConfirmarSaida(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Confirmar Saida");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
         });
 
 
