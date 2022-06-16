@@ -13,6 +13,10 @@ import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaAlunoAEditar;
+import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaEditarOrientador;
+import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaOrientadorAAtribuir;
+import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaPropostaAConsultarOrientador;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import java.util.ArrayList;
@@ -24,7 +28,7 @@ public class GESTAO_ORI extends BorderPane {
 
 
     Button ButtonAtribuirManualOrientadorAAlunosComProposta;
-    Button ButtonConsultarOrientadorDeProjetos;
+    Button ButtonConsultarOrientadorDePropostas;
     Button ButtonEditarOrientadorDeProposta;
     Button ButtonRemoverOrientadorDeProposta;
     Button ButtonChangeParaFase4;
@@ -43,9 +47,39 @@ public class GESTAO_ORI extends BorderPane {
     public void registerHandlers(){
 
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
-        //ButtonAtribuirManualOrientadorAAlunosComProposta.setOnAction(ev->context.atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf));
-        //ButtonConsultarOrientadorDeProjetos.setOnAction(ev->context.consultarOrientadorDeProposta(String idProposta));
-        //ButtonEditarOrientadorDeProposta.setOnAction(ev->context.editarOrientadorDeProposta(String idProposta, String emailNovoOrientador));
+        ButtonAtribuirManualOrientadorAAlunosComProposta.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuestionaOrientadorAAtribuir root = new QuestionaOrientadorAAtribuir(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultarOrientadorDePropostas.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuestionaPropostaAConsultarOrientador root = new QuestionaPropostaAConsultarOrientador(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonEditarOrientadorDeProposta.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuestionaEditarOrientador root = new QuestionaEditarOrientador(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
         ButtonChangeParaFase4.setOnAction(ev->context.changeFromGestaoManualOrientToFase4());
 
     }
@@ -80,9 +114,9 @@ public class GESTAO_ORI extends BorderPane {
         ButtonAtribuirManualOrientadorAAlunosComProposta.setText("Atribuir Manualmente orientador a alunos com proposta");
         ButtonAtribuirManualOrientadorAAlunosComProposta.getStyleClass().add("buttonFase2");
 
-        ButtonConsultarOrientadorDeProjetos = new Button();
-        ButtonConsultarOrientadorDeProjetos.setText("Consultar orientador de projetos");
-        ButtonConsultarOrientadorDeProjetos.getStyleClass().add("buttonFase2");
+        ButtonConsultarOrientadorDePropostas = new Button();
+        ButtonConsultarOrientadorDePropostas.setText("Consultar orientador de Propostas");
+        ButtonConsultarOrientadorDePropostas.getStyleClass().add("buttonFase2");
 
         ButtonEditarOrientadorDeProposta = new Button();
         ButtonEditarOrientadorDeProposta.setText("Editar Orientador de proposta");
@@ -104,7 +138,7 @@ public class GESTAO_ORI extends BorderPane {
 
         gridButtons.add(mensagemEscolha, 0, 0);
         gridButtons.add(ButtonAtribuirManualOrientadorAAlunosComProposta, 0, 2);
-        gridButtons.add(ButtonConsultarOrientadorDeProjetos, 0, 4);
+        gridButtons.add(ButtonConsultarOrientadorDePropostas, 0, 4);
         gridButtons.add(ButtonEditarOrientadorDeProposta, 0, 6);
         gridButtons.add(ButtonRemoverOrientadorDeProposta, 0, 8);
         gridButtons.add(ButtonChangeParaFase4, 0, 12);

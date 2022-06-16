@@ -131,7 +131,7 @@ public class FASE3 extends BorderPane {
         });
         ButtonConsultaPropostasAtribuidas.setOnAction(ev->{
             Stage stage = new Stage();
-            MostraPropostasDisponiveis root = new MostraPropostasDisponiveis(context);
+            MostraPropostasAtribuidas root = new MostraPropostasAtribuidas(context);
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);

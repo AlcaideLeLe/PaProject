@@ -572,6 +572,7 @@ public class PoE implements Serializable{
                 propostasAtribuidas.add(p);
             }
         }
+        System.out.println(propostasAtribuidas + "ESTAS PROPOSTAS ESTAOA TRIBUIDAS");
         return propostasAtribuidas;
 
     } //FEITO HOJE E TESTADO

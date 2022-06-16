@@ -13,6 +13,9 @@ import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.insercoes.AtribuirPropostaManualmente;
+import pt.isec.pa.apoio_poe.ui.gui.insercoes.InserirAluno;
+import pt.isec.pa.apoio_poe.ui.gui.remocoes.RemoverAtribuicaoPropostaManualmente;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import java.util.ArrayList;
@@ -29,7 +32,7 @@ public class GESTAO_MANUAL_ATRIB extends BorderPane {
     Button ButtonPropostasDeDocentes;
     Button ButtonVoltarFase3;
     Button ButtonAtribuirPropostaManualmente;
-    Button ButtonRemoverPropostaManualmente;
+    Button ButtonRemoverAtribuicaoPropostaManualmente;
 
     Label mensagemEscolha;
     Label listaDeAlunos;
@@ -48,8 +51,28 @@ public class GESTAO_MANUAL_ATRIB extends BorderPane {
         ButtonAtribuirAutoproposta.setOnAction(ev->context.atribuirAutoproposta());
         ButtonPropostasDeDocentes.setOnAction(ev->context.atribuirPropostaDeDocente());
         ButtonVoltarFase3.setOnAction(ev->context.changeFromGestaoManualAtribToFase3());
-        //ButtonAtribuirPropostaManualmente.setOnAction(ev->context.atribuirPropostaManualmente(long nrAluno, String idProposta));
-        //ButtonRemoverPropostaManualmente.setOnAction(ev->context.removerPropostaManualmente(long nrAluno));
+        ButtonAtribuirPropostaManualmente.setOnAction(ev->{
+            Stage stage = new Stage();
+            AtribuirPropostaManualmente root = new AtribuirPropostaManualmente(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Inserir proposta manualmente");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonRemoverAtribuicaoPropostaManualmente.setOnAction(ev->{
+            Stage stage = new Stage();
+            RemoverAtribuicaoPropostaManualmente root = new RemoverAtribuicaoPropostaManualmente(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Inserir proposta manualmente");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
     }
 
     public void update(){
@@ -82,18 +105,22 @@ public class GESTAO_MANUAL_ATRIB extends BorderPane {
         ButtonAtribuirAutoproposta = new Button();
         ButtonAtribuirAutoproposta.setText("Atribuir Autoproposta");
         ButtonAtribuirAutoproposta.getStyleClass().add("buttonFase2");
+
         ButtonPropostasDeDocentes = new Button();
         ButtonPropostasDeDocentes.setText("Atribuir proposta de docentes");
         ButtonPropostasDeDocentes.getStyleClass().add("buttonFase2");
+
         ButtonVoltarFase3 = new Button();
         ButtonVoltarFase3.setText("Voltar a base");
         ButtonVoltarFase3.getStyleClass().add("buttonFase2");
+
         ButtonAtribuirPropostaManualmente = new Button();
         ButtonAtribuirPropostaManualmente.setText("Atribuir Proposta manualmente");
         ButtonAtribuirPropostaManualmente.getStyleClass().add("buttonFase2");
-        ButtonRemoverPropostaManualmente = new Button();
-        ButtonRemoverPropostaManualmente.setText("Remover Proposta manualmente");
-        ButtonRemoverPropostaManualmente.getStyleClass().add("buttonFase2");
+
+        ButtonRemoverAtribuicaoPropostaManualmente = new Button();
+        ButtonRemoverAtribuicaoPropostaManualmente.setText("Remover Proposta manualmente");
+        ButtonRemoverAtribuicaoPropostaManualmente.getStyleClass().add("buttonFase2");
 
         listaDeAlunos = new Label();
 
@@ -105,7 +132,7 @@ public class GESTAO_MANUAL_ATRIB extends BorderPane {
         gridButtons.add(ButtonPropostasDeDocentes, 0, 4);
         gridButtons.add(ButtonVoltarFase3, 0, 12);
         gridButtons.add(ButtonAtribuirPropostaManualmente, 0, 8);
-        gridButtons.add(ButtonRemoverPropostaManualmente, 0, 6);
+        gridButtons.add(ButtonRemoverAtribuicaoPropostaManualmente, 0, 6);
 
         this.setCenter(gridButtons);
     }

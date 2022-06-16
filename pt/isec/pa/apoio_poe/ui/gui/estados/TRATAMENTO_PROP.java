@@ -104,10 +104,10 @@ public class TRATAMENTO_PROP extends BorderPane {
         gridButtons.add(mensagemEscolha, 0, 0);
         gridButtons.add(ButtonChangeToBase, 0, 14);
         gridButtons.add(ButtonChangeToGestaoManualAtribuicoes, 0, 4);
-        gridButtons.add(ButtonAtribuirAutoProposta, 0, 6);
-        gridButtons.add(ButtonAtribuirPropostaDeDocente, 0, 8);
-        gridButtons.add(ButtonRemoverTodasAsAtribuicoes, 0, 10);
-        gridButtons.add(listaDeAlunos, 0, 12);
+      //  gridButtons.add(ButtonAtribuirAutoProposta, 0, 6);
+      //  gridButtons.add(ButtonAtribuirPropostaDeDocente, 0, 8);
+        gridButtons.add(ButtonRemoverTodasAsAtribuicoes, 0, 6);
+        gridButtons.add(listaDeAlunos, 0, 8);
 
         this.setCenter(gridButtons);
     }
