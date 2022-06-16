@@ -43,7 +43,7 @@ public interface IApoio_poeState {
     void addAlunoSingular(Aluno a);
     Aluno consultaAluno(long nr);
     ArrayList<Aluno> consultarAlunos();
-    public void editarAluno(long nr, String nome, String email, String siglaCurso, String siglaRamos, double Classificacao, boolean acesso, String IDProp);
+     void editarAluno(long nr, String nome, String email, String siglaCurso, String siglaRamos, double Classificacao, boolean acesso, String IDProp);
     void addDocente();
     void addDocenteSingular(Docente d);
     void removerDocente(String email);
@@ -72,9 +72,10 @@ public interface IApoio_poeState {
     ArrayList<Proposta> consultarPropostasDeDocentes();
     ArrayList<Proposta> consultarPropostasComCandidaturas();
     ArrayList<Proposta> consultarPropostasSemCandidaturas();
-    void addCandidaturaIndividual(Candidatura c);
     void removerCandidatura(long nr);
     void editarCandidatura(long nrAluno, ArrayList<String> propostas);
+    void addCandidaturaIndividual(Candidatura c);
+
 
     //Fase 3
     void atribuirAutoproposta();

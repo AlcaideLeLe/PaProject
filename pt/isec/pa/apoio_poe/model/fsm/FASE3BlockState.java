@@ -31,6 +31,8 @@ public class FASE3BlockState extends apoio_poeAdapter{
     @Override
     public ArrayList<Aluno> consultarAlunosComCandidatura(){return data.consultarAlunosComCandidatura();};
     @Override
+    public ArrayList<Aluno> consultarAlunosSemCandidatura(){return data.consultarAlunosSemCandidatura();};
+    @Override
     public ArrayList<Aluno> consultarAlunosComPropostaAtribuida(){return data.consultarAlunosComPropostaAtribuida();};
     @Override
     public ArrayList<Aluno> consultarAlunosSemPropostaAtribuida(){return data.consultarAlunosSemPropostaAtribuida();};

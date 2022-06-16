@@ -175,6 +175,7 @@ public class PoE implements Serializable{
     } //FALTA VERIFICAR
 
     public void addPropostaSingular(Proposta p){
+        System.out.println("aquiii");
         listaDePropostas.add(p);
     }
 
@@ -278,6 +279,8 @@ public class PoE implements Serializable{
     }
 
     public void addCandidaturaIndividual(Candidatura c){
+        System.out.println("ja adicionei candidatura");
+
         listaDeCandidaturas.add(c);
     }
 
@@ -322,6 +325,7 @@ public class PoE implements Serializable{
         return alunosComCandidatura;
     }
     public ArrayList<Aluno> consultarAlunosSemCandidatura(){
+        System.out.println("inicio");
         StringBuilder sb = new StringBuilder();
         ArrayList<Long> idAlunosSemCandidatura = new ArrayList<>();
         ArrayList<Aluno> alunosSemCandidatura = new ArrayList<>();
@@ -334,6 +338,7 @@ public class PoE implements Serializable{
                 alunosSemCandidatura.add(a);
             }
         }
+        System.out.println("fim");
         return alunosSemCandidatura;
     }
 

@@ -18,6 +18,7 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.WindowToolBar;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.*;
+import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaCandidaturaAConsultar;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import java.util.ArrayList;
@@ -128,6 +129,17 @@ public class FASE2BLOCK extends BorderPane {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.setTitle("Lista de propostas sem candidaturas");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonConsultaCandidatura.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuestionaCandidaturaAConsultar root = new QuestionaCandidaturaAConsultar(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Candidatura a consultar");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();

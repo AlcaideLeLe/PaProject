@@ -11,6 +11,7 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class InserirCandidatura extends BorderPane {
     apoio_poeContext context;
@@ -31,12 +32,10 @@ public class InserirCandidatura extends BorderPane {
     }
 
     private void registerHandlers(){
-
         buttonConfirm.setOnAction(ev->{
-            for(String s : textPropostas.getText().split(",")){
-                propostasAssociadas.add(s);
-            }
+            propostasAssociadas.add(Arrays.toString(textPropostas.getText().split(",")));
             context.addCandidaturaIndividual(new Candidatura(Long.parseLong(textNrAluno.getText()), propostasAssociadas));
+            System.out.println("cheguei akiii");
         });
     }
 

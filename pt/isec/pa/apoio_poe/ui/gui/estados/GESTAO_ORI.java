@@ -13,10 +13,7 @@ import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
-import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaAlunoAEditar;
-import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaEditarOrientador;
-import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaOrientadorAAtribuir;
-import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaPropostaAConsultarOrientador;
+import pt.isec.pa.apoio_poe.ui.gui.questiona.*;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import java.util.ArrayList;
@@ -72,6 +69,17 @@ public class GESTAO_ORI extends BorderPane {
         ButtonEditarOrientadorDeProposta.setOnAction(ev->{
             Stage stage = new Stage();
             QuestionaEditarOrientador root = new QuestionaEditarOrientador(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonRemoverOrientadorDeProposta.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuestionaOrientadorARemoverDaProposta root = new QuestionaOrientadorARemoverDaProposta(context);
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);

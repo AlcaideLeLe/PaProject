@@ -44,13 +44,15 @@ public class InserirProposta extends BorderPane {
     }
 
     private void registerHandlers(){
+
         buttonConfirm.setOnAction(ev->{
             context.addPropostaSingular(new Proposta(textTipoProposta.getText(), textIDProposta.getText(), Long.parseLong(textNrAluno.getText()),
                     textTitulo.getText(), isAtribuida.isSelected()));
+
         });
 
-    }
 
+    }
 
     private void createViews() {
 
@@ -65,11 +67,11 @@ public class InserirProposta extends BorderPane {
         grid.add(labelTipoProposta, 0, 0);
 
         labelIDProposta = new Label("");
-        labelIDProposta.setText("Insira o ID da proposta");
+        labelIDProposta.setText("Insira o numero do aluno associado a proposta ");
         grid.add(labelIDProposta, 0, 3);
 
         labelNrAluno = new Label("");
-        labelNrAluno.setText("Insira o numero do aluno associado a proposta");
+        labelNrAluno.setText("Insira o ID da proposta");
         grid.add(labelNrAluno, 0, 6);
 
         labelTitulo = new Label("");
@@ -85,7 +87,7 @@ public class InserirProposta extends BorderPane {
         textNrAluno = new TextField("");
         grid.add(textNrAluno, 0, 4);
 
-        textIDProposta = new TextField("");
+        textIDProposta = new TextField();
         grid.add(textIDProposta, 0, 7);
 
         textTitulo = new TextField("");
