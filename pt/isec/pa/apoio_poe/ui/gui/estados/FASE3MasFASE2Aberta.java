@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -121,7 +122,12 @@ public class FASE3MasFASE2Aberta extends BorderPane {
         gridButtons.add(ButtonChangeToBase, 0, 10);
         gridButtons.add(ButtonSair, 0, 12);
 
-        this.setCenter(gridButtons);
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(gridButtons);
+        scrollPane.fitToWidthProperty().set(true);
+
+
+        this.setCenter(scrollPane);
     }
 
 }
