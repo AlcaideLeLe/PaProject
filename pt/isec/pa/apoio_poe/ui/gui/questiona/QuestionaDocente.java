@@ -10,8 +10,14 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoNaoExiste;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.DocenteNaoExiste;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.ConsultarOrientacaoDeDocente;
+import pt.isec.pa.apoio_poe.ui.gui.consultas.MostraDocente;
+import pt.isec.pa.apoio_poe.ui.gui.edicoes.EditarAluno;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
+
+import java.util.Objects;
 
 public class QuestionaDocente extends BorderPane {
     apoio_poeContext context;

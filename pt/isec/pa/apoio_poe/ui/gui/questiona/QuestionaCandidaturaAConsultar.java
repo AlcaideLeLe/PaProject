@@ -10,7 +10,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoNaoExiste;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.MostraCandidatura;
+import pt.isec.pa.apoio_poe.ui.gui.edicoes.EditarAluno;
 import pt.isec.pa.apoio_poe.ui.gui.edicoes.EditarCandidatura;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 

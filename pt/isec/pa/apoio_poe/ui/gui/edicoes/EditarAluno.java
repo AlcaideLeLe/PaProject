@@ -9,6 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoNaoExiste;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 public class EditarAluno extends BorderPane {
@@ -50,7 +51,6 @@ public class EditarAluno extends BorderPane {
     }
 
     private void registerHandlers() {
-
         buttonConfirm.setOnAction(ev -> {
             context.editarAluno(nr, textNome.getText(), textEmail.getText(),
                     textSiglaCurso.getText(), textSiglaRamo.getText(),
