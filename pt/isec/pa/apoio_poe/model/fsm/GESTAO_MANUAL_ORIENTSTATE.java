@@ -3,6 +3,9 @@ package pt.isec.pa.apoio_poe.model.fsm;
 import pt.isec.pa.apoio_poe.model.data.CareTaker;
 import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.PoE;
+import pt.isec.pa.apoio_poe.model.data.Proposta;
+
+import java.util.ArrayList;
 
 public class GESTAO_MANUAL_ORIENTSTATE extends apoio_poeAdapter{
     public GESTAO_MANUAL_ORIENTSTATE(apoio_poeContext context, PoE data) {
@@ -38,6 +41,8 @@ public class GESTAO_MANUAL_ORIENTSTATE extends apoio_poeAdapter{
     public void removerOrientadorDeProposta(String idProposta){
         careTaker.save();
         data.removerOrientadorDeProposta(idProposta);};
+    @Override
+    public ArrayList<Proposta> consultaPropostas(){return data.consultarPropostas();}
     @Override
     public boolean changeFromGestaoManualOrientToFase4(){
         changeState(apoio_poeState.FASE4);

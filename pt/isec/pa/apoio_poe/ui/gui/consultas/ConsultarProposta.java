@@ -10,7 +10,10 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.PropostaNaoExiste;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
+
+import java.util.Objects;
 
 public class ConsultarProposta extends BorderPane {
     apoio_poeContext context;
@@ -32,19 +35,42 @@ public class ConsultarProposta extends BorderPane {
     }
 
     private void registerHandlers(){
+
         buttonConfirm.setOnAction(ev->{
-            Stage stage = new Stage();
-            MostraProposta root = new MostraProposta(context, textID.getText());
-            Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.setTitle("Aluno");
-            stage.setMinWidth(700);
-            stage.setMinHeight(400);
-            stage.show();
-            Stage stage1 = (Stage) this.getScene().getWindow();
-            stage1.close();
+            boolean eliminei = false;
+            for(int i = 0; i < context.consultarPropostas().size(); i++) {
+                if (Objects.equals(context.consultarPropostas().get(i).getIdProposta(), textID.getText())) {
+                    Stage stage = new Stage();
+                    MostraProposta root = new MostraProposta(context, textID.getText());
+                    Scene scene = new Scene(root,700,400);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setScene(scene);
+                    stage.setTitle("Aluno");
+                    stage.setMinWidth(700);
+                    stage.setMinHeight(400);
+                    stage.show();
+                    Stage stage1 = (Stage) this.getScene().getWindow();
+                    stage1.close();
+                    eliminei = true;
+                }
+
+            }
+            if(!eliminei){
+                Stage stage = new Stage();
+                PropostaNaoExiste root = new PropostaNaoExiste(context);
+                Scene scene = new Scene(root,700,400);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setScene(scene);
+                stage.setTitle("Lista de alunos");
+                stage.setMinWidth(700);
+                stage.setMinHeight(400);
+                stage.show();
+                Stage stage1 = (Stage) this.getScene().getWindow();
+                stage1.close();
+            }
+
         });
+
     }
 
     private void createViews() {

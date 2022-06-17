@@ -681,6 +681,10 @@ public class PoE implements Serializable, IOriginator{
         for(var p : listaDePropostas){
             if(Objects.equals(p.getIdProposta(), nrProposta)){
                 if(p.isAtribuida()){
+                    System.out.println("aki a remover");
+                    for(var d : listaDeDocentes){
+                        d.setPropostaAssociada(null);
+                    }
                     p.setOrientador(null);
                 }
             }
