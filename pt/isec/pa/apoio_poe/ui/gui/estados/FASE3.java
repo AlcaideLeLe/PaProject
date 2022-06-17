@@ -230,7 +230,7 @@ public class FASE3 extends BorderPane {
         ButtonConsultarPropostasDisponiveis.getStyleClass().add("buttonFase2");
 
         ButtonConsultaPropostasAtribuidas = new Button();
-        ButtonConsultaPropostasAtribuidas.setText("Consultar propostas atribuidas");
+        ButtonConsultaPropostasAtribuidas.setText("Consultar propostas atrib");
         ButtonConsultaPropostasAtribuidas.getStyleClass().add("buttonFase2");
 
         ButtonExportarAlunosCSV = new Button();

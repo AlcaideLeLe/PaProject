@@ -118,9 +118,9 @@ public class FASE3MasFASE2Aberta extends BorderPane {
         gridButtons.add(mensagemEscolha, 0, 2);
         gridButtons.add(ButtonAtribuirAutoproposta, 0, 4);
         gridButtons.add(ButtonPropostasDeDocentes, 0, 6);
-        gridButtons.add(ButtonRecuarFase, 0, 8);
-        gridButtons.add(ButtonChangeToBase, 0, 10);
-        gridButtons.add(ButtonSair, 0, 12);
+        gridButtons.add(ButtonRecuarFase, 0, 6);
+        gridButtons.add(ButtonChangeToBase, 0, 8);
+        gridButtons.add(ButtonSair, 0, 10);
 
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(gridButtons);

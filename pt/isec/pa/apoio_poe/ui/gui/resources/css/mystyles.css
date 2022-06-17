@@ -13,6 +13,7 @@
     -fx-font-family: 'Source Sans Pro', sans-serif;
     -fx-background-color: #04AA6D;
     -fx-font-size: 14px;
+
 }
 .buttonFase2:hover{
     -fx-background-color: #4caf50;

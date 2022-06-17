@@ -199,6 +199,7 @@ public class FASE1BLOCK extends BorderPane {
         gridButtons.add(ButtonConsultarProposta, 0, 12);
         gridButtons.add(ButtonConsultarPropostas, 0, 14);
         gridButtons.add(ButtonAvancar, 0, 16);
+        gridButtons.add(ButtonSair, 0, 18);
         this.setCenter(gridButtons);
     }
 
