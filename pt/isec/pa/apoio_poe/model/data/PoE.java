@@ -3,7 +3,7 @@ package pt.isec.pa.apoio_poe.model.data;
 import java.io.*;
 import java.util.*;
 
-public class PoE implements Serializable{
+public class PoE implements Serializable, IOriginator{
     ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
     ArrayList<Docente> listaDeDocentes = new ArrayList<>();
     ArrayList<Proposta> listaDePropostas = new ArrayList<>();
@@ -14,7 +14,37 @@ public class PoE implements Serializable{
     }
 
 
+    private static class MyMemento implements IMemento {
+        ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
+        ArrayList<Docente> listaDeDocentes = new ArrayList<>();
+        ArrayList<Proposta> listaDePropostas = new ArrayList<>();
+        ArrayList<Candidatura> listaDeCandidaturas = new ArrayList<>();
+        public int faseFechada;
 
+
+
+        MyMemento(PoE poe) {
+            this.listaDeAlunos = (ArrayList<Aluno>) poe.listaDeAlunos.clone();
+            this.listaDeCandidaturas = (ArrayList<Candidatura>) poe.listaDeCandidaturas.clone();
+            this.listaDeDocentes = (ArrayList<Docente>) poe.listaDeDocentes.clone();
+            this.listaDePropostas = (ArrayList<Proposta>) poe.listaDePropostas.clone();
+
+            this.faseFechada = poe.faseFechada;
+        }
+    }
+
+    @Override
+    public IMemento save() { return new MyMemento(this); }
+
+    @Override
+    public void restore(IMemento memento) {
+        if (memento instanceof MyMemento m) {
+            listaDeAlunos = m.listaDeAlunos;
+            listaDeDocentes = m.listaDeDocentes;
+            listaDePropostas = m.listaDePropostas;
+            listaDeCandidaturas = m.listaDeCandidaturas;
+        }
+    }
 
     public void addAluno() {
         try {
@@ -494,7 +524,7 @@ public class PoE implements Serializable{
         ArrayList<Aluno> alunosSemProposta = new ArrayList<>();
         for(var p : listaDePropostas){
             if(p.getNrAluno() == 0 && !p.isAtribuida()){
-               propostasNaoAtribuidas.add(p);
+                propostasNaoAtribuidas.add(p);
             }
         }
         for(var a : listaDeAlunos) {
@@ -510,7 +540,7 @@ public class PoE implements Serializable{
             }
         });
 
-        
+
         for(var asp : alunosSemProposta){
             Proposta p = null;
             for(var pna : propostasNaoAtribuidas){
@@ -518,17 +548,18 @@ public class PoE implements Serializable{
                 pna.setAtribuida(true);
                 pna.setNrAluno(asp.getNumero());
                 p = pna;
-                    for(var pr : listaDePropostas){
-                        if(Objects.equals(pr.getIdProposta(), p.getIdProposta())){
-                            pr.setAtribuida(true);
-                            pr.setNrAluno(pna.getNrAluno());
-                        }
+                for(var pr : listaDePropostas){
+                    if(Objects.equals(pr.getIdProposta(), p.getIdProposta())){
+                        pr.setAtribuida(true);
+                        pr.setNrAluno(pna.getNrAluno());
                     }
+                }
                 break;
             }
             propostasNaoAtribuidas.remove(p);
         }
     }
+
 
     public ArrayList<Aluno> consultarAlunosSemPropostaAtribuida(){
         StringBuilder sb = new StringBuilder();

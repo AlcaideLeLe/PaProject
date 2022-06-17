@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
@@ -44,6 +45,8 @@ public class InserirDocente extends BorderPane {
         buttonConfirm.setOnAction(ev->{
             context.addDocenteSingular(new Docente(textNome.getText(), textEmai.getText()));
         });
+        Stage stage = (Stage) this.getScene().getWindow();
+        stage.close();
 
     }
 

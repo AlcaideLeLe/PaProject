@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
@@ -29,8 +30,11 @@ public class QuestionaFicheiroAluno extends BorderPane {
     }
 
     private void registerHandlers(){
-        buttonConfirm.setOnAction(ev->context.exportarAlunosParaCSV(textFile.getText())
-        );
+        buttonConfirm.setOnAction(ev->{
+            context.exportarAlunosParaCSV(textFile.getText());
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
+                });
     }
 
     private void createViews() {

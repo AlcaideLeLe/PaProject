@@ -39,6 +39,8 @@ public class QuestionaOrientadorAAtribuir extends BorderPane {
     private void registerHandlers(){
         buttonConfirm.setOnAction(ev->{
             context.atribuirManualmenteOrientadorAAlunosComPropostas(Long.parseLong(textNr.getText()), textEmail.getText(), textIDproposta.getText());
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
         });
     }
 

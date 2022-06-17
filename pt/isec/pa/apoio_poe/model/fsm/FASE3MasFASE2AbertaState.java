@@ -1,10 +1,22 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.CareTaker;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 
 public class FASE3MasFASE2AbertaState extends apoio_poeAdapter{
     public FASE3MasFASE2AbertaState(apoio_poeContext context, PoE data) {
         super(context, data);
+    }
+
+    CareTaker careTaker = new CareTaker(data);
+
+    @Override
+    public void undo(){
+        careTaker.undo();
+    }
+    @Override
+    public void redo(){
+        careTaker.redo();
     }
 
     @Override
@@ -18,9 +30,13 @@ public class FASE3MasFASE2AbertaState extends apoio_poeAdapter{
         return true;
     }
     @Override
-    public void atribuirAutoproposta(){data.atribuirAutoproposta();};
+    public void atribuirAutoproposta(){
+        careTaker.save();
+        data.atribuirAutoproposta();};
     @Override
-    public void atribuirPropostaDeDocente(){data.atribuirPropostaDeDocente();};
+    public void atribuirPropostaDeDocente(){
+        careTaker.save();
+        data.atribuirPropostaDeDocente();};
 
     @Override
     public boolean recuarFase() {

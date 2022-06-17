@@ -45,6 +45,8 @@ public class QuestionaCandidaturaAConsultar extends BorderPane {
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
         });
     }
 

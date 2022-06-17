@@ -61,8 +61,14 @@ public class WindowToolBar extends MenuBar {
         mnFile.setOnAction(actionEvent -> {
             update();
         });
+        miUndo.setOnAction(actionEvent -> {
+            context.undo();
+        });
+        miRedo.setOnAction(actionEvent -> {
+            context.redo();
+        });
 
-        mnFile.fire();
+
     }
 
     public void update(){

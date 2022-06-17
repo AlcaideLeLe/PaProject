@@ -49,6 +49,8 @@ public class EditarDocente extends BorderPane {
 
         buttonConfirm.setOnAction(ev -> {
             context.editarDocente(email, textNome.getText());
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
         });
 
     }

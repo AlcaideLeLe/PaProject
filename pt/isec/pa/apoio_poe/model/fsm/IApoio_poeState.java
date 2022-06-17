@@ -1,9 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
-import pt.isec.pa.apoio_poe.model.data.Aluno;
-import pt.isec.pa.apoio_poe.model.data.Candidatura;
-import pt.isec.pa.apoio_poe.model.data.Docente;
-import pt.isec.pa.apoio_poe.model.data.Proposta;
+import pt.isec.pa.apoio_poe.model.data.*;
 
 import java.util.ArrayList;
 
@@ -36,6 +33,8 @@ public interface IApoio_poeState {
     boolean changeToFaseBloqueadaAnterior();
     boolean changeToGestaoManualOrientState();
 
+    void undo();
+    void redo();
 
     //Fase 1
     void addAluno();

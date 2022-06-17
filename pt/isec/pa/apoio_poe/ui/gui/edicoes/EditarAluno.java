@@ -55,6 +55,8 @@ public class EditarAluno extends BorderPane {
             context.editarAluno(nr, textNome.getText(), textEmail.getText(),
                     textSiglaCurso.getText(), textSiglaRamo.getText(),
                     Double.parseDouble(textPontuacao.getText()), isAcesso.isSelected(), textPropostaAssociada.getText());
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
 
         });
 

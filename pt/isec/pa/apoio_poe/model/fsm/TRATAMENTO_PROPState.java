@@ -1,10 +1,23 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.CareTaker;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 
 public class TRATAMENTO_PROPState extends apoio_poeAdapter{
     public TRATAMENTO_PROPState(apoio_poeContext context, PoE data) {
         super(context, data);
+    }
+
+
+    CareTaker careTaker = new CareTaker(data);
+
+    @Override
+    public void undo(){
+        careTaker.undo();
+    }
+    @Override
+    public void redo(){
+        careTaker.redo();
     }
 
     @Override
@@ -25,16 +38,24 @@ public class TRATAMENTO_PROPState extends apoio_poeAdapter{
     }
 
     @Override
-    public void atribuicaoDeAlunosSemPropostasDefinidas(){}
+    public void atribuicaoDeAlunosSemPropostasDefinidas(){
+        data.save();
+        data.atruibuicaoDeAlunosSemPropostasDefinidas();}
 
     @Override
-    public void atribuirAutoproposta(){data.atribuirAutoproposta();}
+    public void atribuirAutoproposta(){
+        data.save();
+        data.atribuirAutoproposta();}
 
     @Override
-    public void atribuirPropostaDeDocente(){data.atribuirPropostaDeDocente();}
+    public void atribuirPropostaDeDocente(){
+        data.save();
+        data.atribuirPropostaDeDocente();}
 
     @Override
-    public void removerTodasAsAtribuicoes(){data.removerTodasAsAtribuicoes();}
+    public void removerTodasAsAtribuicoes(){
+        data.save();
+        data.removerTodasAsAtribuicoes();}
 
 
 }

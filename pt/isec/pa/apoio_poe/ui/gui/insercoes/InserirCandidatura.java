@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
@@ -35,7 +36,8 @@ public class InserirCandidatura extends BorderPane {
         buttonConfirm.setOnAction(ev->{
             propostasAssociadas.add(Arrays.toString(textPropostas.getText().split(",")));
             context.addCandidaturaIndividual(new Candidatura(Long.parseLong(textNrAluno.getText()), propostasAssociadas));
-            System.out.println("cheguei akiii");
+            Stage stage = (Stage) this.getScene().getWindow();
+            stage.close();
         });
     }
 

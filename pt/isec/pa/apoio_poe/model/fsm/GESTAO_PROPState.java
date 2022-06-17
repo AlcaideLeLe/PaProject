@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
+import pt.isec.pa.apoio_poe.model.data.CareTaker;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 
@@ -11,6 +12,16 @@ public class GESTAO_PROPState extends apoio_poeAdapter{
         super(context, data);
     }
 
+    CareTaker careTaker = new CareTaker(data);
+
+    @Override
+    public void undo(){
+        careTaker.undo();
+    }
+    @Override
+    public void redo(){
+        careTaker.redo();
+    }
     @Override
     public apoio_poeState getState() {
         return apoio_poeState.GESTAO_PROP;
@@ -23,14 +34,20 @@ public class GESTAO_PROPState extends apoio_poeAdapter{
     }
     @Override
     public void addProposta(){
+        careTaker.save();
         data.addProposta();
     }
     @Override
-    public void addPropostaSingular(Proposta p){data.addPropostaSingular(p);}
+    public void addPropostaSingular(Proposta p){
+        careTaker.save();
+        data.addPropostaSingular(p);}
     @Override
-    public void removerProposta(String ID){data.removerProposta(ID);}
+    public void removerProposta(String ID){
+        careTaker.save();
+        data.removerProposta(ID);}
     @Override
     public void editarProposta(String idProposta, long nrAluno, String titulo, String tipoDeProposta, boolean atribuida){
+        careTaker.save();
         data.editarProposta(idProposta, nrAluno, titulo, tipoDeProposta, atribuida);
     };
     @Override

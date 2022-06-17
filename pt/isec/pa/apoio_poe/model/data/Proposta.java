@@ -2,7 +2,7 @@ package pt.isec.pa.apoio_poe.model.data;
 
 import java.io.Serializable;
 
-public class Proposta implements Comparable<Proposta>, Serializable {
+public class Proposta implements Comparable<Proposta>, Serializable, Cloneable {
     private final String idProposta;
     private long nrAluno;
     private String titulo;
@@ -57,5 +57,16 @@ public class Proposta implements Comparable<Proposta>, Serializable {
     @Override
     public int compareTo(Proposta o) {
         return idProposta.compareTo(o.idProposta);
+    }
+
+    @Override
+    public Proposta clone() {
+        try {
+            Proposta clone = (Proposta) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

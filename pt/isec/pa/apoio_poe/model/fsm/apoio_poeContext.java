@@ -32,6 +32,8 @@ public class apoio_poeContext {
         pcs.firePropertyChange(PROP_FASE, null, null);
         this.state = state;
     }
+    public void undo(){state.undo();}
+    public void redo(){state.redo();}
 
     public void fecharFase() {state.fecharFase();};
     public boolean avancarFase() {
@@ -192,7 +194,7 @@ public class apoio_poeContext {
     //public String consultarPropostasSemCadidaturas(){return state.consultarPropostasSemCadidaturas();}
     public void atribuirAutoproposta(){state.atribuirAutoproposta();}
     public void atribuirPropostaDeDocente(){state.atribuirPropostaDeDocente();}
-    public void atruibuicaoDeAlunosSemPropostasDefinidas(){state.atribuicaoDeAlunosSemPropostasDefinidas();}
+    public void atribuicaoDeAlunosSemPropostasDefinidas(){state.atribuicaoDeAlunosSemPropostasDefinidas();}
     public void atribuirPropostaManualmente(long nrAluno, String idProposta){state.atribuirPropostaManualmente(nrAluno,idProposta);}
     public void removerPropostaManualmente(long nrAluno){state.removerPropostaManualmente(nrAluno);}
     public ArrayList<Aluno> consultarAlunosComPropostaAtribuida(){return state.consultarAlunosComPropostaAtribuida();}

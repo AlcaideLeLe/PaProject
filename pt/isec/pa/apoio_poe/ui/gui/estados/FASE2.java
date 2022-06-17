@@ -30,12 +30,11 @@ public class FASE2 extends BorderPane {
     Button ButtonConsultarPropostasSemCandidaturas;
     Button ButtonConsultaPropostas;
 
+
     Button ButtonAvancarFase;
     Button ButtonRecuarFase;
     Button ButtonFecharFase;
     Button ButtonSair;
-
-
 
     Label mensagemBoasVindas;
     Label state;
@@ -190,6 +189,7 @@ public class FASE2 extends BorderPane {
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
 
+
         ButtonAvancarFase = new Button();
         ButtonAvancarFase.setText("Avancar fase");
         ButtonAvancarFase.getStyleClass().add("buttonFase2");
@@ -244,23 +244,25 @@ public class FASE2 extends BorderPane {
 
 
         //organizar coordenadas
+
         gridButtons.add(state, 0, 0);
-        gridButtons.add(mensagemBoasVindas, 0, 2);
-        gridButtons.add(ButtonGestaoCandidaturas, 0, 4);
-        gridButtons.add(ButtonConsultarListaDeAutopropostas, 0, 6);
-        gridButtons.add(ButtonConsultarPropostasDeDocentes, 0, 8);
-        gridButtons.add(ButtonConsultarPropostasComCandidaturas, 0, 10);
-        gridButtons.add(ButtonConsultarPropostasSemCandidaturas, 0, 12);
-        gridButtons.add(ButtonConsultaPropostas, 0, 14);
-        gridButtons.add(ButtonConsultarAlunosComCandidatura, 0, 16);
-        gridButtons.add(ButtonConsultarAlunosSemCandidatura, 0, 18);
-        gridButtons.add(ButtonConsultaAlunosComAutoproposta, 0, 20);
+        //gridButtons.add(ButtonAtribuirPropostasAAlunosSemPropostas, 0,2);
+        gridButtons.add(mensagemBoasVindas, 0, 4);
+        gridButtons.add(ButtonGestaoCandidaturas, 0, 6);
+        gridButtons.add(ButtonConsultarListaDeAutopropostas, 0, 8);
+        gridButtons.add(ButtonConsultarPropostasDeDocentes, 0, 10);
+        gridButtons.add(ButtonConsultarPropostasComCandidaturas, 0, 12);
+        gridButtons.add(ButtonConsultarPropostasSemCandidaturas, 0, 14);
+        gridButtons.add(ButtonConsultaPropostas, 0, 16);
+        gridButtons.add(ButtonConsultarAlunosComCandidatura, 0, 18);
+        gridButtons.add(ButtonConsultarAlunosSemCandidatura, 0, 20);
+        gridButtons.add(ButtonConsultaAlunosComAutoproposta, 0, 22);
 
 
-        gridButtons.add(ButtonFecharFase, 0, 22);
-        gridButtons.add(ButtonRecuarFase, 0, 24);
-        gridButtons.add(ButtonAvancarFase, 0, 26);
-        gridButtons.add(ButtonSair, 0, 28);
+        gridButtons.add(ButtonFecharFase, 0, 24);
+        gridButtons.add(ButtonRecuarFase, 0, 26);
+        gridButtons.add(ButtonAvancarFase, 0, 28);
+        gridButtons.add(ButtonSair, 0, 30);
 
         this.setCenter(gridButtons);
     }

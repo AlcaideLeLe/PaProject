@@ -48,6 +48,8 @@ public class EditarCandidatura extends BorderPane {
                 propostasAssociadas.add(s);
             }
            context.editarCandidatura(nr, propostasAssociadas);
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
         });
 
     }

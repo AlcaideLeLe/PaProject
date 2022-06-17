@@ -49,6 +49,8 @@ public class EditarProposta extends BorderPane {
         buttonConfirm.setOnAction(ev -> {
             context.editarProposta(ID, Long.parseLong(textNrAluno.getText()),
                     textTitulo.getText(), textTipoProposta.getText(), isAtribuida.isSelected());
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
 
         });
 

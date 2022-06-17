@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.Comparator;
 
-public class Aluno implements Comparable<Aluno>, Serializable {
+public class Aluno implements Comparable<Aluno>, Serializable, Cloneable {
 
     private final long numero;
     private String nome;
@@ -70,8 +70,15 @@ public class Aluno implements Comparable<Aluno>, Serializable {
     }
 
 
-
-
+    @Override
+    public Aluno clone() {
+        try {
+            Aluno clone = (Aluno) super.clone();
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }
 
 

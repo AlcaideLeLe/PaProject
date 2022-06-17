@@ -72,5 +72,7 @@ public class FASE3State extends apoio_poeAdapter{
     public ArrayList<Proposta> consultarPropostasAtribuidas(){return data.consultarPropostasAtribuidas();};
     @Override
     public void exportarAlunosParaCSV(String nomeFicheiro){data.exportarAlunosParaCSV(nomeFicheiro);};
+    @Override
+    public void atribuicaoDeAlunosSemPropostasDefinidas(){data.atruibuicaoDeAlunosSemPropostasDefinidas();}
 
 }

@@ -2,7 +2,7 @@ package pt.isec.pa.apoio_poe.model.data;
 
 import java.io.Serializable;
 
-public class Docente implements Comparable<Docente>, Serializable {
+public class Docente implements Comparable<Docente>, Serializable, Cloneable {
 
     private String nome;
     private final String email;
@@ -53,5 +53,15 @@ public class Docente implements Comparable<Docente>, Serializable {
     @Override
     public int compareTo(Docente o) {
         return email.compareTo(o.email);
+    }
+
+    @Override
+    public Docente clone() {
+        try {
+            Docente clone = (Docente) super.clone();
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

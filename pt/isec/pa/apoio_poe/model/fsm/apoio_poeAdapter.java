@@ -59,6 +59,10 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public boolean loadState(){return false;}
     public boolean changeToFaseBloqueadaAnterior(){return false;}
 
+    @Override
+    public void undo(){};
+    @Override
+    public void redo(){};
 
     //Fase 1
     @Override

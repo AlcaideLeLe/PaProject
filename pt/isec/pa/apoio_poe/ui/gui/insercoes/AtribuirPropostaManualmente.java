@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
@@ -47,7 +48,8 @@ public class AtribuirPropostaManualmente extends BorderPane {
 
         buttonConfirm.setOnAction(ev->{
             context.atribuirPropostaManualmente(Long.parseLong(textNrAluno.getText()), textIDProposta.getText());
-
+            Stage stage = (Stage) this.getScene().getWindow();
+            stage.close();
         });
 
     }

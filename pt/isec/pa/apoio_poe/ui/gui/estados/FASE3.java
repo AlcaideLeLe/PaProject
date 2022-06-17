@@ -31,6 +31,7 @@ public class FASE3 extends BorderPane {
     Button ButtonConsultarPropostasDisponiveis;
     Button ButtonConsultaPropostasAtribuidas;
     Button ButtonExportarAlunosCSV;
+    Button ButtonAtribuirPropostasAAlunosSemPropostas;
 
     Button ButtonAvancarFase;
     Button ButtonRecuarFase;
@@ -55,6 +56,7 @@ public class FASE3 extends BorderPane {
     public void registerHandlers(){
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
         ButtonTratamentoPro.setOnAction(ev->context.changeToTratamentoProp());
+        ButtonAtribuirPropostasAAlunosSemPropostas.setOnAction(ev->context.atribuicaoDeAlunosSemPropostasDefinidas());
         ButtonConsultaAlunosComAutoproposta.setOnAction(ev->{
             Stage stage = new Stage();
             MostraAlunosComAutoproposta root = new MostraAlunosComAutoproposta(context);
@@ -205,6 +207,11 @@ public class FASE3 extends BorderPane {
         ButtonTratamentoPro.setText("Tratamento de Propostas");
         ButtonTratamentoPro.getStyleClass().add("buttonFase2");
 
+        ButtonAtribuirPropostasAAlunosSemPropostas = new Button();
+        ButtonAtribuirPropostasAAlunosSemPropostas.setText("Atribuir oropostas a alunos sem propostas");
+        ButtonAtribuirPropostasAAlunosSemPropostas.getStyleClass().add("buttonFase2");
+
+
         ButtonGestaoManualAtribuicoes = new Button();
         ButtonGestaoManualAtribuicoes.setText("Gestao manual de atribuicoes");
         ButtonGestaoManualAtribuicoes.getStyleClass().add("buttonFase2");
@@ -272,18 +279,18 @@ public class FASE3 extends BorderPane {
         gridButtons.add(state, 0, 0);
         gridButtons.add(mensagemBoasVindas, 0, 2);
         gridButtons.add(ButtonTratamentoPro, 0, 4);
-        //gridButtons.add(ButtonGestaoManualAtribuicoes, 0, 4);
-        gridButtons.add(ButtonConsultarAlunosComPropostaAtribuida, 0, 6);
-        gridButtons.add(ButtonConsultarAlunosSemPropostaAtribuida, 0, 8);
-        gridButtons.add(ButtonConsultarPropostasDisponiveis, 0, 10);
-        gridButtons.add(ButtonConsultaPropostasAtribuidas, 0, 12);
-        gridButtons.add(ButtonExportarAlunosCSV, 0, 14);
+        gridButtons.add(ButtonAtribuirPropostasAAlunosSemPropostas, 0, 6);
+        gridButtons.add(ButtonConsultarAlunosComPropostaAtribuida, 0, 8);
+        gridButtons.add(ButtonConsultarAlunosSemPropostaAtribuida, 0, 10);
+        gridButtons.add(ButtonConsultarPropostasDisponiveis, 0, 12);
+        gridButtons.add(ButtonConsultaPropostasAtribuidas, 0, 14);
+        gridButtons.add(ButtonExportarAlunosCSV, 0, 16);
 
 
-        gridButtons.add(ButtonAvancarFase, 0, 16);
-        gridButtons.add(ButtonRecuarFase, 0, 18);
-        gridButtons.add(ButtonFecharFase, 0, 20);
-        gridButtons.add(ButtonSair, 0, 22);
+        gridButtons.add(ButtonAvancarFase, 0, 18);
+        gridButtons.add(ButtonRecuarFase, 0, 20);
+        gridButtons.add(ButtonFecharFase, 0, 22);
+        gridButtons.add(ButtonSair, 0, 24);
 
         this.setCenter(gridButtons);
     }

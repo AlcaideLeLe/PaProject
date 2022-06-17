@@ -1,5 +1,6 @@
 package pt.isec.pa.apoio_poe.ui.gui.insercoes;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -9,8 +10,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
+import pt.isec.pa.apoio_poe.model.fsm.GESTAO_PROPState;
+import pt.isec.pa.apoio_poe.model.fsm.IApoio_poeState;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 
@@ -48,6 +52,8 @@ public class InserirProposta extends BorderPane {
         buttonConfirm.setOnAction(ev->{
             context.addPropostaSingular(new Proposta(textTipoProposta.getText(), textIDProposta.getText(), Long.parseLong(textNrAluno.getText()),
                     textTitulo.getText(), isAtribuida.isSelected()));
+            Stage stage = (Stage) this.getScene().getWindow();
+            stage.close();
 
         });
 
@@ -103,6 +109,9 @@ public class InserirProposta extends BorderPane {
         Font font = Font.font("Times New Roman", FontWeight.BOLD, 14);
         buttonConfirm.setFont(font);
         buttonConfirm.setStyle("-fx-background-color: red; -fx-text-fill: white;-fx-border-width: 2px;");
+
+
+
 
         this.setCenter(grid);
 

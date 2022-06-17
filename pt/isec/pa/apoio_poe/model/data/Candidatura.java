@@ -3,7 +3,7 @@ package pt.isec.pa.apoio_poe.model.data;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Candidatura implements Comparable<Candidatura>, Serializable {
+public class Candidatura implements Comparable<Candidatura>, Serializable, Cloneable{
         private final long nrAluno;
         private ArrayList<String> arrayCandidaturas = new ArrayList<>();
 
@@ -30,5 +30,15 @@ public class Candidatura implements Comparable<Candidatura>, Serializable {
     @Override
     public int compareTo(Candidatura c) {
         return Long.compare(nrAluno, c.nrAluno);
+    }
+
+    @Override
+    public Candidatura clone() {
+        try {
+            Candidatura clone = (Candidatura) super.clone();
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

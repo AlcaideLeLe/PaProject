@@ -14,6 +14,7 @@ public enum apoio_poeState {
             case FASE2 -> new FASE2State(context, data);
             case FASE2BLOCKSTATE -> new FASE2BlockState(context, data);
             case FASE3 -> new FASE3State(context, data);
+
             case FASE3BLOCKSTATE -> new FASE3BlockState(context, data);
             case FASE4 -> new FASE4State(context, data);
             case FASE5 -> new FASE5State(context, data);
