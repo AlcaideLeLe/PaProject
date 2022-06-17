@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 public class ConfirmarSaida extends BorderPane {
     GridPane grid;
@@ -39,6 +40,7 @@ public class ConfirmarSaida extends BorderPane {
     }
 
     private void createViews(){
+        CSSManager.applyCSS(this, "mystyles.css");
         grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
@@ -48,14 +50,16 @@ public class ConfirmarSaida extends BorderPane {
         labelQuestion = new Label("");
         labelQuestion.setText("Pretende Guardar?");
         grid.add(labelQuestion, 0, 0);
+        labelQuestion.getStyleClass().add("labelEscolha");
 
 
         buttonSim = new Button("Sim");
         grid.add(buttonSim, 0, 2);
+        buttonSim.getStyleClass().add("buttonConfirm");
 
         buttonNao = new Button("Nao");
         grid.add(buttonNao, 1, 2);
-
+        buttonNao.getStyleClass().add("buttonConfirm");
 
 
         this.setCenter(grid);

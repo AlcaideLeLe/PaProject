@@ -3,6 +3,8 @@ package pt.isec.pa.apoio_poe.ui.gui.estados;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
@@ -15,6 +17,8 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import javax.swing.border.Border;
+import java.io.File;
+import java.net.MalformedURLException;
 
 
 public class Inicio extends BorderPane {
@@ -27,7 +31,7 @@ public class Inicio extends BorderPane {
     apoio_poeContext context;
 
 
-    public Inicio(apoio_poeContext context) {
+    public Inicio(apoio_poeContext context) throws MalformedURLException {
         this.context = context;
         createViews();
         registerHandlers();
@@ -45,9 +49,10 @@ public class Inicio extends BorderPane {
         ButtonSair.setOnAction(ev->System.exit(0));
     }
 
-    public void createViews(){
+    public void createViews() throws MalformedURLException {
         CSSManager.applyCSS(this,"mystyles.css");
 
+        Image image1 = new Image(new File("C:\\Users\\User\\Desktop\\TrabalhoPA\\pt\\isec\\pa\\apoio_poe\\ui\\gui\\resources\\images\\resized.png").toURI().toURL().toExternalForm());
 
         gridButtons = new GridPane();
         gridButtons.setAlignment(Pos.CENTER);
@@ -74,8 +79,12 @@ public class Inicio extends BorderPane {
         ButtonSair.getStyleClass().add("buttonGestaoAL");
 
 
+
+        gridButtons.add(new ImageView(image1), 0, 0);
+
+
         //organizar coordenadas
-        gridButtons.add(state, 0, 0);
+        //gridButtons.add(state, 0, 0);
         gridButtons.add(mensagemBoasVindas, 0, 2);
         gridButtons.add(ButtonCreateNew, 0, 4);
         gridButtons.add(ButtonLoad, 0, 6);
