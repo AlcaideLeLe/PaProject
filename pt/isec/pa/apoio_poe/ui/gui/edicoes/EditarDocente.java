@@ -9,6 +9,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoEditado;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.DocenteEditado;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 public class EditarDocente extends BorderPane {
@@ -49,6 +51,15 @@ public class EditarDocente extends BorderPane {
 
         buttonConfirm.setOnAction(ev -> {
             context.editarDocente(email, textNome.getText());
+            Stage stage = new Stage();
+            DocenteEditado root = new DocenteEditado(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Docente");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
             Stage stage1 = (Stage) this.getScene().getWindow();
             stage1.close();
         });

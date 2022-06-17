@@ -13,7 +13,7 @@ public class MainJFX extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Apoio_poeGUI root = new Apoio_poeGUI(new apoio_poeContext());
-        Scene scene = new Scene(root,700,400);
+        Scene scene = new Scene(root,800,800);
 
         stage.setScene(scene);
         stage.setTitle("Aplicacao de gestao de projetos/estagio");
