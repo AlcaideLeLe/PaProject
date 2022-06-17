@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
@@ -32,6 +33,9 @@ public class RemoverDocente extends BorderPane {
         buttonConfirm.setOnAction(ev->{
             context.removerDocente(textMail.getText());
             System.out.println("O docente foi removido");
+
+            Stage stage = (Stage) this.getScene().getWindow();
+            stage.close();
         });
     }
 

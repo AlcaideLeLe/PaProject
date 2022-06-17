@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
@@ -32,6 +33,9 @@ public class RemoverAtribuicaoPropostaManualmente extends BorderPane {
     private void registerHandlers(){
         buttonConfirm.setOnAction(ev->{
             context.removerPropostaManualmente(Long.parseLong(textNr.getText()));
+
+            Stage stage = (Stage) this.getScene().getWindow();
+            stage.close();
         });
     }
 
