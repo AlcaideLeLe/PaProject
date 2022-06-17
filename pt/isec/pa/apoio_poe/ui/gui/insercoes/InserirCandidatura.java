@@ -1,14 +1,18 @@
 package pt.isec.pa.apoio_poe.ui.gui.insercoes;
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoInserido;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.CandidaturaInserida;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import java.util.ArrayList;
@@ -36,8 +40,17 @@ public class InserirCandidatura extends BorderPane {
         buttonConfirm.setOnAction(ev->{
             propostasAssociadas.add(Arrays.toString(textPropostas.getText().split(",")));
             context.addCandidaturaIndividual(new Candidatura(Long.parseLong(textNrAluno.getText()), propostasAssociadas));
-            Stage stage = (Stage) this.getScene().getWindow();
-            stage.close();
+            Stage stage = new Stage();
+            CandidaturaInserida root = new CandidaturaInserida(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Candidatura");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
         });
     }
 

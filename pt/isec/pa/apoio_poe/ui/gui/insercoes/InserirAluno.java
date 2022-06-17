@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.ui.gui.insercoes;
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -9,11 +10,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoInserido;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.DocenteNaoExiste;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
+
+import java.util.Objects;
 
 public class InserirAluno extends BorderPane {
      apoio_poeContext context;
@@ -56,12 +62,24 @@ public class InserirAluno extends BorderPane {
     private void registerHandlers(){
 
         buttonConfirm.setOnAction(ev->{
-
             context.addAlunoSingular(new Aluno(Long.parseLong(textNr.getText()), textNome.getText(), textEmail.getText(),
                     textSiglaCurso.getText(), textSiglaRamo.getText(), Double.parseDouble(textPontuacao.getText()),isAcesso.isSelected(), textPropostaAssociada.getText()));
 
+
+            Stage stage = new Stage();
+            AlunoInserido root = new AlunoInserido(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
+            /*
             Stage stage = (Stage) this.getScene().getWindow();
-            stage.close();
+            stage.close();*/
         });
 
     }

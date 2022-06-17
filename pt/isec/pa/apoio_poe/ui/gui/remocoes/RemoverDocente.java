@@ -46,7 +46,6 @@ public class RemoverDocente extends BorderPane {
                     Stage stage = (Stage) this.getScene().getWindow();
                     stage.close();
                 }
-
             }
             if(!eliminei){
                 Stage stage = new Stage();

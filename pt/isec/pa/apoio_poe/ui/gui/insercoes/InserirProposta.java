@@ -2,6 +2,7 @@ package pt.isec.pa.apoio_poe.ui.gui.insercoes;
 
 import javafx.application.Platform;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -10,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
@@ -17,6 +19,8 @@ import pt.isec.pa.apoio_poe.model.fsm.GESTAO_PROPState;
 import pt.isec.pa.apoio_poe.model.fsm.IApoio_poeState;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.DocenteInserido;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.PropostaInserida;
 
 public class InserirProposta extends BorderPane {
     apoio_poeContext context;
@@ -52,8 +56,17 @@ public class InserirProposta extends BorderPane {
         buttonConfirm.setOnAction(ev->{
             context.addPropostaSingular(new Proposta(textTipoProposta.getText(), textIDProposta.getText(), Long.parseLong(textNrAluno.getText()),
                     textTitulo.getText(), isAtribuida.isSelected()));
-            Stage stage = (Stage) this.getScene().getWindow();
-            stage.close();
+            Stage stage = new Stage();
+            PropostaInserida root = new PropostaInserida(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Proposta");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
 
         });
 

@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.ui.gui.insercoes;
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -9,12 +10,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Docente;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoInserido;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.DocenteInserido;
 
 public class InserirDocente extends BorderPane {
     apoio_poeContext context;
@@ -44,9 +48,23 @@ public class InserirDocente extends BorderPane {
     private void registerHandlers(){
         buttonConfirm.setOnAction(ev->{
             context.addDocenteSingular(new Docente(textNome.getText(), textEmai.getText()));
+            Stage stage = new Stage();
+            DocenteInserido root = new DocenteInserido(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Docente");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+            Stage stage1 = (Stage) this.getScene().getWindow();
+            stage1.close();
         });
+
+
+        /*
         Stage stage = (Stage) this.getScene().getWindow();
-        stage.close();
+        stage.close();*/
 
     }
 
