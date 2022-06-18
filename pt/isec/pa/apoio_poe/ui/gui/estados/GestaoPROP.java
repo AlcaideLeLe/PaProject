@@ -12,8 +12,8 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.ConsultarProposta;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.MostraPropostas;
-import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoPropostas;
 import pt.isec.pa.apoio_poe.ui.gui.insercoes.InserirProposta;
+import pt.isec.pa.apoio_poe.ui.gui.quadros.QuadroPropostas;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaPropostaEditar;
 import pt.isec.pa.apoio_poe.ui.gui.remocoes.RemoverProposta;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
@@ -28,6 +28,7 @@ public class GestaoPROP extends BorderPane {
     Button ButtonEditarProposta;
     Button ButtonConsultarPropostas;
     Button ButtonConsultarUmaProposta;
+    Button ConsultarDadosSobrePropostas;
     Button ButtonVoltar;
     Label mensagemEscolha;
     Label listaDePropostas;
@@ -98,7 +99,19 @@ public class GestaoPROP extends BorderPane {
             stage.setMinHeight(400);
             stage.show();
         });
+        ConsultarDadosSobrePropostas.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuadroPropostas root = new QuadroPropostas(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
         ButtonVoltar.setOnAction(ev->context.changeFromGestaoPROPtoBase());
+
 
     }
 
@@ -157,6 +170,11 @@ public class GestaoPROP extends BorderPane {
         ButtonEditarProposta.getStyleClass().add("buttonGestaoPROP");
 
 
+        ConsultarDadosSobrePropostas = new Button();
+        ConsultarDadosSobrePropostas.setText("Ver dados sobre propostas");
+        ConsultarDadosSobrePropostas.getStyleClass().add("buttonGestaoPROP");
+
+
         ButtonVoltar = new Button();
         ButtonVoltar.setText("Voltar");
         ButtonVoltar.getStyleClass().add("buttonVoltar");
@@ -174,7 +192,8 @@ public class GestaoPROP extends BorderPane {
         gridButtons.add(ButtonRemoverProposta, 0, 10);
         gridButtons.add(ButtonEditarProposta, 0, 12);
         gridButtons.add(ButtonVoltar, 0, 14);
-        gridButtons.add(listaDePropostas, 0, 16);
+        gridButtons.add(ConsultarDadosSobrePropostas, 0, 16);
+        gridButtons.add(listaDePropostas, 0, 18);
 
         this.setCenter(gridButtons);
     }

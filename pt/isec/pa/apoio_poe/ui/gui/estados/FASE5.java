@@ -1,6 +1,5 @@
 package pt.isec.pa.apoio_poe.ui.gui.estados;
 
-import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,7 +12,9 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.ConfirmarSaida;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.*;
-import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoPropostas;
+import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoOrientadores;
+import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoPropostasAtribuidas;
+import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoPropostasRamos;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaFicheiroAluno;
 import pt.isec.pa.apoio_poe.ui.gui.WindowToolBar;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
@@ -29,7 +30,9 @@ public class FASE5 extends BorderPane {
     Button ButtonConsultarDocentesComMaisOrientacoes;
     Button ButtonConsultarMediaDeOrientacoesDocentes;
     Button ButtonExportarAlunosCSV;
-    Button ButtonVerGraficos;
+    Button ButtonVerGraficosRamos;
+    Button ButtonVerGraficosPercAtribuicao;
+    Button ButtonVerGraficosOrientadores;
 
     Button ButtonSair;
 
@@ -50,9 +53,32 @@ public class FASE5 extends BorderPane {
 
     public void registerHandlers(){
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
-        ButtonVerGraficos.setOnAction(ev->{
+        ButtonVerGraficosRamos.setOnAction(ev->{
             Stage stage = new Stage();
-            GraficoPropostas root = new GraficoPropostas(context, context.devolveNumPropostasDA());
+            GraficoPropostasRamos root = new GraficoPropostasRamos(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Grafico");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+
+        ButtonVerGraficosPercAtribuicao.setOnAction(ev->{
+            Stage stage = new Stage();
+            GraficoPropostasAtribuidas root = new GraficoPropostasAtribuidas(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Grafico");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
+        ButtonVerGraficosOrientadores.setOnAction(ev->{
+            Stage stage = new Stage();
+            GraficoOrientadores root = new GraficoOrientadores(context);
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
@@ -187,9 +213,18 @@ public class FASE5 extends BorderPane {
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
 
-        ButtonVerGraficos = new Button();
-        ButtonVerGraficos.setText("Ver Grafico");
-        ButtonVerGraficos.getStyleClass().add("buttonFase2");
+        ButtonVerGraficosRamos = new Button();
+        ButtonVerGraficosRamos.setText("Ver grafico de divisao de ramos");
+        ButtonVerGraficosRamos.getStyleClass().add("buttonFase2");
+
+        ButtonVerGraficosPercAtribuicao = new Button();
+        ButtonVerGraficosPercAtribuicao.setText("Ver grafico de percentagem de atribuicoes");
+        ButtonVerGraficosPercAtribuicao.getStyleClass().add("buttonFase2");
+
+
+        ButtonVerGraficosOrientadores = new Button();
+        ButtonVerGraficosOrientadores.setText("Ver grafico de docentes");
+        ButtonVerGraficosOrientadores.getStyleClass().add("buttonFase2");
 
         ButtonConsultarAlunosComPropostaAtribuida = new Button();
         ButtonConsultarAlunosComPropostaAtribuida.setText("Consultar Alunos Com Proposta Atribuida");
@@ -219,7 +254,6 @@ public class FASE5 extends BorderPane {
         ButtonConsultarMediaDeOrientacoesDocentes.setText("Consultar media de orientacoes de docentes");
         ButtonConsultarMediaDeOrientacoesDocentes.getStyleClass().add("buttonFase2");
 
-
         ButtonExportarAlunosCSV = new Button();
         ButtonExportarAlunosCSV.setText("Exportar Alunos para CSV");
         ButtonExportarAlunosCSV.getStyleClass().add("buttonFase2");
@@ -241,8 +275,10 @@ public class FASE5 extends BorderPane {
         gridButtons.add(ButtonConsultarDocentesComMaisOrientacoes, 0, 14);
         gridButtons.add(ButtonConsultarMediaDeOrientacoesDocentes, 0, 16);
         gridButtons.add(ButtonExportarAlunosCSV, 0, 18);
-        gridButtons.add(ButtonVerGraficos, 0, 20);
-        gridButtons.add(ButtonSair, 0, 22);
+        gridButtons.add(ButtonVerGraficosRamos, 0, 20);
+        gridButtons.add(ButtonVerGraficosPercAtribuicao, 0, 22);
+        gridButtons.add(ButtonVerGraficosOrientadores, 0, 24);
+        gridButtons.add(ButtonSair, 0, 26);
 
 
 

@@ -14,6 +14,7 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.ConfirmarSaida;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.*;
+import pt.isec.pa.apoio_poe.ui.gui.quadros.QuadroPropostas;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaFicheiroAluno;
 import pt.isec.pa.apoio_poe.ui.gui.WindowToolBar;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
@@ -200,6 +201,8 @@ public class FASE3 extends BorderPane {
         //create buttons
         state = new Label();
         state.setText("FASE 3");
+
+
 
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");

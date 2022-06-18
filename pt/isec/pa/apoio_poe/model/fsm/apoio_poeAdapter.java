@@ -3,6 +3,7 @@ package pt.isec.pa.apoio_poe.model.fsm;
 import pt.isec.pa.apoio_poe.model.data.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 abstract class apoio_poeAdapter implements IApoio_poeState{
     apoio_poeContext context;
@@ -199,6 +200,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public double devolveNumPropostasSI(){return 0;}
     public double devolveNumPropostasRAS(){return 0;}
     public double devolveNumPropostasDA(){return 0;}
+    @Override
+    public HashMap<String, Integer> DocentesComMaisOrientacoes(){return null;}
 
 
 

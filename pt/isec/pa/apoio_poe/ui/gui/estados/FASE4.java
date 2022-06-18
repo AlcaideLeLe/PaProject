@@ -13,6 +13,7 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.ConfirmarSaida;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.*;
+import pt.isec.pa.apoio_poe.ui.gui.quadros.QuadroPropostas;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaDocente;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaFicheiroAluno;
 import pt.isec.pa.apoio_poe.ui.gui.WindowToolBar;
@@ -231,6 +232,8 @@ public class FASE4 extends BorderPane {
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
         ButtonSair.getStyleClass().add("buttonSair");
+
+
 
         //organizar coordenadas
         gridButtons.add(state, 0, 0);

@@ -13,6 +13,8 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.ConsultarAluno;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.MostraAlunos;
 import pt.isec.pa.apoio_poe.ui.gui.insercoes.InserirAluno;
+import pt.isec.pa.apoio_poe.ui.gui.quadros.QuadroAlunos;
+import pt.isec.pa.apoio_poe.ui.gui.quadros.QuadroPropostas;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaAlunoAEditar;
 import pt.isec.pa.apoio_poe.ui.gui.remocoes.RemoverAluno;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
@@ -28,6 +30,7 @@ public class GestaoAL extends BorderPane {
     Button ButtonConsultarAlunos;
     Button ButtonConsultarUmAluno;
     Button ButtonVoltar;
+    Button ConsultarDadosSobreAlunos;
     Label mensagemEscolha;
     Label listaDeAlunos;
 
@@ -98,6 +101,17 @@ public class GestaoAL extends BorderPane {
             stage.setMinHeight(400);
             stage.show();
         });
+        ConsultarDadosSobreAlunos.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuadroAlunos root = new QuadroAlunos(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
         ButtonVoltar.setOnAction(ev->context.changeFromGestaoALtoBase());
 
     }
@@ -154,6 +168,10 @@ public class GestaoAL extends BorderPane {
         ButtonVoltar.setText("Voltar");
         ButtonVoltar.getStyleClass().add("buttonVoltar");
 
+        ConsultarDadosSobreAlunos = new Button();
+        ConsultarDadosSobreAlunos.setText("Consultar dados sobre Alunos");
+        ConsultarDadosSobreAlunos.getStyleClass().add("buttonGestaoAL");
+
         listaDeAlunos = new Label();
 
 
@@ -168,6 +186,7 @@ public class GestaoAL extends BorderPane {
         gridButtons.add(ButtonEditarAluno, 0, 12);
         gridButtons.add(ButtonVoltar, 0, 14);
         gridButtons.add(listaDeAlunos, 0, 16);
+        gridButtons.add(ConsultarDadosSobreAlunos, 0, 16);
 
         this.setCenter(gridButtons);
     }

@@ -1,7 +1,5 @@
 package pt.isec.pa.apoio_poe.ui.gui.graficos;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Group;
@@ -11,11 +9,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 
-public class GraficoPropostas extends BorderPane {
+public class GraficoPropostasRamos extends BorderPane {
     apoio_poeContext context;
     double d;
 
-    public GraficoPropostas(apoio_poeContext context, double d) {
+    public GraficoPropostasRamos(apoio_poeContext context) {
         this.context = context;
         this.d = d;
         createViews();
@@ -28,18 +26,16 @@ public class GraficoPropostas extends BorderPane {
         System.out.println(context.devolveNumPropostasSI()+"SI");
         Scene scene = new Scene(new Group());
         Stage stage = new Stage();
-        stage.setTitle("Imported Fruits");
+        stage.setTitle("Propostas por ramos");
         stage.setWidth(500);
         stage.setHeight(500);
-        //double orientacoes = Double.parseDouble(context.consultarOrientacoesDocente("jduraes@isec.pt"));
-        //System.out.println(orientacoes);
+
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
-                        new PieChart.Data("OK", d),
-                        new PieChart.Data("Oranges", 25),
-                        new PieChart.Data("Plums", 10),
-                        new PieChart.Data("Pears", 22),
-                        new PieChart.Data("Apples", 30));
+                        new PieChart.Data("PropostasDA", context.devolveNumPropostasDA()),
+                        new PieChart.Data("PropostasRAS", context.devolveNumPropostasRAS()),
+                        new PieChart.Data("PropostasSI", context.devolveNumPropostasSI()));
+
         final PieChart chart = new PieChart(pieChartData);
         chart.setTitle("Imported Fruits");
 

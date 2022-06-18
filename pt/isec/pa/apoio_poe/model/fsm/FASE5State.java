@@ -6,6 +6,7 @@ import pt.isec.pa.apoio_poe.model.data.PoE;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class FASE5State extends apoio_poeAdapter{
     public FASE5State(apoio_poeContext context, PoE data) {
@@ -25,6 +26,8 @@ public class FASE5State extends apoio_poeAdapter{
     @Override
     public ArrayList<Proposta> consultarPropostasAtribuidas(){return data.consultarPropostasAtribuidas();};
     @Override
+    public ArrayList<Proposta> consultaPropostas(){return data.consultarPropostas();}
+    @Override
     public Docente consultarDocenteComMenosOrientacoes(){return data.consultarDocenteComMenosOrientacoes();};
     @Override
     public Docente consultarDocenteComMaisOrientacoes(){return data.consultarDocenteComMaisOrientacoes();};
@@ -40,4 +43,6 @@ public class FASE5State extends apoio_poeAdapter{
     public double devolveNumPropostasRAS(){return data.devolveNumPropostasRAS();}
     @Override
     public double devolveNumPropostasDA(){return data.devolveNumPropostasDA();}
+    @Override
+    public HashMap<String, Integer> DocentesComMaisOrientacoes(){return data.DocentesComMaisOrientacoes();}
 }

@@ -13,6 +13,7 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.ConsultarCandidatura;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.MostraCandidaturas;
 import pt.isec.pa.apoio_poe.ui.gui.insercoes.InserirCandidatura;
+import pt.isec.pa.apoio_poe.ui.gui.quadros.QuadroCandidatura;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaCandidaturaAEditar;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaFicheiroCandidaturas;
 import pt.isec.pa.apoio_poe.ui.gui.remocoes.RemoverCandidatura;
@@ -29,6 +30,7 @@ public class GestaoCAND extends BorderPane {
     Button ButtonConsultaCandidatura;
     Button ButtonRemoverCandidatura;
     Button ButtonEditarCandidatura;
+    Button ConsultarDadosSobreCandidatura;
     Button ButtonExportarCandidaturasParaCsv;
 
 
@@ -115,6 +117,17 @@ public class GestaoCAND extends BorderPane {
             stage.setMinHeight(400);
             stage.show();
         });
+        ConsultarDadosSobreCandidatura.setOnAction(ev->{
+            Stage stage = new Stage();
+            QuadroCandidatura root = new QuadroCandidatura(context);
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Lista de alunos");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
 
     }
 
@@ -166,6 +179,11 @@ public class GestaoCAND extends BorderPane {
         ButtonEditarCandidatura.setText("Editar candidatura");
         ButtonEditarCandidatura.getStyleClass().add("buttonFase2");
 
+        ConsultarDadosSobreCandidatura = new Button();
+        ConsultarDadosSobreCandidatura.setText("Dados sobre candidatura");
+        ConsultarDadosSobreCandidatura.getStyleClass().add("buttonFase2");
+
+
         ButtonExportarCandidaturasParaCsv = new Button();
         ButtonExportarCandidaturasParaCsv.setText("Exportar Candidaturas");
         ButtonExportarCandidaturasParaCsv.getStyleClass().add("buttonFase2");
@@ -188,6 +206,7 @@ public class GestaoCAND extends BorderPane {
         gridButtons.add(ButtonEditarCandidatura, 0, 12);
         gridButtons.add(ButtonExportarCandidaturasParaCsv, 0, 14);
         gridButtons.add(ButtonVoltar, 0, 16);
+        gridButtons.add(ConsultarDadosSobreCandidatura, 0, 18);
 
         this.setCenter(gridButtons);
     }

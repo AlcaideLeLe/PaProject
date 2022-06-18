@@ -3,6 +3,7 @@ package pt.isec.pa.apoio_poe.model.fsm;
 import pt.isec.pa.apoio_poe.model.data.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface IApoio_poeState {
     //operações de todas as fases
@@ -117,6 +118,7 @@ public interface IApoio_poeState {
     double devolveNumPropostasSI();
     double devolveNumPropostasRAS();
     double devolveNumPropostasDA();
+    public HashMap<String, Integer> DocentesComMaisOrientacoes();
 
 
 

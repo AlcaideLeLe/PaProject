@@ -251,6 +251,23 @@ public class PoE implements Serializable, IOriginator{
         return null;
     }
 
+    public HashMap<String, Integer> DocentesComMaisOrientacoes(){
+        HashMap<String, Integer> docentesTop5 =  new HashMap<>();
+           for(var d : listaDeDocentes){
+               docentesTop5.put(d.getNome(), d.getNrDeOrientacoes());
+           }
+           List<Map.Entry<String,Integer>> docentes = new LinkedList<>(docentesTop5.entrySet());
+           docentes.sort((d1,d2)->(d2.getValue().compareTo(d1.getValue())));
+           HashMap<String, Integer> top5 = new HashMap<>();
+           for(int i = 0; i < 5; i++){
+               top5.put(docentes.get(i).getKey(), docentes.get(i).getValue());
+           }
+
+           return top5;
+    }
+
+
+
     public ArrayList<Docente> consultarDocentes(){
         Collections.sort(listaDeDocentes);
         if(listaDeDocentes.isEmpty()){
@@ -616,14 +633,18 @@ public class PoE implements Serializable, IOriginator{
     public double devolveNumPropostasSI(){
         int contador = 0;
         for(var p: listaDePropostas){
-            if(p instanceof Estagio){
-                if(Objects.equals(((Estagio) p).getAreaDestino(), "SI")){
-                    contador++;
+            if(p instanceof Estagio estagio){
+                for(String area : estagio.getAreaDestino().split("\\|")){
+                    if(area.equals("SI")){
+                        contador++;
+                    }
                 }
             }
-            else if(p instanceof Projeto){
-                if(Objects.equals(((Projeto) p).getAreaDestino(), "SI")){
-                    contador++;
+            else if(p instanceof Projeto projeto){
+                for(String area : projeto.getAreaDestino().split("\\|")){
+                    if(area.equals("SI")){
+                        contador++;
+                    }
                 }
             }
         }
@@ -632,14 +653,18 @@ public class PoE implements Serializable, IOriginator{
     public double devolveNumPropostasRAS(){
         int contador = 0;
         for(var p: listaDePropostas){
-            if(p instanceof Estagio){
-                if(Objects.equals(((Estagio) p).getAreaDestino(), "RAS")){
-                    contador++;
+            if(p instanceof Estagio estagio){
+                for(String area : estagio.getAreaDestino().split("\\|")){
+                    if(area.equals("RAS")){
+                        contador++;
+                    }
                 }
             }
-            else if(p instanceof Projeto){
-                if(Objects.equals(((Projeto) p).getAreaDestino(), "RAS")){
-                    contador++;
+            else if(p instanceof Projeto projeto){
+                for(String area : projeto.getAreaDestino().split("\\|")){
+                    if(area.equals("RAS")){
+                        contador++;
+                    }
                 }
             }
         }
@@ -648,18 +673,21 @@ public class PoE implements Serializable, IOriginator{
     public double devolveNumPropostasDA(){
         int contador = 0;
         for(var p: listaDePropostas){
-            if(p instanceof Estagio){
-                if(Objects.equals(((Estagio) p).getAreaDestino(), "DA")){
-                    contador++;
+            if(p instanceof Estagio estagio){
+                for(String area : estagio.getAreaDestino().split("\\|")){
+                    if(area.equals("DA")){
+                        contador++;
+                    }
                 }
             }
-            else if(p instanceof Projeto){
-                if(Objects.equals(((Projeto) p).getAreaDestino(), "DA")){
-                    contador++;
+            else if(p instanceof Projeto projeto){
+                for(String area : projeto.getAreaDestino().split("\\|")){
+                    if(area.equals("DA")){
+                        contador++;
+                    }
                 }
             }
         }
-
         return contador;
     }
 

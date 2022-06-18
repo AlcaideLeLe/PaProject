@@ -6,6 +6,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class apoio_poeContext {
     private PoE data;
@@ -371,6 +372,7 @@ public class apoio_poeContext {
     public double devolveNumPropostasSI(){return state.devolveNumPropostasSI();}
     public double devolveNumPropostasRAS(){return state.devolveNumPropostasRAS();}
     public double devolveNumPropostasDA(){return state.devolveNumPropostasDA();}
+    public HashMap<String, Integer> DocentesComMaisOrientacoes(){return state.DocentesComMaisOrientacoes();}
 
 
 
