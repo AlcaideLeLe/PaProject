@@ -73,7 +73,7 @@ public class FASE1BLOCK extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Lista de alunos");
+            stage.setTitle("Aluno");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -95,7 +95,7 @@ public class FASE1BLOCK extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Lista de docentes");
+            stage.setTitle("Docentes");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -117,7 +117,7 @@ public class FASE1BLOCK extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Lista de propostas");
+            stage.setTitle("Propostas");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();

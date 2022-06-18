@@ -45,7 +45,7 @@ public class ConsultarProposta extends BorderPane {
                     Scene scene = new Scene(root,700,400);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setScene(scene);
-                    stage.setTitle("Aluno");
+                    stage.setTitle("Proposta");
                     stage.setMinWidth(700);
                     stage.setMinHeight(400);
                     stage.show();
@@ -61,7 +61,7 @@ public class ConsultarProposta extends BorderPane {
                 Scene scene = new Scene(root,700,400);
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setScene(scene);
-                stage.setTitle("Lista de alunos");
+                stage.setTitle("Proposta");
                 stage.setMinWidth(700);
                 stage.setMinHeight(400);
                 stage.show();

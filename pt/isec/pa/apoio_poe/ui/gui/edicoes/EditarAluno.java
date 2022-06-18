@@ -74,7 +74,6 @@ public class EditarAluno extends BorderPane {
     }
 
     private void createViews() {
-        System.out.println("Estou aqui a editar");
         CSSManager.applyCSS(this, "mystyles.css");
 
         grid = new GridPane();
@@ -140,7 +139,7 @@ public class EditarAluno extends BorderPane {
         isAcesso = new CheckBox("");
         grid.add(isAcesso, 0, 22);
 
-        buttonConfirm = new Button("Confirmar novo aluno");
+        buttonConfirm = new Button("Editar aluno");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

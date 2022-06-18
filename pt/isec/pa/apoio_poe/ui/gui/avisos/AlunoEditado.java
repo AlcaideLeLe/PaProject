@@ -47,7 +47,7 @@ public class AlunoEditado extends BorderPane {
 
 
         labelInfo = new Label("");
-        labelInfo.setText("Candidatura Editada");
+        labelInfo.setText("Aluno editado");
         grid.add(labelInfo, 0, 0);
 
 

@@ -56,7 +56,7 @@ public class GestaoCAND extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Candidatura");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -67,7 +67,7 @@ public class GestaoCAND extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Candidatura");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -100,7 +100,7 @@ public class GestaoCAND extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Lista de alunos");
+            stage.setTitle("Candidatura");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -112,7 +112,7 @@ public class GestaoCAND extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Lista de alunos");
+            stage.setTitle("Candidatura");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -128,7 +128,7 @@ public class GestaoCAND extends BorderPane {
             stage.setX(owner.getX() - stage.getWidth());
             stage.setY(owner.getY());
             stage.setScene(scene);
-            stage.setTitle("Lista de alunos");
+            stage.setTitle("Candidatura");
             stage.setMinWidth(200);
             stage.setMinHeight(200);
             stage.show();

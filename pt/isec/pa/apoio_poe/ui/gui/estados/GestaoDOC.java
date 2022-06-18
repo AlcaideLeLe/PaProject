@@ -48,7 +48,7 @@ public class GestaoDOC extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Docente");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -59,7 +59,7 @@ public class GestaoDOC extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Docente");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -70,7 +70,7 @@ public class GestaoDOC extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Docente");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -81,7 +81,7 @@ public class GestaoDOC extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Docente");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -92,7 +92,7 @@ public class GestaoDOC extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Docente");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();

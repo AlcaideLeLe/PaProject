@@ -67,7 +67,6 @@ public class EditarDocente extends BorderPane {
     }
 
     private void createViews() {
-        System.out.println("Estou aqui a editar");
         CSSManager.applyCSS(this, "mystyles.css");
 
         grid = new GridPane();

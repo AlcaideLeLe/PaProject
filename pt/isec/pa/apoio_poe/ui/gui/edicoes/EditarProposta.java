@@ -68,8 +68,6 @@ public class EditarProposta extends BorderPane {
     }
 
     private void createViews() {
-
-        System.out.println("Estou aqui a editar");
         CSSManager.applyCSS(this, "mystyles.css");
 
         grid = new GridPane();
@@ -113,7 +111,7 @@ public class EditarProposta extends BorderPane {
         isAtribuida = new CheckBox("");
         grid.add(isAtribuida, 0, 13);
 
-        buttonConfirm = new Button("Confirmar edicao de proposta");
+        buttonConfirm = new Button("Confirmar edicao");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

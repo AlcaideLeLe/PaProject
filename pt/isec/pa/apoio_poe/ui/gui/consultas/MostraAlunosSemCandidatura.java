@@ -26,7 +26,6 @@ public class MostraAlunosSemCandidatura extends BorderPane {
     TableColumn<Aluno, String> C8 = new TableColumn<>("ID proposta");
 
     public void createViews(){
-        System.out.println("olare candidaturas alunos sem");
         C1.setCellValueFactory(new PropertyValueFactory<>("numero"));
         C2.setCellValueFactory(new PropertyValueFactory<>("nome"));
         C3.setCellValueFactory(new PropertyValueFactory<>("email"));

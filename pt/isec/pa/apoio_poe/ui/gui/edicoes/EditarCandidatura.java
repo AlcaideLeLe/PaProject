@@ -66,7 +66,6 @@ public class EditarCandidatura extends BorderPane {
     }
 
     private void createViews() {
-        System.out.println("Estou aqui a editar candidaturas");
         CSSManager.applyCSS(this, "mystyles.css");
 
         grid = new GridPane();

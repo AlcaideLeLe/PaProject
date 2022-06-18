@@ -63,7 +63,7 @@ public class InserirProposta extends BorderPane {
                     Scene scene = new Scene(root, 700, 400);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setScene(scene);
-                    stage.setTitle("Docentes");
+                    stage.setTitle("Proposta");
                     stage.setMinWidth(700);
                     stage.setMinHeight(400);
                     stage.show();
@@ -94,7 +94,7 @@ public class InserirProposta extends BorderPane {
                     Scene scene = new Scene(root,700,400);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setScene(scene);
-                    stage.setTitle("Lista de alunos");
+                    stage.setTitle("Proposta");
                     stage.setMinWidth(700);
                     stage.setMinHeight(400);
                     stage.show();
@@ -149,7 +149,7 @@ public class InserirProposta extends BorderPane {
 
 
 
-        buttonConfirm = new Button("Confirmar novo aluno");
+        buttonConfirm = new Button("Confirmar");
         grid.add(buttonConfirm, 2, 13);
         Font font = Font.font("Times New Roman", FontWeight.BOLD, 14);
         buttonConfirm.setFont(font);

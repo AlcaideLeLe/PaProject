@@ -76,7 +76,7 @@ public class Inicio extends BorderPane {
 
         ButtonSair = new Button();
         ButtonSair.setText("Sair");
-        ButtonSair.getStyleClass().add("buttonGestaoAL");
+        ButtonSair.getStyleClass().add("buttonSair");
 
 
 
