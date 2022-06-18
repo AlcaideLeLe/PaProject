@@ -202,6 +202,8 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public double devolveNumPropostasDA(){return 0;}
     @Override
     public HashMap<String, Integer> DocentesComMaisOrientacoes(){return null;}
+    @Override
+    public HashMap<String, Number> EmpresasComMaisEstagios(){return null;}
 
 
 

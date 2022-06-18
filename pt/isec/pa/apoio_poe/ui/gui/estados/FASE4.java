@@ -61,7 +61,7 @@ public class FASE4 extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosComPropostaEOrientador root = new MostraAlunosComPropostaEOrientador(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar Alunos com Proposta e com Orientador");
             stage.setMinWidth(700);
@@ -72,7 +72,7 @@ public class FASE4 extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosComPropostaESemOrientador root = new MostraAlunosComPropostaESemOrientador(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar Alunos com Proposta e sem Orientador");
             stage.setMinWidth(700);
@@ -83,7 +83,7 @@ public class FASE4 extends BorderPane {
             Stage stage = new Stage();
             MostraDocentesComMenosOrientacoes root = new MostraDocentesComMenosOrientacoes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar Docentes com menos Orientacoes");
             stage.setMinWidth(700);
@@ -94,7 +94,7 @@ public class FASE4 extends BorderPane {
             Stage stage = new Stage();
             MostraDocentesComMaisOrientacoes root = new MostraDocentesComMaisOrientacoes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar Docentes com mais Orientacoes");
             stage.setMinWidth(700);
@@ -105,7 +105,7 @@ public class FASE4 extends BorderPane {
             Stage stage = new Stage();
             MostraMediaDeOrientacoes root = new MostraMediaDeOrientacoes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar media de Orientacoes");
             stage.setMinWidth(700);
@@ -116,7 +116,7 @@ public class FASE4 extends BorderPane {
             Stage stage = new Stage();
             QuestionaDocente root = new QuestionaDocente(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar Orientacoes de Docente");
             stage.setMinWidth(700);

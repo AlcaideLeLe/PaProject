@@ -57,7 +57,7 @@ public class GestaoDOC extends BorderPane {
             Stage stage = new Stage();
             MostraDocentes root = new MostraDocentes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Inserir aluno");
             stage.setMinWidth(700);
@@ -68,7 +68,7 @@ public class GestaoDOC extends BorderPane {
             Stage stage = new Stage();
             ConsultarDocente root = new ConsultarDocente(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Inserir aluno");
             stage.setMinWidth(700);

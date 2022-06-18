@@ -61,7 +61,7 @@ public class GestaoAL extends BorderPane {
             Stage stage = new Stage();
             MostraAlunos root = new MostraAlunos(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de alunos");
             stage.setMinWidth(700);
@@ -72,7 +72,7 @@ public class GestaoAL extends BorderPane {
             Stage stage = new Stage();
             ConsultarAluno root = new ConsultarAluno(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de alunos");
             stage.setMinWidth(700);
@@ -103,13 +103,18 @@ public class GestaoAL extends BorderPane {
         });
         ConsultarDadosSobreAlunos.setOnAction(ev->{
             Stage stage = new Stage();
+            Stage owner = (Stage) this.getScene().getWindow();
             QuadroAlunos root = new QuadroAlunos(context);
-            Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(root,200,200);
+            stage.initModality(Modality.NONE);
+            stage.initOwner(owner);
+            stage.setWidth(300);
+            stage.setX(owner.getX() - stage.getWidth());
+            stage.setY(owner.getY());
             stage.setScene(scene);
             stage.setTitle("Lista de alunos");
-            stage.setMinWidth(700);
-            stage.setMinHeight(400);
+            stage.setMinWidth(200);
+            stage.setMinHeight(200);
             stage.show();
         });
         ButtonVoltar.setOnAction(ev->context.changeFromGestaoALtoBase());

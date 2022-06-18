@@ -119,6 +119,7 @@ public interface IApoio_poeState {
     double devolveNumPropostasRAS();
     double devolveNumPropostasDA();
     public HashMap<String, Integer> DocentesComMaisOrientacoes();
+    public HashMap<String, Number> EmpresasComMaisEstagios();
 
 
 

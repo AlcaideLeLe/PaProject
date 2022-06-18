@@ -45,4 +45,6 @@ public class FASE5State extends apoio_poeAdapter{
     public double devolveNumPropostasDA(){return data.devolveNumPropostasDA();}
     @Override
     public HashMap<String, Integer> DocentesComMaisOrientacoes(){return data.DocentesComMaisOrientacoes();}
+    @Override
+    public HashMap<String, Number> EmpresasComMaisEstagios(){return data.EmpresasComMaisEstagios();}
 }

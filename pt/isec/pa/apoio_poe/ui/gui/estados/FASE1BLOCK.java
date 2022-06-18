@@ -60,7 +60,7 @@ public class FASE1BLOCK extends BorderPane {
             Stage stage = new Stage();
             ConsultarAluno root = new ConsultarAluno(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Aluno");
             stage.setMinWidth(700);
@@ -71,7 +71,7 @@ public class FASE1BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraAlunos root = new MostraAlunos(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de alunos");
             stage.setMinWidth(700);
@@ -82,7 +82,7 @@ public class FASE1BLOCK extends BorderPane {
             Stage stage = new Stage();
             ConsultarDocente root = new ConsultarDocente(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Docente");
             stage.setMinWidth(700);
@@ -93,7 +93,7 @@ public class FASE1BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraDocentes root = new MostraDocentes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de docentes");
             stage.setMinWidth(700);
@@ -104,7 +104,7 @@ public class FASE1BLOCK extends BorderPane {
             Stage stage = new Stage();
             ConsultarProposta root = new ConsultarProposta(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Proposta");
             stage.setMinWidth(700);
@@ -115,7 +115,7 @@ public class FASE1BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraPropostas root = new MostraPropostas(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de propostas");
             stage.setMinWidth(700);

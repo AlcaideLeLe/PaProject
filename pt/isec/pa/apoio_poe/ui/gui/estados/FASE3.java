@@ -40,8 +40,6 @@ public class FASE3 extends BorderPane {
     Button ButtonFecharFase;
     Button ButtonSair;
 
-
-
     Label mensagemBoasVindas;
     Label state;
     apoio_poeContext context;
@@ -63,7 +61,7 @@ public class FASE3 extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosComAutoproposta root = new MostraAlunosComAutoproposta(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Inserir aluno");
             stage.setMinWidth(700);
@@ -74,7 +72,7 @@ public class FASE3 extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosComCandidatura root = new MostraAlunosComCandidatura(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Inserir aluno");
             stage.setMinWidth(700);
@@ -85,7 +83,7 @@ public class FASE3 extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosComPropostaAtribuida root = new MostraAlunosComPropostaAtribuida(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Inserir aluno");
             stage.setMinWidth(700);
@@ -96,7 +94,7 @@ public class FASE3 extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosSemPropostaAtribuida root = new MostraAlunosSemPropostaAtribuida(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Inserir aluno");
             stage.setMinWidth(700);
@@ -107,7 +105,7 @@ public class FASE3 extends BorderPane {
             Stage stage = new Stage();
             MostraListaDeAutopropostas root = new MostraListaDeAutopropostas(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de autoproposta");
             stage.setMinWidth(700);
@@ -118,7 +116,7 @@ public class FASE3 extends BorderPane {
             Stage stage = new Stage();
             MostraListaPropostasDocentes root = new MostraListaPropostasDocentes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de propostas de docentes");
             stage.setMinWidth(700);
@@ -129,7 +127,7 @@ public class FASE3 extends BorderPane {
             Stage stage = new Stage();
             MostraPropostasDisponiveis root = new MostraPropostasDisponiveis(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de propostas de docentes");
             stage.setMinWidth(700);
@@ -140,7 +138,7 @@ public class FASE3 extends BorderPane {
             Stage stage = new Stage();
             MostraPropostasAtribuidas root = new MostraPropostasAtribuidas(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de propostas de docentes");
             stage.setMinWidth(700);
@@ -176,9 +174,6 @@ public class FASE3 extends BorderPane {
             stage.show();
         });
 
-
-
-
     }
 
     public void update(){
@@ -202,8 +197,6 @@ public class FASE3 extends BorderPane {
         state = new Label();
         state.setText("FASE 3");
 
-
-
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
 
@@ -212,9 +205,8 @@ public class FASE3 extends BorderPane {
         ButtonTratamentoPro.getStyleClass().add("buttonFase2");
 
         ButtonAtribuirPropostasAAlunosSemPropostas = new Button();
-        ButtonAtribuirPropostasAAlunosSemPropostas.setText("Atribuir oropostas a alunos sem propostas");
+        ButtonAtribuirPropostasAAlunosSemPropostas.setText("Atribuir propostas a alunos sem propostas");
         ButtonAtribuirPropostasAAlunosSemPropostas.getStyleClass().add("buttonFase2");
-
 
         ButtonGestaoManualAtribuicoes = new Button();
         ButtonGestaoManualAtribuicoes.setText("Gestao manual de atribuicoes");
@@ -233,7 +225,7 @@ public class FASE3 extends BorderPane {
         ButtonConsultarPropostasDisponiveis.getStyleClass().add("buttonFase2");
 
         ButtonConsultaPropostasAtribuidas = new Button();
-        ButtonConsultaPropostasAtribuidas.setText("Consultar propostas atrib");
+        ButtonConsultaPropostasAtribuidas.setText("Consultar propostas atribuidas");
         ButtonConsultaPropostasAtribuidas.getStyleClass().add("buttonFase2");
 
         ButtonExportarAlunosCSV = new Button();
@@ -256,8 +248,6 @@ public class FASE3 extends BorderPane {
         ButtonSair.setText("Sair");
         ButtonSair.getStyleClass().add("buttonSair");
 
-
-
         ButtonConsultaAlunosComAutoproposta = new Button();
         ButtonConsultaAlunosComAutoproposta.setText("Consultar alunos com auto-proposta");
         ButtonConsultaAlunosComAutoproposta.getStyleClass().add("buttonFase2");
@@ -266,8 +256,6 @@ public class FASE3 extends BorderPane {
         ButtonConsultarAlunosComCandidatura.setText("Consultar alunos com candidatura");
         ButtonConsultarAlunosComCandidatura.getStyleClass().add("buttonFase2");
 
-
-
         ButtonConsultarListaDeAutopropostas = new Button();
         ButtonConsultarListaDeAutopropostas.setText("Consultar auto-propostas");
         ButtonConsultarListaDeAutopropostas.getStyleClass().add("buttonFase2");
@@ -275,8 +263,6 @@ public class FASE3 extends BorderPane {
         ButtonConsultarPropostasDeDocentes = new Button();
         ButtonConsultarPropostasDeDocentes.setText("Consultar propostas de docentes");
         ButtonConsultarPropostasDeDocentes.getStyleClass().add("buttonFase2");
-
-
 
 
         //organizar coordenadas

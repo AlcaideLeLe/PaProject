@@ -37,7 +37,7 @@ public class GraficoPropostasRamos extends BorderPane {
                         new PieChart.Data("PropostasSI", context.devolveNumPropostasSI()));
 
         final PieChart chart = new PieChart(pieChartData);
-        chart.setTitle("Imported Fruits");
+        chart.setTitle("Propostas por ramos");
 
         ((Group) scene.getRoot()).getChildren().add(chart);
         stage.setScene(scene);

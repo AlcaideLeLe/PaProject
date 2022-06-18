@@ -53,7 +53,7 @@ public class FASE3BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosComPropostaAtribuida root = new MostraAlunosComPropostaAtribuida(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de alunos com proposta atribuida");
             stage.setMinWidth(700);
@@ -64,7 +64,7 @@ public class FASE3BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosSemPropostaAtribuida root = new MostraAlunosSemPropostaAtribuida(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de alunos sem proposta atribuida");
             stage.setMinWidth(700);
@@ -75,7 +75,7 @@ public class FASE3BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosComCandidatura root = new MostraAlunosComCandidatura(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de alunos com candidatura");
             stage.setMinWidth(700);
@@ -86,7 +86,7 @@ public class FASE3BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosSemCandidatura root = new MostraAlunosSemCandidatura(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de alunos sem candidatura");
             stage.setMinWidth(700);
@@ -97,7 +97,7 @@ public class FASE3BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraListaDeAutopropostas root = new MostraListaDeAutopropostas(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de Auto-propostas");
             stage.setMinWidth(700);
@@ -108,7 +108,7 @@ public class FASE3BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraListaPropostasDocentes root = new MostraListaPropostasDocentes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de propostas de docentes");
             stage.setMinWidth(700);
@@ -119,7 +119,7 @@ public class FASE3BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraPropostasDisponiveis root = new MostraPropostasDisponiveis(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de propostas disponiveis");
             stage.setMinWidth(700);
@@ -130,7 +130,7 @@ public class FASE3BLOCK extends BorderPane {
             Stage stage = new Stage();
             MostraPropostasAtribuidas root = new MostraPropostasAtribuidas(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de propostas atribuidas");
             stage.setMinWidth(700);

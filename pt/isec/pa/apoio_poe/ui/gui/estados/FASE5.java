@@ -12,6 +12,7 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.ConfirmarSaida;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.*;
+import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoEmpresas;
 import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoOrientadores;
 import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoPropostasAtribuidas;
 import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoPropostasRamos;
@@ -33,6 +34,7 @@ public class FASE5 extends BorderPane {
     Button ButtonVerGraficosRamos;
     Button ButtonVerGraficosPercAtribuicao;
     Button ButtonVerGraficosOrientadores;
+    Button ButtonVerGraficosEmpresas;
 
     Button ButtonSair;
 
@@ -55,43 +57,75 @@ public class FASE5 extends BorderPane {
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
         ButtonVerGraficosRamos.setOnAction(ev->{
             Stage stage = new Stage();
+            Stage owner = (Stage) this.getScene().getWindow();
             GraficoPropostasRamos root = new GraficoPropostasRamos(context);
-            Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(root,250,400);
+            stage.initModality(Modality.NONE);
+            stage.initOwner(owner);
+            stage.setWidth(300);
+            stage.setX(owner.getX() - stage.getWidth());
+            stage.setY(owner.getY());
             stage.setScene(scene);
             stage.setTitle("Grafico");
-            stage.setMinWidth(700);
+            stage.setMinWidth(400);
             stage.setMinHeight(400);
             stage.show();
         });
 
         ButtonVerGraficosPercAtribuicao.setOnAction(ev->{
             Stage stage = new Stage();
+            Stage owner = (Stage) this.getScene().getWindow();
             GraficoPropostasAtribuidas root = new GraficoPropostasAtribuidas(context);
-            Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(root,250,250);
+            stage.initModality(Modality.NONE);
+            stage.initOwner(owner);
+            stage.setWidth(300);
+            stage.setX(owner.getX() - stage.getWidth());
+            stage.setY(owner.getY());
             stage.setScene(scene);
             stage.setTitle("Grafico");
-            stage.setMinWidth(700);
-            stage.setMinHeight(400);
+            stage.setMinWidth(200);
+            stage.setMinHeight(200);
             stage.show();
         });
         ButtonVerGraficosOrientadores.setOnAction(ev->{
             Stage stage = new Stage();
+            Stage owner = (Stage) this.getScene().getWindow();
             GraficoOrientadores root = new GraficoOrientadores(context);
-            Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(root,250,250);
+            stage.initModality(Modality.NONE);
+            stage.initOwner(owner);
+            stage.setWidth(300);
+            stage.setX(owner.getX() - stage.getWidth());
+            stage.setY(owner.getY());
             stage.setScene(scene);
             stage.setTitle("Grafico");
-            stage.setMinWidth(700);
-            stage.setMinHeight(400);
+            stage.setMinWidth(250);
+            stage.setMinHeight(250);
+            stage.show();
+        });
+
+        ButtonVerGraficosEmpresas.setOnAction(ev->{
+            Stage stage = new Stage();
+            Stage owner = (Stage) this.getScene().getWindow();
+            GraficoEmpresas root = new GraficoEmpresas(context);
+            Scene scene = new Scene(root,250,250);
+            stage.initModality(Modality.NONE);
+            stage.initOwner(owner);
+            stage.setWidth(300);
+            stage.setX(owner.getX() - stage.getWidth());
+            stage.setY(owner.getY());
+            stage.setScene(scene);
+            stage.setTitle("Grafico");
+            stage.setMinWidth(250);
+            stage.setMinHeight(250);
             stage.show();
         });
         ButtonConsultarAlunosComPropostaAtribuida.setOnAction(ev->{
             Stage stage = new Stage();
             MostraAlunosComPropostaAtribuida root = new MostraAlunosComPropostaAtribuida(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Alunos Com Proposta Atribuida");
             stage.setMinWidth(700);
@@ -102,7 +136,7 @@ public class FASE5 extends BorderPane {
             Stage stage = new Stage();
             MostraAlunosComCandidaturaESemProposta root = new MostraAlunosComCandidaturaESemProposta(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Alunos Com Candidatura e Sem Proposta");
             stage.setMinWidth(700);
@@ -113,7 +147,7 @@ public class FASE5 extends BorderPane {
             Stage stage = new Stage();
             MostraPropostasDisponiveis root = new MostraPropostasDisponiveis(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar Propostas Disponiveis");
             stage.setMinWidth(700);
@@ -124,7 +158,7 @@ public class FASE5 extends BorderPane {
             Stage stage = new Stage();
             MostraPropostasAtribuidas root = new MostraPropostasAtribuidas(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar Propostas Atribuidas");
             stage.setMinWidth(700);
@@ -135,7 +169,7 @@ public class FASE5 extends BorderPane {
             Stage stage = new Stage();
             MostraDocentesComMenosOrientacoes root = new MostraDocentesComMenosOrientacoes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar Docentes com menos Orientacoes");
             stage.setMinWidth(700);
@@ -146,7 +180,7 @@ public class FASE5 extends BorderPane {
             Stage stage = new Stage();
             MostraDocentesComMaisOrientacoes root = new MostraDocentesComMaisOrientacoes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar Docentes com mais Orientacoes");
             stage.setMinWidth(700);
@@ -157,7 +191,7 @@ public class FASE5 extends BorderPane {
             Stage stage = new Stage();
             MostraMediaDeOrientacoes root = new MostraMediaDeOrientacoes(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Consultar media de Orientacoes");
             stage.setMinWidth(700);
@@ -221,6 +255,9 @@ public class FASE5 extends BorderPane {
         ButtonVerGraficosPercAtribuicao.setText("Ver grafico de percentagem de atribuicoes");
         ButtonVerGraficosPercAtribuicao.getStyleClass().add("buttonFase2");
 
+        ButtonVerGraficosEmpresas = new Button();
+        ButtonVerGraficosEmpresas.setText("Ver grafico relacionado com o numero de estagios por empresa");
+        ButtonVerGraficosEmpresas.getStyleClass().add("buttonFase2");
 
         ButtonVerGraficosOrientadores = new Button();
         ButtonVerGraficosOrientadores.setText("Ver grafico de docentes");
@@ -278,7 +315,8 @@ public class FASE5 extends BorderPane {
         gridButtons.add(ButtonVerGraficosRamos, 0, 20);
         gridButtons.add(ButtonVerGraficosPercAtribuicao, 0, 22);
         gridButtons.add(ButtonVerGraficosOrientadores, 0, 24);
-        gridButtons.add(ButtonSair, 0, 26);
+        gridButtons.add(ButtonVerGraficosEmpresas, 0, 26);
+        gridButtons.add(ButtonSair, 0, 28);
 
 
 

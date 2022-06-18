@@ -373,6 +373,7 @@ public class apoio_poeContext {
     public double devolveNumPropostasRAS(){return state.devolveNumPropostasRAS();}
     public double devolveNumPropostasDA(){return state.devolveNumPropostasDA();}
     public HashMap<String, Integer> DocentesComMaisOrientacoes(){return state.DocentesComMaisOrientacoes();}
+    public HashMap<String, Number> EmpresasComMaisEstagios(){return state.EmpresasComMaisEstagios();}
 
 
 

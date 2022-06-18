@@ -59,7 +59,7 @@ public class GestaoPROP extends BorderPane {
             Stage stage = new Stage();
             MostraPropostas root = new MostraPropostas(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Inserir aluno");
             stage.setMinWidth(700);
@@ -70,7 +70,7 @@ public class GestaoPROP extends BorderPane {
             Stage stage = new Stage();
             ConsultarProposta root = new ConsultarProposta(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Inserir aluno");
             stage.setMinWidth(700);
@@ -101,13 +101,18 @@ public class GestaoPROP extends BorderPane {
         });
         ConsultarDadosSobrePropostas.setOnAction(ev->{
             Stage stage = new Stage();
+            Stage owner = (Stage) this.getScene().getWindow();
             QuadroPropostas root = new QuadroPropostas(context);
-            Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(root,200,200);
+            stage.initModality(Modality.NONE);
+            stage.initOwner(owner);
+            stage.setWidth(300);
+            stage.setX(owner.getX() - stage.getWidth());
+            stage.setY(owner.getY());
             stage.setScene(scene);
             stage.setTitle("Lista de alunos");
-            stage.setMinWidth(700);
-            stage.setMinHeight(400);
+            stage.setMinWidth(200);
+            stage.setMinHeight(200);
             stage.show();
         });
         ButtonVoltar.setOnAction(ev->context.changeFromGestaoPROPtoBase());

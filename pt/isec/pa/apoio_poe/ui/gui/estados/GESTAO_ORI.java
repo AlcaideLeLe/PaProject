@@ -59,7 +59,7 @@ public class GESTAO_ORI extends BorderPane {
             Stage stage = new Stage();
             QuestionaPropostaAConsultarOrientador root = new QuestionaPropostaAConsultarOrientador(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Lista de alunos");
             stage.setMinWidth(700);

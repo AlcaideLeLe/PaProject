@@ -266,6 +266,36 @@ public class PoE implements Serializable, IOriginator{
            return top5;
     }
 
+    public HashMap<String, Number> EmpresasComMaisEstagios() {
+        HashMap<String, Integer> empresasTop5 = new HashMap<>();
+
+        for (var p : listaDePropostas) {
+            if (p instanceof Estagio estagio) {
+                if (empresasTop5.containsKey(estagio.getIdEntidadeAcolhimento())) {
+                    empresasTop5.replace(estagio.getIdEntidadeAcolhimento(), empresasTop5.get(estagio.getIdEntidadeAcolhimento()) + 1);
+                } else {
+                    empresasTop5.put(estagio.getIdEntidadeAcolhimento(), 1);
+                }
+            }
+        }
+        List<Map.Entry<String, Integer>> lista = new LinkedList<>(empresasTop5.entrySet());
+
+        lista.sort(((o1, o2) -> (o2.getValue().compareTo(o1.getValue()))));
+
+        HashMap<String, Number> top5 = new HashMap<>();
+
+        int contador = 0;
+        for (var item : lista) {
+            top5.put(item.getKey(), item.getValue());
+            contador++;
+
+            if (contador == 5) {
+                break;
+            }
+        }
+        return top5;
+    }
+
 
 
     public ArrayList<Docente> consultarDocentes(){

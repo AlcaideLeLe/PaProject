@@ -65,7 +65,7 @@ public class GestaoCAND extends BorderPane {
             Stage stage = new Stage();
             MostraCandidaturas root = new MostraCandidaturas(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Inserir aluno");
             stage.setMinWidth(700);
@@ -76,7 +76,7 @@ public class GestaoCAND extends BorderPane {
             Stage stage = new Stage();
             ConsultarCandidatura root = new ConsultarCandidatura(context);
             Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.setTitle("Candidatura");
             stage.setMinWidth(700);
@@ -119,13 +119,18 @@ public class GestaoCAND extends BorderPane {
         });
         ConsultarDadosSobreCandidatura.setOnAction(ev->{
             Stage stage = new Stage();
+            Stage owner = (Stage) this.getScene().getWindow();
             QuadroCandidatura root = new QuadroCandidatura(context);
-            Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(root,200,200);
+            stage.initModality(Modality.NONE);
+            stage.initOwner(owner);
+            stage.setWidth(300);
+            stage.setX(owner.getX() - stage.getWidth());
+            stage.setY(owner.getY());
             stage.setScene(scene);
             stage.setTitle("Lista de alunos");
-            stage.setMinWidth(700);
-            stage.setMinHeight(400);
+            stage.setMinWidth(200);
+            stage.setMinHeight(200);
             stage.show();
         });
 

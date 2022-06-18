@@ -14,6 +14,7 @@ import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.data.Candidatura;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
+import pt.isec.pa.apoio_poe.ui.gui.ConfirmarSaida;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.MostraPropostasDisponiveis;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
@@ -53,7 +54,7 @@ public class FASE3MasFASE2Aberta extends BorderPane {
         ButtonPropostasDeDocentes.setOnAction(ev->context.atribuirPropostaDeDocente());
         ButtonSair.setOnAction(ev-> {
             Stage stage = new Stage();
-            MostraPropostasDisponiveis root = new MostraPropostasDisponiveis(context);
+            ConfirmarSaida root = new ConfirmarSaida(context);
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
@@ -61,8 +62,6 @@ public class FASE3MasFASE2Aberta extends BorderPane {
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
-            context.save();
-            Platform.exit();
         });
 
     }
@@ -118,9 +117,9 @@ public class FASE3MasFASE2Aberta extends BorderPane {
         gridButtons.add(mensagemEscolha, 0, 2);
         gridButtons.add(ButtonAtribuirAutoproposta, 0, 4);
         gridButtons.add(ButtonPropostasDeDocentes, 0, 6);
-        gridButtons.add(ButtonRecuarFase, 0, 6);
-        gridButtons.add(ButtonChangeToBase, 0, 8);
-        gridButtons.add(ButtonSair, 0, 10);
+        gridButtons.add(ButtonRecuarFase, 0, 8);
+        gridButtons.add(ButtonChangeToBase, 0, 10);
+        gridButtons.add(ButtonSair, 0, 12);
 
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(gridButtons);

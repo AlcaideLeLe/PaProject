@@ -1,6 +1,7 @@
 package pt.isec.pa.apoio_poe.model.fsm;
 
 import pt.isec.pa.apoio_poe.model.data.Aluno;
+import pt.isec.pa.apoio_poe.model.data.CareTaker;
 import pt.isec.pa.apoio_poe.model.data.PoE;
 import pt.isec.pa.apoio_poe.model.data.Proposta;
 
@@ -11,9 +12,20 @@ public class FASE3State extends apoio_poeAdapter{
         super(context, data);
     }
 
+    CareTaker careTaker = new CareTaker(data);
+
     @Override
     public apoio_poeState getState() {
         return apoio_poeState.FASE3;
+    }
+
+    @Override
+    public void undo(){
+        careTaker.undo();
+    }
+    @Override
+    public void redo(){
+        careTaker.redo();
     }
 
     @Override
@@ -73,6 +85,10 @@ public class FASE3State extends apoio_poeAdapter{
     @Override
     public void exportarAlunosParaCSV(String nomeFicheiro){data.exportarAlunosParaCSV(nomeFicheiro);};
     @Override
-    public void atribuicaoDeAlunosSemPropostasDefinidas(){data.atruibuicaoDeAlunosSemPropostasDefinidas();}
+    public void atribuicaoDeAlunosSemPropostasDefinidas(){
+        careTaker.save();
+
+        data.atruibuicaoDeAlunosSemPropostasDefinidas();}
+
 
 }
