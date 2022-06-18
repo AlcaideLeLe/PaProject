@@ -11,8 +11,20 @@ public class apoio_poeContext {
     private PoE data;
     private IApoio_poeState state;
     public static final String PROP_FASE = "FASE";
+    public static final String PROP_CANDIDATURA = "CANDIDATURA";
+    public static final String PROP_PROPOSTA = "PROPOSTA";
+    public static final String PROP_ALUNO = "ALUNO";
+    public static final String PROP_DOCENTE = "DOCENTE";
+    private static apoio_poeContext instance = null;
 
-    public apoio_poeContext(){
+    public static apoio_poeContext getInstance(){
+        if(instance==null){
+            instance = new apoio_poeContext();
+        }
+        return instance;
+    }
+
+    private apoio_poeContext(){
         this.data = new PoE();
         this.state = apoio_poeState.InicioState.createState(this, data);
     }
@@ -28,9 +40,9 @@ public class apoio_poeContext {
 
 
     public void changeState(IApoio_poeState state){
-
-        pcs.firePropertyChange(PROP_FASE, null, null);
         this.state = state;
+        pcs.firePropertyChange(PROP_FASE, null, null);
+
     }
     public void undo(){state.undo();}
     public void redo(){state.redo();}
@@ -145,6 +157,10 @@ public class apoio_poeContext {
     public boolean loadState(){
         boolean resultado = state.loadState();
         pcs.firePropertyChange(PROP_FASE, null, null);
+        pcs.firePropertyChange(PROP_CANDIDATURA, null, null);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
         return resultado;
     }
     public boolean changeToFaseBloqueadaAnterior(){
@@ -158,32 +174,79 @@ public class apoio_poeContext {
         return resultado;
     }
 
-    public void addAluno(){state.addAluno();}
-    public void removerAluno(long nr){state.removerAluno(nr);}
-    public void addAlunoSingular(Aluno a){state.addAlunoSingular(a);};
-    public Aluno consultaAluno(long nrAluno){return state.consultaAluno(nrAluno);}
+    public void addAluno(){
+        state.addAluno();
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
+    public void removerAluno(long nr){
+        state.removerAluno(nr);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
+    public void addAlunoSingular(Aluno a){
+        state.addAlunoSingular(a);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    };
+    public Aluno consultaAluno(long nrAluno){
+        return state.consultaAluno(nrAluno);
+    }
     public ArrayList<Aluno> consultarAlunos(){return state.consultarAlunos();}
     public void editarAluno(long nr, String nome, String email, String siglaCurso, String siglaRamos, double Classificacao, boolean acesso, String IDProp)
-    {state.editarAluno(nr, nome, email, siglaCurso, siglaRamos, Classificacao, acesso, IDProp);}
-    public void addDocente(){state.addDocente();}
-    public void addDocenteSingular(Docente d){state.addDocenteSingular(d);};
-    public void removerDocente(String email){state.removerDocente(email);}
+    {
+        state.editarAluno(nr, nome, email, siglaCurso, siglaRamos, Classificacao, acesso, IDProp);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
+    public void addDocente(){
+        state.addDocente();
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+    }
+    public void addDocenteSingular(Docente d){
+        state.addDocenteSingular(d);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+    };
+    public void removerDocente(String email){
+        state.removerDocente(email);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+    }
     public void editarDocente(String email, String nome){
         state.editarDocente(email, nome);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
     }
     public Docente consultaDocente(String email){return state.consultaDocente(email);}
     public ArrayList<Docente> consultaDocentes(){return state.consultaDocentes();}
-    public void addProposta(){state.addProposta();}
-    public void removerProposta(String ID){state.removerProposta(ID);}
+    public void addProposta(){
+        state.addProposta();
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+    }
+    public void removerProposta(String ID){
+        state.removerProposta(ID);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+    }
     public void editarProposta(String idProposta, long nrAluno, String titulo, String tipoDeProposta, boolean atribuida){
-        state.editarProposta(idProposta, nrAluno, titulo, tipoDeProposta, atribuida);}
-    public void addPropostaSingular(Proposta p){state.addPropostaSingular(p);};
+        state.editarProposta(idProposta, nrAluno, titulo, tipoDeProposta, atribuida);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+    }
+    public void addPropostaSingular(Proposta p){
+        state.addPropostaSingular(p);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+    };
     public Proposta consultaProposta(String idProposta){return state.consultaProposta(idProposta);}
     public ArrayList<Proposta> consultaPropostas(){return state.consultaPropostas();}
-    public void addCandidatura(){state.addCandidatura();}
-    public void addCandidaturaIndividual(Candidatura c){state.addCandidaturaIndividual(c);};
-    public void removerCandidatura(long nr){state.removerCandidatura(nr);};
-    public void editarCandidatura(long nrAluno, ArrayList<String> propostas){state.editarCandidatura(nrAluno, propostas);}
+    public void addCandidatura(){
+        state.addCandidatura();
+        pcs.firePropertyChange(PROP_CANDIDATURA, null, null);
+    }
+    public void addCandidaturaIndividual(Candidatura c){
+        state.addCandidaturaIndividual(c);
+        pcs.firePropertyChange(PROP_CANDIDATURA, null, null);
+    };
+    public void removerCandidatura(long nr){
+        state.removerCandidatura(nr);
+        pcs.firePropertyChange(PROP_CANDIDATURA, null, null);
+    };
+    public void editarCandidatura(long nrAluno, ArrayList<String> propostas){
+        state.editarCandidatura(nrAluno, propostas);
+        pcs.firePropertyChange(PROP_CANDIDATURA, null, null);
+    }
     public Candidatura consultaCandidatura(long nrAluno){return state.consultaCandidatura(nrAluno);}
     public ArrayList<Candidatura> consultaCandidaturas(){return state.consultaCandidaturas();}
     public ArrayList<Aluno> consultaAlunosComAutoproposta(){return state.consultaAlunosComAutoproposta();}
@@ -192,20 +255,61 @@ public class apoio_poeContext {
     public ArrayList<Proposta> consultarPropostasDocentes(){return state.consultarPropostasDeDocentes();};
     //public String consultarPropostasComCadidaturas(){return state.consultarPropostasComCadidaturas();}
     //public String consultarPropostasSemCadidaturas(){return state.consultarPropostasSemCadidaturas();}
-    public void atribuirAutoproposta(){state.atribuirAutoproposta();}
-    public void atribuirPropostaDeDocente(){state.atribuirPropostaDeDocente();}
-    public void atribuicaoDeAlunosSemPropostasDefinidas(){state.atribuicaoDeAlunosSemPropostasDefinidas();}
-    public void atribuirPropostaManualmente(long nrAluno, String idProposta){state.atribuirPropostaManualmente(nrAluno,idProposta);}
-    public void removerPropostaManualmente(long nrAluno){state.removerPropostaManualmente(nrAluno);}
+    public void atribuirAutoproposta(){
+        state.atribuirAutoproposta();
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+
+    }
+    public void atribuirPropostaDeDocente(){
+        state.atribuirPropostaDeDocente();
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
+    public void atribuicaoDeAlunosSemPropostasDefinidas(){
+        state.atribuicaoDeAlunosSemPropostasDefinidas();
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
+    public void atribuirPropostaManualmente(long nrAluno, String idProposta){
+        state.atribuirPropostaManualmente(nrAluno,idProposta);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
+    public void removerPropostaManualmente(long nrAluno){
+        state.removerPropostaManualmente(nrAluno);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
     public ArrayList<Aluno> consultarAlunosComPropostaAtribuida(){return state.consultarAlunosComPropostaAtribuida();}
     public ArrayList<Aluno> consultarAlunosSemPropostaAtribuida(){return state.consultarAlunosSemPropostaAtribuida();}
     public ArrayList<Proposta> consultarPropostasDisponiveis(){return state.consultarPropostasDisponiveis();}
     public ArrayList<Proposta> consultarPropostasAtribuidas(){return state.consultarPropostasAtribuidas();}
-    public void atribuirPropostaADocenteProponenteAutomaticamente(){state.atribuirPropostaADocenteProponenteAutomaticamente();}
-    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf, String IDProposta){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf, IDProposta);}
+    public void atribuirPropostaADocenteProponenteAutomaticamente(){
+        state.atribuirPropostaADocenteProponenteAutomaticamente();
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
+    public void atribuirManulamenteOrientadorAAlunosComProposta(long nrAluno, String emailProf, String IDProposta){
+        state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf, IDProposta);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
     public Docente consultarOrientadorDeProposta(String idProposta){return state.consultarOrientadorDeProposta(idProposta);}
-    public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){state.editarOrientadorDeProposta(idProposta, emailNovoOrientador);}
-    public void removerOrientadorDeProposta(String idProposta){state.removerOrientadorDeProposta(idProposta);}
+    public void editarOrientadorDeProposta(String idProposta, String emailNovoOrientador){
+        state.editarOrientadorDeProposta(idProposta, emailNovoOrientador);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+    }
+    public void removerOrientadorDeProposta(String idProposta){
+        state.removerOrientadorDeProposta(idProposta);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
     public ArrayList<Aluno> consultarAlunosComPropostaEComOrientador(){return state.consultarAlunosComPropostaEComOrientador();}
     public ArrayList<Aluno> consultarAlunosComPropostaESemOrientador(){return state.consultarAlunosComPropostaESemOrientador();}
     public Docente consultarDocenteComMenosOrientacoes(){return state.consultarDocenteComMenosOrientacoes();}
@@ -215,8 +319,18 @@ public class apoio_poeContext {
     public ArrayList<Aluno> consultarAlunosSemCandidatura(){return state.consultarAlunosSemCandidatura();}
     public ArrayList<Proposta> consultarPropostasComCandidaturas(){return state.consultarPropostasComCandidaturas();}
     public ArrayList<Proposta> consultarPropostasSemCandidaturas(){return state.consultarPropostasSemCandidaturas();}
-    public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAluno, String emailProf, String IDproposta){state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf, IDproposta);}
-    public void removerTodasAsAtribuicoes(){state.removerTodasAsAtribuicoes();}
+    public void atribuirManualmenteOrientadorAAlunosComPropostas(long nrAluno, String emailProf, String IDproposta){
+        state.atribuirManulamenteOrientadorAAlunosComProposta(nrAluno,emailProf, IDproposta);
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
+    public void removerTodasAsAtribuicoes(){
+        state.removerTodasAsAtribuicoes();
+        pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+        pcs.firePropertyChange(PROP_DOCENTE, null, null);
+        pcs.firePropertyChange(PROP_ALUNO, null, null);
+    }
     public void exportarAlunosParaCSV(String nomeFicheiro){state.exportarAlunosParaCSV(nomeFicheiro);};
     public void exportarDocentesParaCSV(String nomeFicheiro){state.exportarDocentesParaCSV(nomeFicheiro);}
     public void exportarPropostasParaCSV(String nomeFicheiro){state.exportarPropostasParaCSV(nomeFicheiro);};
@@ -244,13 +358,19 @@ public class apoio_poeContext {
 
             oos.writeObject(data);
             oos.writeObject(state.getState());
+            pcs.firePropertyChange(PROP_CANDIDATURA, null, null);
+            pcs.firePropertyChange(PROP_PROPOSTA, null, null);
+            pcs.firePropertyChange(PROP_DOCENTE, null, null);
+            pcs.firePropertyChange(PROP_ALUNO, null, null);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return true;
     }
-
+    public double devolveNumPropostasSI(){return state.devolveNumPropostasSI();}
+    public double devolveNumPropostasRAS(){return state.devolveNumPropostasRAS();}
+    public double devolveNumPropostasDA(){return state.devolveNumPropostasDA();}
 
 
 

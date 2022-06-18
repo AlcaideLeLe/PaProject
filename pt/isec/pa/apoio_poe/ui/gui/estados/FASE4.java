@@ -242,14 +242,14 @@ public class FASE4 extends BorderPane {
         gridButtons.add(ButtonConsultarDocentesComMenosOrientacoes, 0, 12);
         gridButtons.add(ButtonConsultarDocentesComMaisOrientacoes, 0, 14);
         gridButtons.add(ButtonConsultarMediaDeOrientacoesDocentes, 0, 16);
-        gridButtons.add(ButtonConsultarOrientacoesDocente, 0, 16);
-        gridButtons.add(ButtonExportarAlunosCSV, 0, 18);
+        gridButtons.add(ButtonConsultarOrientacoesDocente, 0, 18);
+        gridButtons.add(ButtonExportarAlunosCSV, 0, 20);
 
 
-        gridButtons.add(ButtonAvancarFase, 0, 20);
-        gridButtons.add(ButtonRecuarFase, 0, 22);
+        gridButtons.add(ButtonAvancarFase, 0, 22);
+        gridButtons.add(ButtonRecuarFase, 1, 22);
         gridButtons.add(ButtonFecharFase, 0, 24);
-        gridButtons.add(ButtonSair, 0, 26);
+        gridButtons.add(ButtonSair, 1, 24);
 
 
         this.setCenter(gridButtons);

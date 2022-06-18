@@ -13,6 +13,7 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.ConfirmarSaida;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.*;
+import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoPropostas;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaFicheiroAluno;
 import pt.isec.pa.apoio_poe.ui.gui.WindowToolBar;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
@@ -28,6 +29,7 @@ public class FASE5 extends BorderPane {
     Button ButtonConsultarDocentesComMaisOrientacoes;
     Button ButtonConsultarMediaDeOrientacoesDocentes;
     Button ButtonExportarAlunosCSV;
+    Button ButtonVerGraficos;
 
     Button ButtonSair;
 
@@ -48,6 +50,17 @@ public class FASE5 extends BorderPane {
 
     public void registerHandlers(){
         context.addPropertyChangeListener(context.PROP_FASE, ev->update());
+        ButtonVerGraficos.setOnAction(ev->{
+            Stage stage = new Stage();
+            GraficoPropostas root = new GraficoPropostas(context, context.devolveNumPropostasDA());
+            Scene scene = new Scene(root,700,400);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.setTitle("Grafico");
+            stage.setMinWidth(700);
+            stage.setMinHeight(400);
+            stage.show();
+        });
         ButtonConsultarAlunosComPropostaAtribuida.setOnAction(ev->{
             Stage stage = new Stage();
             MostraAlunosComPropostaAtribuida root = new MostraAlunosComPropostaAtribuida(context);
@@ -174,6 +187,10 @@ public class FASE5 extends BorderPane {
         mensagemBoasVindas = new Label();
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
 
+        ButtonVerGraficos = new Button();
+        ButtonVerGraficos.setText("Ver Grafico");
+        ButtonVerGraficos.getStyleClass().add("buttonFase2");
+
         ButtonConsultarAlunosComPropostaAtribuida = new Button();
         ButtonConsultarAlunosComPropostaAtribuida.setText("Consultar Alunos Com Proposta Atribuida");
         ButtonConsultarAlunosComPropostaAtribuida.getStyleClass().add("buttonFase2");
@@ -216,15 +233,16 @@ public class FASE5 extends BorderPane {
         //organizar coordenadas
         gridButtons.add(state, 0, 0);
         gridButtons.add(mensagemBoasVindas, 0, 2);
-        gridButtons.add(ButtonConsultarAlunosComPropostaAtribuida, 0, 4);
-        gridButtons.add(ButtonConsultarComCandidaturaESemProposta, 0, 6);
+        gridButtons.add(ButtonConsultarAlunosComPropostaAtribuida, 0, 6);
+        gridButtons.add(ButtonConsultarComCandidaturaESemProposta, 0, 4);
         gridButtons.add(ButtonConsultarPropostasDisponiveis, 0, 8);
         gridButtons.add(ButtonConsultarPropostasAtribuidas, 0, 10);
         gridButtons.add(ButtonConsultarDocentesComMenosOrientacoes, 0, 12);
         gridButtons.add(ButtonConsultarDocentesComMaisOrientacoes, 0, 14);
         gridButtons.add(ButtonConsultarMediaDeOrientacoesDocentes, 0, 16);
         gridButtons.add(ButtonExportarAlunosCSV, 0, 18);
-        gridButtons.add(ButtonSair, 0, 20);
+        gridButtons.add(ButtonVerGraficos, 0, 20);
+        gridButtons.add(ButtonSair, 0, 22);
 
 
 

@@ -11,7 +11,7 @@ import static javafx.application.Application.launch;
 public class Main {
     public static void main(String[] args) throws Exception {
         
-        apoio_poeContext fsm = new apoio_poeContext();
+        apoio_poeContext fsm = apoio_poeContext.getInstance();
         UI ui = new UI(fsm);
         //ui.start();
         Application.launch(MainJFX.class, args);

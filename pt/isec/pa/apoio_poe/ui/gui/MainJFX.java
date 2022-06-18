@@ -4,6 +4,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 
+import java.net.MalformedURLException;
+
 
 public class MainJFX extends Application {
     public apoio_poeContext context;
@@ -12,7 +14,14 @@ public class MainJFX extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Apoio_poeGUI root = new Apoio_poeGUI(new apoio_poeContext());
+        configurarJanela(stage);
+        //configurarJanela(new Stage());
+
+
+    }
+
+    public void configurarJanela(Stage stage) throws MalformedURLException {
+        Apoio_poeGUI root = new Apoio_poeGUI(apoio_poeContext.getInstance());
         Scene scene = new Scene(root,800,800);
 
         stage.setScene(scene);
@@ -20,8 +29,6 @@ public class MainJFX extends Application {
         stage.setMinWidth(700);
         stage.setMinHeight(400);
         stage.show();
-
-
     }
 
 

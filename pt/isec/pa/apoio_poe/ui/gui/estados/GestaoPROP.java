@@ -12,6 +12,7 @@ import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.ConsultarProposta;
 import pt.isec.pa.apoio_poe.ui.gui.consultas.MostraPropostas;
+import pt.isec.pa.apoio_poe.ui.gui.graficos.GraficoPropostas;
 import pt.isec.pa.apoio_poe.ui.gui.insercoes.InserirProposta;
 import pt.isec.pa.apoio_poe.ui.gui.questiona.QuestionaPropostaEditar;
 import pt.isec.pa.apoio_poe.ui.gui.remocoes.RemoverProposta;
@@ -115,6 +116,8 @@ public class GestaoPROP extends BorderPane {
         CSSManager.applyCSS(this,"mystyles.css");
         //toolBar = new WindowToolBar(context);
         //toolBar.createViews();
+
+
         gridButtons = new GridPane();
         gridButtons.setAlignment(Pos.CENTER);
         //gap

@@ -114,6 +114,9 @@ public interface IApoio_poeState {
     //String consultarDocenteComMenosOrientacoes();
     //String consultarDocenteComMaisOrientacoes();
     //String consultarMediaDeOrientacoesDosDocentes();
+    double devolveNumPropostasSI();
+    double devolveNumPropostasRAS();
+    double devolveNumPropostasDA();
 
 
 

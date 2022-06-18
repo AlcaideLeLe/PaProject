@@ -15,10 +15,7 @@ import javafx.stage.Stage;
 import pt.isec.pa.apoio_poe.model.data.Aluno;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
-import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoInserido;
-import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoNaoExiste;
-import pt.isec.pa.apoio_poe.ui.gui.avisos.DocenteNaoExiste;
-import pt.isec.pa.apoio_poe.ui.gui.avisos.NumeroAlunoInvalido;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.*;
 import pt.isec.pa.apoio_poe.ui.gui.resources.CSSManager;
 
 import java.util.Objects;
@@ -64,36 +61,56 @@ public class InserirAluno extends BorderPane {
     private void registerHandlers(){
 
         buttonConfirm.setOnAction(ev->{
-            if(Long.parseLong(textNr.getText()) > 200000000){
-                context.addAlunoSingular(new Aluno(Long.parseLong(textNr.getText()), textNome.getText(), textEmail.getText(),
-                        textSiglaCurso.getText(), textSiglaRamo.getText(), Double.parseDouble(textPontuacao.getText()),isAcesso.isSelected(), textPropostaAssociada.getText()));
+            boolean existe = false;
+            for(int i=0; i<context.consultarAlunos().size(); i++){
+                if(context.consultarAlunos().get(i).getNumero() == Long.parseLong(textNr.getText())){
+                    existe = true;
+                    Stage stage = new Stage();
+                    AlunoJaExiste root = new AlunoJaExiste(context);
+                    Scene scene = new Scene(root,700,400);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setScene(scene);
+                    stage.setTitle("Alunos");
+                    stage.setMinWidth(700);
+                    stage.setMinHeight(400);
+                    stage.show();
+                    Stage stage1 = (Stage) this.getScene().getWindow();
+                    stage1.close();
+                }
+            }
+            if(!existe){
+                if(Long.parseLong(textNr.getText()) > 200000000){
+                    context.addAlunoSingular(new Aluno(Long.parseLong(textNr.getText()), textNome.getText(), textEmail.getText(),
+                            textSiglaCurso.getText(), textSiglaRamo.getText(), Double.parseDouble(textPontuacao.getText()),isAcesso.isSelected(), textPropostaAssociada.getText()));
 
 
-                Stage stage = new Stage();
-                AlunoInserido root = new AlunoInserido(context);
-                Scene scene = new Scene(root,700,400);
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setScene(scene);
-                stage.setTitle("Lista de alunos");
-                stage.setMinWidth(700);
-                stage.setMinHeight(400);
-                stage.show();
-                Stage stage1 = (Stage) this.getScene().getWindow();
-                stage1.close();
+                    Stage stage = new Stage();
+                    AlunoInserido root = new AlunoInserido(context);
+                    Scene scene = new Scene(root,700,400);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setScene(scene);
+                    stage.setTitle("Lista de alunos");
+                    stage.setMinWidth(700);
+                    stage.setMinHeight(400);
+                    stage.show();
+                    Stage stage1 = (Stage) this.getScene().getWindow();
+                    stage1.close();
+                }
+                else{
+                    Stage stage = new Stage();
+                    NumeroAlunoInvalido root = new NumeroAlunoInvalido(context);
+                    Scene scene = new Scene(root,700,400);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setScene(scene);
+                    stage.setTitle("Lista de alunos");
+                    stage.setMinWidth(700);
+                    stage.setMinHeight(400);
+                    stage.show();
+                    Stage stage1 = (Stage) this.getScene().getWindow();
+                    stage1.close();
+                }
             }
-            else{
-                Stage stage = new Stage();
-                NumeroAlunoInvalido root = new NumeroAlunoInvalido(context);
-                Scene scene = new Scene(root,700,400);
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setScene(scene);
-                stage.setTitle("Lista de alunos");
-                stage.setMinWidth(700);
-                stage.setMinHeight(400);
-                stage.show();
-                Stage stage1 = (Stage) this.getScene().getWindow();
-                stage1.close();
-            }
+
         });
 
     }

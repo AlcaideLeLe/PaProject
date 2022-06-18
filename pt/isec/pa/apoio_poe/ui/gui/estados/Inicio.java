@@ -52,7 +52,7 @@ public class Inicio extends BorderPane {
     public void createViews() throws MalformedURLException {
         CSSManager.applyCSS(this,"mystyles.css");
 
-        Image image1 = new Image(new File("C:\\Users\\User\\Desktop\\TrabalhoPA\\pt\\isec\\pa\\apoio_poe\\ui\\gui\\resources\\images\\resized.png").toURI().toURL().toExternalForm());
+        Image image1 = new Image(new File("/Users/rodrigoalcaide/Downloads/ProjetoIntelliJ/pt/isec/pa/apoio_poe/ui/gui/resources/images/resized.png").toURI().toURL().toExternalForm());
 
         gridButtons = new GridPane();
         gridButtons.setAlignment(Pos.CENTER);

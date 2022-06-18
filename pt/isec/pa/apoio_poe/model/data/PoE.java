@@ -613,6 +613,56 @@ public class PoE implements Serializable, IOriginator{
 
     } //FEITO HOJE E TESTADO
 
+    public double devolveNumPropostasSI(){
+        int contador = 0;
+        for(var p: listaDePropostas){
+            if(p instanceof Estagio){
+                if(Objects.equals(((Estagio) p).getAreaDestino(), "SI")){
+                    contador++;
+                }
+            }
+            else if(p instanceof Projeto){
+                if(Objects.equals(((Projeto) p).getAreaDestino(), "SI")){
+                    contador++;
+                }
+            }
+        }
+        return contador;
+    }
+    public double devolveNumPropostasRAS(){
+        int contador = 0;
+        for(var p: listaDePropostas){
+            if(p instanceof Estagio){
+                if(Objects.equals(((Estagio) p).getAreaDestino(), "RAS")){
+                    contador++;
+                }
+            }
+            else if(p instanceof Projeto){
+                if(Objects.equals(((Projeto) p).getAreaDestino(), "RAS")){
+                    contador++;
+                }
+            }
+        }
+        return contador;
+    }
+    public double devolveNumPropostasDA(){
+        int contador = 0;
+        for(var p: listaDePropostas){
+            if(p instanceof Estagio){
+                if(Objects.equals(((Estagio) p).getAreaDestino(), "DA")){
+                    contador++;
+                }
+            }
+            else if(p instanceof Projeto){
+                if(Objects.equals(((Projeto) p).getAreaDestino(), "DA")){
+                    contador++;
+                }
+            }
+        }
+
+        return contador;
+    }
+
     public void atribuirPropostaADocenteProponenteAutomaticamente(){
         for(var p : listaDePropostas){
             if(p instanceof Projeto){

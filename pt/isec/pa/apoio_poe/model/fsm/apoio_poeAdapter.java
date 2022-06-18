@@ -196,6 +196,9 @@ abstract class apoio_poeAdapter implements IApoio_poeState{
     public void removerTodasAsAtribuicoes(){}
     public String consultarPropostas(){return null;}
     public String consultarOrientacoesDocente(String email){return null;}
+    public double devolveNumPropostasSI(){return 0;}
+    public double devolveNumPropostasRAS(){return 0;}
+    public double devolveNumPropostasDA(){return 0;}
 
 
 

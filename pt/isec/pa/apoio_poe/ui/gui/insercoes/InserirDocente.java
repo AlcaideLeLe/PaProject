@@ -18,7 +18,11 @@ import pt.isec.pa.apoio_poe.model.data.Proposta;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
 import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoInserido;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.AlunoJaExiste;
 import pt.isec.pa.apoio_poe.ui.gui.avisos.DocenteInserido;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.DocenteJaExiste;
+
+import java.util.Objects;
 
 public class InserirDocente extends BorderPane {
     apoio_poeContext context;
@@ -46,26 +50,40 @@ public class InserirDocente extends BorderPane {
     }
 
     private void registerHandlers(){
-        buttonConfirm.setOnAction(ev->{
-            context.addDocenteSingular(new Docente(textNome.getText(), textEmai.getText()));
-            Stage stage = new Stage();
-            DocenteInserido root = new DocenteInserido(context);
-            Scene scene = new Scene(root,700,400);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.setTitle("Docente");
-            stage.setMinWidth(700);
-            stage.setMinHeight(400);
-            stage.show();
-            Stage stage1 = (Stage) this.getScene().getWindow();
-            stage1.close();
+        buttonConfirm.setOnAction(ev-> {
+            boolean existe = false;
+            for (int i = 0; i < context.consultaDocentes().size(); i++) {
+                if (Objects.equals(context.consultaDocentes().get(i).getEmail(), textEmai.getText())) {
+                    existe = true;
+                    Stage stage = new Stage();
+                    DocenteJaExiste root = new DocenteJaExiste(context);
+                    Scene scene = new Scene(root, 700, 400);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setScene(scene);
+                    stage.setTitle("Docentes");
+                    stage.setMinWidth(700);
+                    stage.setMinHeight(400);
+                    stage.show();
+                    Stage stage1 = (Stage) this.getScene().getWindow();
+                    stage1.close();
+                }
+            }
+            if (!existe) {
+                context.addDocenteSingular(new Docente(textNome.getText(), textEmai.getText()));
+                Stage stage = new Stage();
+                DocenteJaExiste root = new DocenteJaExiste(context);
+                Scene scene = new Scene(root, 700, 400);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setScene(scene);
+                stage.setTitle("Docente");
+                stage.setMinWidth(700);
+                stage.setMinHeight(400);
+                stage.show();
+                Stage stage1 = (Stage) this.getScene().getWindow();
+                stage1.close();
+
+            }
         });
-
-
-        /*
-        Stage stage = (Stage) this.getScene().getWindow();
-        stage.close();*/
-
     }
 
 

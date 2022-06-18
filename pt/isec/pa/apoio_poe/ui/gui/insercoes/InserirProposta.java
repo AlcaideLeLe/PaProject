@@ -19,10 +19,7 @@ import pt.isec.pa.apoio_poe.model.fsm.GESTAO_PROPState;
 import pt.isec.pa.apoio_poe.model.fsm.IApoio_poeState;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeContext;
 import pt.isec.pa.apoio_poe.model.fsm.apoio_poeState;
-import pt.isec.pa.apoio_poe.ui.gui.avisos.DocenteInserido;
-import pt.isec.pa.apoio_poe.ui.gui.avisos.PropostaInserida;
-import pt.isec.pa.apoio_poe.ui.gui.avisos.PropostaNaoExiste;
-import pt.isec.pa.apoio_poe.ui.gui.avisos.TipoPropostaNaoExiste;
+import pt.isec.pa.apoio_poe.ui.gui.avisos.*;
 
 import java.util.Objects;
 
@@ -56,42 +53,56 @@ public class InserirProposta extends BorderPane {
     }
 
     private void registerHandlers(){
-
-        buttonConfirm.setOnAction(ev->{
-            if(Objects.equals(textTipoProposta.getText(), "T1") || Objects.equals(textTipoProposta.getText(), "T2")
-                    || Objects.equals(textTipoProposta.getText(), "T3")){
-                context.addPropostaSingular(new Proposta(textTipoProposta.getText(), textIDProposta.getText(), Long.parseLong(textNrAluno.getText()),
-                        textTitulo.getText(), isAtribuida.isSelected()));
-                Stage stage = new Stage();
-                PropostaInserida root = new PropostaInserida(context);
-                Scene scene = new Scene(root,700,400);
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setScene(scene);
-                stage.setTitle("Proposta");
-                stage.setMinWidth(700);
-                stage.setMinHeight(400);
-                stage.show();
-                Stage stage1 = (Stage) this.getScene().getWindow();
-                stage1.close();
+        buttonConfirm.setOnAction(ev-> {
+            boolean existe = false;
+            for (int i = 0; i < context.consultarPropostas().size(); i++) {
+                if (Objects.equals(context.consultarPropostas().get(i).getIdProposta(), textIDProposta.getText())) {
+                    existe = true;
+                    Stage stage = new Stage();
+                    PropostaJaExiste root = new PropostaJaExiste(context);
+                    Scene scene = new Scene(root, 700, 400);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setScene(scene);
+                    stage.setTitle("Docentes");
+                    stage.setMinWidth(700);
+                    stage.setMinHeight(400);
+                    stage.show();
+                    Stage stage1 = (Stage) this.getScene().getWindow();
+                    stage1.close();
+                }
             }
-            else{
-                Stage stage = new Stage();
-                TipoPropostaNaoExiste root = new TipoPropostaNaoExiste(context);
-                Scene scene = new Scene(root,700,400);
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setScene(scene);
-                stage.setTitle("Lista de alunos");
-                stage.setMinWidth(700);
-                stage.setMinHeight(400);
-                stage.show();
-                Stage stage1 = (Stage) this.getScene().getWindow();
-                stage1.close();
+            if(!existe){
+                if(Objects.equals(textTipoProposta.getText(), "T1") || Objects.equals(textTipoProposta.getText(), "T2")
+                        || Objects.equals(textTipoProposta.getText(), "T3")){
+                    context.addPropostaSingular(new Proposta(textTipoProposta.getText(), textIDProposta.getText(), Long.parseLong(textNrAluno.getText()),
+                            textTitulo.getText(), isAtribuida.isSelected()));
+                    Stage stage = new Stage();
+                    PropostaInserida root = new PropostaInserida(context);
+                    Scene scene = new Scene(root,700,400);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setScene(scene);
+                    stage.setTitle("Proposta");
+                    stage.setMinWidth(700);
+                    stage.setMinHeight(400);
+                    stage.show();
+                    Stage stage1 = (Stage) this.getScene().getWindow();
+                    stage1.close();
+                }
+                else{
+                    Stage stage = new Stage();
+                    TipoPropostaNaoExiste root = new TipoPropostaNaoExiste(context);
+                    Scene scene = new Scene(root,700,400);
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setScene(scene);
+                    stage.setTitle("Lista de alunos");
+                    stage.setMinWidth(700);
+                    stage.setMinHeight(400);
+                    stage.show();
+                    Stage stage1 = (Stage) this.getScene().getWindow();
+                    stage1.close();
+                }
             }
-
-
         });
-
-
     }
 
     private void createViews() {
