@@ -12,14 +12,21 @@ public class FASE3State extends apoio_poeAdapter{
         super(context, data);
     }
 
-
+    CareTaker careTaker = new CareTaker(data);
 
     @Override
     public apoio_poeState getState() {
         return apoio_poeState.FASE3;
     }
 
-
+    @Override
+    public void undo(){
+        careTaker.undo();
+    }
+    @Override
+    public void redo(){
+        careTaker.redo();
+    }
 
     @Override
     public boolean recuarFase() {
@@ -79,8 +86,9 @@ public class FASE3State extends apoio_poeAdapter{
     public void exportarAlunosParaCSV(String nomeFicheiro){data.exportarAlunosParaCSV(nomeFicheiro);};
     @Override
     public void atribuicaoDeAlunosSemPropostasDefinidas(){
-        data.atruibuicaoDeAlunosSemPropostasDefinidas();
-    }
+        careTaker.save();
+
+        data.atruibuicaoDeAlunosSemPropostasDefinidas();}
 
 
 }
