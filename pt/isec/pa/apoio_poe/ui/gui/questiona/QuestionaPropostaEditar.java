@@ -97,13 +97,13 @@ public class QuestionaPropostaEditar extends BorderPane {
         grid.setVgap(10);
 
         labelID = new Label("");
-        labelID.setText("Insira o ID da proposta que pretende editar");
+        labelID.setText("Insert the ID of the proposal you want to edit");
         grid.add(labelID, 0, 0);
 
         textID = new TextField("");
         grid.add(textID, 0, 1);
 
-        buttonConfirm = new Button("Editar proposta");
+        buttonConfirm = new Button("Edit proposal");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

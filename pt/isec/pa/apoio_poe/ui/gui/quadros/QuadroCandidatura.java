@@ -48,8 +48,8 @@ public class QuadroCandidatura extends BorderPane {
                 contAtr++;
             }
         }
-        nrPropostasAtribuidas.setText("Estao " + contAtr + " candidaturas associadas a alunos");
-        nrPropostasNaoAtribuidas.setText("Estao " + contDis + " candidaturas livres");
+        nrPropostasAtribuidas.setText("There are " + contAtr + " applications attached to students");
+        nrPropostasNaoAtribuidas.setText("There are" + contDis + " not assigned applications");
 
         grid.add(nrPropostasAtribuidas, 0, 0);
         grid.add(nrPropostasNaoAtribuidas, 0, 1);

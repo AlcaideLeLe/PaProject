@@ -77,22 +77,22 @@ public class EditarProposta extends BorderPane {
 
 
         labelTipoProposta = new Label("");
-        labelTipoProposta.setText("Insira o tipo de proposta da nova Proposta");
+        labelTipoProposta.setText("Insert the type of proposal");
         grid.add(labelTipoProposta, 0, 3);
         labelTipoProposta.getStyleClass().add("labelInsereAluno");
 
         labelNrAluno = new Label("");
-        labelNrAluno.setText("Insira o nr de aluno associado a esta proposta");
+        labelNrAluno.setText("Insert the number of the student attached to the proposal");
         grid.add(labelNrAluno, 0, 6);
         labelNrAluno.getStyleClass().add("labelInsereAluno");
 
         labelTitulo = new Label("");
-        labelTitulo.setText("Insira o titulo desta proposta");
+        labelTitulo.setText("Insert the type of proposal");
         grid.add(labelTitulo, 0, 9);
         labelTitulo.getStyleClass().add("labelInsereAluno");
 
         labelAtribuida = new Label("");
-        labelAtribuida.setText("A proposta esta atribuida= ");
+        labelAtribuida.setText("Is this the proposal assigned");
         grid.add(labelAtribuida, 0, 12);
         labelAtribuida.getStyleClass().add("labelInsereAluno");
 

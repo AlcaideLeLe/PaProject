@@ -83,13 +83,13 @@ public class RemoverProposta extends BorderPane {
         grid.setVgap(10);
 
         labelID = new Label("");
-        labelID.setText("Insira o ID da proposta que pretender remover");
+        labelID.setText("Insert the ID of the proposal you want to remove");
         grid.add(labelID, 0, 0);
 
         textID = new TextField("");
         grid.add(textID, 0, 1);
 
-        buttonConfirm = new Button("Remover proposta");
+        buttonConfirm = new Button("Remove proposal");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

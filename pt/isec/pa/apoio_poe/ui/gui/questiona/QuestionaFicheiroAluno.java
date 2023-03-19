@@ -46,13 +46,13 @@ public class QuestionaFicheiroAluno extends BorderPane {
         grid.setVgap(10);
 
         labelFile = new Label("");
-        labelFile.setText("Insira o ficheiro para exportar");
+        labelFile.setText("To what file you want to export");
         grid.add(labelFile, 0, 0);
 
         textFile = new TextField("");
         grid.add(textFile, 0, 1);
 
-        buttonConfirm = new Button("Editar aluno");
+        buttonConfirm = new Button("Export");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

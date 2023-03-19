@@ -48,13 +48,13 @@ public class RemoverAtribuicaoPropostaManualmente extends BorderPane {
         grid.setVgap(10);
 
         labelNr = new Label("");
-        labelNr.setText("Insira o nr de aluno que vai ficar sem proposta");
+        labelNr.setText("Insert the number of the student you want to remove proposal");
         grid.add(labelNr, 0, 0);
 
         textNr = new TextField("");
         grid.add(textNr, 0, 1);
 
-        buttonConfirm = new Button("Remover atribuicao");
+        buttonConfirm = new Button("Remove");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

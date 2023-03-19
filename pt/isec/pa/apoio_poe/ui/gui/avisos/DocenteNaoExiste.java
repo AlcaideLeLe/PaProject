@@ -46,11 +46,11 @@ public class DocenteNaoExiste extends BorderPane {
 
 
         labelInfo = new Label("");
-        labelInfo.setText("O docente que pretende alterar nao existe");
+        labelInfo.setText("The professor you are trying to edit doesn't exist");
         grid.add(labelInfo, 0, 0);
 
 
-        buttonOkay = new Button("Fechar");
+        buttonOkay = new Button("Close");
         grid.add(buttonOkay, 0, 2);
         buttonOkay.getStyleClass().add("buttonConfirm");
 

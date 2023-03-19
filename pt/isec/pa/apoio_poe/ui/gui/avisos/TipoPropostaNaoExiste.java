@@ -46,11 +46,11 @@ public class TipoPropostaNaoExiste extends BorderPane {
 
 
         labelInfo = new Label("");
-        labelInfo.setText("O tipo de proposta que inseriu nao existe");
+        labelInfo.setText("That type of proposal doesn't exist");
         grid.add(labelInfo, 0, 0);
 
 
-        buttonOkay = new Button("Fechar");
+        buttonOkay = new Button("Close");
         grid.add(buttonOkay, 0, 2);
         buttonOkay.getStyleClass().add("buttonConfirm");
 

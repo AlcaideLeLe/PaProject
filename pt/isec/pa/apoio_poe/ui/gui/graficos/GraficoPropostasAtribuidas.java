@@ -28,7 +28,7 @@ public class GraficoPropostasAtribuidas extends BorderPane {
         System.out.println(d);
         Scene scene = new Scene(new Group());
         Stage stage = new Stage();
-        stage.setTitle("Percentagem propostas atribuidas");
+        stage.setTitle("Percentage of assigned proposals");
         stage.setWidth(500);
         stage.setHeight(500);
 
@@ -37,14 +37,14 @@ public class GraficoPropostasAtribuidas extends BorderPane {
         int propostasDisponveisValor = context.consultarPropostasDisponiveis().size();
         int propostasAtribuidasValor = context.consultarPropostasAtribuidas().size();
 
-        LabelpropostasAtribuidas = new Label("Propostas atribuidas: " + propostasAtribuidasValor + " Percentagem de" + propostasAtribuidas + "%");
-        LabelpropostasDisponiveis = new Label("Propostas disponiveis: " + propostasDisponveisValor + " Percentagem de" + propostasDisponveis + "%");
+        LabelpropostasAtribuidas = new Label("Assigned proposals " + propostasAtribuidasValor + "percentage of" + propostasAtribuidas + "%");
+        LabelpropostasDisponiveis = new Label("Availabe proposals " + propostasDisponveisValor + " percentage of" + propostasDisponveis + "%");
 
 
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
-                        new PieChart.Data("Propostas atribuidas", propostasAtribuidas),
-                        new PieChart.Data("Propostas total", propostasDisponveis));
+                        new PieChart.Data("Assigned proposals", propostasAtribuidas),
+                        new PieChart.Data("Total of proposals", propostasDisponveis));
         final PieChart chart = new PieChart(pieChartData);
         chart.setTitle("Propostas atribuidas/Propostas total");
 

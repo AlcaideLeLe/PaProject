@@ -100,14 +100,14 @@ public class QuestionaEditarOrientador extends BorderPane {
         grid.setVgap(10);
 
         labelID = new Label("");
-        labelID.setText("Insira o ID da proposta na qual pretende alterar orientador");
+        labelID.setText("Insert the ID of the proposal you want to edit the coordinator");
         grid.add(labelID, 0, 0);
 
         textID = new TextField("");
         grid.add(textID, 0, 1);
 
 
-        buttonConfirm = new Button("Editar");
+        buttonConfirm = new Button("Edit");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

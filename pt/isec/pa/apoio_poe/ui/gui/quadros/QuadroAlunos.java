@@ -48,8 +48,8 @@ public class QuadroAlunos extends BorderPane {
                 contDis++;
             }
         }
-        nrAlunosSemProposta.setText("Estao " + contAtr + " alunos sem propostas atribuidas");
-        nrAlunosComProposta.setText("Estao " + contDis + " alunos com propostas disponives");
+        nrAlunosSemProposta.setText("There are " + contAtr + " without assigned proposals");
+        nrAlunosComProposta.setText("There are " + contDis + " students with availabe proposals");
 
         grid.add(nrAlunosSemProposta, 0, 0);
         grid.add(nrAlunosComProposta, 0, 1);

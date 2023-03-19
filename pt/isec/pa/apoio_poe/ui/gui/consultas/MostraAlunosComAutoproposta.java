@@ -18,14 +18,14 @@ public class MostraAlunosComAutoproposta extends BorderPane {
 
     TableView tableView = new TableView();
 
-    TableColumn<Aluno, Long> C1 = new TableColumn<>("Numero aluno");
-    TableColumn<Aluno, String> C2 = new TableColumn<>("Nome");
+    TableColumn<Aluno, Long> C1 = new TableColumn<>("Student number");
+    TableColumn<Aluno, String> C2 = new TableColumn<>("Name");
     TableColumn<Aluno, String> C3 = new TableColumn<>("Email");
-    TableColumn<Aluno, String> C4 = new TableColumn<>("Sigla Cursd");
-    TableColumn<Aluno, String> C5 = new TableColumn<>("Ramo");
-    TableColumn<Aluno, Double> C6 = new TableColumn<>("Classificao");
-    TableColumn<Aluno, Boolean> C7 = new TableColumn<>("Tem acesso a estagio");
-    TableColumn<Aluno, String> C8 = new TableColumn<>("ID proposta");
+    TableColumn<Aluno, String> C4 = new TableColumn<>("Bachelor");
+    TableColumn<Aluno, String> C5 = new TableColumn<>("Area");
+    TableColumn<Aluno, Double> C6 = new TableColumn<>("Grade");
+    TableColumn<Aluno, Boolean> C7 = new TableColumn<>("Elegibility");
+    TableColumn<Aluno, String> C8 = new TableColumn<>("Proposal ID");
 
 
 

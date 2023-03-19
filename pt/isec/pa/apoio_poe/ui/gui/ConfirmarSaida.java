@@ -48,16 +48,16 @@ public class ConfirmarSaida extends BorderPane {
 
 
         labelQuestion = new Label("");
-        labelQuestion.setText("Pretende Guardar?");
+        labelQuestion.setText("Do you want to save?");
         grid.add(labelQuestion, 0, 0);
         labelQuestion.getStyleClass().add("labelEscolha");
 
 
-        buttonSim = new Button("Sim");
+        buttonSim = new Button("Yes");
         grid.add(buttonSim, 0, 2);
         buttonSim.getStyleClass().add("buttonConfirm");
 
-        buttonNao = new Button("Nao");
+        buttonNao = new Button("No");
         grid.add(buttonNao, 1, 2);
         buttonNao.getStyleClass().add("buttonConfirm");
 

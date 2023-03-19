@@ -65,12 +65,12 @@ public class AtribuirPropostaManualmente extends BorderPane {
 
 
         labelNrAluno = new Label("");
-        labelNrAluno.setText("Insira o numero do aluno a quem vai associar a proposta");
+        labelNrAluno.setText("Whats the number of the students that is going to be assigned to this proposal");
         grid.add(labelNrAluno, 0, 0);
         labelNrAluno.getStyleClass().add("labelInsereAluno");
 
         labelIDProposta = new Label("");
-        labelIDProposta.setText("Insira o ID da proposta que quer associar");
+        labelIDProposta.setText("Insert the ID of the proposal you want to assign");
         grid.add(labelIDProposta, 0, 3);
         labelIDProposta.getStyleClass().add("labelInsereAluno");
 
@@ -82,7 +82,7 @@ public class AtribuirPropostaManualmente extends BorderPane {
         grid.add(textIDProposta, 0, 4);
 
 
-        buttonConfirm = new Button("Confirmar atribuicao de proposta");
+        buttonConfirm = new Button("Confirm proposal assignment");
         grid.add(buttonConfirm, 2, 4);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

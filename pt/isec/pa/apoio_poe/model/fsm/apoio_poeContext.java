@@ -39,7 +39,6 @@ public class apoio_poeContext {
 
 
 
-
     public void changeState(IApoio_poeState state){
         this.state = state;
         pcs.firePropertyChange(PROP_FASE, null, null);

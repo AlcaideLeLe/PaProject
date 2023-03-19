@@ -83,37 +83,37 @@ public class EditarAluno extends BorderPane {
 
 
         labelNome = new Label("");
-        labelNome.setText("Insira o nome do novo aluno");
+        labelNome.setText("Insert the edited name ");
         grid.add(labelNome, 0, 3);
         labelNome.getStyleClass().add("labelInsereAluno");
 
         labelEmail = new Label("");
-        labelEmail.setText("Insira o e-mail do novo aluno");
+        labelEmail.setText("Insert the edited e-mail");
         grid.add(labelEmail, 0, 6);
         labelEmail.getStyleClass().add("labelInsereAluno");
 
         labelSiglaCurso = new Label("");
-        labelSiglaCurso.setText("Insira a sigla do curso do novo aluno");
+        labelSiglaCurso.setText("What's the bachelor of the student");
         grid.add(labelSiglaCurso, 0, 9);
         labelSiglaCurso.getStyleClass().add("labelInsereAluno");
 
         labelSiglaRamo = new Label("");
-        labelSiglaRamo.setText("Insira a sigla do ramo ");
+        labelSiglaRamo.setText("Mains preference for the thesis subject ");
         grid.add(labelSiglaRamo, 0, 12);
         labelSiglaRamo.getStyleClass().add("labelInsereAluno");
 
         labelPontuacao = new Label("");
-        labelPontuacao.setText("Insira a pontuacao");
+        labelPontuacao.setText("Current average of the students grade");
         grid.add(labelPontuacao, 0, 15);
         labelPontuacao.getStyleClass().add("labelInsereAluno");
 
         labelIDProposta = new Label("");
-        labelIDProposta.setText("Insira o ID da proposta associado ao aluno");
+        labelIDProposta.setText("Insert the ID of the proposal the student wants to be attached to");
         grid.add(labelIDProposta, 0, 18);
         labelIDProposta.getStyleClass().add("labelInsereAluno");
 
         labelAcessoEstagio = new Label("");
-        labelAcessoEstagio.setText("Tem acesso a estagio");
+        labelAcessoEstagio.setText("Is this student eligible for a Thesis project?");
         grid.add(labelAcessoEstagio, 0, 21);
         labelAcessoEstagio.getStyleClass().add("labelInsereAluno");
 
@@ -139,7 +139,7 @@ public class EditarAluno extends BorderPane {
         isAcesso = new CheckBox("");
         grid.add(isAcesso, 0, 22);
 
-        buttonConfirm = new Button("Editar aluno");
+        buttonConfirm = new Button("Edit student");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

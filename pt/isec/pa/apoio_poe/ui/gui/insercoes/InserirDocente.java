@@ -96,12 +96,12 @@ public class InserirDocente extends BorderPane {
 
 
         labelNome = new Label("");
-        labelNome.setText("Insira o nome do novo docente");
+        labelNome.setText("Insert the professor name");
         grid.add(labelNome, 0, 0);
         labelNome.setFont(FontLabel);
 
         labelEmail = new Label("");
-        labelEmail.setText("Insira o email do novo docente");
+        labelEmail.setText("Insert the e-mail of the new professor");
         grid.add(labelEmail, 0, 3);
         labelEmail.setFont(FontLabel);
 
@@ -115,7 +115,7 @@ public class InserirDocente extends BorderPane {
 
 
 
-        buttonConfirm = new Button("Confirmar novo docente");
+        buttonConfirm = new Button("Confirm registry");
         grid.add(buttonConfirm, 5, 4);
         Font font = Font.font("Times New Roman", FontWeight.BOLD, 14);
         buttonConfirm.setFont(font);

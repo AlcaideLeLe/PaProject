@@ -48,8 +48,8 @@ public class QuadroPropostas extends BorderPane {
                 contDis++;
             }
         }
-        nrPropostasAtribuidas.setText("Estao " + contAtr + "propostas atribuidas");
-        nrPropostasNaoAtribuidas.setText("Estao " + contDis + "propostas disponives");
+        nrPropostasAtribuidas.setText("There are " + contAtr + "assigned proposals");
+        nrPropostasNaoAtribuidas.setText("There are " + contDis + "available proposals");
 
         grid.add(nrPropostasAtribuidas, 0, 0);
         grid.add(nrPropostasNaoAtribuidas, 0, 1);

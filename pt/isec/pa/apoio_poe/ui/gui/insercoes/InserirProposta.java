@@ -114,23 +114,24 @@ public class InserirProposta extends BorderPane {
 
 
         labelTipoProposta = new Label("");
-        labelTipoProposta.setText("Insira o tipo de Proposta");
+        labelTipoProposta.setText("What's the type of this proposal");
         grid.add(labelTipoProposta, 0, 0);
 
         labelIDProposta = new Label("");
-        labelIDProposta.setText("Insira o numero do aluno associado a proposta ");
+        labelIDProposta.setText("What is the students number attached to this proposal ");
         grid.add(labelIDProposta, 0, 3);
 
         labelNrAluno = new Label("");
-        labelNrAluno.setText("Insira o ID da proposta");
+        labelNrAluno.setText("Insert the ID of the proposal");
         grid.add(labelNrAluno, 0, 6);
 
         labelTitulo = new Label("");
-        labelTitulo.setText("Insira o titulo da proposta");
+        labelTitulo.setText("Insert the title of this proposal");
         grid.add(labelTitulo, 0, 9);
 
         labelAtribuida = new Label("");
-        labelAtribuida.setText("A proposta esta atribuida?");
+        labelAtribuida.setText("Is this proposal already taken");
+        grid.add(labelAtribuida, 0, 12);
 
         textTipoProposta = new TextField("");
         grid.add(textTipoProposta, 0, 1);
@@ -149,7 +150,7 @@ public class InserirProposta extends BorderPane {
 
 
 
-        buttonConfirm = new Button("Confirmar");
+        buttonConfirm = new Button("Confirm proposal");
         grid.add(buttonConfirm, 2, 13);
         Font font = Font.font("Times New Roman", FontWeight.BOLD, 14);
         buttonConfirm.setFont(font);

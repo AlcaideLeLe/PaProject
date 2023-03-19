@@ -71,13 +71,13 @@ public class RemoverAluno extends BorderPane {
         grid.setVgap(10);
 
         labelNr = new Label("");
-        labelNr.setText("Insira o numero do aluno que pretende retirar");
+        labelNr.setText("Insert the number of the student you want to remove");
         grid.add(labelNr, 0, 0);
 
         textNr = new TextField("");
         grid.add(textNr, 0, 1);
 
-        buttonConfirm = new Button("Remover aluno");
+        buttonConfirm = new Button("Remove student");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

@@ -64,18 +64,18 @@ public class Inicio extends BorderPane {
         state.setText(context.getState().toString());
 
         mensagemBoasVindas = new Label();
-        mensagemBoasVindas.setText("Insira uma Opcao: ");
+        mensagemBoasVindas.setText("Pick an option: ");
 
         ButtonCreateNew = new Button();
-        ButtonCreateNew.setText("Começa novo");
+        ButtonCreateNew.setText("Start from beggining");
         ButtonCreateNew.getStyleClass().add("buttonGestaoAL");
 
         ButtonLoad= new Button();
-        ButtonLoad.setText("Carregar save");
+        ButtonLoad.setText("Load save");
         ButtonLoad.getStyleClass().add("buttonGestaoAL");
 
         ButtonSair = new Button();
-        ButtonSair.setText("Sair");
+        ButtonSair.setText("Exit");
         ButtonSair.getStyleClass().add("buttonSair");
 
 

@@ -76,7 +76,7 @@ public class EditarDocente extends BorderPane {
 
 
         labelNome = new Label("");
-        labelNome.setText("Insira o nome do docente");
+        labelNome.setText("Insert the name of the professor");
         grid.add(labelNome, 0, 3);
         labelNome.getStyleClass().add("labelInsereAluno");
 
@@ -84,7 +84,7 @@ public class EditarDocente extends BorderPane {
         grid.add(textNome, 0, 7);
 
 
-        buttonConfirm = new Button("Confirmar edicao");
+        buttonConfirm = new Button("Confirm edition");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

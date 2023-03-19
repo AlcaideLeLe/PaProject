@@ -71,13 +71,13 @@ public class RemoverCandidatura extends BorderPane {
         grid.setVgap(10);
 
         labelNr = new Label("");
-        labelNr.setText("Insira o numero do aluno da candidatura que pretende retirar");
+        labelNr.setText("Insert the number of the student you want to remove application");
         grid.add(labelNr, 0, 0);
 
         textNr = new TextField("");
         grid.add(textNr, 0, 1);
 
-        buttonConfirm = new Button("Remover candidatura");
+        buttonConfirm = new Button("Remove application");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

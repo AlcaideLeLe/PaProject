@@ -63,7 +63,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Alunos");
+            stage.setTitle("Students");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -74,7 +74,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Alunos");
+            stage.setTitle("Students");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -85,7 +85,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Alunos");
+            stage.setTitle("Students");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -96,7 +96,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Alunos");
+            stage.setTitle("Students");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -107,7 +107,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Lista de autoproposta");
+            stage.setTitle("List of autoproposal");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -118,7 +118,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Lista de propostas de docentes");
+            stage.setTitle("List of professors proposal");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -129,7 +129,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Lista de propostas de docentes");
+            stage.setTitle("Lista of available proposals");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -140,7 +140,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Lista de propostas de docentes");
+            stage.setTitle("List of assigned proposals");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -151,7 +151,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Exportar Alunos");
+            stage.setTitle("Export students");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -168,7 +168,7 @@ public class FASE3 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Confirmar Saida");
+            stage.setTitle("Exit");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -198,70 +198,70 @@ public class FASE3 extends BorderPane {
         state.setText("FASE 3");
 
         mensagemBoasVindas = new Label();
-        mensagemBoasVindas.setText("Escolha uma das opcoes: ");
+        mensagemBoasVindas.setText("Pick an option: ");
 
         ButtonTratamentoPro = new Button();
-        ButtonTratamentoPro.setText("Tratamento de Propostas");
+        ButtonTratamentoPro.setText("Proposals management");
         ButtonTratamentoPro.getStyleClass().add("buttonFase2");
 
         ButtonAtribuirPropostasAAlunosSemPropostas = new Button();
-        ButtonAtribuirPropostasAAlunosSemPropostas.setText("Atribuir propostas a alunos sem propostas");
+        ButtonAtribuirPropostasAAlunosSemPropostas.setText("Assign proposals to students without assigned proposals");
         ButtonAtribuirPropostasAAlunosSemPropostas.getStyleClass().add("buttonFase2");
 
         ButtonGestaoManualAtribuicoes = new Button();
-        ButtonGestaoManualAtribuicoes.setText("Gestao manual de atribuicoes");
+        ButtonGestaoManualAtribuicoes.setText("Assign manually");
         ButtonGestaoManualAtribuicoes.getStyleClass().add("buttonFase2");
 
         ButtonConsultarAlunosComPropostaAtribuida = new Button();
-        ButtonConsultarAlunosComPropostaAtribuida.setText("Consultar alunos com auto-proposta atribuida");
+        ButtonConsultarAlunosComPropostaAtribuida.setText("View students with autoproposals assigned");
         ButtonConsultarAlunosComPropostaAtribuida.getStyleClass().add("buttonFase2");
 
         ButtonConsultarAlunosSemPropostaAtribuida = new Button();
-        ButtonConsultarAlunosSemPropostaAtribuida.setText("Consultar alunos sem auto-proposta atribuida");
+        ButtonConsultarAlunosSemPropostaAtribuida.setText("View students without autoproposals assigned");
         ButtonConsultarAlunosSemPropostaAtribuida.getStyleClass().add("buttonFase2");
 
         ButtonConsultarPropostasDisponiveis = new Button();
-        ButtonConsultarPropostasDisponiveis.setText("Consultar Propostas Disponiveis");
+        ButtonConsultarPropostasDisponiveis.setText("View available proposals");
         ButtonConsultarPropostasDisponiveis.getStyleClass().add("buttonFase2");
 
         ButtonConsultaPropostasAtribuidas = new Button();
-        ButtonConsultaPropostasAtribuidas.setText("Consultar propostas atribuidas");
+        ButtonConsultaPropostasAtribuidas.setText("View assigned proposals");
         ButtonConsultaPropostasAtribuidas.getStyleClass().add("buttonFase2");
 
         ButtonExportarAlunosCSV = new Button();
-        ButtonExportarAlunosCSV.setText("Exportar Alunos para CSV");
+        ButtonExportarAlunosCSV.setText("Export students to CSV");
         ButtonExportarAlunosCSV.getStyleClass().add("buttonFase2");
 
         ButtonAvancarFase = new Button();
-        ButtonAvancarFase.setText("Avancar fase");
+        ButtonAvancarFase.setText("Next stage");
         ButtonAvancarFase.getStyleClass().add("buttonFase2");
 
         ButtonRecuarFase= new Button();
-        ButtonRecuarFase.setText("Recuar Fase");
+        ButtonRecuarFase.setText("Previous stage");
         ButtonRecuarFase.getStyleClass().add("buttonFase2");
 
         ButtonFecharFase = new Button();
-        ButtonFecharFase.setText("Fechar Fase");
+        ButtonFecharFase.setText("Close stage");
         ButtonFecharFase.getStyleClass().add("buttonFase2");
 
         ButtonSair = new Button();
-        ButtonSair.setText("Sair");
+        ButtonSair.setText("Exit");
         ButtonSair.getStyleClass().add("buttonSair");
 
         ButtonConsultaAlunosComAutoproposta = new Button();
-        ButtonConsultaAlunosComAutoproposta.setText("Consultar alunos com auto-proposta");
+        ButtonConsultaAlunosComAutoproposta.setText("View students with autoproposal");
         ButtonConsultaAlunosComAutoproposta.getStyleClass().add("buttonFase2");
 
         ButtonConsultarAlunosComCandidatura = new Button();
-        ButtonConsultarAlunosComCandidatura.setText("Consultar alunos com candidatura");
+        ButtonConsultarAlunosComCandidatura.setText("View students with applications");
         ButtonConsultarAlunosComCandidatura.getStyleClass().add("buttonFase2");
 
         ButtonConsultarListaDeAutopropostas = new Button();
-        ButtonConsultarListaDeAutopropostas.setText("Consultar auto-propostas");
+        ButtonConsultarListaDeAutopropostas.setText("View autoproposals");
         ButtonConsultarListaDeAutopropostas.getStyleClass().add("buttonFase2");
 
         ButtonConsultarPropostasDeDocentes = new Button();
-        ButtonConsultarPropostasDeDocentes.setText("Consultar propostas de docentes");
+        ButtonConsultarPropostasDeDocentes.setText("View professors proposals");
         ButtonConsultarPropostasDeDocentes.getStyleClass().add("buttonFase2");
 
 

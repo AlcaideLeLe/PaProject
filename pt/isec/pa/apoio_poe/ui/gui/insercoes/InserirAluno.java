@@ -79,7 +79,7 @@ public class InserirAluno extends BorderPane {
                 }
             }
             if(!existe){
-                if(Long.parseLong(textNr.getText()) > 200000000){
+                if(Long.parseLong(textNr.getText()) < 200000000){
                     context.addAlunoSingular(new Aluno(Long.parseLong(textNr.getText()), textNome.getText(), textEmail.getText(),
                             textSiglaCurso.getText(), textSiglaRamo.getText(), Double.parseDouble(textPontuacao.getText()),isAcesso.isSelected(), textPropostaAssociada.getText()));
 
@@ -126,42 +126,42 @@ public class InserirAluno extends BorderPane {
 
 
         labelNr = new Label("");
-        labelNr.setText("Insira o numero do novo aluno");
+        labelNr.setText("Insert the number of the student you want to add");
         grid.add(labelNr, 0, 0);
         labelNr.getStyleClass().add("labelInsereAluno");
 
         labelNome = new Label("");
-        labelNome.setText("Insira o nome do novo aluno");
+        labelNome.setText("Insert the name of the student you want to add");
         grid.add(labelNome, 0, 3);
         labelNome.getStyleClass().add("labelInsereAluno");
 
         labelEmail = new Label("");
-        labelEmail.setText("Insira o e-mail do novo aluno");
+        labelEmail.setText("Insert the e-mail of the student you want to add");
         grid.add(labelEmail, 0, 6);
         labelEmail.getStyleClass().add("labelInsereAluno");
 
         labelSiglaCurso = new Label("");
-        labelSiglaCurso.setText("Insira a sigla do curso do novo aluno");
+        labelSiglaCurso.setText("Which bachelor is the student studying");
         grid.add(labelSiglaCurso, 0, 9);
         labelSiglaCurso.getStyleClass().add("labelInsereAluno");
 
         labelSiglaRamo = new Label("");
-        labelSiglaRamo.setText("Insira a sigla do ramo ");
+        labelSiglaRamo.setText("Main preference for the thesis subject");
         grid.add(labelSiglaRamo, 0, 12);
         labelSiglaRamo.getStyleClass().add("labelInsereAluno");
 
         labelPontuacao = new Label("");
-        labelPontuacao.setText("Insira a pontuacao");
+        labelPontuacao.setText("The current average of the students grade");
         grid.add(labelPontuacao, 0, 15);
         labelPontuacao.getStyleClass().add("labelInsereAluno");
 
         labelIDProposta = new Label("");
-        labelIDProposta.setText("Insira o ID da proposta associado ao aluno");
+        labelIDProposta.setText("Insert the ID of the proposal the student wants to be attached to");
         grid.add(labelIDProposta, 0, 18);
         labelIDProposta.getStyleClass().add("labelInsereAluno");
 
         labelAcessoEstagio = new Label("");
-        labelAcessoEstagio.setText("Tem acesso a estagio");
+        labelAcessoEstagio.setText("Is this student eligible for a Thesis project? ");
         grid.add(labelAcessoEstagio, 0, 21);
         labelAcessoEstagio.getStyleClass().add("labelInsereAluno");
 
@@ -189,7 +189,7 @@ public class InserirAluno extends BorderPane {
         isAcesso = new CheckBox("");
         grid.add(isAcesso, 0, 22);
 
-        buttonConfirm = new Button("Confirmar novo aluno");
+        buttonConfirm = new Button("Confirm new student");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

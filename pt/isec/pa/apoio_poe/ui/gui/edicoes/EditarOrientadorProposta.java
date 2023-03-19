@@ -58,7 +58,7 @@ public class EditarOrientadorProposta extends BorderPane {
 
 
         labelEmail = new Label("");
-        labelEmail.setText("Insira o email do docente que quer associar a esta proposta");
+        labelEmail.setText("Insert the e-mail of the professor you want to attach to the proposal");
         grid.add(labelEmail, 0, 3);
         labelEmail.getStyleClass().add("labelInsereAluno");
 
@@ -66,7 +66,7 @@ public class EditarOrientadorProposta extends BorderPane {
         grid.add(textEmail, 0, 7);
 
 
-        buttonConfirm = new Button("Confirmar edicao");
+        buttonConfirm = new Button("Confirm edition");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

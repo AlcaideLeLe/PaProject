@@ -35,7 +35,7 @@ public class GraficoOrientadores extends BorderPane {
         for (int i = 0; i < top5.size(); i++) {
             dataSeries1.getData().add(new XYChart.Data(top5.keySet().toArray()[i], top5.get(top5.keySet().toArray()[i])));
         }
-        dataSeries1.setName("Docentes");
+        dataSeries1.setName("Professors");
 
         barChart.getData().add(dataSeries1);
 

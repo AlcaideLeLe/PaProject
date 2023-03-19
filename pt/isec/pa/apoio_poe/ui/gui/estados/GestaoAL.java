@@ -52,7 +52,7 @@ public class GestaoAL extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Inserir aluno");
+            stage.setTitle("Register student");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -63,7 +63,7 @@ public class GestaoAL extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Lista de alunos");
+            stage.setTitle("Students list");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -74,7 +74,7 @@ public class GestaoAL extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Lista de alunos");
+            stage.setTitle("Student you are looking for");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -85,7 +85,7 @@ public class GestaoAL extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Lista de alunos");
+            stage.setTitle("Student removal");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -96,7 +96,7 @@ public class GestaoAL extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Lista de alunos");
+            stage.setTitle("Student edit");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -143,38 +143,38 @@ public class GestaoAL extends BorderPane {
 
         //create buttons
         mensagemEscolha = new Label();
-        mensagemEscolha.setText("Escolha uma das opcoes: ");
+        mensagemEscolha.setText("Pick an option ");
 
         ButtonInserirAlunos = new Button();
-        ButtonInserirAlunos.setText("Inserir alunos a partir de um ficheiro");
+        ButtonInserirAlunos.setText("Insert students from a file");
         ButtonInserirAlunos.getStyleClass().add("buttonGestaoAL");
 
         ButtonInserirUmAluno = new Button();
-        ButtonInserirUmAluno.setText("Inserir um aluno");
+        ButtonInserirUmAluno.setText("Register one student");
         ButtonInserirUmAluno.getStyleClass().add("buttonGestaoAL");
 
         ButtonConsultarUmAluno = new Button();
-        ButtonConsultarUmAluno.setText("Consultar um aluno");
+        ButtonConsultarUmAluno.setText("Consult one student");
         ButtonConsultarUmAluno.getStyleClass().add("buttonGestaoAL");
 
         ButtonConsultarAlunos = new Button();
-        ButtonConsultarAlunos.setText("Consultar todos os alunos");
+        ButtonConsultarAlunos.setText("Consult all the students");
         ButtonConsultarAlunos.getStyleClass().add("buttonGestaoAL");
 
         ButtonRemoverAluno = new Button();
-        ButtonRemoverAluno.setText("Remover aluno");
+        ButtonRemoverAluno.setText("Remove student");
         ButtonRemoverAluno.getStyleClass().add("buttonGestaoAL");
 
         ButtonEditarAluno = new Button();
-        ButtonEditarAluno.setText("Editar aluno");
+        ButtonEditarAluno.setText("Edit student");
         ButtonEditarAluno.getStyleClass().add("buttonGestaoAL");
 
         ButtonVoltar = new Button();
-        ButtonVoltar.setText("Voltar");
+        ButtonVoltar.setText("Back");
         ButtonVoltar.getStyleClass().add("buttonVoltar");
 
         ConsultarDadosSobreAlunos = new Button();
-        ConsultarDadosSobreAlunos.setText("Consultar dados sobre Alunos");
+        ConsultarDadosSobreAlunos.setText("View students data");
         ConsultarDadosSobreAlunos.getStyleClass().add("buttonGestaoAL");
 
         listaDeAlunos = new Label();

@@ -88,7 +88,7 @@ public class InserirCandidatura extends BorderPane {
 
 
         labelnr = new Label("");
-        labelnr.setText("Insira o numero do aluno associado a esta candidatura");
+        labelnr.setText("Insert the number of the student associated with this application");
         grid.add(labelnr, 0, 0);
         labelnr.getStyleClass().add("labelInsereAluno");
 
@@ -96,7 +96,7 @@ public class InserirCandidatura extends BorderPane {
         grid.add(textNrAluno, 0, 2);
 
         labelPropostas = new Label("");
-        labelPropostas.setText("Insira as propostas associadas a esta candidatura, separadas por virgulas");
+        labelPropostas.setText("Inser the ID of the proposals attached to this application, seperated by commas");
 
         grid.add(labelPropostas, 0, 4);
         labelPropostas.getStyleClass().add("labelInsereAluno");
@@ -104,7 +104,7 @@ public class InserirCandidatura extends BorderPane {
         textPropostas = new TextField("");
         grid.add(textPropostas, 0, 6);
 
-        buttonConfirm = new Button("Confirmar candidatura");
+        buttonConfirm = new Button("Confirm application");
         grid.add(buttonConfirm, 2, 6);
 
         buttonConfirm.getStyleClass().add("buttonConfirm");

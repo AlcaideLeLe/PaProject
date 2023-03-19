@@ -80,14 +80,14 @@ public class QuestionaOrientadorARemoverDaProposta extends BorderPane {
         grid.setVgap(10);
 
         labelID = new Label("");
-        labelID.setText("Insira ID da proposta a qual vai retirar o orientador");
+        labelID.setText("Insert the ID of the proposal you want to remove the coordinator");
         grid.add(labelID, 0, 0);
 
         textID = new TextField("");
         grid.add(textID, 0, 1);
 
 
-        buttonConfirm = new Button("Editar candidatura");
+        buttonConfirm = new Button("Remove coordinator");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

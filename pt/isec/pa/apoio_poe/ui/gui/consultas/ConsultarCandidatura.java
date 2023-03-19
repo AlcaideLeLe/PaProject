@@ -43,7 +43,7 @@ public class ConsultarCandidatura extends BorderPane {
                             Scene scene = new Scene(root,700,400);
                             stage.initModality(Modality.APPLICATION_MODAL);
                             stage.setScene(scene);
-                            stage.setTitle("Candidatura");
+                            stage.setTitle("Application");
                             stage.setMinWidth(700);
                             stage.setMinHeight(400);
                             stage.show();
@@ -58,7 +58,7 @@ public class ConsultarCandidatura extends BorderPane {
                         Scene scene = new Scene(root, 700, 400);
                         stage.initModality(Modality.APPLICATION_MODAL);
                         stage.setScene(scene);
-                        stage.setTitle("Candidatura");
+                        stage.setTitle("Application");
                         stage.setMinWidth(700);
                         stage.setMinHeight(400);
                         stage.show();
@@ -78,13 +78,13 @@ public class ConsultarCandidatura extends BorderPane {
         grid.setVgap(10);
 
         labelNr = new Label("");
-        labelNr.setText("Insira o numero do aluno associado a canddidatura que pretende consultar");
+        labelNr.setText("Insert the number of the student associated to the application you are trying to view");
         grid.add(labelNr, 0, 0);
 
         textNr = new TextField("");
         grid.add(textNr, 0, 1);
 
-        buttonConfirm = new Button("Consultar candidatura");
+        buttonConfirm = new Button("View application");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

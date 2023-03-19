@@ -153,31 +153,31 @@ public class FASE1BLOCK extends BorderPane {
         state.setText("FASE 1 BLOCK");
 
         mensagemBoasVindas = new Label();
-        mensagemBoasVindas.setText("Escolha uma das opcoes: ");
+        mensagemBoasVindas.setText("Pick an option: ");
         mensagemBoasVindas.getStyleClass().add("labelEscolha");
 
         ButtonConsultaAluno = new Button();
-        ButtonConsultaAluno.setText("Consultar Aluno");
+        ButtonConsultaAluno.setText("View one student");
         ButtonConsultaAluno.getStyleClass().add("buttonFase1");
 
         ButtonConsultarAlunos = new Button();
-        ButtonConsultarAlunos.setText("Consultar Alunos");
+        ButtonConsultarAlunos.setText("View students");
         ButtonConsultarAlunos.getStyleClass().add("buttonFase1");
 
         ButtonConsultarDocente = new Button();
-        ButtonConsultarDocente.setText("Consultar Docente");
+        ButtonConsultarDocente.setText("View one professor");
         ButtonConsultarDocente.getStyleClass().add("buttonFase1");
 
         ButtonConsultarDocentes = new Button();
-        ButtonConsultarDocentes.setText("Consultar Docentes");
+        ButtonConsultarDocentes.setText("View professors");
         ButtonConsultarDocentes.getStyleClass().add("buttonFase1");
 
         ButtonConsultarProposta = new Button();
-        ButtonConsultarProposta.setText("Consultar Proposta");
+        ButtonConsultarProposta.setText("View one proposal");
         ButtonConsultarProposta.getStyleClass().add("buttonFase1");
 
         ButtonConsultarPropostas = new Button();
-        ButtonConsultarPropostas.setText("Consultar Propostas");
+        ButtonConsultarPropostas.setText("View proposals");
         ButtonConsultarPropostas.getStyleClass().add("buttonFase1");
 
         ButtonSair = new Button();
@@ -185,7 +185,7 @@ public class FASE1BLOCK extends BorderPane {
         ButtonSair.getStyleClass().add("buttonSair");
 
         ButtonAvancar = new Button();
-        ButtonAvancar.setText("Avancar para a proxima fase");
+        ButtonAvancar.setText("Advance to next stage");
         ButtonAvancar.getStyleClass().add("buttonFase1");
 
 

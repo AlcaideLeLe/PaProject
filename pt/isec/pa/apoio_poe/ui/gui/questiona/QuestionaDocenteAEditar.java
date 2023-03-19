@@ -98,13 +98,13 @@ public class QuestionaDocenteAEditar extends BorderPane {
         grid.setVgap(10);
 
         labelMail = new Label("");
-        labelMail.setText("Insira o email do docente que pretende editar");
+        labelMail.setText("Insert the e-mail of the professor you want to edit");
         grid.add(labelMail, 0, 0);
 
         textMail = new TextField("");
         grid.add(textMail, 0, 1);
 
-        buttonConfirm = new Button("Confirmar");
+        buttonConfirm = new Button("Confirm");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

@@ -57,7 +57,7 @@ public class GESTAO_MANUAL_ATRIB extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Inserir proposta manualmente");
+            stage.setTitle("Insert proposal manually");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -68,7 +68,7 @@ public class GESTAO_MANUAL_ATRIB extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Inserir proposta manualmente");
+            stage.setTitle("Remove proposal manually");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -99,27 +99,27 @@ public class GESTAO_MANUAL_ATRIB extends BorderPane {
 
         //create buttons
         mensagemEscolha = new Label();
-        mensagemEscolha.setText("Escolha uma das opcoes: ");
+        mensagemEscolha.setText("Pick an option");
 
 
         ButtonAtribuirAutoproposta = new Button();
-        ButtonAtribuirAutoproposta.setText("Atribuir Autoproposta");
+        ButtonAtribuirAutoproposta.setText("Assign autoproposal");
         ButtonAtribuirAutoproposta.getStyleClass().add("buttonFase2");
 
         ButtonPropostasDeDocentes = new Button();
-        ButtonPropostasDeDocentes.setText("Atribuir proposta de docentes");
+        ButtonPropostasDeDocentes.setText("Assing professors proposals");
         ButtonPropostasDeDocentes.getStyleClass().add("buttonFase2");
 
         ButtonVoltarFase3 = new Button();
-        ButtonVoltarFase3.setText("Voltar a base");
+        ButtonVoltarFase3.setText("Back");
         ButtonVoltarFase3.getStyleClass().add("buttonFase2");
 
         ButtonAtribuirPropostaManualmente = new Button();
-        ButtonAtribuirPropostaManualmente.setText("Atribuir Proposta manualmente");
+        ButtonAtribuirPropostaManualmente.setText("Assign proposal manually");
         ButtonAtribuirPropostaManualmente.getStyleClass().add("buttonFase2");
 
         ButtonRemoverAtribuicaoPropostaManualmente = new Button();
-        ButtonRemoverAtribuicaoPropostaManualmente.setText("Remover Proposta manualmente");
+        ButtonRemoverAtribuicaoPropostaManualmente.setText("Remove proposal manually");
         ButtonRemoverAtribuicaoPropostaManualmente.getStyleClass().add("buttonFase2");
 
         listaDeAlunos = new Label();

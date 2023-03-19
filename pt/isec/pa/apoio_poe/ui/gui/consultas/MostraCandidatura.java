@@ -20,8 +20,8 @@ public class MostraCandidatura extends BorderPane {
 
     TableView tableView = new TableView();
 
-    TableColumn<Proposta, Long> C1 = new TableColumn<>("Numero de aluno");
-    TableColumn<Proposta, String> C2 = new TableColumn<>("Propostas");
+    TableColumn<Proposta, Long> C1 = new TableColumn<>("Student ID");
+    TableColumn<Proposta, String> C2 = new TableColumn<>("Proposals");
 
 
 

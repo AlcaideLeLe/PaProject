@@ -157,44 +157,44 @@ public class GestaoCAND extends BorderPane {
         gridButtons.setVgap(10);
 
         mensagemEscolha = new Label();
-        mensagemEscolha.setText("Escolha uma das opcoes: ");
+        mensagemEscolha.setText("Pick an option ");
 
         ButtonAddCandidaturas = new Button();
-        ButtonAddCandidaturas.setText("Adicionar candidaturas a partir do ficheiro");
+        ButtonAddCandidaturas.setText("Add application from a file");
         ButtonAddCandidaturas.getStyleClass().add("buttonFase2");
 
         ButtonAddCandidatura = new Button();
-        ButtonAddCandidatura.setText("Adicionar candidatura manualmente");
+        ButtonAddCandidatura.setText("Add application manually");
         ButtonAddCandidatura.getStyleClass().add("buttonFase2");
 
 
         ButtonConsultaCandidaturas = new Button();
-        ButtonConsultaCandidaturas.setText("Consultar todas as candidaturas");
+        ButtonConsultaCandidaturas.setText("View all applications");
         ButtonConsultaCandidaturas.getStyleClass().add("buttonFase2");
 
         ButtonConsultaCandidatura = new Button();
-        ButtonConsultaCandidatura.setText("Consultar uma candidatura");
+        ButtonConsultaCandidatura.setText("View one application");
         ButtonConsultaCandidatura.getStyleClass().add("buttonFase2");
 
         ButtonRemoverCandidatura = new Button();
-        ButtonRemoverCandidatura.setText("Remover candidatura");
+        ButtonRemoverCandidatura.setText("Remove application");
         ButtonRemoverCandidatura.getStyleClass().add("buttonFase2");
 
         ButtonEditarCandidatura = new Button();
-        ButtonEditarCandidatura.setText("Editar candidatura");
+        ButtonEditarCandidatura.setText("Edit application");
         ButtonEditarCandidatura.getStyleClass().add("buttonFase2");
 
         ConsultarDadosSobreCandidatura = new Button();
-        ConsultarDadosSobreCandidatura.setText("Dados sobre candidatura");
+        ConsultarDadosSobreCandidatura.setText("Data about application");
         ConsultarDadosSobreCandidatura.getStyleClass().add("buttonFase2");
 
 
         ButtonExportarCandidaturasParaCsv = new Button();
-        ButtonExportarCandidaturasParaCsv.setText("Exportar Candidaturas");
+        ButtonExportarCandidaturasParaCsv.setText("Export applications");
         ButtonExportarCandidaturasParaCsv.getStyleClass().add("buttonFase2");
 
         ButtonVoltar = new Button();
-        ButtonVoltar.setText("Voltar");
+        ButtonVoltar.setText("Back");
         ButtonVoltar.getStyleClass().add("buttonVoltar");
 
         listaDeDocentes = new Label();

@@ -66,7 +66,7 @@ public class FASE5 extends BorderPane {
             stage.setX(owner.getX() - stage.getWidth());
             stage.setY(owner.getY());
             stage.setScene(scene);
-            stage.setTitle("Grafico");
+            stage.setTitle("Graph");
             stage.setMinWidth(400);
             stage.setMinHeight(400);
             stage.show();
@@ -83,7 +83,7 @@ public class FASE5 extends BorderPane {
             stage.setX(owner.getX() - stage.getWidth());
             stage.setY(owner.getY());
             stage.setScene(scene);
-            stage.setTitle("Grafico");
+            stage.setTitle("Graph");
             stage.setMinWidth(200);
             stage.setMinHeight(200);
             stage.show();
@@ -99,7 +99,7 @@ public class FASE5 extends BorderPane {
             stage.setX(owner.getX() - stage.getWidth());
             stage.setY(owner.getY());
             stage.setScene(scene);
-            stage.setTitle("Grafico");
+            stage.setTitle("Graph");
             stage.setMinWidth(250);
             stage.setMinHeight(250);
             stage.show();
@@ -116,7 +116,7 @@ public class FASE5 extends BorderPane {
             stage.setX(owner.getX() - stage.getWidth());
             stage.setY(owner.getY());
             stage.setScene(scene);
-            stage.setTitle("Grafico");
+            stage.setTitle("Graph");
             stage.setMinWidth(250);
             stage.setMinHeight(250);
             stage.show();
@@ -127,7 +127,7 @@ public class FASE5 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Alunos Com Proposta Atribuida");
+            stage.setTitle("Students with assigned proposals");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -138,7 +138,7 @@ public class FASE5 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Alunos Com Candidatura e Sem Proposta");
+            stage.setTitle("Students with application but without proposal ");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -149,7 +149,7 @@ public class FASE5 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Consultar Propostas Disponiveis");
+            stage.setTitle("Available proposals");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -160,7 +160,7 @@ public class FASE5 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Consultar Propostas Atribuidas");
+            stage.setTitle("Assigned proposals");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -171,7 +171,7 @@ public class FASE5 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Consultar Docentes com menos Orientacoes");
+            stage.setTitle("View professors with less coordinations");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -182,7 +182,7 @@ public class FASE5 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Consultar Docentes com mais Orientacoes");
+            stage.setTitle("View professors with more coordinations");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -193,7 +193,7 @@ public class FASE5 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Consultar media de Orientacoes");
+            stage.setTitle("View average coordinations");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -204,7 +204,7 @@ public class FASE5 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Aluno");
+            stage.setTitle("Student");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -215,7 +215,7 @@ public class FASE5 extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Confirmar Saida");
+            stage.setTitle("Confirm exit");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -248,57 +248,57 @@ public class FASE5 extends BorderPane {
         mensagemBoasVindas.setText("Escolha uma das opcoes: ");
 
         ButtonVerGraficosRamos = new Button();
-        ButtonVerGraficosRamos.setText("Ver grafico de divisao de ramos");
+        ButtonVerGraficosRamos.setText("View graph by bachelor");
         ButtonVerGraficosRamos.getStyleClass().add("buttonFase2");
 
         ButtonVerGraficosPercAtribuicao = new Button();
-        ButtonVerGraficosPercAtribuicao.setText("Ver grafico de percentagem de atribuicoes");
+        ButtonVerGraficosPercAtribuicao.setText("View percentage of assigned");
         ButtonVerGraficosPercAtribuicao.getStyleClass().add("buttonFase2");
 
         ButtonVerGraficosEmpresas = new Button();
-        ButtonVerGraficosEmpresas.setText("Ver grafico relacionado com o numero de estagios por empresa");
+        ButtonVerGraficosEmpresas.setText("Graph company");
         ButtonVerGraficosEmpresas.getStyleClass().add("buttonFase2");
 
         ButtonVerGraficosOrientadores = new Button();
-        ButtonVerGraficosOrientadores.setText("Ver grafico de docentes");
+        ButtonVerGraficosOrientadores.setText("View professors graph");
         ButtonVerGraficosOrientadores.getStyleClass().add("buttonFase2");
 
         ButtonConsultarAlunosComPropostaAtribuida = new Button();
-        ButtonConsultarAlunosComPropostaAtribuida.setText("Consultar Alunos Com Proposta Atribuida");
+        ButtonConsultarAlunosComPropostaAtribuida.setText("Students with assigned proposals");
         ButtonConsultarAlunosComPropostaAtribuida.getStyleClass().add("buttonFase2");
 
         ButtonConsultarComCandidaturaESemProposta = new Button();
-        ButtonConsultarComCandidaturaESemProposta.setText("Consultar Alunos Com Candidatura E Sem Proposta");
+        ButtonConsultarComCandidaturaESemProposta.setText("Students with application but without proposal ");
         ButtonConsultarComCandidaturaESemProposta.getStyleClass().add("buttonFase2");
 
         ButtonConsultarPropostasDisponiveis = new Button();
-        ButtonConsultarPropostasDisponiveis.setText("Consultar Propostas Disponiveis");
+        ButtonConsultarPropostasDisponiveis.setText("Available proposals");
         ButtonConsultarPropostasDisponiveis.getStyleClass().add("buttonFase2");
 
         ButtonConsultarPropostasAtribuidas = new Button();
-        ButtonConsultarPropostasAtribuidas.setText("Consultar Propostas Atribuidas");
+        ButtonConsultarPropostasAtribuidas.setText("Assigned proposals");
         ButtonConsultarPropostasAtribuidas.getStyleClass().add("buttonFase2");
 
         ButtonConsultarDocentesComMenosOrientacoes = new Button();
-        ButtonConsultarDocentesComMenosOrientacoes.setText("Consultar docentes com menos orientacoes");
+        ButtonConsultarDocentesComMenosOrientacoes.setText("View professors with less coordinations");
         ButtonConsultarDocentesComMenosOrientacoes.getStyleClass().add("buttonFase2");
 
         ButtonConsultarDocentesComMaisOrientacoes = new Button();
-        ButtonConsultarDocentesComMaisOrientacoes.setText("Consultar docentes com mais orientacoes");
+        ButtonConsultarDocentesComMaisOrientacoes.setText("View professors with more coordinations");
         ButtonConsultarDocentesComMaisOrientacoes.getStyleClass().add("buttonFase2");
 
         ButtonConsultarMediaDeOrientacoesDocentes = new Button();
-        ButtonConsultarMediaDeOrientacoesDocentes.setText("Consultar media de orientacoes de docentes");
+        ButtonConsultarMediaDeOrientacoesDocentes.setText("View average coordinations");
         ButtonConsultarMediaDeOrientacoesDocentes.getStyleClass().add("buttonFase2");
 
         ButtonExportarAlunosCSV = new Button();
-        ButtonExportarAlunosCSV.setText("Exportar Alunos para CSV");
+        ButtonExportarAlunosCSV.setText("Export students to CSV");
         ButtonExportarAlunosCSV.getStyleClass().add("buttonFase2");
 
 
 
         ButtonSair = new Button();
-        ButtonSair.setText("Sair");
+        ButtonSair.setText("Exit");
         ButtonSair.getStyleClass().add("buttonSair");
 
         //organizar coordenadas

@@ -25,7 +25,7 @@ public class MainJFX extends Application {
         Scene scene = new Scene(root,800,800);
 
         stage.setScene(scene);
-        stage.setTitle("Aplicacao de gestao de projetos/estagio");
+        stage.setTitle("Management of thesis subjects");
         stage.setMinWidth(700);
         stage.setMinHeight(400);
         stage.show();

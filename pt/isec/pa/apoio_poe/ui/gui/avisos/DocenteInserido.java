@@ -46,11 +46,11 @@ public class DocenteInserido extends BorderPane {
 
 
         labelInfo = new Label("");
-        labelInfo.setText("Docente Inserido");
+        labelInfo.setText("Professor inserted");
         grid.add(labelInfo, 0, 0);
 
 
-        buttonOkay = new Button("Fechar");
+        buttonOkay = new Button("Close");
         grid.add(buttonOkay, 0, 2);
         buttonOkay.getStyleClass().add("buttonConfirm");
 

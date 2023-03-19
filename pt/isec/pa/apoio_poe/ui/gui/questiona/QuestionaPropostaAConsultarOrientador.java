@@ -98,13 +98,13 @@ public class QuestionaPropostaAConsultarOrientador extends BorderPane {
         grid.setVgap(10);
 
         labelID = new Label("");
-        labelID.setText("Insira o ID da proposta que pretende editar");
+        labelID.setText("Insert the ID of the proposal you want to view coordinator");
         grid.add(labelID, 0, 0);
 
         textID = new TextField("");
         grid.add(textID, 0, 1);
 
-        buttonConfirm = new Button("Consultar orientador da proposta");
+        buttonConfirm = new Button("View proposal coordinator");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

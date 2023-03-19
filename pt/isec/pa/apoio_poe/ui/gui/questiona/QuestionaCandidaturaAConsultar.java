@@ -61,13 +61,13 @@ public class QuestionaCandidaturaAConsultar extends BorderPane {
         grid.setVgap(10);
 
         labelNr = new Label("");
-        labelNr.setText("Insira o numero do aluno da candidatura que pretende consultar");
+        labelNr.setText("Insert the number of the student in the application you want to view");
         grid.add(labelNr, 0, 0);
 
         textNr = new TextField("");
         grid.add(textNr, 0, 1);
 
-        buttonConfirm = new Button("Editar candidatura");
+        buttonConfirm = new Button("View application");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

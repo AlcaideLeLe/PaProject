@@ -75,7 +75,7 @@ public class EditarCandidatura extends BorderPane {
 
 
         labelPropostas = new Label("");
-        labelPropostas.setText("Insira as propostas que quer adicionar, separadas por virgulas");
+        labelPropostas.setText("Insert the proposals you want to add seperated by commas");
         grid.add(labelPropostas, 0, 3);
         labelPropostas.getStyleClass().add("labelInsereAluno");
 
@@ -83,7 +83,7 @@ public class EditarCandidatura extends BorderPane {
         grid.add(textPropostas, 0, 7);
 
 
-        buttonConfirm = new Button("Confirmar edicao");
+        buttonConfirm = new Button("Confirm edition");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

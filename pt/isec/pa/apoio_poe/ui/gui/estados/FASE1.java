@@ -80,38 +80,38 @@ public class FASE1 extends BorderPane {
 
         //create buttons
         state = new Label();
-        state.setText("FASE 1");
+       // state.setText("FASE 1");
 
         mensagemBoasVindas = new Label();
-        mensagemBoasVindas.setText("Escolha uma das opcoes: ");
+        mensagemBoasVindas.setText("Pick an option ");
         mensagemBoasVindas.getStyleClass().add("labelEscolha");
 
         ButtonGestaoAlunos = new Button();
-        ButtonGestaoAlunos.setText("Gestao de Alunos");
+        ButtonGestaoAlunos.setText("Students management");
         ButtonGestaoAlunos.getStyleClass().add("buttonFase1");
 
 
         ButtonGestaoPropostas= new Button();
-        ButtonGestaoPropostas.setText("Gestao de Propostas");
+        ButtonGestaoPropostas.setText("Thesis proposals management");
 
         ButtonGestaoPropostas.getStyleClass().add("buttonFase1");
 
         ButtonGestaoDocentes = new Button();
-        ButtonGestaoDocentes.setText("Gestao de Docentes");
+        ButtonGestaoDocentes.setText("Professors management");
 
         ButtonGestaoDocentes.getStyleClass().add("buttonFase1");
 
         ButtonSair = new Button();
-        ButtonSair.setText("Sair");
+        ButtonSair.setText("Exit");
         ButtonSair.getStyleClass().add("buttonSair");
 
         ButtonAvancar = new Button();
-        ButtonAvancar.setText("Avancar para a proxima fase");
+        ButtonAvancar.setText("Next");
 
         ButtonAvancar.getStyleClass().add("buttonFase1");
 
         ButtonFecharFase = new Button();
-        ButtonFecharFase.setText("Fechar fase");
+        ButtonFecharFase.setText("Close stage");
 
         ButtonFecharFase.getStyleClass().add("buttonFecharFase1");
 

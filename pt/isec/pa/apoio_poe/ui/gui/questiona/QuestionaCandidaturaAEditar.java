@@ -58,13 +58,13 @@ public class QuestionaCandidaturaAEditar extends BorderPane {
         grid.setVgap(10);
 
         labelNr = new Label("");
-        labelNr.setText("Insira o numero do aluno da candidatura que pretende editar");
+        labelNr.setText("Insert the number of the student in the application you want to edit");
         grid.add(labelNr, 0, 0);
 
         textNr = new TextField("");
         grid.add(textNr, 0, 1);
 
-        buttonConfirm = new Button("Editar candidatura");
+        buttonConfirm = new Button("Edit application");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

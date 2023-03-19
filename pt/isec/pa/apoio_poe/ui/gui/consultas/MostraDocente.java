@@ -20,20 +20,18 @@ public class MostraDocente extends BorderPane {
 
     TableView tableView = new TableView();
 
-    TableColumn<Proposta, String> C1 = new TableColumn<>("Nome do docente");
-    TableColumn<Proposta, String> C2 = new TableColumn<>("Email do docente");
-    TableColumn<Proposta, String> C3 = new TableColumn<>("Funcao do projeto");
-    TableColumn<Proposta, String> C4 = new TableColumn<>("Proposta associada");
-    TableColumn<Proposta, Integer> C5 = new TableColumn<>("Numero de Orientacoes");
+    TableColumn<Proposta, String> C1 = new TableColumn<>("Name");
+    TableColumn<Proposta, String> C2 = new TableColumn<>("E-mail");
+    TableColumn<Proposta, String> C4 = new TableColumn<>("Number of the proposals responsible for");
+    TableColumn<Proposta, Integer> C5 = new TableColumn<>("Number of proposals");
 
 
     public void createViews(){
         C1.setCellValueFactory(new PropertyValueFactory<>("nome"));
         C2.setCellValueFactory(new PropertyValueFactory<>("email"));
-        C3.setCellValueFactory(new PropertyValueFactory<>("funcaoProjeto"));
         C4.setCellValueFactory(new PropertyValueFactory<>("propostaAssociada"));
         C5.setCellValueFactory(new PropertyValueFactory<>("nrDeOrientacoes"));
-        tableView.getColumns().addAll(C1, C2, C3, C4, C5);
+        tableView.getColumns().addAll(C1, C2, C4, C5);
         tableView.getItems().addAll(context.consultaDocente(email));
 
         this.setCenter(tableView);

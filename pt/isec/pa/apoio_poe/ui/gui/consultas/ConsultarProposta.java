@@ -45,7 +45,7 @@ public class ConsultarProposta extends BorderPane {
                     Scene scene = new Scene(root,700,400);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setScene(scene);
-                    stage.setTitle("Proposta");
+                    stage.setTitle("Proposal");
                     stage.setMinWidth(700);
                     stage.setMinHeight(400);
                     stage.show();
@@ -61,7 +61,7 @@ public class ConsultarProposta extends BorderPane {
                 Scene scene = new Scene(root,700,400);
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setScene(scene);
-                stage.setTitle("Proposta");
+                stage.setTitle("Proposal");
                 stage.setMinWidth(700);
                 stage.setMinHeight(400);
                 stage.show();
@@ -82,13 +82,13 @@ public class ConsultarProposta extends BorderPane {
         grid.setVgap(10);
 
         labelID = new Label("");
-        labelID.setText("Insira o ID da proposta que pretende consultar");
+        labelID.setText("Insert the ID of the proposal you are trying to view");
         grid.add(labelID, 0, 0);
 
         textID = new TextField("");
         grid.add(textID, 0, 1);
 
-        buttonConfirm = new Button("Consultar proposta");
+        buttonConfirm = new Button("View proposal");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

@@ -47,11 +47,11 @@ public class CandidaturaEditada extends BorderPane {
 
 
         labelInfo = new Label("");
-        labelInfo.setText("Candidatura Editada");
+        labelInfo.setText("Application edited");
         grid.add(labelInfo, 0, 0);
 
 
-        buttonOkay = new Button("Fechar");
+        buttonOkay = new Button("Close");
         grid.add(buttonOkay, 0, 2);
         buttonOkay.getStyleClass().add("buttonConfirm");
 

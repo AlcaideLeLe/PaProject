@@ -46,11 +46,11 @@ public class NumeroAlunoInvalido extends BorderPane {
 
 
         labelInfo = new Label("");
-        labelInfo.setText("O numero de aluno que inseriu e invalido");
+        labelInfo.setText("The student ID is not valid");
         grid.add(labelInfo, 0, 0);
 
 
-        buttonOkay = new Button("Fechar");
+        buttonOkay = new Button("Close");
         grid.add(buttonOkay, 0, 2);
         buttonOkay.getStyleClass().add("buttonConfirm");
 

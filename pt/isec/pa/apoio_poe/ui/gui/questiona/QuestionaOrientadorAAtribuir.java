@@ -53,15 +53,15 @@ public class QuestionaOrientadorAAtribuir extends BorderPane {
         grid.setVgap(10);
 
         labelNr = new Label("");
-        labelNr.setText("Insira o numero do aluno a quem pretende atribuir orientador");
+        labelNr.setText("Insert the number of the student that you want to add a coordinator to");
         grid.add(labelNr, 0, 0);
 
         labelEmail = new Label("");
-        labelEmail.setText("Insira o email do professor que pretende atribuir ao aluno");
+        labelEmail.setText("Insert the email of the professor");
         grid.add(labelEmail, 0, 3);
 
         labelIDProposta = new Label("");
-        labelIDProposta.setText("Insira o ID da proposta que pretende atribuir ao docente");
+        labelIDProposta.setText("Insert the ID of the proposal you want to assign the coordinator");
         grid.add(labelIDProposta, 0, 6);
 
         textNr = new TextField("");
@@ -73,7 +73,7 @@ public class QuestionaOrientadorAAtribuir extends BorderPane {
         textIDproposta = new TextField("");
         grid.add(textIDproposta, 0, 7);
 
-        buttonConfirm = new Button("Editar candidatura");
+        buttonConfirm = new Button("Assign coordinator");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

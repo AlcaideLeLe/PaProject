@@ -123,35 +123,35 @@ public class GestaoDOC extends BorderPane {
         gridButtons.setVgap(10);
         //create buttons
         mensagemEscolha = new Label();
-        mensagemEscolha.setText("Escolha uma das opcoes: ");
+        mensagemEscolha.setText("Pick an option ");
         mensagemEscolha.getStyleClass().add("labelEscolha");
 
         ButtonInserirDocentes = new Button();
-        ButtonInserirDocentes.setText("Inserir docentes a partir de um ficheiro");
+        ButtonInserirDocentes.setText("Insert professors from a file");
         ButtonInserirDocentes.getStyleClass().add("buttonGestaoDOC");
 
         ButtonInserirUmDocente = new Button();
-        ButtonInserirUmDocente.setText("Inserir um docente");
+        ButtonInserirUmDocente.setText("Register a professor");
         ButtonInserirUmDocente.getStyleClass().add("buttonGestaoDOC");
 
         ButtonConsultarUmDocente = new Button();
-        ButtonConsultarUmDocente.setText("Consultar um docente");
+        ButtonConsultarUmDocente.setText("Consult one professor");
         ButtonConsultarUmDocente.getStyleClass().add("buttonGestaoDOC");
 
         ButtonConsultarDocentes = new Button();
-        ButtonConsultarDocentes.setText("Consultar todos os docentes");
+        ButtonConsultarDocentes.setText("Consult all the professor");
         ButtonConsultarDocentes.getStyleClass().add("buttonGestaoDOC");
 
         ButtonRemoverDocente = new Button();
-        ButtonRemoverDocente.setText("Remover docente");
+        ButtonRemoverDocente.setText("Remove one professor");
         ButtonRemoverDocente.getStyleClass().add("buttonGestaoDOC");
 
         ButtonEditarDocente = new Button();
-        ButtonEditarDocente.setText("Editar docente");
+        ButtonEditarDocente.setText("Edit one professor");
         ButtonEditarDocente.getStyleClass().add("buttonGestaoDOC");
 
         ButtonVoltar = new Button();
-        ButtonVoltar.setText("Voltar");
+        ButtonVoltar.setText("Back");
         ButtonVoltar.getStyleClass().add("buttonVoltar");
 
 

@@ -50,7 +50,7 @@ public class GESTAO_ORI extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Orientadores");
+            stage.setTitle("Coordinators");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -61,7 +61,7 @@ public class GESTAO_ORI extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.NONE);
             stage.setScene(scene);
-            stage.setTitle("Orientadores");
+            stage.setTitle("Coordinators");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -72,7 +72,7 @@ public class GESTAO_ORI extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Orientadores");
+            stage.setTitle("Coordinators");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -83,7 +83,7 @@ public class GESTAO_ORI extends BorderPane {
             Scene scene = new Scene(root,700,400);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.setTitle("Orientadores");
+            stage.setTitle("Coordinators");
             stage.setMinWidth(700);
             stage.setMinHeight(400);
             stage.show();
@@ -115,28 +115,28 @@ public class GESTAO_ORI extends BorderPane {
 
         //create buttons
         mensagemEscolha = new Label();
-        mensagemEscolha.setText("Escolha uma das opcoes: ");
+        mensagemEscolha.setText("Pick an option");
 
 
         ButtonAtribuirManualOrientadorAAlunosComProposta = new Button();
-        ButtonAtribuirManualOrientadorAAlunosComProposta.setText("Atribuir Manualmente orientador a alunos com proposta");
+        ButtonAtribuirManualOrientadorAAlunosComProposta.setText("Assing coordinator to students with proposals");
         ButtonAtribuirManualOrientadorAAlunosComProposta.getStyleClass().add("buttonFase2");
 
         ButtonConsultarOrientadorDePropostas = new Button();
-        ButtonConsultarOrientadorDePropostas.setText("Consultar orientador de Propostas");
+        ButtonConsultarOrientadorDePropostas.setText("View proposal's coordinator");
         ButtonConsultarOrientadorDePropostas.getStyleClass().add("buttonFase2");
 
         ButtonEditarOrientadorDeProposta = new Button();
-        ButtonEditarOrientadorDeProposta.setText("Editar Orientador de proposta");
+        ButtonEditarOrientadorDeProposta.setText("Edit proposal's coordinator");
         ButtonEditarOrientadorDeProposta.getStyleClass().add("buttonFase2");
 
         ButtonRemoverOrientadorDeProposta = new Button();
-        ButtonRemoverOrientadorDeProposta.setText("Remover orientador de proposta");
+        ButtonRemoverOrientadorDeProposta.setText("Remove proposal's coordinator");
         ButtonRemoverOrientadorDeProposta.getStyleClass().add("buttonFase2");
 
 
         ButtonChangeParaFase4 = new Button();
-        ButtonChangeParaFase4.setText("Voltar");
+        ButtonChangeParaFase4.setText("Exit");
         ButtonChangeParaFase4.getStyleClass().add("buttonFase2");
 
         listaDeAlunos = new Label();

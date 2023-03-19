@@ -143,35 +143,35 @@ public class GestaoPROP extends BorderPane {
         gridButtons.setVgap(10);
         //create buttons
         mensagemEscolha = new Label();
-        mensagemEscolha.setText("Escolha uma das opcoes: ");
+        mensagemEscolha.setText("Pick an option ");
 
         ButtonInserirPropostas = new Button();
-        ButtonInserirPropostas.setText("Inserir propostas a partir de um ficheiro");
+        ButtonInserirPropostas.setText("Insert proposals from a file");
         ButtonInserirPropostas.getStyleClass().add("buttonGestaoPROP");
 
 
         ButtonInserirUmaProposta = new Button();
-        ButtonInserirUmaProposta.setText("Inserir uma proposta");
+        ButtonInserirUmaProposta.setText("Insert one proposal");
         ButtonInserirUmaProposta.getStyleClass().add("buttonGestaoPROP");
 
 
         ButtonConsultarUmaProposta = new Button();
-        ButtonConsultarUmaProposta.setText("Consultar uma proposta");
+        ButtonConsultarUmaProposta.setText("Consult one proposal");
         ButtonConsultarUmaProposta.getStyleClass().add("buttonGestaoPROP");
 
 
         ButtonConsultarPropostas = new Button();
-        ButtonConsultarPropostas.setText("Consultar todas as propostas");
+        ButtonConsultarPropostas.setText("Consult every proposal");
         ButtonConsultarPropostas.getStyleClass().add("buttonGestaoPROP");
 
 
         ButtonRemoverProposta = new Button();
-        ButtonRemoverProposta.setText("Remover proposta");
+        ButtonRemoverProposta.setText("Remove proposal");
         ButtonRemoverProposta.getStyleClass().add("buttonGestaoPROP");
 
 
         ButtonEditarProposta = new Button();
-        ButtonEditarProposta.setText("Editar proposta");
+        ButtonEditarProposta.setText("Edit proposal");
         ButtonEditarProposta.getStyleClass().add("buttonGestaoPROP");
 
 
@@ -181,7 +181,7 @@ public class GestaoPROP extends BorderPane {
 
 
         ButtonVoltar = new Button();
-        ButtonVoltar.setText("Voltar");
+        ButtonVoltar.setText("Back");
         ButtonVoltar.getStyleClass().add("buttonVoltar");
 
 

@@ -44,7 +44,7 @@ public class ConsultarDocente extends BorderPane {
                     Scene scene = new Scene(root,700,400);
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setScene(scene);
-                    stage.setTitle("Docente");
+                    stage.setTitle("Professor");
                     stage.setMinWidth(700);
                     stage.setMinHeight(400);
                     stage.show();
@@ -60,7 +60,7 @@ public class ConsultarDocente extends BorderPane {
                 Scene scene = new Scene(root,700,400);
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setScene(scene);
-                stage.setTitle("Docente");
+                stage.setTitle("Professor");
                 stage.setMinWidth(700);
                 stage.setMinHeight(400);
                 stage.show();
@@ -80,13 +80,13 @@ public class ConsultarDocente extends BorderPane {
         grid.setVgap(10);
 
         labelMail = new Label("");
-        labelMail.setText("Insira o email do docente que quer consultar");
+        labelMail.setText("Insert the e-mail of the professor you are trying to view");
         grid.add(labelMail, 0, 0);
 
         textMail = new TextField("");
         grid.add(textMail, 0, 1);
 
-        buttonConfirm = new Button("Consultar docente");
+        buttonConfirm = new Button("View professor");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

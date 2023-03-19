@@ -46,11 +46,11 @@ public class CandidaturaJaExiste extends BorderPane {
 
 
         labelInfo = new Label("");
-        labelInfo.setText("A candidatura ja existe");
+        labelInfo.setText("Application already exists");
         grid.add(labelInfo, 0, 0);
 
 
-        buttonOkay = new Button("Fechar");
+        buttonOkay = new Button("Close");
         grid.add(buttonOkay, 0, 2);
         buttonOkay.getStyleClass().add("buttonConfirm");
 

@@ -87,26 +87,26 @@ public class FASE3MasFASE2Aberta extends BorderPane {
         state = new Label();
         state.setText("FASE 3 Mas Fase 2 Aberta");
         mensagemEscolha = new Label();
-        mensagemEscolha.setText("Escolha uma das opcoes: ");
+        mensagemEscolha.setText("Pick an option ");
 
         ButtonRecuarFase = new Button();
-        ButtonRecuarFase.setText("Recuar Fase");
+        ButtonRecuarFase.setText("Previous stage");
         ButtonRecuarFase.getStyleClass().add("buttonFase2");
 
         ButtonChangeToBase = new Button();
-        ButtonChangeToBase.setText("Voltar a Base");
+        ButtonChangeToBase.setText("Back home");
         ButtonChangeToBase.getStyleClass().add("buttonFase2");
 
         ButtonAtribuirAutoproposta = new Button();
-        ButtonAtribuirAutoproposta.setText("Atribuir Autoproposta");
+        ButtonAtribuirAutoproposta.setText("Assign autoproposal");
         ButtonAtribuirAutoproposta.getStyleClass().add("buttonFase2");
 
         ButtonPropostasDeDocentes = new Button();
-        ButtonPropostasDeDocentes.setText("Atribuir proposta de docentes");
+        ButtonPropostasDeDocentes.setText("Assign professors proposal");
         ButtonPropostasDeDocentes.getStyleClass().add("buttonFase2");
 
         ButtonSair = new Button();
-        ButtonSair.setText("Sair");
+        ButtonSair.setText("Exit");
         ButtonSair.getStyleClass().add("buttonSair");
 
         listaDeDocentes = new Label();

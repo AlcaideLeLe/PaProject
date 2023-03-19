@@ -18,12 +18,12 @@ public class MostraPropostasSemCandidaturas extends BorderPane {
 
     TableView tableView = new TableView();
 
-    TableColumn<Proposta, String> C1 = new TableColumn<>("ID proposta");
-    TableColumn<Proposta, Long> C2 = new TableColumn<>("nrAluno da proposta");
-    TableColumn<Proposta, String> C3 = new TableColumn<>("Titulo da proposta");
-    TableColumn<Proposta, String> C4 = new TableColumn<>("Tipo de Proposta");
-    TableColumn<Proposta, Boolean> C5 = new TableColumn<>("Atribuida");
-    TableColumn<Proposta, String> C6 = new TableColumn<>("Orientador");
+    TableColumn<Proposta, String> C1 = new TableColumn<>("Proposal ID");
+    TableColumn<Proposta, Long> C2 = new TableColumn<>("Number of student attached to proposal");
+    TableColumn<Proposta, String> C3 = new TableColumn<>("Title");
+    TableColumn<Proposta, String> C4 = new TableColumn<>("Type");
+    TableColumn<Proposta, Boolean> C5 = new TableColumn<>("Is it assigned");
+    TableColumn<Proposta, String> C6 = new TableColumn<>("Professor");
 
 
     public void createViews(){

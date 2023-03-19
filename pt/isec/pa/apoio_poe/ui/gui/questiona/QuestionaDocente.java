@@ -64,13 +64,13 @@ public class QuestionaDocente extends BorderPane {
         grid.setVgap(10);
 
         labelEmail = new Label("");
-        labelEmail.setText("Insira o e-mail do Docente que pretende consultar");
+        labelEmail.setText("Insert the e-mail of the professor you want to view");
         grid.add(labelEmail, 0, 0);
 
         textEmail = new TextField("");
         grid.add(textEmail, 0, 1);
 
-        buttonConfirm = new Button("Consultar Docente");
+        buttonConfirm = new Button("View professor");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 

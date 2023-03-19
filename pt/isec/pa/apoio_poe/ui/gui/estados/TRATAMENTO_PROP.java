@@ -73,26 +73,26 @@ public class TRATAMENTO_PROP extends BorderPane {
 
         //create buttons
         mensagemEscolha = new Label();
-        mensagemEscolha.setText("Escolha uma das opcoes: ");
+        mensagemEscolha.setText("Pick an option");
 
         ButtonChangeToBase = new Button();
-        ButtonChangeToBase.setText("Voltar a base");
+        ButtonChangeToBase.setText("Back");
         ButtonChangeToBase.getStyleClass().add("buttonVoltar");
 
         ButtonChangeToGestaoManualAtribuicoes = new Button();
-        ButtonChangeToGestaoManualAtribuicoes.setText("Gestao Manual de Atribuicoes");
+        ButtonChangeToGestaoManualAtribuicoes.setText("Manual assignment management");
         ButtonChangeToGestaoManualAtribuicoes.getStyleClass().add("buttonFase2");
 
         ButtonAtribuirAutoProposta = new Button();
-        ButtonAtribuirAutoProposta.setText("Atribuir Auto-proposta");
+        ButtonAtribuirAutoProposta.setText("Assing autoproposal");
         ButtonAtribuirAutoProposta.getStyleClass().add("buttonFase2");
 
         ButtonAtribuirPropostaDeDocente = new Button();
-        ButtonAtribuirPropostaDeDocente.setText("Atribuir Proposta de Docente");
+        ButtonAtribuirPropostaDeDocente.setText("Assign professor proposal");
         ButtonAtribuirPropostaDeDocente.getStyleClass().add("buttonFase2");
 
         ButtonRemoverTodasAsAtribuicoes = new Button();
-        ButtonRemoverTodasAsAtribuicoes.setText("Remover todas as atribuicoes");
+        ButtonRemoverTodasAsAtribuicoes.setText("Remove all of the assignments");
         ButtonRemoverTodasAsAtribuicoes.getStyleClass().add("buttonFase2");
 
 

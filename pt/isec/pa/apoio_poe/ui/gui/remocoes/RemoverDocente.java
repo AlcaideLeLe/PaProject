@@ -73,13 +73,13 @@ public class RemoverDocente extends BorderPane {
         grid.setVgap(10);
 
         labelMail = new Label("");
-        labelMail.setText("Insira o email do docente que pretende retirar");
+        labelMail.setText("Insert the email of the professor you want to remove");
         grid.add(labelMail, 0, 0);
 
         textMail = new TextField("");
         grid.add(textMail, 0, 1);
 
-        buttonConfirm = new Button("Remover docente");
+        buttonConfirm = new Button("Remove professor");
         grid.add(buttonConfirm, 2, 22);
         buttonConfirm.getStyleClass().add("buttonConfirm");
 
